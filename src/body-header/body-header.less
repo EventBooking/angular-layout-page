@@ -1,0 +1,43 @@
+﻿body-header {
+    display: block;
+    line-height: unit(@page-body-header-height,px);
+
+    body-header ~ & {
+        margin-top: unit(@padding-half,px);
+        border-top: solid 1px @border-color;
+        padding-top: unit(@padding-half,px);
+    }
+}
+
+.bodyHeader-actions {
+    display: block;
+    float: right;
+    white-space: nowrap;
+    .font-size(@typescale-lg);
+
+    > .icon, > .fa {
+        cursor: pointer;
+   }
+}
+
+.bodyHeader-titles {
+    display: block;
+}
+
+.bodyHeader-title {
+    display: inline-block;
+    text-transform: uppercase;
+    .font-size(@typescale-xlg);
+    .ellipsis();
+    letter-spacing: unit(@letter-spacing-header,rem);
+}
+
+.bodyHeader-subtitle {
+    display: inline-block;
+    text-transform: uppercase;
+    .font-size(@typescale-lg);
+    .ellipsis();
+    letter-spacing: unit(@letter-spacing-header,rem);
+    padding: 0px 8px;
+    line-height: unit(@page-body-header-height - (@typescale-xlg - @typescale-lg),px);
+}

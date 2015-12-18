@@ -1,0 +1,118 @@
+// color scales
+@color-scale: 10%;
+
+@color-red:             #EE4642;
+@color-red-light:       #F87977;
+@color-red-lighter:     #FBB3B1;
+@color-red-lightest:     #FBE0DF;
+@color-red-dark:        #C20D0A;
+@color-red-darker:      #880907;
+
+@color-orange:          #F59C3D;
+@color-orange-light:    #F8BA77;
+@color-orange-lighter:  #FBD7B1;
+@color-orange-dark:     #E97E0C;
+@color-orange-darker:   #AE5F09;
+
+@color-yellow:          #EED142;
+@color-yellow-light:    #F8E277;
+@color-yellow-lighter:  #FBEFB1;
+@color-yellow-lightest: #FDF7D8;
+@color-yellow-dark:     #E9C40C;
+@color-yellow-darker:   #AE9309;
+
+@color-green:           #3FCA48;
+@color-green-light:     #6FD876;
+@color-green-lighter:   #9FE5A4;
+@color-green-lightest:  #DFF6E1;
+@color-green-dark:      #2CA034;
+@color-green-darker:    #1F7024;
+
+@color-blue:            #2A8CA7; 
+@color-blue-light:      #4BB5D2; 
+@color-blue-lighter:    #8DD0E2;
+@color-blue-lightest:   #CEEBF3; 
+@color-blue-dark:       #1D6072; 
+@color-blue-darker:     #144452; 
+
+@color-purple:          #800080;
+@color-purple-light:    lighten(@color-purple, @color-scale);
+@color-purple-lighter:  lighten(@color-purple-light, @color-scale);
+@color-purple-dark:     darker(@color-purple, @color-scale);
+@color-purple-darker:   darker(@color-purple-dark, @color-scale);
+
+@color-gray:            #8B877E; 
+@color-gray-light:      #A8A59F; 
+@color-gray-lighter:    #B6B1A4;
+@color-gray-lightest:   #E2E1DF;
+@color-gray-lightest2:  #F5F5F4; 
+@color-gray-dark:       #6B6861; 
+@color-gray-darker:     #403E3A;
+@color-gray-darkest:    #2B2927; 
+
+// Other
+@color-success: #69bd75;
+@color-muted: @color-gray-lightest;
+@color-danger: @color-red;
+@color-warning: @color-orange;
+
+// font weights
+@font-family: 'Source Sans Pro';
+@font-family-sizes: "300,400,600";
+@font-weight-light: 300;
+@font-weight:       400;
+@font-weight-bold:  600;
+
+// typescale
+@typescale-xsm: 12;
+@typescale-sm:  14;
+@typescale:     16;
+@typescale-lg:  20;
+@typescale-xlg: 24;
+@font-size-base: @typescale;
+@line-height-base: 1.5;
+@letter-spacing-header: 0.0625;
+
+// Borders
+@border-color: @color-gray-lightest;
+@border-color-light: @color-gray-lightest2;
+@border-color-dark: @color-gray-light;
+
+// Backgrounds
+@background: @color-gray-lightest;
+@background-highlight: @color-gray-lightest2;
+
+/*Screen Sizes*/
+@screen-desktop-xlg: 1920;
+@screen-desktop-lg: 1440;
+@screen-desktop-sm: 1280;
+@screen-tablet-landscape: 1024;
+@screen-tablet-portrate: 768;
+
+@screen-small: 480;
+@screen-medium: 1024;
+
+/*Padding/Margins*/
+@padding: 32;
+@padding-half: @padding/2;
+@padding-quarter: @padding/4;
+
+/*Dimensions*/
+@nav-small: 64;
+@nav-large: 144;
+@page-header-height: 48;
+@page-body-header-height: 48;
+@page-content-nav-width: 176;
+@page-content-nav-height: 48;
+@page-bodyPane-width: 480;
+@page-bodyPane-contentWidth: @page-bodyPane-width - (2 * @padding);
+@page-slider-width: 480;
+@slider-header-height: 48;
+@slider-footer-height: 64;
+@slider-width: 480;
+@search-height: 48;
+
+@page-title-typescape: @typescale-lg;
+@page-subtitle-typescape: @typescale;
+@background-light-color: #555;
+@background-light-color-light: #777;

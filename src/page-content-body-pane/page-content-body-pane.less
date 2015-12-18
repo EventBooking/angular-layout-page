@@ -1,0 +1,51 @@
+.page-content-body-pane {
+    padding: 0 unit(@padding,px);
+    width: unit(@page-bodyPane-width,px);
+    margin-top: 20px;
+
+    &--flush {
+        padding: 0;
+        margin: 0;
+        border-left: 0;
+    }
+
+    &--double {
+        width: unit(2 * @page-bodyPane-width,px);
+    }
+
+    &--fluid {
+        flex: 1;
+        width: auto;
+    }
+
+    & ~ & {
+        border-left: solid 1px @border-color;    
+    }
+
+    &--flush ~ & {
+        margin-top: 0;
+        padding-top: 20px;
+    }
+}
+
+
+// tablet landscape mode
+@media (max-width: unit(@screen-desktop-sm,px)) {
+    .page-content-body-pane {
+		&--fluid {
+			flex: 0 0 auto;
+			width: unit(@page-bodyPane-width,px);
+		}
+    }
+}
+
+// Less width than table landscape
+@media (max-width: unit(@screen-tablet-landscape,px)) {
+    .page-content-body-pane {
+        border-right: none;
+		
+		&--double {
+			width: unit(@page-bodyPane-width,px);
+		}
+    }
+}

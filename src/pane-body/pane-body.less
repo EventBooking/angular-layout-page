@@ -1,0 +1,22 @@
+﻿.pane-body {
+    display: block;
+    max-height: 100%;
+    overflow: auto;
+    padding: 0 unit(@padding,px);
+
+    &--pad {
+        padding: unit(@padding-half,px) unit(@padding,px);
+    }
+
+    pane-header ~ & {
+        max-height: ~"calc(100% - @{slider-header-height}px)";
+        
+        .pane--withFooter & {
+            max-height: ~"calc(100% - @{slider-footer-height}px - @{slider-header-height}px)";
+        }
+    }
+
+    .pane--withFooter & {
+        max-height: ~"calc(100% - @{slider-footer-height}px)";
+    }
+}

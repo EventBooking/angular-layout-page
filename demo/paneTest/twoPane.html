@@ -1,0 +1,37 @@
+<div class="page-content-body-pane">
+	<body-header title="Two Panes">
+		actions
+	</body-header>
+
+	<div>
+		<p>
+			<a href="#" ng-click="vm.openSlider1()" ng-hide="vm.showSlider1">open slider 1</a>
+			<a href="#" ng-click="vm.closeSlider1()" ng-show="vm.showSlider1">close slider 1</a>
+		</p>
+		<p>
+			<a href="#" ng-click="vm.openSlider2()" ng-hide="vm.showSlider2">open slider 2</a>
+			<a href="#" ng-click="vm.closeSlider2()" ng-show="vm.showSlider2">close slider 2</a>
+		</p>
+		<p>
+			<a href="#" ng-click="vm.openSlider2OverSlider1()" ng-hide="vm.showSlider2">open slider 2 over slider 1</a>
+		</p>
+	</div>
+</div>
+
+<div class="page-content-body-pane">
+	<body-header title="Pane 2">
+		actions
+	</body-header>
+		
+	<div>
+		content
+	</div>
+</div>
+
+<page-slider slide-if="vm.showSlider1">
+	<ng-include src="'paneTest/slider1.html'"></ng-include>
+</page-slider>
+
+<page-slider slide-if="vm.showSlider2">
+	<ng-include src="'paneTest/slider2.html'"></ng-include>
+</page-slider>

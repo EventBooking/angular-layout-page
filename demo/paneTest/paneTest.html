@@ -1,0 +1,26 @@
+<div class="page">
+
+	<page-header title="Panes">
+		<a href="/pages">page tests</a>
+	</page-header>
+
+	<div class="page-content" ng-switch="vm.area">
+		
+		<div class="page-content-nav">
+            <page-content-nav-item path="/panes" area="twoPane">Two panes</page-content-nav-item>
+            <page-content-nav-item path="/panes" area="doublePane">Double pane</page-content-nav-item>
+        </div>
+
+		<div class="page-content-area" ng-switch-default>
+			<ng-include class="page-content-body" src="'paneTest/twoPane.html'"></ng-include>
+		</div>
+		
+		<div class="page-content-area" ng-switch-when="doublePane">
+			<ng-include class="page-content-body" src="'paneTest/doublePane.html'"></ng-include>
+		</div>
+
+	</div>
+
+	
+	
+</div>
