@@ -8,14 +8,9 @@ module LayoutPageModule {
 
     class NavGroupDirective {
         restrict = 'E';
-        templateUrl = 'nav-group/nav-group.html';
         controller = NavGroupController;
         controllerAs = 'vm';
         bindToController = true;
-
-        link = ($scope, $element) => {
-            
-        };
     }
 
     app.directive('navGroup', NavGroupDirective);

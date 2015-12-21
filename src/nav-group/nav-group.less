@@ -1,0 +1,13 @@
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: unit(@nav-group-padding,px) 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
+}

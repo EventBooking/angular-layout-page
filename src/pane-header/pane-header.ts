@@ -25,7 +25,6 @@
         };
 
         link = ($scope, $element, $attrs, pageSlider: IPageSliderController) => {
-            $element.addClass("paneHeader");
             $element.removeAttr("title");
 
             var ctrl: PaneHeaderController = $scope[this.controllerAs];

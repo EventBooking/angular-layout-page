@@ -1,7 +1,7 @@
 .page-content-body-pane {
     padding: 0 unit(@padding,px);
-    width: unit(@page-bodyPane-width,px);
-    margin-top: 20px;
+    width: unit(@page-content-body-pane-width,px);
+    margin-top: unit(@page-content-body-pane-padding-top,px);
 
     &--flush {
         padding: 0;
@@ -10,7 +10,7 @@
     }
 
     &--double {
-        width: unit(2 * @page-bodyPane-width,px);
+        width: unit(2 * @page-content-body-pane-width,px);
     }
 
     &--fluid {
@@ -24,7 +24,7 @@
 
     &--flush ~ & {
         margin-top: 0;
-        padding-top: 20px;
+        padding-top: unit(@page-content-body-pane-padding-top,px);
     }
 }
 
@@ -34,7 +34,7 @@
     .page-content-body-pane {
 		&--fluid {
 			flex: 0 0 auto;
-			width: unit(@page-bodyPane-width,px);
+			width: unit(@page-content-body-pane-width,px);
 		}
     }
 }
@@ -45,7 +45,7 @@
         border-right: none;
 		
 		&--double {
-			width: unit(@page-bodyPane-width,px);
+			width: unit(@page-content-body-pane-width,px);
 		}
     }
 }

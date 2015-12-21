@@ -1,0 +1,13 @@
+nav,
+.nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+    nav,
+    .nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
+}

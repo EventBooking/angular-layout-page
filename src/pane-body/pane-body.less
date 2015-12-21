@@ -9,14 +9,14 @@
     }
 
     pane-header ~ & {
-        max-height: ~"calc(100% - @{slider-header-height}px)";
+        max-height: ~"calc(100% - @{pane-header-height}px)";
         
         .pane--withFooter & {
-            max-height: ~"calc(100% - @{slider-footer-height}px - @{slider-header-height}px)";
+            max-height: ~"calc(100% - @{pane-footer-height}px - @{pane-header-height}px)";
         }
     }
 
     .pane--withFooter & {
-        max-height: ~"calc(100% - @{slider-footer-height}px)";
+        max-height: ~"calc(100% - @{pane-footer-height}px)";
     }
 }

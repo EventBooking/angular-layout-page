@@ -1,6 +1,8 @@
 ﻿body-header {
-    display: block;
-    line-height: unit(@page-body-header-height,px);
+    display: flex;
+    line-height: unit(@body-header-height,px);
+    color: @body-header-color;
+    background-color: @body-header-background-color;
 
     body-header ~ & {
         margin-top: unit(@padding-half,px);
@@ -9,35 +11,52 @@
     }
 }
 
-.bodyHeader-actions {
-    display: block;
-    float: right;
-    white-space: nowrap;
-    .font-size(@typescale-lg);
-
-    > .icon, > .fa {
-        cursor: pointer;
-   }
+.body-header-actions {
+    order: 1;
+    .font-size(@body-header-actions-font-size);
 }
 
-.bodyHeader-titles {
-    display: block;
+.body-header-actions-item {
+    cursor: pointer;
+    line-height: unit(@body-header-height,px);
+    
+    color: @body-header-actions-item-color;
+    background-color: @body-header-actions-item-background-color; 
+    
+    &:hover {
+        color: @body-header-actions-item-hover-color;
+        background-color: @body-header-actions-item-hover-background-color;
+    }
+    
+    &:active {
+        color: @body-header-actions-item-active-color;
+        background-color: @body-header-actions-item-active-background-color;
+    }
 }
 
-.bodyHeader-title {
-    display: inline-block;
+.body-header-titles {
+    order: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    .ellipsis();
+}
+
+.body-header-title {
+    display: block;
     text-transform: uppercase;
-    .font-size(@typescale-xlg);
+    .font-size(@body-header-title-font-size);
     .ellipsis();
     letter-spacing: unit(@letter-spacing-header,rem);
+    line-height: unit(@body-header-title-font-size,px);
 }
 
-.bodyHeader-subtitle {
-    display: inline-block;
+.body-header-subtitle {
     text-transform: uppercase;
-    .font-size(@typescale-lg);
+    .font-size(@body-header-subtitle-font-size);
     .ellipsis();
     letter-spacing: unit(@letter-spacing-header,rem);
-    padding: 0px 8px;
-    line-height: unit(@page-body-header-height - (@typescale-xlg - @typescale-lg),px);
+    line-height: unit(@body-header-subtitle-font-size,px);
 }

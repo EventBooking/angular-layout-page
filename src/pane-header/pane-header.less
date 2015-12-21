@@ -1,17 +1,17 @@
-﻿// here -----------------------------------
-
-.paneHeader {
+﻿pane-header,
+.pane-header {
     display: flex;
     flex-grow: 1;
     flex-basis: 100%;
-    height: unit(@slider-header-height,px);
-    color: @background-light-color;
-    line-height: unit(@slider-header-height,px);
+    height: unit(@pane-header-height,px);
+    line-height: unit(@pane-header-height,px);
     padding: 0 unit(@padding,px);
+    color: @pane-header-color;
+    background-color: @pane-header-background-color;
     .clearfix();
 }
 
-.paneHeader-close {
+.pane-header-close {
     order: 0;
     display: block;
     width: 30px;
@@ -19,16 +19,14 @@
     cursor: pointer;
 }
 
-.paneHeader-closeIcon {
-    // ToDo: Redo this?
-    // &:extend(.fa all, .fa-chevron-left all);
-    // .icon();
-    // .icon-secondary();
+.pane-header-closeIcon {
     display: block;
     position: relative;
     font-style: normal;
     width: 100%;
     height: 100%;
+    padding: 0;
+    color: @color-gray-light;
     
     &:before {
         content: "\2039";
@@ -37,50 +35,71 @@
         bottom: 0;
         .font-size(40);
     } 
-
-    .paneHeader-close & {
-        padding: 0;
+    
+    .pane-header-close:hover & {
+        color: @color-gray-lightest;
+    }
+    
+    .pane-header-close:active & {
+        color: @color-gray-dark;
     }
 }
 
-.paneHeader-titles {
+.pane-header-titles {
     display: flex;
     flex-direction: column;
     order: 1;
     flex-grow: 1;
     
-    &.paneHeader-titles--withSubtitle {
+    &.pane-header-titles--withSubtitle {
         padding: 6px 0;
     }
 }
 
-.paneHeader-title {
+.pane-header-title {
     display: block;
     text-transform: uppercase;
+    color: @pane-header-title-color;
     .font-size(@typescale-lg);
     .ellipsis();
     letter-spacing: unit(@letter-spacing-header,rem);
     
-    .paneHeader-titles--withSubtitle & {
+    .pane-header-titles--withSubtitle & {
         line-height: unit(@typescale-lg,px);
     }
 }
 
-.paneHeader-subtitle {
+.pane-header-subtitle {
     display: block;
     .font-size(@typescale-sm);
     line-height: unit(@typescale-sm,px);
-    color: @background-light-color-light;
+    color: @pane-header-subtitle-color;
     .ellipsis();
 }
 
-.paneHeader-actions {
+.pane-header-actions {
     order: 2;
-    display: block;
-    white-space: nowrap;
-    .font-size(@typescale-lg);
+    display: flex;
+}
 
-    > .icon, > .fa {
-        cursor: pointer;
-   }
+.pane-header-actions-item {
+    display: inline-block;
+    .font-size(@pane-header-actions-font-size);
+    line-height: unit(@pane-header-height,px);
+    padding: 0 unit(@pane-header-actions-item-padding,px);
+    text-align: center;
+    cursor: pointer;
+    
+    color: @pane-header-actions-item-color;
+    background-color: @pane-header-actions-item-background-color; 
+    
+    &:hover {
+        color: @pane-header-actions-item-hover-color;
+        background-color: @pane-header-actions-item-hover-background-color;
+    }
+    
+    &:active {
+        color: @pane-header-actions-item-active-color;
+        background-color: @pane-header-actions-item-active-background-color;
+    }
 }

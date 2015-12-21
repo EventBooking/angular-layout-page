@@ -2,22 +2,31 @@
 
 	<head>
 		<base href="/"/>
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
 		<link rel="stylesheet" href="dist/angular-layout-page.css" />
 		<link rel="stylesheet" href="stylesheet.css" />
 	</head>
 	
 	<body>
 		
-		<div class="pages">
-			<nav class="pages-nav">
+		<div class="layout-page">
+			<nav class="layout-page-nav">
+				<nav-header text="Nav Header" small="NH"></nav-header>
 				<nav-group>
-					<nav-item>item 1</nav-item>
+					<nav-group-item icon="fa fa-check-square-o">Item 1</nav-group-item>
+					<nav-group-item icon="fa fa-group">Item 2</nav-group-item>
+					<nav-group-item icon="fa fa-dollar">Item 3</nav-group-item>
+					<nav-group-item icon="fa fa-calendar">Item 4</nav-group-item>
+				</nav-group>
+				<nav-group>
+					<nav-group-item icon="fa fa-search">Group 2</nav-group-item>
 				</nav-group>
 			</nav>
 		
-			<div ng-view class="pages-page"></div>
+			<div ng-view class="layout-page-view"></div>
 		</div>
 
+		
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 		<script type="text/javascript" src="bower_components/angular/angular.js"></script>
 		<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>

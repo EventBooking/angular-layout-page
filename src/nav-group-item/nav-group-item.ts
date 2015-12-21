@@ -1,19 +1,33 @@
 module LayoutPageModule {
 
-    class navGroupItemController {
+    class NavGroupItemController {
+        static $inject = ['$attrs'];
         
+        constructor(private $attrs) {
+            
+        }
+        
+        get hasIcon() {
+            return this.iconClass != null && this.iconClass.length > 0;
+        }
+        
+        get iconClass() {
+            return this.$attrs.icon;
+        }
     }
 	
 	app.controller('navGroupItemController', NavGroupItemController);
 
     class NavGroupItemDirective {
-        restrict = 'E';
+        restrict = 'AEC';
+        transclude = true;
         templateUrl = 'nav-group-item/nav-group-item.html';
         controller = NavGroupItemController;
         controllerAs = 'vm';
         bindToController = true;
+        scope = true;
 
-        link = ($scope, $element) => {
+        link = ($scope, $element, $attrs) => {
             
         };
     }

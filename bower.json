@@ -18,7 +18,8 @@
     "package.json"
   ],
   "devDependencies": {
-    "angular-route": "~1.4.8"
+    "angular-route": "~1.4.8",
+    "font-awesome": "~4.5.0"
   },
   "dependencies": {
     "angular": "~1.4.8",

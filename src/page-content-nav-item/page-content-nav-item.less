@@ -1,20 +1,36 @@
 .page-content-nav-item {
     display: block;
-    line-height: unit(@typescale*3,px);
+    line-height: unit(@page-content-nav-item-font-size*3,px);
     padding: 0 unit(@padding,px);
     cursor: pointer;
     transition: background-color .25s ease-in-out;
     position: relative;
-
-    &:hover {
-        background-color: @color-gray-lightest;
-        color: @color-gray-darker;
+    .font-size(@page-content-nav-item-font-size);
+    
+    & ~ & {
+        margin-top: 1px;
+        margin-left: 0;
     }
-
+    
+    &:hover {
+        background-color: @page-content-nav-item-hover-background-color;
+        color: @page-content-nav-item-hover-color;
+    }
+    
+    &:active {
+        background-color: @page-content-nav-item-active-background-color;
+        color: @page-content-nav-item-active-color;
+    }
+    
+    &--active:active,
+    &--active:hover,
     &--active {
-        background-color: @color-gray-lightest;
-        color: @color-gray-darker;
-        .arrow-inset-right(@typescale/2);
+        background-color: @page-content-nav-item-selected-background-color;
+        color: @page-content-nav-item-selected-color;
+    }
+    
+    &--active {
+        .arrow-inset-right(@page-content-nav-item-selected-arrow-size);
     }
 }
 
@@ -24,9 +40,12 @@
         padding: 0 unit(@padding-half,px);
 
         &--active {
-            background-color: @color-gray-lightest;
-            color: @color-gray;
-            .arrow-inset-bottom(@typescale/2);
+            .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
+        }
+        
+        & ~ & {
+            margin-top: 0;
+            margin-left: 1px;
         }
     }
 }

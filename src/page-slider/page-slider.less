@@ -4,9 +4,10 @@
     width: unit(@page-slider-width,px);
     top: 0;
     bottom: 0;
-    background-color: #fff;
-    transition: right .25s ease-in-out;
     z-index: 10;
+    transition: right .25s ease-in-out;
+    color: @page-slider-color;
+    background-color: @page-slider-background-color;
 
     &:not(.is-visible) {
         right: unit(-@page-slider-width,px);
