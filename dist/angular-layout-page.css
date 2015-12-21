@@ -416,6 +416,12 @@ th {
       -ms-flex-order: 1;
           order: 1;
 }
+.layout-page-view > * {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 nav,
 .nav {
   width: 144px;
