@@ -479,7 +479,9 @@ nav-group ~ .nav-group,
   background-size: 100% 1px;
   background-repeat: no-repeat;
 }
-nav-group-item {
+nav-group-item,
+[nav-group-item],
+.nav-group-item {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -495,14 +497,26 @@ nav-group-item {
   background-color: transparent;
   padding: 8px 0;
 }
-nav-group-item ~ nav-group-item {
+nav-group-item ~ nav-group-item,
+nav-group-item ~ [nav-group-item],
+nav-group-item ~ .nav-group-item,
+[nav-group-item] ~ nav-group-item,
+[nav-group-item] ~ [nav-group-item],
+[nav-group-item] ~ .nav-group-item,
+.nav-group-item ~ nav-group-item,
+.nav-group-item ~ [nav-group-item],
+.nav-group-item ~ .nav-group-item {
   margin-top: 8px;
 }
-nav-group-item:hover {
+nav-group-item:hover,
+[nav-group-item]:hover,
+.nav-group-item:hover {
   color: #6B6861;
   background-color: transparent;
 }
-nav-group-item:active {
+nav-group-item:active,
+[nav-group-item]:active,
+.nav-group-item:active {
   color: #403E3A;
   background-color: transparent;
 }
