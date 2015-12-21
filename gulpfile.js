@@ -46,18 +46,28 @@ function styles() {
 
 	gulp.src([
 			'!src/assets.less',
-			'!src/variables/**/*.less',
-			'!src/mixins/**/*.less',
+			'!src/variables/variables.less',
+			'!src/mixins/mixins.less',
 			'src/**/*.less'
 		])
 		.pipe(concat('angular-layout-page.less'))
 		.pipe(gulp.dest(dest));
 		
-	gulp.src('src/variables/**/*.less')
+	gulp.src([
+			'src/variables/screen.less',
+			'src/variables/theme.less',
+			'src/variables/text.less',
+			'src/variables/components.less'
+		])
 		.pipe(concat('angular-layout-page-variables.less'))
 		.pipe(gulp.dest(dest));
 		
-	gulp.src('src/mixins/**/*.less')
+	gulp.src([
+			'src/mixins/text.less',
+			'src/mixins/arrow.less',
+			'src/mixins/layout.less',
+			'src/mixins/divider.less'
+		])
 		.pipe(concat('angular-layout-page-mixins.less'))
 		.pipe(gulp.dest(dest));
 		

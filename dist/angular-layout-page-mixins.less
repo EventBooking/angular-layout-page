@@ -1,3 +1,15 @@
+.font-size(@sizeValue) {
+    @remValue: (@sizeValue / @font-size-base);
+    @pxValue: @sizeValue;
+    font-size: ~"@{pxValue}px"; 
+    font-size: ~"@{remValue}rem";
+}
+
+.ellipsis() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -61,6 +73,19 @@
         border-bottom:  @size-unit solid @color;
     }
 }
+.clearfix {   
+    zoom: 1;
+    
+    &:before, 
+    &:after {     
+        content: "";     
+        display: table;   
+    }   
+
+    &:after {     
+        clear:both;   
+    } 
+}
 .divider(@start,@end,@shape: circle) {
     overflow: hidden;
     height: 1px;
@@ -75,29 +100,4 @@
 
 .divider-light {
     .divider(#e5e5e5, #ffffff);
-}
-.clearfix {   
-    zoom: 1;
-    
-    &:before, 
-    &:after {     
-        content: "";     
-        display: table;   
-    }   
-
-    &:after {     
-        clear:both;   
-    } 
-}
-.font-size(@sizeValue) {
-    @remValue: (@sizeValue / @font-size-base);
-    @pxValue: @sizeValue;
-    font-size: ~"@{pxValue}px"; 
-    font-size: ~"@{remValue}rem";
-}
-
-.ellipsis() {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
