@@ -542,7 +542,7 @@ nav-group-item:active,
   text-transform: uppercase;
 }
 .nav-group-item-icon ~ .nav-group-item-text {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 @media (max-width: 1168px) {
   .nav-group-item-text {
@@ -555,6 +555,7 @@ body-header {
   display: -ms-flexbox;
   display: flex;
   line-height: 48px;
+  margin-bottom: 16px;
   color: #8B877E;
   background-color: transparent;
 }
@@ -623,7 +624,6 @@ body-header ~ body-header {
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: 0.0625rem;
-  line-height: 24px;
 }
 .body-header-subtitle {
   text-transform: uppercase;
