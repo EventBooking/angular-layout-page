@@ -16,6 +16,7 @@ module LayoutPageModule {
         }
 
         get href() {
+            console.log('href', this.$attrs.href);
             return this.$attrs.href;
         }
 
