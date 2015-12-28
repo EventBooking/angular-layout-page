@@ -22,7 +22,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('nav-group-item/nav-group-item.html',
-    '<i ng-if="navGroupItem.hasIcon" class="nav-group-item-icon" ng-class="vm.iconClass"></i>\n' +
+    '<i ng-if="vm.hasIcon" class="nav-group-item-icon" ng-class="vm.iconClass"></i>\n' +
     '<span class="nav-group-item-text" ng-transclude></span>');
 }]);
 })();

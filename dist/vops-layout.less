@@ -60,32 +60,6 @@ body-header {
     letter-spacing: unit(@letter-spacing-header,rem);
     line-height: unit(@body-header-subtitle-font-size,px);
 }
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	font-family: @font-family;
-	line-height: @line-height-base;
-	background-color: @background-color;
-	color: @color;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -189,18 +163,31 @@ body-header {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-nav,
-.nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	font-family: @font-family;
+	line-height: @line-height-base;
+	background-color: @background-color;
+	color: @color;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;
 }
 
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-    nav,
-    .nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
 }
 nav-group,
 .nav-group {
@@ -215,6 +202,27 @@ nav-group,
 		background-repeat: no-repeat;
 	}
 }
+nav,
+.nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+    nav,
+    .nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
+}
+.nav-group-item {
+    &--selected {
+        color: @nav-group-item-selected-color;
+		background-color: @nav-group-item-selected-background-color;
+        font-weight: @nav-group-item-selected-font-weight;
+    }
+}
+
 nav-group-item,
 [nav-group-item],
 .nav-group-item {
@@ -746,6 +754,9 @@ pane-header,
 @nav-group-item-padding: 8;
 @nav-group-item-color: @color-gray-light;
 @nav-group-item-background-color: transparent;
+@nav-group-item-selected-color: @color-gray-dark;
+@nav-group-item-selected-background-color: transparent;
+@nav-group-item-selected-font-weight: @font-weight-bold;
 @nav-group-item-hover-color: @color-gray-dark;
 @nav-group-item-hover-background-color: transparent;
 @nav-group-item-active-color: @color-gray-darker;

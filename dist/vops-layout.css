@@ -487,6 +487,11 @@ nav-group ~ .nav-group,
   background-size: 100% 1px;
   background-repeat: no-repeat;
 }
+.nav-group-item--selected {
+  color: #72726B;
+  background-color: transparent;
+  font-weight: 600;
+}
 nav-group-item,
 [nav-group-item],
 .nav-group-item {

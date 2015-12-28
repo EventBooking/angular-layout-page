@@ -10,6 +10,9 @@ function Config($routeProvider, $locationProvider) {
 			controller: 'paneTestController',
 			controllerAs: 'vm'
 		})
+        .when("/panes", {
+			redirectTo: '/panes/twoPane'
+		})
 		.when("/pages/fullscreen", {
 			templateUrl: "/pageTest/pageTest.html",
 			controller: 'pageTestController',
@@ -19,7 +22,7 @@ function Config($routeProvider, $locationProvider) {
 			redirectTo: '/pages/fullscreen'
 		})
 		.otherwise({
-			redirectTo: '/panes/twoPane'
+			redirectTo: '/panes'
 		});
 }
 
