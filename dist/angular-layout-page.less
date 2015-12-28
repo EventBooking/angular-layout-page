@@ -416,7 +416,7 @@ nav-header {
         line-height: unit(@page-content-nav-height,px);
     }
 }
-.page-content-nav-item {
+page-content-nav-item {
     display: block;
     line-height: unit(@page-content-nav-item-font-size*3,px);
     padding: 0 unit(@padding,px);
@@ -429,7 +429,9 @@ nav-header {
         margin-top: 1px;
         margin-left: 0;
     }
+}
     
+.page-content-nav-item {
     &:hover {
         background-color: @page-content-nav-item-hover-background-color;
         color: @page-content-nav-item-hover-color;
@@ -454,9 +456,11 @@ nav-header {
 
 // tablet landscape mode
 @media (max-width: unit(@screen-desktop-sm,px)) {
-    .page-content-nav-item {
+    page-content-nav-item {
         padding: 0 unit(@padding-half,px);
-
+    }
+    
+    .page-content-nav-item {
         &--active {
             .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
         }
@@ -470,7 +474,7 @@ nav-header {
 
 // Less width than table landscape
 @media (max-width: unit(@screen-tablet-landscape,px)) {
-    .page-content-nav-item {
+    page-content-nav-item {
         padding: 0 unit(@padding-quarter,px);
     }
 }

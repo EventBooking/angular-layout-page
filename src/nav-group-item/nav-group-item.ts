@@ -23,7 +23,7 @@ module LayoutPageModule {
         transclude = true;
         templateUrl = 'nav-group-item/nav-group-item.html';
         controller = NavGroupItemController;
-        controllerAs = 'vm';
+        controllerAs = 'navGroupItem';
         bindToController = true;
         scope = true;
 

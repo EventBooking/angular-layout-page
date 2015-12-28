@@ -744,7 +744,7 @@ body-header ~ body-header {
     line-height: 48px;
   }
 }
-.page-content-nav-item {
+page-content-nav-item {
   display: block;
   line-height: 48px;
   padding: 0 32px;
@@ -755,7 +755,7 @@ body-header ~ body-header {
   font-size: 16px;
   font-size: 1rem;
 }
-.page-content-nav-item ~ .page-content-nav-item {
+page-content-nav-item ~ page-content-nav-item {
   margin-top: 1px;
   margin-left: 0;
 }
@@ -799,7 +799,7 @@ body-header ~ body-header {
   border-right: 8px solid #fff;
 }
 @media (max-width: 1280px) {
-  .page-content-nav-item {
+  page-content-nav-item {
     padding: 0 16px;
   }
   .page-content-nav-item--active:before,
@@ -833,7 +833,7 @@ body-header ~ body-header {
   }
 }
 @media (max-width: 1024px) {
-  .page-content-nav-item {
+  page-content-nav-item {
     padding: 0 8px;
   }
 }

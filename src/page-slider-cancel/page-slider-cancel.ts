@@ -4,13 +4,14 @@
         restrict = 'A';
         require = '^pageSlider';
         link = ($scope, $element, $attrs, slider: IPageSliderController) => {
+            var clickEvent = `click.${$scope.$id}`;
             
-            $element.on('click.pageSliderCancel',() => {
+            $element.on(clickEvent,() => {
                 $scope.$apply(slider.close());
             });
 
             $scope.$on('$destroy',() => {
-                $element.off('click.pageSliderCancel');
+                $element.off(clickEvent);
             });
         };
     }

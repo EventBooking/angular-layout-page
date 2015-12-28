@@ -29,11 +29,11 @@ module LayoutPageModule {
         };
 
         link = ($scope, $element) => {
-            var ctrl: PageContentNavItemController = $scope[this.controllerAs];
+            var ctrl: PageContentNavItemController = $scope[this.controllerAs],
+                clickEvent = `click.${$scope.id}`;
 
-            $element.addClass('page-content-nav-item');
             $element.toggleClass('page-content-nav-item--active', ctrl.isActive);
-            $element.on('click', () => {
+            $element.on(clickEvent, () => {
                 ctrl.select();
                 $scope.$apply();
             });

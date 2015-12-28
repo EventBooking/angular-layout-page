@@ -1,4 +1,4 @@
-.page-content-nav-item {
+page-content-nav-item {
     display: block;
     line-height: unit(@page-content-nav-item-font-size*3,px);
     padding: 0 unit(@padding,px);
@@ -11,7 +11,9 @@
         margin-top: 1px;
         margin-left: 0;
     }
+}
     
+.page-content-nav-item {
     &:hover {
         background-color: @page-content-nav-item-hover-background-color;
         color: @page-content-nav-item-hover-color;
@@ -36,9 +38,11 @@
 
 // tablet landscape mode
 @media (max-width: unit(@screen-desktop-sm,px)) {
-    .page-content-nav-item {
+    page-content-nav-item {
         padding: 0 unit(@padding-half,px);
-
+    }
+    
+    .page-content-nav-item {
         &--active {
             .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
         }
@@ -52,7 +56,7 @@
 
 // Less width than table landscape
 @media (max-width: unit(@screen-tablet-landscape,px)) {
-    .page-content-nav-item {
+    page-content-nav-item {
         padding: 0 unit(@padding-quarter,px);
     }
 }

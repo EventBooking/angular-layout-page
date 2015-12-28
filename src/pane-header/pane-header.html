@@ -1,12 +1,12 @@
-﻿<a href="#" class="pane-header-close" ng-if="vm.showClose" ng-click="vm.close()">
+﻿<a href="#" class="pane-header-close" ng-if="paneHeader.showClose" ng-click="paneHeader.close()">
     <i class="pane-header-closeIcon"></i>
 </a>
 <div class="pane-header-actions" ng-transclude></div>
-<div class="pane-header-titles" ng-class="{ 'pane-header-titles--withSubtitle': vm.subtitle }">
+<div class="pane-header-titles" ng-class="{ 'pane-header-titles--withSubtitle': paneHeader.subtitle }">
     <span class="pane-header-title">
-        <span class="pane-header-titleText">{{vm.title}}</span>
+        <span class="pane-header-titleText">{{paneHeader.title}}</span>
     </span>
-    <span class="pane-header-subtitle" ng-if="vm.subtitle">
-        <span class="pane-header-subtitleText">{{vm.subtitle}}</span>
+    <span class="pane-header-subtitle" ng-if="paneHeader.subtitle">
+        <span class="pane-header-subtitleText">{{paneHeader.subtitle}}</span>
     </span>
 </div>

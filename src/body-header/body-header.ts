@@ -8,7 +8,7 @@
         transclude = true;
         templateUrl = 'body-header/body-header.html';
         controller = BodyHeaderController;
-        controllerAs = 'vm';
+        controllerAs = 'bodyHeader';
         bindToController = true;
         scope = {
             title: '@',

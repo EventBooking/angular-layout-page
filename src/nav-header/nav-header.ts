@@ -10,7 +10,7 @@ module LayoutPageModule {
         restrict = 'E';
         templateUrl = 'nav-header/nav-header.html';
         controller = NavHeaderController;
-        controllerAs = 'vm';
+        controllerAs = 'navHeader';
         bindToController = true;
         scope = {
             text: '@',
