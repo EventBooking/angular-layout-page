@@ -1,7 +1,7 @@
 {
-  "name": "angular-layout-page",
+  "name": "vops-layout",
   "version": "1.0.5",
-  "homepage": "https://github.com/EventBooking/angular-layout-page",
+  "homepage": "https://github.com/EventBooking/vops-layout",
   "authors": [
     "Mike Walters <mike@eventbooking.com>"
   ],

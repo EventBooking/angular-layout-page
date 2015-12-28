@@ -1,5 +1,5 @@
 {
-  "name": "angular-layout-page",
+  "name": "vops-layout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EventBooking/angular-layout-page.git"
+    "url": "git+https://github.com/EventBooking/vops-layout.git"
   },
   "author": "mike@eventbooking.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EventBooking/angular-layout-page/issues"
+    "url": "https://github.com/EventBooking/vops-layout/issues"
   },
-  "homepage": "https://github.com/EventBooking/angular-layout-page#readme",
+  "homepage": "https://github.com/EventBooking/vops-layout#readme",
   "devDependencies": {
     "bower": "^1.7.0",
     "connect-livereload": "^0.5.4",
