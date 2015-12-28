@@ -2,6 +2,7 @@
 var gulp = require('gulp'),
 	debug = require('gulp-debug'),
 	concat = require('gulp-concat'),
+    project = require('./package.json'),
 	dest = 'dist';
 
 function exec(cmd, options, fn) {
@@ -34,7 +35,7 @@ function html() {
 
 	gulp.src(['src/**/*.html'])
 		.pipe(html2js(options))
-		.pipe(concat('angular-layout-page.templates.js'))
+		.pipe(concat(project.name + '.templates.js'))
 		.pipe(gulp.dest(dest));
 }
 
@@ -50,7 +51,7 @@ function styles() {
 			'!src/mixins/mixins.less',
 			'src/**/*.less'
 		])
-		.pipe(concat('angular-layout-page.less'))
+		.pipe(concat(project.name + '.less'))
 		.pipe(gulp.dest(dest));
 		
 	gulp.src([
@@ -59,7 +60,7 @@ function styles() {
 			'src/variables/text.less',
 			'src/variables/components.less'
 		])
-		.pipe(concat('angular-layout-page-variables.less'))
+		.pipe(concat(project.name + '-variables.less'))
 		.pipe(gulp.dest(dest));
 		
 	gulp.src([
@@ -68,14 +69,14 @@ function styles() {
 			'src/mixins/layout.less',
 			'src/mixins/divider.less'
 		])
-		.pipe(concat('angular-layout-page-mixins.less'))
+		.pipe(concat(project.name + '-mixins.less'))
 		.pipe(gulp.dest(dest));
 		
 	gulp.src(['src/assets.less'])
 		.pipe(debug())
 		.pipe(less())
 		.pipe(autoprefixer())
-		.pipe(concat('angular-layout-page.css'))
+		.pipe(concat(project.name + '.css'))
 		.pipe(gulp.dest(dest));
 }
 
