@@ -9,7 +9,7 @@
         templateUrl = 'page-header/page-header.html';
         multiElement = true;
         controller = PageHeaderController;
-        controllerAs = 'pageHeader';
+        controllerAs = 'vm';
         bindToController = true;
         scope = {
             title: '@',

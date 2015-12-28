@@ -17,7 +17,7 @@
         transclude = true;
         templateUrl = 'pane-header/pane-header.html';
         controller = PaneHeaderController;
-        controllerAs = 'paneHeader';
+        controllerAs = 'vm';
         bindToController = true;
         scope = {
             title: '@',

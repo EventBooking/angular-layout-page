@@ -31,7 +31,7 @@
         restrict = 'E';
         transclude = true;
         controller = PageSliderController;
-        controllerAs = 'pageSlider';
+        controllerAs = 'vm';
         bindToController = true;
         scope = {
             slideIf: '=',
