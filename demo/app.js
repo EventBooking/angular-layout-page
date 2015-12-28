@@ -5,6 +5,14 @@ function Config($routeProvider, $locationProvider) {
 
 	$routeProvider
 		
+        .when("/routetest/:area", {
+			templateUrl: "/paneTest/paneTest.html",
+			controller: 'paneTestController',
+			controllerAs: 'vm'
+		})
+        .when("/routetest", {
+			redirectTo: '/routetest/twoPane'
+		})
 		.when("/panes/:area", {
 			templateUrl: "/paneTest/paneTest.html",
 			controller: 'paneTestController',

@@ -16,21 +16,18 @@ module LayoutPageModule {
         }
 
         get href() {
-            console.log('href', this.$attrs.href);
             return this.$attrs.href;
         }
 
-        get values(): string[] {
-            return this.$attrs.values || [];
-        }
-
-        path: string;
+        selected: string[];
 
         get isSelected(): boolean {
             var path = this.$location.path();
             if (this.href != null && path.indexOf(this.href) === 0)
                 return true;
-            var result = this.values.filter(x => path.indexOf(x) === 0);
+            if (this.selected == null)
+                return false;
+            var result = this.selected.filter(x => path.indexOf(x) === 0);
             return result.length > 0;
         }
 
@@ -54,7 +51,9 @@ module LayoutPageModule {
         controller = NavGroupItemController;
         controllerAs = 'vm';
         bindToController = true;
-        scope = true;
+        scope = {
+            selected: '='
+        };
 
         link = ($scope, $element, $attrs) => {
             var ctrl: NavGroupItemController = $scope[this.controllerAs],
