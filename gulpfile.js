@@ -102,8 +102,6 @@ gulp.task('typescript', ['tsd:install'], function (callback) {
 	typescript(callback);
 });
 
-gulp.task('typescript', typescript);
-
 function server() {
 	var express = require('express'),
 		livereload = require('connect-livereload'),
