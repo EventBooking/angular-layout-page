@@ -700,6 +700,7 @@ body-header ~ body-header {
       -ms-flex-direction: row;
           flex-direction: row;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 @media (max-width: 1280px) {
   .page-content,
@@ -854,8 +855,6 @@ page-content-nav-item ~ page-content-nav-item {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  overflow-y: auto;
-  overflow-x: hidden;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
