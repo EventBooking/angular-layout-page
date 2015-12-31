@@ -1,4 +1,5 @@
 /* General */
+/* Colors */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -381,6 +382,101 @@ th {
   background-repeat: no-repeat;
   background-image: -webkit-radial-gradient(circle, #e5e5e5, #ffffff);
   background-image: radial-gradient(circle, #e5e5e5, #ffffff);
+}
+.text {
+  color: #999990;
+}
+.text-light {
+  color: #B2B2A9;
+}
+.text-lighter {
+  color: #CCCCC3;
+}
+.text-lightest {
+  color: #E5E5E3;
+}
+.text-lightest2 {
+  color: #EFEFEE;
+}
+.text-medium,
+.text-dark {
+  color: #72726B;
+}
+.text-darker {
+  color: #4C4C47;
+}
+.text-darkest {
+  color: #262624;
+}
+.text-success {
+  color: #48C245;
+}
+.text-warning {
+  color: #EEA041;
+}
+.text-muted {
+  color: #E5E5E3;
+}
+.text-danger {
+  color: #EF5041;
+}
+.text-empty {
+  font-style: italic;
+  color: #CCCCC3;
+}
+.text-normal {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.text-upper {
+  text-transform: uppercase;
+}
+.text-center {
+  text-align: center;
+}
+.text-light {
+  font-weight: 300;
+}
+.text-bold {
+  font-weight: 600;
+}
+.text-link,
+a {
+  color: #4EB6D6;
+  text-decoration: none;
+  cursor: pointer;
+}
+.text-link--hover,
+.text-link:hover,
+a--hover,
+a:hover {
+  color: #B1E0ED;
+}
+.body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Source Sans Pro';
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #E5E5E3;
+  color: #999990;
+}
+* {
+  box-sizing: border-box;
+}
+p {
+  margin: 0 0 10px;
+}
+pre {
+  white-space: pre-wrap;
+}
+[ng-click] {
+  cursor: pointer;
 }
 .layout-page {
   display: -webkit-box;

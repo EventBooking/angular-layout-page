@@ -1,0 +1,92 @@
+/// <reference path="../assets.less" />
+
+.text {
+    color: @color-gray;
+}
+
+.text-light {
+    color: @color-gray-light;
+}
+
+.text-lighter {
+    color: @color-gray-lighter;
+}
+
+.text-lightest {
+    color: @color-gray-lightest;
+}
+
+.text-lightest2 {
+    color: @color-gray-lightest2;
+}
+
+.text-medium,
+.text-dark {
+    color: @color-gray-dark;
+}
+
+.text-darker {
+    color: @color-gray-darker;
+}
+
+.text-darkest {
+    color: @color-gray-darkest;
+}
+
+.text-success {
+    color: @color-success;
+}
+
+.text-warning {
+    color: @color-warning;
+}
+
+.text-muted {
+    color: @color-muted;
+}
+
+.text-danger {
+    color: @color-danger;
+}
+
+.text-empty {
+    font-style: italic;
+    color: @color-gray-lighter;
+}
+
+.text-normal {
+    .font-size(@typescale);
+    font-weight: @font-weight;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.text-upper {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-light {
+    font-weight: @font-weight-light;
+}
+
+.text-bold {
+    font-weight: @font-weight-bold;
+}
+
+a,
+.text-link {
+    color: @color-blue;
+    text-decoration: none;
+    cursor: pointer;
+
+    &--hover,
+    &:hover {
+        color: @color-blue-lighter;
+    }   
+}
