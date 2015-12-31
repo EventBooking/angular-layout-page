@@ -60,6 +60,37 @@ body-header {
     letter-spacing: unit(@letter-spacing-header,rem);
     line-height: unit(@body-header-subtitle-font-size,px);
 }
+.layout-body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: @layout-body-font-family;
+    font-size: unit(@layout-body-font-size,px);
+    line-height: @layout-body-line-height;
+    background-color: @layout-body-background-color;
+    color: @layout-body-color;
+    box-sizing: border-box;
+    
+    & * {
+        box-sizing: border-box;
+    }
+    
+    & a {
+        // &:extend(.text-link all);
+    }
+
+    & p {
+        margin: 0 0 10px;
+    }
+
+    & pre {
+        white-space: pre-wrap;
+    }
+    
+    & [ng-click] {
+        cursor: pointer;
+    }
+}
 .layout-page {
 	display: flex;
 	flex-direction: row;
@@ -85,6 +116,26 @@ body-header {
 		display: flex;
 		flex-grow: 1;
 	}
+    
+    [ng-view]& {
+        &.ng-enter {
+            transition: 0.15s;
+            opacity: .5;
+        }
+
+        &.ng-enter.ng-enter-active {
+            opacity: 1;
+        }
+
+        &.ng-leave {
+            transition: 0.40s;
+            opacity: 1;
+        }
+
+        &.ng-leave.ng-leave-active {
+            opacity: 0;
+        }
+    }
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
@@ -741,6 +792,13 @@ pane-header,
 @body-header-actions-item-hover-background-color: transparent;
 @body-header-actions-item-active-color: @color-gray-lightest;
 @body-header-actions-item-active-background-color: transparent;
+
+// layout-body
+@layout-body-color: @color-gray;
+@layout-body-background-color: @color-gray-lightest;
+@layout-body-line-height: @line-height-base;
+@layout-body-font-size: @typescale;
+@layout-body-font-family: @font-family;
 
 // nav
 @nav-small: 64;

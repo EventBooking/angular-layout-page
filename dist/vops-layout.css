@@ -430,6 +430,22 @@ th {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
+[ng-view].layout-page-view.ng-enter {
+  -webkit-transition: 0.15s;
+          transition: 0.15s;
+  opacity: .5;
+}
+[ng-view].layout-page-view.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+[ng-view].layout-page-view.ng-leave {
+  -webkit-transition: 0.40s;
+          transition: 0.40s;
+  opacity: 1;
+}
+[ng-view].layout-page-view.ng-leave.ng-leave-active {
+  opacity: 0;
+}
 nav,
 .nav {
   width: 144px;

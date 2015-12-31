@@ -1,0 +1,31 @@
+.layout-body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: @layout-body-font-family;
+    font-size: unit(@layout-body-font-size,px);
+    line-height: @layout-body-line-height;
+    background-color: @layout-body-background-color;
+    color: @layout-body-color;
+    box-sizing: border-box;
+    
+    & * {
+        box-sizing: border-box;
+    }
+    
+    & a {
+        // &:extend(.text-link all);
+    }
+
+    & p {
+        margin: 0 0 10px;
+    }
+
+    & pre {
+        white-space: pre-wrap;
+    }
+    
+    & [ng-click] {
+        cursor: pointer;
+    }
+}
