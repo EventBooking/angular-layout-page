@@ -26,6 +26,11 @@ function Config($routeProvider, $locationProvider) {
 			controller: 'pageTestController',
 			controllerAs: 'vm'
 		})
+        .when("/text", {
+			templateUrl: "/text/text.html",
+			controller: 'textController',
+			controllerAs: 'vm'
+		})
 		.when("/pages", {
 			redirectTo: '/pages/fullscreen'
 		})

@@ -1,0 +1,31 @@
+.grid {
+    display: flex;
+}
+
+.grid-cols {
+    flex-direction: column;
+}
+
+
+.grid-title {
+    display: block;
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+* ~ .grid-title {
+    margin-top: 16px;
+}
+
+.pad-all {
+    padding: 32px;
+}
+
+.pad-lr {
+    padding: 0 32px;
+}
+
+.pad-tb {
+    padding: 32px 0;
+}

@@ -86,25 +86,26 @@ body-header {
 		flex-grow: 1;
 	}
     
-    [ng-view]& {
-        &.ng-enter {
-            transition: 0.15s;
-            opacity: .5;
-        }
-
-        &.ng-enter.ng-enter-active {
-            opacity: 1;
-        }
-
-        &.ng-leave {
-            transition: 0.40s;
-            opacity: 1;
-        }
-
-        &.ng-leave.ng-leave-active {
-            opacity: 0;
-        }
-    }
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
@@ -738,127 +739,6 @@ pane-header,
         background-color: @pane-header-actions-item-active-background-color;
     }
 }
-.body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: @layout-body-font-family;
-    font-size: unit(@layout-body-font-size,px);
-    line-height: @layout-body-line-height;
-    background-color: @layout-body-background-color;
-    color: @layout-body-color;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-a {
-    &:extend(.text-link all);
-}
-
-p {
-    margin: 0 0 10px;
-}
-
-pre {
-    white-space: pre-wrap;
-}
-
-[ng-click] {
-    cursor: pointer;
-}
-/// <reference path="../assets.less" />
-
-.text {
-    color: @color-gray;
-}
-
-.text-light {
-    color: @color-gray-light;
-}
-
-.text-lighter {
-    color: @color-gray-lighter;
-}
-
-.text-lightest {
-    color: @color-gray-lightest;
-}
-
-.text-lightest2 {
-    color: @color-gray-lightest2;
-}
-
-.text-medium,
-.text-dark {
-    color: @color-gray-dark;
-}
-
-.text-darker {
-    color: @color-gray-darker;
-}
-
-.text-darkest {
-    color: @color-gray-darkest;
-}
-
-.text-success {
-    color: @color-success;
-}
-
-.text-warning {
-    color: @color-warning;
-}
-
-.text-muted {
-    color: @color-muted;
-}
-
-.text-danger {
-    color: @color-danger;
-}
-
-.text-empty {
-    font-style: italic;
-    color: @color-gray-lighter;
-}
-
-.text-normal {
-    .font-size(@typescale);
-    font-weight: @font-weight;
-}
-
-.text-nowrap {
-    white-space: nowrap;
-}
-
-.text-upper {
-    text-transform: uppercase;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-light {
-    font-weight: @font-weight-light;
-}
-
-.text-bold {
-    font-weight: @font-weight-bold;
-}
-
-.text-link {
-    color: @color-blue;
-    text-decoration: none;
-    cursor: pointer;
-
-    &--hover,
-    &:hover {
-        color: @color-blue-lighter;
-    }   
-}
 /* General */
 @padding: 32;
 @padding-half: @padding/2;
@@ -1076,3 +956,121 @@ pre {
 @color-gray-dark:       #72726B; 
 @color-gray-darker:     #4C4C47;
 @color-gray-darkest:    #262624;
+.body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: @layout-body-font-family;
+    font-size: unit(@layout-body-font-size,px);
+    line-height: @layout-body-line-height;
+    background-color: @layout-body-background-color;
+    color: @layout-body-color;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+[ng-click] {
+    cursor: pointer;
+}
+/// <reference path="../assets.less" />
+
+.text {
+    color: @color-gray;
+}
+
+.text-light {
+    color: @color-gray-light;
+}
+
+.text-lighter {
+    color: @color-gray-lighter;
+}
+
+.text-lightest {
+    color: @color-gray-lightest;
+}
+
+.text-lightest2 {
+    color: @color-gray-lightest2;
+}
+
+.text-medium,
+.text-dark {
+    color: @color-gray-dark;
+}
+
+.text-darker {
+    color: @color-gray-darker;
+}
+
+.text-darkest {
+    color: @color-gray-darkest;
+}
+
+.text-success {
+    color: @color-success;
+}
+
+.text-warning {
+    color: @color-warning;
+}
+
+.text-muted {
+    color: @color-muted;
+}
+
+.text-danger {
+    color: @color-danger;
+}
+
+.text-empty {
+    font-style: italic;
+    color: @color-gray-lighter;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.text-upper {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-normal {
+    .font-size(@typescale);
+    font-weight: @font-weight;
+}
+
+.text-light {
+    font-weight: @font-weight-light;
+}
+
+.text-bold {
+    font-weight: @font-weight-bold;
+}
+
+a,
+.text-link {
+    color: @color-blue;
+    text-decoration: none;
+    cursor: pointer;
+
+    &--hover,
+    &:hover {
+        color: @color-blue-lighter;
+    }   
+}
