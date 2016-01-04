@@ -587,6 +587,12 @@ page-slider {
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
+.pane {
+    height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+    line-height: @line-height-base;
+    .font-size(@pane-font-size);
+}
 .pane-body {
     display: block;
     max-height: 100%;
@@ -608,12 +614,6 @@ page-slider {
     .pane--withFooter & {
         max-height: ~"calc(100% - @{pane-footer-height}px)";
     }
-}
-.pane {
-    height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-    line-height: @line-height-base;
-    .font-size(@pane-font-size);
 }
 pane-footer {
     display: block;
@@ -738,6 +738,124 @@ pane-header,
         color: @pane-header-actions-item-active-color;
         background-color: @pane-header-actions-item-active-background-color;
     }
+}
+.body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: @layout-body-font-family;
+    font-size: unit(@layout-body-font-size,px);
+    line-height: @layout-body-line-height;
+    background-color: @layout-body-background-color;
+    color: @layout-body-color;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+[ng-click] {
+    cursor: pointer;
+}
+/// <reference path="../assets.less" />
+
+.text {
+    color: @color-gray;
+}
+
+.text-light {
+    color: @color-gray-light;
+}
+
+.text-lighter {
+    color: @color-gray-lighter;
+}
+
+.text-lightest {
+    color: @color-gray-lightest;
+}
+
+.text-lightest2 {
+    color: @color-gray-lightest2;
+}
+
+.text-medium,
+.text-dark {
+    color: @color-gray-dark;
+}
+
+.text-darker {
+    color: @color-gray-darker;
+}
+
+.text-darkest {
+    color: @color-gray-darkest;
+}
+
+.text-success {
+    color: @color-success;
+}
+
+.text-warning {
+    color: @color-warning;
+}
+
+.text-muted {
+    color: @color-muted;
+}
+
+.text-danger {
+    color: @color-danger;
+}
+
+.text-empty {
+    font-style: italic;
+    color: @color-gray-lighter;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.text-upper {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-normal {
+    .font-size(@typescale);
+    font-weight: @font-weight;
+}
+
+.text-light {
+    font-weight: @font-weight-light;
+}
+
+.text-bold {
+    font-weight: @font-weight-bold;
+}
+
+a,
+.text-link {
+    color: @color-blue;
+    text-decoration: none;
+    cursor: pointer;
+
+    &--hover,
+    &:hover {
+        color: @color-blue-lighter;
+    }   
 }
 /* General */
 @padding: 32;
@@ -956,121 +1074,3 @@ pane-header,
 @color-gray-dark:       #72726B; 
 @color-gray-darker:     #4C4C47;
 @color-gray-darkest:    #262624;
-.body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: @layout-body-font-family;
-    font-size: unit(@layout-body-font-size,px);
-    line-height: @layout-body-line-height;
-    background-color: @layout-body-background-color;
-    color: @layout-body-color;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-p {
-    margin: 0 0 10px;
-}
-
-pre {
-    white-space: pre-wrap;
-}
-
-[ng-click] {
-    cursor: pointer;
-}
-/// <reference path="../assets.less" />
-
-.text {
-    color: @color-gray;
-}
-
-.text-light {
-    color: @color-gray-light;
-}
-
-.text-lighter {
-    color: @color-gray-lighter;
-}
-
-.text-lightest {
-    color: @color-gray-lightest;
-}
-
-.text-lightest2 {
-    color: @color-gray-lightest2;
-}
-
-.text-medium,
-.text-dark {
-    color: @color-gray-dark;
-}
-
-.text-darker {
-    color: @color-gray-darker;
-}
-
-.text-darkest {
-    color: @color-gray-darkest;
-}
-
-.text-success {
-    color: @color-success;
-}
-
-.text-warning {
-    color: @color-warning;
-}
-
-.text-muted {
-    color: @color-muted;
-}
-
-.text-danger {
-    color: @color-danger;
-}
-
-.text-empty {
-    font-style: italic;
-    color: @color-gray-lighter;
-}
-
-.text-nowrap {
-    white-space: nowrap;
-}
-
-.text-upper {
-    text-transform: uppercase;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-normal {
-    .font-size(@typescale);
-    font-weight: @font-weight;
-}
-
-.text-light {
-    font-weight: @font-weight-light;
-}
-
-.text-bold {
-    font-weight: @font-weight-bold;
-}
-
-a,
-.text-link {
-    color: @color-blue;
-    text-decoration: none;
-    cursor: pointer;
-
-    &--hover,
-    &:hover {
-        color: @color-blue-lighter;
-    }   
-}
