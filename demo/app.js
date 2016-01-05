@@ -5,6 +5,16 @@ function Config($routeProvider, $locationProvider) {
 
 	$routeProvider
 		
+        .when("/forms", {
+			templateUrl: "/forms/forms.html",
+			controller: 'formsController',
+			controllerAs: 'vm'
+		})
+        .when("/buttons", {
+			templateUrl: "/buttons/buttons.html",
+			controller: 'buttonsController',
+			controllerAs: 'vm'
+		})
         .when("/routetest/:area", {
 			templateUrl: "/paneTest/paneTest.html",
 			controller: 'paneTestController',

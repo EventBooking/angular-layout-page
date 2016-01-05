@@ -2,6 +2,14 @@
 
 .text {
     color: @color-gray;
+    
+    input&[type="button"],
+    button& {
+        text-align: left;
+        padding: 0;
+        border-style: none;
+        background-color: transparent;
+    }
 }
 
 .text-light {
@@ -34,19 +42,39 @@
 }
 
 .text-success {
+    .text();
     color: @color-success;
+    
+    &:hover {
+        color: @color-blue-lighter;
+    }
 }
 
 .text-warning {
+    .text();
     color: @color-warning;
+    
+    &:hover {
+        color: @color-blue-lighter;
+    }
 }
 
 .text-muted {
+    .text();
     color: @color-muted;
+    
+    &:hover {
+        color: @color-blue-lighter;
+    }
 }
 
 .text-danger {
+    .text();
     color: @color-danger;
+    
+    &:hover {
+        color: @color-blue-lighter;
+    }
 }
 
 .text-empty {
@@ -81,12 +109,16 @@
 
 a,
 .text-link {
+    .text();
     color: @color-blue;
     text-decoration: none;
     cursor: pointer;
-
-    &--hover,
+       
     &:hover {
         color: @color-blue-lighter;
-    }   
+    }
+    
+    &:active {
+        
+    }
 }

@@ -29,3 +29,27 @@
 .pad-tb {
     padding: 32px 0;
 }
+
+.mar-all {
+    margin: 32px;
+}
+
+.mar-lr {
+    margin: 0 32px;
+}
+
+.mar-tb {
+    margin: 32px 0;
+}
+
+.list {
+    
+}
+
+.list-item {
+        
+}
+
+.list-item + .list-item {
+    margin-top: 16px;
+}

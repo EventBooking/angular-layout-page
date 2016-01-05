@@ -210,19 +210,6 @@ body-header {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-nav,
-.nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
-}
-
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-    nav,
-    .nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
-}
 nav-group,
 .nav-group {
 	display: flex;
@@ -235,6 +222,19 @@ nav-group,
 		background-size: 100% 1px;
 		background-repeat: no-repeat;
 	}
+}
+nav,
+.nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+    nav,
+    .nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
 }
 nav-group-item,
 [nav-group-item],
@@ -739,6 +739,657 @@ pane-header,
         background-color: @pane-header-actions-item-active-background-color;
     }
 }
+/// <reference path="../assets.less" />
+
+// @shadePercent: 10%;
+// @button-success: @color-success;//#29a9db;
+// @button-success-light: lighten(@button-success, @shadePercent);
+// @button-success-dark: darken(@button-success, @shadePercent);
+// @button-success-color: #fff;
+// 
+// @button-primary: @color-blue;
+// @button-primary-light: lighten(@button-primary, @shadePercent);
+// @button-primary-dark: darken(@button-primary, @shadePercent);
+// @button-primary-color: #fff;
+// 
+// @button-default: #fff;
+// @button-default-light: #eee;
+// @button-default-dark: #ccc;
+// @button-default-color: #333;
+// 
+// @button-danger: @color-red;
+// @button-danger-light: lighten(@button-danger, @shadePercent);
+// @button-danger-dark: darken(@button-danger, @shadePercent);
+// @button-danger-color: #fff;
+// 
+// @button-disabled: #eaeded;
+// @button-disabled-color: #cad2d3;
+// 
+// .button {
+//     /* Structure */
+//     display: inline-block;
+//     zoom: 1;
+//     line-height: 14px;
+//     white-space: nowrap;
+//     vertical-align: middle;
+//     text-align: center;
+//     cursor: pointer;
+//     -webkit-user-drag: none;
+//     user-select: none;
+//     font-weight: @font-weight-bold;
+// 
+//     /*Look*/
+//     .font-size(@typescale-sm);
+//     padding: 9px 14px;
+//     color: @button-default-color;
+//     border: 1px solid @button-default-dark;
+//     background-color: @button-default;
+//     text-decoration: none;
+//     border-radius: 2px;
+//     transition: all .25s ease-in-out;
+// 
+//     // ToDo: this may need to go in the pane-footer?
+//     .form :not(pane-footer) & {
+//         margin-bottom: 8px;
+//     }
+// 
+//     &:focus {
+//         outline: 0;
+//     }
+// 
+//     &:hover,
+//     &:focus {
+//         background-color: @button-default-dark;
+// 
+//         &.button-success {
+//             background-color: @button-success-dark;
+//         }
+// 
+//         &.button-primary {
+//             background-color: @button-primary-dark;
+//         }
+// 
+//         &.button-link,
+//         &.button-danger {
+//             background-color: transparent;
+//             text-decoration: underline;
+//         }
+//     }
+// }
+// 
+// /* Firefox: Get rid of the inner focus border */
+// .button::-moz-focus-inner {
+//     padding: 0;
+//     border: 0;
+// }
+// 
+// .button-active,
+// .button:active {
+//     box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+//     border-color: #000;
+// }
+// 
+// .button[disabled],
+// .button-disabled,
+// .button-disabled:hover,
+// .button-disabled:focus,
+// .button-disabled:active {
+//     border-color: @button-disabled-color;
+//     cursor: not-allowed;
+//     box-shadow: none;
+//     background-color: @button-disabled;
+//     color: @button-disabled-color;
+// }
+// 
+// .button-hidden {
+//     display: none;
+// }
+// 
+// /* Firefox: Get rid of the inner focus border */
+// .button::-moz-focus-inner{
+//     padding: 0;
+//     border: 0;
+// }
+// 
+// .button-success {
+//     background-color: @button-success;
+//     color: @button-success-color;
+//     border-color: @button-success;
+// }
+// 
+// .button-primary {
+//     background-color: @button-primary;
+//     color: @button-primary-color;
+//     border-color: @button-primary;
+// }
+// 
+// .button-default {
+//     background-color: @button-default;
+//     color: @button-default-color;
+//     border-color: @button-default;
+// }
+// 
+// .button-link {
+//     .text-link();
+//     background-color: transparent;
+//     border-color: transparent;
+//     font-weight: 400;
+// 
+//     &--flush {
+//         padding-left: 0;
+//         padding-right: 0;
+//     }
+// }
+// 
+// .button-danger {
+//     background-color: transparent;
+//     color: @color-danger;
+//     border-color: transparent;
+//     font-weight: 400;
+// 
+//     &--flush {
+//         padding-left: 0;
+//         padding-right: 0;
+//     }
+// }
+
+// button
+@button-background-color: @color-gray-lightest;
+@button-border-color: @color-gray-lightest;
+@button-color: @color-gray-darkest;
+@button-hover-background-color: @color-gray-light;
+@button-hover-border-color: @color-gray-light;
+@button-hover-color: @color-gray-darkest;
+@button-active-background-color: @color-gray-lightest;
+@button-active-border-color: @color-gray;
+@button-active-color: @color-gray-darkest;
+@button-focus-outline-color: @color-gray-dark;
+
+// button-default
+@button-default-background-color: #fff;
+@button-default-border-color: @color-gray-light;
+@button-default-color: @color-gray-darkest;
+@button-default-hover-background-color: @color-gray-light;
+@button-default-hover-border-color: @color-gray-light;
+@button-default-hover-color: @color-gray-darkest;
+@button-default-active-background-color: #fff;
+@button-default-active-border-color: @color-gray-light;
+@button-default-active-color: @color-gray-darkest;
+@button-default-focus-outline-color: @color-gray-dark;
+
+// button-primary
+@button-primary-background-color: @color-blue;
+@button-primary-border-color: @color-blue;
+@button-primary-color: #fff;
+@button-primary-hover-background-color: @color-blue-dark;
+@button-primary-hover-border-color: @color-blue-dark;
+@button-primary-hover-color: #fff;
+@button-primary-active-background-color: @color-blue;
+@button-primary-active-border-color: @color-blue;
+@button-primary-active-color: #fff;
+@button-primary-focus-outline-color: @color-blue-darker;
+
+// button-success
+@button-success-background-color: @color-green;
+@button-success-border-color: @color-green;
+@button-success-color: #fff;
+@button-success-hover-background-color: @color-green-dark;
+@button-success-hover-border-color: @color-green-dark;
+@button-success-hover-color: #fff;
+@button-success-active-background-color: @color-green;
+@button-success-active-border-color: @color-green;
+@button-success-active-color: #fff;
+@button-success-focus-outline-color: @color-green-darker;
+
+// button-danger
+@button-danger-background-color: @color-red;
+@button-danger-border-color: @color-red;
+@button-danger-color: #fff;
+@button-danger-hover-background-color: @color-red-dark;
+@button-danger-hover-border-color: @color-red-dark;
+@button-danger-hover-color: #fff;
+@button-danger-active-background-color: @color-red;
+@button-danger-active-border-color: @color-red;
+@button-danger-active-color: #fff;
+@button-danger-focus-outline-color: @color-red-darker;
+
+.button {
+    display: inline-flex;
+    white-space: nowrap;
+    max-width: 100%;
+    border-width: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    background-color: @button-background-color;
+    border-color: @button-border-color;
+    color: @button-color;
+    padding: @padding-quarter @padding-half;
+    
+    &:hover {
+        background-color: @button-hover-background-color;
+        border-color: @button-hover-border-color;
+        color: @button-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-active-background-color;
+        border-color: @button-active-border-color;
+        color: @button-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-focus-outline-color;
+    }
+}
+
+.button-default {
+    .button();
+    background-color: @button-default-background-color;
+    border-color: @button-default-border-color;
+    color: @button-default-color;
+    
+    &:hover {
+        background-color: @button-default-hover-background-color;
+        border-color: @button-default-hover-border-color;
+        color: @button-default-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-default-active-background-color;
+        border-color: @button-default-active-border-color;
+        color: @button-default-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-default-focus-outline-color;
+    }
+}
+
+.button-primary {
+    .button();
+    background-color: @button-primary-background-color;
+    border-color: @button-primary-border-color;
+    color: @button-primary-color;
+    
+    &:hover {
+        background-color: @button-primary-hover-background-color;
+        border-color: @button-primary-hover-border-color;
+        color: @button-primary-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-primary-active-background-color;
+        border-color: @button-primary-active-border-color;
+        color: @button-primary-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-primary-focus-outline-color;
+    }
+}
+
+.button-success {
+    .button();
+    background-color: @button-success-background-color;
+    border-color: @button-success-border-color;
+    color: @button-success-color;
+    
+    &:hover {
+        background-color: @button-success-hover-background-color;
+        border-color: @button-success-hover-border-color;
+        color: @button-success-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-success-active-background-color;
+        border-color: @button-success-active-border-color;
+        color: @button-success-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-success-focus-outline-color;
+    }
+}
+
+.button-danger {
+    .button();
+    background-color: @button-danger-background-color;
+    border-color: @button-danger-border-color;
+    color: @button-danger-color;
+    
+    &:hover {
+        background-color: @button-danger-hover-background-color;
+        border-color: @button-danger-hover-border-color;
+        color: @button-danger-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-danger-active-background-color;
+        border-color: @button-danger-active-border-color;
+        color: @button-danger-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-danger-focus-outline-color;
+    }
+}
+
+// this should be deprecated
+.button-link {
+    .text-link();
+}
+/// <reference path="../assets.less" />
+
+@form-input-background: #fff;
+@form-input-border: #ccc;
+@form-input-border-highlight: #129FEA;
+@form-input-border-danger: #e9322d;
+@form-input-border-muted: #ccc;
+@form-select: #eee;
+@form-select-color: #777;
+@form-input-disabled: #eaeded;
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+select,
+textarea {
+    .form & {
+        padding: 0.5rem 0.6rem;
+        display: inline-block;
+        border: 1px solid @form-input-border;
+        border-radius: 4px;
+        vertical-align: middle;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        transition: all .25s ease-in-out;
+        margin-bottom: 8px;
+        width: 100%;
+
+        &.no-outline {
+            outline: none;
+        }
+
+        &:focus:not(.no-outline) {
+            outline: 0;
+            border-color: @form-input-border-highlight;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px fade(@form-input-border-highlight,60);
+        }
+
+        &[disabled] {
+            cursor: not-allowed;
+            background-color: @form-input-disabled;
+        }
+
+        &.ng-invalid.ng-touched {
+            border-color: @color-red-light;
+        }
+    }
+
+    .form-stacked & {
+        display: block;
+        width: 100%;
+    }
+
+    .form th &,
+    .form td & {
+        margin-bottom: 0;
+    }
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+input:not([type]) {
+    .form & {
+        padding: 0.5rem 0.6rem;
+        display: inline-block;
+        border: 1px solid @form-input-border;
+        border-radius: 4px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: 0;
+            border-color: @form-input-border-highlight;
+        }
+
+        &[disabled] {
+            cursor: not-allowed;
+            background-color: @form-input-disabled;
+        }
+    }
+
+    .form-stacked & {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
+/* May be able to remove this tweak as color inputs become more standardized across browsers. */
+input[type="color"] {
+    .form & {
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+input[type="checkbox"] {
+    .form & {
+        margin-top: -2px;
+        vertical-align: middle;
+    }
+}
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    .form & {
+        outline: thin solid @form-input-border-highlight;
+        outline: 1px auto @form-input-border-highlight;
+    }
+}
+
+.checkbox,
+.radio {
+    .form {
+        margin: 0.5rem 0;
+        display: block;
+        cursor: pointer;
+
+        &:not(.is-checked) {
+            color: @color-gray-dark;
+        }
+
+        &.is-checked {
+            color: @color-gray;
+        }
+
+        > input[type="checkbox"],
+        > input[type="radio"] {
+            vertical-align: -2px;
+        }
+    }
+}
+
+input,
+select,
+textarea {
+    .form & {
+        &[readonly] {
+            background-color: @form-select; /* menu hover bg color */
+            color: @form-select-color; /* menu text color */
+            border-color: @form-input-border;
+        }
+    }
+
+    .form-aligned & {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        vertical-align: middle;
+    }
+}
+
+select {
+    .form & {
+        /* Normalizes the height; padding is not sufficient. */
+        /*height: 2.375rem;*/
+        padding: 0.4375rem 0.6rem;
+        background-color: @form-input-background;
+
+        &[multiple] {
+            height: auto;
+        }
+    }
+}
+
+label {
+    color: @color-gray-dark;
+    .font-size(@typescale-sm);
+    text-transform: uppercase;
+
+    .form & {
+        margin: 0.5rem 0 0.2rem;    
+    }
+
+    .form-stacked & {
+        display: block;
+        width: 100%;
+    }
+
+    &.label--inline {
+        display: inline;
+    }
+}
+
+fieldset {
+    .form & {
+        margin: 0;
+        padding: 0.35rem 0 0.75rem;
+        border: 0;
+    }
+}
+
+legend {
+    .form & {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 0;
+        margin-bottom: 0.5rem;
+        color: @color-gray;
+        border-bottom: 1px solid @border-color;
+        font-size: 1.25rem;
+    }
+}
+
+textarea {
+    .form-aligned & {
+        vertical-align: top;
+    }
+}
+
+.form-message {
+    display: block;
+    color: @color-gray-dark;
+    font-size: 0.875rem;
+
+    &--inline {
+        display: inline-block;
+        padding-left: 0.3rem;
+        vertical-align: middle;
+    }
+}
+
+.form-message-link {
+    &:extend(.text-link all);
+    float: right;
+}
+
+/*form-group*/
+.form-group {
+    margin-bottom: 15px;
+    margin-top: 5px;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &--columns {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.form-group-col {
+    .form-group--columns & {
+        flex-grow: 1;
+    }
+
+    & + & {
+        margin-left: 5px;
+    }
+}
+
+/* form labels */
+.form-labelOptional {
+    color: @color-gray-dark;
+    padding-left: 5px;
+    font-size: 80%;
+}
+
+@media only screen and (max-width : unit(@screen-small,px)) {
+    button[type="submit"] {
+        .form & {
+            margin: 0.7rem 0 0;
+        }
+    }
+
+    input:not([type]),
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="url"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="week"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"],
+    label {
+        .form & {
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+    }
+
+    .form-message {
+        display: block;
+        font-size: 0.75rem;
+        /* Increased bottom padding to make it group with its related input element. */
+        padding: 0.2rem 0 0.8rem;
+    }
+}
 .body {
     margin: 0;
     padding: 0;
@@ -769,6 +1420,14 @@ pre {
 
 .text {
     color: @color-gray;
+    
+    input&[type="button"],
+    button& {
+        text-align: left;
+        padding: 0;
+        border-style: none;
+        background-color: transparent;
+    }
 }
 
 .text-light {
@@ -801,19 +1460,39 @@ pre {
 }
 
 .text-success {
+    .text();
     color: @color-success;
+    
+    &:hover {
+        color: @color-blue-lighter;
+    }
 }
 
 .text-warning {
+    .text();
     color: @color-warning;
+    
+    &:hover {
+        color: @color-blue-lighter;
+    }
 }
 
 .text-muted {
+    .text();
     color: @color-muted;
+    
+    &:hover {
+        color: @color-blue-lighter;
+    }
 }
 
 .text-danger {
+    .text();
     color: @color-danger;
+    
+    &:hover {
+        color: @color-blue-lighter;
+    }
 }
 
 .text-empty {
@@ -848,14 +1527,18 @@ pre {
 
 a,
 .text-link {
+    .text();
     color: @color-blue;
     text-decoration: none;
     cursor: pointer;
-
-    &--hover,
+       
     &:hover {
         color: @color-blue-lighter;
-    }   
+    }
+    
+    &:active {
+        
+    }
 }
 /* General */
 @padding: 32;
