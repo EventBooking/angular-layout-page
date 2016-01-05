@@ -906,7 +906,8 @@ label.label--inline {
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
-  padding: 8 16;
+  padding: 0 1em;
+  line-height: 2em;
 }
 .button:hover {
   background-color: #B2B2A9;
@@ -936,7 +937,8 @@ label.label--inline {
           transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
-  padding: 8 16;
+  padding: 0 1em;
+  line-height: 2em;
   background-color: #fff;
   border-color: #B2B2A9;
   color: #262624;
@@ -983,7 +985,8 @@ label.label--inline {
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
-  padding: 8 16;
+  padding: 0 1em;
+  line-height: 2em;
   background-color: #4EB6D6;
   border-color: #4EB6D6;
   color: #fff;
@@ -1030,7 +1033,8 @@ label.label--inline {
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
-  padding: 8 16;
+  padding: 0 1em;
+  line-height: 2em;
   background-color: #48C245;
   border-color: #48C245;
   color: #fff;
@@ -1077,7 +1081,8 @@ label.label--inline {
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
-  padding: 8 16;
+  padding: 0 1em;
+  line-height: 2em;
   background-color: #EF5041;
   border-color: #EF5041;
   color: #fff;
