@@ -598,7 +598,7 @@ a:active,
 }
 .form-row .form-group ~ .form-group {
   margin-top: 0;
-  margin-left: 1em;
+  margin-left: .5em;
 }
 .form-label {
   text-transform: uppercase;
@@ -676,6 +676,9 @@ label > [type="checkbox"]:focus + .form-label:before {
 input[type].form-control {
   box-sizing: border-box;
 }
+textarea.form-control {
+  height: auto;
+}
 .form-control:focus {
   outline: none;
   box-shadow: inset 0 0 0.3em #AEE5A7;
@@ -693,8 +696,31 @@ input[type].form-control {
   background-color: transparent;
   color: inherit;
 }
-.form-label ~ .form-control {
-  margin-top: .2em;
+.form-label + .form-control,
+.form-control + .form-control {
+  margin-top: .5em;
+}
+.form-control-row .form-control + .form-control {
+  margin-top: 0;
+  margin-left: .5em;
+}
+.form-control-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.form-control + .form-control-row {
+  margin-top: .5em;
 }
 .button {
   display: -webkit-inline-box;
