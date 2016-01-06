@@ -223,6 +223,19 @@ nav,
         min-width: unit(@nav-small,px);
     }
 }
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: unit(@nav-group-padding,px) 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
+}
 nav-group-item,
 [nav-group-item],
 .nav-group-item {
@@ -280,19 +293,6 @@ nav-group-item,
         display: none;
     }
 }
-nav-group,
-.nav-group {
-	display: flex;
-	flex-direction: column;
-	padding: unit(@nav-group-padding,px) 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
-}
 nav-header {
 	display: block;
 	text-align: center;
@@ -341,19 +341,6 @@ nav-header {
         flex-grow: 1;
     }
 }
-.page-content-body {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-}
-
-// Less width than table landscape
-@media (max-width: unit(@screen-tablet-landscape,px)) {
-    .page-content-body {
-        flex-direction: column;
-        align-content: flex-start;
-    }
-}
 .page-content,
 .page-content-area {
     display: flex;
@@ -367,6 +354,19 @@ nav-header {
     .page-content,
     .page-content-area {
         flex-direction: column;
+    }
+}
+.page-content-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+// Less width than table landscape
+@media (max-width: unit(@screen-tablet-landscape,px)) {
+    .page-content-body {
+        flex-direction: column;
+        align-content: flex-start;
     }
 }
 .page-content-body-pane {
@@ -508,25 +508,6 @@ page-content-nav-item {
         padding: 0 unit(@padding-quarter,px);
     }
 }
-page-slider {
-    position: absolute;
-    right: 0;
-    width: unit(@page-slider-width,px);
-    top: 0;
-    bottom: 0;
-    z-index: 10;
-    transition: right .25s ease-in-out;
-    color: @page-slider-color;
-    background-color: @page-slider-background-color;
-
-    &:not(.is-visible) {
-        right: unit(-@page-slider-width,px);
-    }
-
-    &.is-visible {
-        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
-    }
-}
 page-header,
 .page-header {
     display: flex;
@@ -585,6 +566,25 @@ page-header,
     &:active {
         color: @page-header-actions-item-active-color;
         background-color: @page-header-actions-item-active-background-color;
+    }
+}
+page-slider {
+    position: absolute;
+    right: 0;
+    width: unit(@page-slider-width,px);
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    transition: right .25s ease-in-out;
+    color: @page-slider-color;
+    background-color: @page-slider-background-color;
+
+    &:not(.is-visible) {
+        right: unit(-@page-slider-width,px);
+    }
+
+    &.is-visible {
+        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
 .pane {
@@ -1192,12 +1192,34 @@ pane-header,
     flex-direction: column;
 }
 
+.form-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    .form-group ~ &,
+    & ~ & {
+       margin-top: 1em;
+    }
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     
+    .form-row & {
+        flex-grow: 1;
+    }
+    
+    .form-row ~ &,
     & ~ & {
-       margin-top: 1em; 
+       margin-top: 1em;
+    }
+    
+    .form-row & ~ & {
+        margin-top: 0;
+        margin-left: 1em;
     }
 }
 
@@ -1208,7 +1230,7 @@ pane-header,
     position: relative;
     user-select: none;
     
-    .form-group > label > & {
+    .form-group  label > & {
         vertical-align: middle;
         display: flex;
     }
@@ -1246,7 +1268,7 @@ pane-header,
     }
 }
 
-:root .form-group > label > [type="checkbox"] {
+:root .form-group  label > [type="checkbox"] {
     position: absolute;
     left: -1000em;
 }
@@ -1271,6 +1293,11 @@ pane-header,
     border-radius: 4px;
     border-color: @form-control-border-color;
     color: @form-control-color;
+    width: 100%;
+    
+    input[type]& {
+        box-sizing: border-box;
+    }
     
     &:focus {
         outline: none;
