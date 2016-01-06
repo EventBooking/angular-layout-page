@@ -53,3 +53,7 @@
 .list-item + .list-item {
     margin-top: 16px;
 }
+
+.address-state {
+    width: 35px;
+}

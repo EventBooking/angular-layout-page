@@ -422,7 +422,10 @@
     border-radius: 4px;
     border-color: @form-control-border-color;
     color: @form-control-color;
-    width: 100%;
+    
+    &:not(&--customWidth) {
+        width: 100%;
+    }
     
     input[type]& {
         box-sizing: border-box;

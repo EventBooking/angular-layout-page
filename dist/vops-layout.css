@@ -671,6 +671,8 @@ label > [type="checkbox"]:focus + .form-label:before {
   border-radius: 4px;
   border-color: #CCCCC3;
   color: #72726B;
+}
+.form-control:not(.form-control--customWidth) {
   width: 100%;
 }
 input[type].form-control {
