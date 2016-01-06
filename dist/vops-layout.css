@@ -518,8 +518,7 @@ button.text-danger {
   font-weight: 600;
 }
 a,
-.text-link,
-.form-message-link {
+.text-link {
   color: #999990;
   color: #4EB6D6;
   text-decoration: none;
@@ -528,367 +527,136 @@ a,
 inputa[type="button"],
 input.text-link[type="button"],
 buttona,
-button.text-link,
-input.form-message-link[type="button"],
-button.form-message-link {
+button.text-link {
   text-align: left;
   padding: 0;
   border-style: none;
   background-color: transparent;
 }
 a:hover,
-.text-link:hover,
-.form-message-link:hover {
+.text-link:hover {
   color: #B1E0ED;
 }
-.form input[type="text"],
-.form input[type="password"],
-.form input[type="email"],
-.form input[type="url"],
-.form input[type="date"],
-.form input[type="month"],
-.form input[type="time"],
-.form input[type="datetime"],
-.form input[type="datetime-local"],
-.form input[type="week"],
-.form input[type="number"],
-.form input[type="search"],
-.form input[type="tel"],
-.form input[type="color"],
-.form select,
-.form textarea {
-  padding: 0.5rem 0.6rem;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  vertical-align: middle;
-  box-sizing: border-box;
-  -webkit-transition: all 0.25s ease-in-out;
-          transition: all 0.25s ease-in-out;
-  margin-bottom: 8px;
-  width: 100%;
+a:active,
+.text-link:active {
+  color: #4EB6D6;
 }
-.form input[type="text"].no-outline,
-.form input[type="password"].no-outline,
-.form input[type="email"].no-outline,
-.form input[type="url"].no-outline,
-.form input[type="date"].no-outline,
-.form input[type="month"].no-outline,
-.form input[type="time"].no-outline,
-.form input[type="datetime"].no-outline,
-.form input[type="datetime-local"].no-outline,
-.form input[type="week"].no-outline,
-.form input[type="number"].no-outline,
-.form input[type="search"].no-outline,
-.form input[type="tel"].no-outline,
-.form input[type="color"].no-outline,
-.form select.no-outline,
-.form textarea.no-outline {
-  outline: none;
-}
-.form input[type="text"]:focus:not(.no-outline),
-.form input[type="password"]:focus:not(.no-outline),
-.form input[type="email"]:focus:not(.no-outline),
-.form input[type="url"]:focus:not(.no-outline),
-.form input[type="date"]:focus:not(.no-outline),
-.form input[type="month"]:focus:not(.no-outline),
-.form input[type="time"]:focus:not(.no-outline),
-.form input[type="datetime"]:focus:not(.no-outline),
-.form input[type="datetime-local"]:focus:not(.no-outline),
-.form input[type="week"]:focus:not(.no-outline),
-.form input[type="number"]:focus:not(.no-outline),
-.form input[type="search"]:focus:not(.no-outline),
-.form input[type="tel"]:focus:not(.no-outline),
-.form input[type="color"]:focus:not(.no-outline),
-.form select:focus:not(.no-outline),
-.form textarea:focus:not(.no-outline) {
-  outline: 0;
-  border-color: #129FEA;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(18, 159, 234, 0.6);
-}
-.form input[type="text"][disabled],
-.form input[type="password"][disabled],
-.form input[type="email"][disabled],
-.form input[type="url"][disabled],
-.form input[type="date"][disabled],
-.form input[type="month"][disabled],
-.form input[type="time"][disabled],
-.form input[type="datetime"][disabled],
-.form input[type="datetime-local"][disabled],
-.form input[type="week"][disabled],
-.form input[type="number"][disabled],
-.form input[type="search"][disabled],
-.form input[type="tel"][disabled],
-.form input[type="color"][disabled],
-.form select[disabled],
-.form textarea[disabled] {
-  cursor: not-allowed;
-  background-color: #eaeded;
-}
-.form input[type="text"].ng-invalid.ng-touched,
-.form input[type="password"].ng-invalid.ng-touched,
-.form input[type="email"].ng-invalid.ng-touched,
-.form input[type="url"].ng-invalid.ng-touched,
-.form input[type="date"].ng-invalid.ng-touched,
-.form input[type="month"].ng-invalid.ng-touched,
-.form input[type="time"].ng-invalid.ng-touched,
-.form input[type="datetime"].ng-invalid.ng-touched,
-.form input[type="datetime-local"].ng-invalid.ng-touched,
-.form input[type="week"].ng-invalid.ng-touched,
-.form input[type="number"].ng-invalid.ng-touched,
-.form input[type="search"].ng-invalid.ng-touched,
-.form input[type="tel"].ng-invalid.ng-touched,
-.form input[type="color"].ng-invalid.ng-touched,
-.form select.ng-invalid.ng-touched,
-.form textarea.ng-invalid.ng-touched {
-  border-color: #F48F7F;
-}
-.form-stacked input[type="text"],
-.form-stacked input[type="password"],
-.form-stacked input[type="email"],
-.form-stacked input[type="url"],
-.form-stacked input[type="date"],
-.form-stacked input[type="month"],
-.form-stacked input[type="time"],
-.form-stacked input[type="datetime"],
-.form-stacked input[type="datetime-local"],
-.form-stacked input[type="week"],
-.form-stacked input[type="number"],
-.form-stacked input[type="search"],
-.form-stacked input[type="tel"],
-.form-stacked input[type="color"],
-.form-stacked select,
-.form-stacked textarea {
-  display: block;
-  width: 100%;
-}
-.form th input[type="text"],
-.form th input[type="password"],
-.form th input[type="email"],
-.form th input[type="url"],
-.form th input[type="date"],
-.form th input[type="month"],
-.form th input[type="time"],
-.form th input[type="datetime"],
-.form th input[type="datetime-local"],
-.form th input[type="week"],
-.form th input[type="number"],
-.form th input[type="search"],
-.form th input[type="tel"],
-.form th input[type="color"],
-.form th select,
-.form th textarea,
-.form td input[type="text"],
-.form td input[type="password"],
-.form td input[type="email"],
-.form td input[type="url"],
-.form td input[type="date"],
-.form td input[type="month"],
-.form td input[type="time"],
-.form td input[type="datetime"],
-.form td input[type="datetime-local"],
-.form td input[type="week"],
-.form td input[type="number"],
-.form td input[type="search"],
-.form td input[type="tel"],
-.form td input[type="color"],
-.form td select,
-.form td textarea {
-  margin-bottom: 0;
-}
-/*
-Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
-since IE8 won't execute CSS that contains a CSS3 selector.
-*/
-.form input:not([type]) {
-  padding: 0.5rem 0.6rem;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-.form input:not([type]):focus {
-  outline: 0;
-  border-color: #129FEA;
-}
-.form input:not([type])[disabled] {
-  cursor: not-allowed;
-  background-color: #eaeded;
-}
-.form-stacked input:not([type]) {
-  display: block;
-  width: 100%;
-}
-/* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
-/* May be able to remove this tweak as color inputs become more standardized across browsers. */
-.form input[type="color"] {
-  padding: 0.2rem 0.5rem;
-}
-.form input[type="checkbox"] {
-  margin-top: -2px;
-  vertical-align: middle;
-}
-.form input[type="file"]:focus,
-.form input[type="radio"]:focus,
-.form input[type="checkbox"]:focus {
-  outline: thin solid #129FEA;
-  outline: 1px auto #129FEA;
-}
-.checkbox .form,
-.radio .form {
-  margin: 0.5rem 0;
-  display: block;
-  cursor: pointer;
-}
-.checkbox .form:not(.is-checked),
-.radio .form:not(.is-checked) {
-  color: #72726B;
-}
-.checkbox .form.is-checked,
-.radio .form.is-checked {
-  color: #999990;
-}
-.checkbox .form > input[type="checkbox"],
-.radio .form > input[type="checkbox"],
-.checkbox .form > input[type="radio"],
-.radio .form > input[type="radio"] {
-  vertical-align: -2px;
-}
-.form input[readonly],
-.form select[readonly],
-.form textarea[readonly] {
-  background-color: #eee;
-  /* menu hover bg color */
-  color: #777;
-  /* menu text color */
-  border-color: #ccc;
-}
-.form-aligned input,
-.form-aligned select,
-.form-aligned textarea {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  vertical-align: middle;
-}
-.form select {
-  /* Normalizes the height; padding is not sufficient. */
-  /*height: 2.375rem;*/
-  padding: 0.4375rem 0.6rem;
-  background-color: #fff;
-}
-.form select[multiple] {
-  height: auto;
-}
-label {
-  color: #72726B;
-  font-size: 14px;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-}
-.form label {
-  margin: 0.5rem 0 0.2rem;
-}
-.form-stacked label {
-  display: block;
-  width: 100%;
-}
-label.label--inline {
-  display: inline;
-}
-.form fieldset {
-  margin: 0;
-  padding: 0.35rem 0 0.75rem;
-  border: 0;
-}
-.form legend {
-  display: block;
-  width: 100%;
-  padding: 0.5rem 0;
-  margin-bottom: 0.5rem;
-  color: #999990;
-  border-bottom: 1px solid #E5E5E3;
-  font-size: 1.25rem;
-}
-.form-aligned textarea {
-  vertical-align: top;
-}
-.form-message {
-  display: block;
-  color: #72726B;
-  font-size: 0.875rem;
-}
-.form-message--inline {
-  display: inline-block;
-  padding-left: 0.3rem;
-  vertical-align: middle;
-}
-.form-message-link {
-  float: right;
-}
-/*form-group*/
-.form-group {
-  margin-bottom: 15px;
-  margin-top: 5px;
-}
-.form-group:first-child {
-  margin-top: 0;
-}
-.form-group--columns {
+.form {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-.form-group--columns .form-group-col {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+.form-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-.form-group-col + .form-group-col {
-  margin-left: 5px;
+.form-group ~ .form-group {
+  margin-top: 1em;
 }
-/* form labels */
-.form-labelOptional {
+.form-label {
+  text-transform: uppercase;
+  font-size: .875em;
   color: #72726B;
-  padding-left: 5px;
-  font-size: 80%;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-@media only screen and (max-width: 480px) {
-  .form button[type="submit"] {
-    margin: 0.7rem 0 0;
-  }
-  .form input:not([type]),
-  .form input[type="text"],
-  .form input[type="password"],
-  .form input[type="email"],
-  .form input[type="url"],
-  .form input[type="date"],
-  .form input[type="month"],
-  .form input[type="time"],
-  .form input[type="datetime"],
-  .form input[type="datetime-local"],
-  .form input[type="week"],
-  .form input[type="number"],
-  .form input[type="search"],
-  .form input[type="tel"],
-  .form input[type="color"],
-  .form label {
-    margin-bottom: 0.3rem;
-    display: block;
-  }
-  .form-message {
-    display: block;
-    font-size: 0.75rem;
-    /* Increased bottom padding to make it group with its related input element. */
-    padding: 0.2rem 0 0.8rem;
-  }
+.form-group > label > .form-label {
+  vertical-align: middle;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+label > [type="checkbox"] + .form-label {
+  outline: none;
+}
+label > [type="checkbox"] + .form-label:before {
+  content: "\0000a0";
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: solid 2px #CCCCC3;
+  margin-right: .5em;
+  width: 1.5em;
+  line-height: 1.25em;
+  border-radius: 2px;
+  -webkit-transition: all .25s linear;
+          transition: all .25s linear;
+}
+label > [type="checkbox"]:checked + .form-label:before {
+  content: "\2714";
+  background-color: #48C245;
+  border-color: #48C245;
+  color: #fff;
+}
+label > [type="checkbox"]:focus + .form-label:before {
+  box-shadow: inset 0 0 0.3em #AEE5A7;
+}
+:root .form-group > label > [type="checkbox"] {
+  position: absolute;
+  left: -1000em;
+}
+.form-labelOptional,
+.form-label-sub {
+  font-size: .75em;
+  color: #72726B;
+}
+.form-label .form-labelOptional,
+.form-label .form-label-sub {
+  margin-left: .2em;
+}
+.form-control {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: .5em;
+  height: 2em;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-color: #CCCCC3;
+  color: #72726B;
+}
+.form-control:focus {
+  outline: none;
+  box-shadow: inset 0 0 0.3em #AEE5A7;
+}
+.form-group > label > .form-control {
+  vertical-align: middle;
+}
+.form-control::-ms-expand {
+  background-color: transparent;
+  border-style: none;
+  padding-right: .5em;
+  color: #72726B;
+}
+.form-control::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+.form-label ~ .form-control {
+  margin-top: .2em;
 }
 .button {
   display: -webkit-inline-box;
@@ -962,7 +730,7 @@ label.label--inline {
   color: #262624;
 }
 .button-default:active {
-  background-color: #fff;
+  background-color: #E5E5E3;
   border-color: #B2B2A9;
   color: #262624;
 }
@@ -1128,6 +896,9 @@ button.button-link {
 }
 .button-link:hover {
   color: #B1E0ED;
+}
+.button-link:active {
+  color: #4EB6D6;
 }
 .layout-page {
   display: -webkit-box;

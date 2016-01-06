@@ -19,7 +19,8 @@
   ],
   "devDependencies": {
     "angular-route": "~1.4.8",
-    "font-awesome": "~4.5.0"
+    "font-awesome": "~4.5.0",
+    "ionicons": "~2.0.1"
   },
   "dependencies": {
     "angular": "~1.4.8",
