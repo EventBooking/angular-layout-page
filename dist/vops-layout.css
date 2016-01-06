@@ -1623,6 +1623,7 @@ pane-header ~ .pane-body {
 }
 .pane--withFooter .pane-body {
   max-height: calc(100% - 64px);
+  padding-bottom: 16px;
 }
 pane-footer {
   display: block;
