@@ -691,7 +691,6 @@ textarea.form-control {
   padding-right: 2em;
 }
 .form-control.ng-touched.ng-invalid {
-  box-shadow: inset 0 0 0.3em #EF5041;
   border-color: #EF5041;
 }
 .form-control-row {
