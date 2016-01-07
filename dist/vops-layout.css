@@ -649,6 +649,12 @@ textarea.form-control {
   height: auto;
   line-height: 1.5em;
 }
+.form-control:hover {
+  color: #72726B;
+}
+.form-control:active {
+  color: #72726B;
+}
 .form-control:focus {
   outline: none;
   box-shadow: inset 0 0 0.3em #AEE5A7;
@@ -999,15 +1005,13 @@ pre {
   cursor: pointer;
 }
 a {
+  color: #4EB6D6;
   text-decoration: none;
 }
-a:not(.form-control) {
-  color: #4EB6D6;
-}
-a:not(.form-control):hover {
+a:hover {
   color: #B1E0ED;
 }
-a:not(.form-control):active {
+a:active {
   color: #4EB6D6;
 }
 .layout-page {
@@ -1811,11 +1815,13 @@ pane-header:after,
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 48px;
-  padding: 0 16px;
   text-align: center;
   cursor: pointer;
   color: #999990;
   background-color: transparent;
+}
+.pane-header-actions-item + .pane-header-actions-item {
+  margin-left: 16px;
 }
 .pane-header-actions-item:hover {
   color: #CCCCC3;

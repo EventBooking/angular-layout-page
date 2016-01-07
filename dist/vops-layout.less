@@ -28,10 +28,8 @@ pre {
 }
 
 a {
+    .text-link();
     text-decoration: none;
-    &:not(.form-control) {
-        .text-link();
-    }   
 }
 body-header {
     display: flex;
@@ -758,12 +756,15 @@ pane-header,
     display: inline-block;
     .font-size(@pane-header-actions-font-size);
     line-height: unit(@pane-header-height,px);
-    padding: 0 unit(@pane-header-actions-item-padding,px);
+    
     text-align: center;
     cursor: pointer;
-    
     color: @pane-header-actions-item-color;
-    background-color: @pane-header-actions-item-background-color; 
+    background-color: @pane-header-actions-item-background-color;
+    
+    & + & {
+        margin-left: unit(@pane-header-actions-item-padding,px);    
+    } 
     
     &:hover {
         color: @pane-header-actions-item-hover-color;
@@ -1035,6 +1036,14 @@ pane-header,
     textarea& {
         height: auto;
         line-height: 1.5em;
+    }
+    
+    &:hover {
+        color: @form-control-color;
+    }
+    
+    &:active {
+        color: @form-control-color;
     }
     
     &:focus {
