@@ -93,6 +93,53 @@ body-header {
     letter-spacing: unit(@letter-spacing-header,rem);
     line-height: unit(@body-header-subtitle-font-size,px);
 }
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	font-family: @font-family;
+	line-height: @line-height-base;
+	background-color: @background-color;
+	color: @color;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
+}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -195,53 +242,6 @@ body-header {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	font-family: @font-family;
-	line-height: @line-height-base;
-	background-color: @background-color;
-	color: @color;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
 }
 nav,
 .nav {
@@ -1173,6 +1173,16 @@ pane-header,
         
     }
 }
+
+.form-message {
+    .text-danger();
+}
+
+.form-message-link {
+    .text-link();
+    float: right;
+    cursor: pointer;
+}
 /// <reference path="../assets.less" />
 
 .text {
@@ -1218,37 +1228,37 @@ pane-header,
 
 .text-success {
     .text();
-    color: @color-success;
+    color: @color-green;
     
-    &:hover {
-        color: @color-blue-lighter;
+    &.text-link:hover {
+        color: @color-green-lighter;
     }
 }
 
 .text-warning {
     .text();
-    color: @color-warning;
+    color: @color-orange;
     
-    &:hover {
-        color: @color-blue-lighter;
+    &.text-link:hover {
+        color: @color-orange-lighter;
     }
 }
 
 .text-muted {
     .text();
-    color: @color-muted;
+    color: @color-gray;
     
-    &:hover {
-        color: @color-blue-lighter;
+    &.text-link:hover {
+        color: @color-gray-lighter;
     }
 }
 
 .text-danger {
     .text();
-    color: @color-danger;
+    color: @color-red;
     
-    &:hover {
-        color: @color-blue-lighter;
+    &.text-link:hover {
+        color: @color-red-lighter;
     }
 }
 
@@ -1283,6 +1293,7 @@ pane-header,
 }
 
 .text-link {
+    .text();
     color: @color-blue;
     
     &:hover {

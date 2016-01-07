@@ -426,8 +426,8 @@ button.text-success {
   border-style: none;
   background-color: transparent;
 }
-.text-success:hover {
-  color: #B1E0ED;
+.text-success.text-link:hover {
+  color: #AEE5A7;
 }
 .text-warning {
   color: #999990;
@@ -440,12 +440,11 @@ button.text-warning {
   border-style: none;
   background-color: transparent;
 }
-.text-warning:hover {
-  color: #B1E0ED;
+.text-warning.text-link:hover {
+  color: #FBEAD5;
 }
 .text-muted {
   color: #999990;
-  color: #E5E5E3;
 }
 input.text-muted[type="button"],
 button.text-muted {
@@ -454,8 +453,8 @@ button.text-muted {
   border-style: none;
   background-color: transparent;
 }
-.text-muted:hover {
-  color: #B1E0ED;
+.text-muted.text-link:hover {
+  color: #CCCCC3;
 }
 .text-danger {
   color: #999990;
@@ -468,8 +467,8 @@ button.text-danger {
   border-style: none;
   background-color: transparent;
 }
-.text-danger:hover {
-  color: #B1E0ED;
+.text-danger.text-link:hover {
+  color: #F8B5A6;
 }
 .text-empty {
   font-style: italic;
@@ -496,7 +495,15 @@ button.text-danger {
   font-weight: 600;
 }
 .text-link {
+  color: #999990;
   color: #4EB6D6;
+}
+input.text-link[type="button"],
+button.text-link {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
 }
 .text-link:hover {
   color: #B1E0ED;
@@ -755,6 +762,39 @@ textarea.form-control {
 .form-addon-icon:active {
   color: #B2B2A9;
 }
+.form-message {
+  color: #999990;
+  color: #EF5041;
+}
+input.form-message[type="button"],
+button.form-message {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+.form-message.text-link:hover {
+  color: #F8B5A6;
+}
+.form-message-link {
+  color: #999990;
+  color: #4EB6D6;
+  float: right;
+  cursor: pointer;
+}
+input.form-message-link[type="button"],
+button.form-message-link {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+.form-message-link:hover {
+  color: #B1E0ED;
+}
+.form-message-link:active {
+  color: #4EB6D6;
+}
 .button {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -996,6 +1036,7 @@ textarea.form-control {
   color: #262624;
   padding: 0 1em;
   line-height: 2em;
+  color: #999990;
   color: #4EB6D6;
   background-color: transparent;
   border: none;
@@ -1013,6 +1054,13 @@ textarea.form-control {
 }
 .button-link:focus {
   outline-color: #72726B;
+}
+input.button-link[type="button"],
+button.button-link {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
 }
 .button-link:hover {
   color: #B1E0ED;
@@ -1056,8 +1104,16 @@ pre {
   cursor: pointer;
 }
 a {
+  color: #999990;
   color: #4EB6D6;
   text-decoration: none;
+}
+inputa[type="button"],
+buttona {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
 }
 a:hover {
   color: #B1E0ED;

@@ -43,37 +43,37 @@
 
 .text-success {
     .text();
-    color: @color-success;
+    color: @color-green;
     
-    &:hover {
-        color: @color-blue-lighter;
+    &.text-link:hover {
+        color: @color-green-lighter;
     }
 }
 
 .text-warning {
     .text();
-    color: @color-warning;
+    color: @color-orange;
     
-    &:hover {
-        color: @color-blue-lighter;
+    &.text-link:hover {
+        color: @color-orange-lighter;
     }
 }
 
 .text-muted {
     .text();
-    color: @color-muted;
+    color: @color-gray;
     
-    &:hover {
-        color: @color-blue-lighter;
+    &.text-link:hover {
+        color: @color-gray-lighter;
     }
 }
 
 .text-danger {
     .text();
-    color: @color-danger;
+    color: @color-red;
     
-    &:hover {
-        color: @color-blue-lighter;
+    &.text-link:hover {
+        color: @color-red-lighter;
     }
 }
 
@@ -108,6 +108,7 @@
 }
 
 .text-link {
+    .text();
     color: @color-blue;
     
     &:hover {
