@@ -426,6 +426,7 @@ button.text-success {
   border-style: none;
   background-color: transparent;
 }
+a.text-success:hover,
 .text-success.text-link:hover {
   color: #AEE5A7;
 }
@@ -440,6 +441,7 @@ button.text-warning {
   border-style: none;
   background-color: transparent;
 }
+a.text-warning:hover,
 .text-warning.text-link:hover {
   color: #FBEAD5;
 }
@@ -453,6 +455,7 @@ button.text-muted {
   border-style: none;
   background-color: transparent;
 }
+a.text-muted:hover,
 .text-muted.text-link:hover {
   color: #CCCCC3;
 }
@@ -467,6 +470,7 @@ button.text-danger {
   border-style: none;
   background-color: transparent;
 }
+a.text-danger:hover,
 .text-danger.text-link:hover {
   color: #F8B5A6;
 }
@@ -773,6 +777,7 @@ button.form-message {
   border-style: none;
   background-color: transparent;
 }
+a.form-message:hover,
 .form-message.text-link:hover {
   color: #F8B5A6;
 }
