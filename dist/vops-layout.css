@@ -623,6 +623,10 @@ label > [type="checkbox"]:focus + .form-label:before {
   margin-left: .2em;
 }
 .form-control {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: .5em;
