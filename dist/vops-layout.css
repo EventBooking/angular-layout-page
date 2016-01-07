@@ -979,13 +979,59 @@ textarea.form-control {
   outline-color: #8D2924;
 }
 .button-link {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  white-space: nowrap;
+  max-width: 100%;
+  border-width: 1px;
+  border-radius: 2px;
+  border-style: solid;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+          transition: all 0.1s ease-in-out;
+  background-color: #E5E5E3;
+  border-color: #E5E5E3;
+  color: #262624;
+  padding: 0 1em;
+  line-height: 2em;
   color: #4EB6D6;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.button-link:hover {
+  background-color: #B2B2A9;
+  border-color: #B2B2A9;
+  color: #262624;
+}
+.button-link:active {
+  background-color: #E5E5E3;
+  border-color: #999990;
+  color: #262624;
+}
+.button-link:focus {
+  outline-color: #72726B;
 }
 .button-link:hover {
   color: #B1E0ED;
 }
 .button-link:active {
   color: #4EB6D6;
+}
+.button-link:hover {
+  background-color: transparent;
+  border: none;
+}
+.button-link:active {
+  background-color: transparent;
+  border: none;
+}
+.button-link:focus {
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 .body {
   margin: 0;
