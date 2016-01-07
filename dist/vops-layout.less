@@ -374,6 +374,19 @@ nav-header {
         flex-grow: 1;
     }
 }
+.page-content-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+// Less width than table landscape
+@media (max-width: unit(@screen-tablet-landscape,px)) {
+    .page-content-body {
+        flex-direction: column;
+        align-content: flex-start;
+    }
+}
 .page-content,
 .page-content-area {
     display: flex;
@@ -387,19 +400,6 @@ nav-header {
     .page-content,
     .page-content-area {
         flex-direction: column;
-    }
-}
-.page-content-body {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-}
-
-// Less width than table landscape
-@media (max-width: unit(@screen-tablet-landscape,px)) {
-    .page-content-body {
-        flex-direction: column;
-        align-content: flex-start;
     }
 }
 .page-content-body-pane {
@@ -915,6 +915,7 @@ pane-header,
 @form-control-focus-color: @color-green-lighter;
 @form-control-focus-blur: .3em;
 @form-control-background-color: #fff;
+@form-control-border-radius: 4;
 
 .form {
     display: flex;
@@ -1019,7 +1020,7 @@ pane-header,
     height: 2em;
     border-style: solid;
     border-width: 1px;
-    border-radius: 4px;
+    border-radius: unit(@form-control-border-radius,px);
     border-color: @form-control-border-color;
     color: @form-control-color;
     line-height: ~"calc(2em - 2px)";
@@ -1124,6 +1125,8 @@ pane-header,
     line-height: 2em;
     cursor: pointer;
     color: @color-gray-light;
+    border: none;
+    background-color: transparent;
     
     .form-addon-control--before & {
         left: 0;

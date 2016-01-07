@@ -7,6 +7,7 @@
 @form-control-focus-color: @color-green-lighter;
 @form-control-focus-blur: .3em;
 @form-control-background-color: #fff;
+@form-control-border-radius: 4;
 
 .form {
     display: flex;
@@ -111,7 +112,7 @@
     height: 2em;
     border-style: solid;
     border-width: 1px;
-    border-radius: 4px;
+    border-radius: unit(@form-control-border-radius,px);
     border-color: @form-control-border-color;
     color: @form-control-color;
     line-height: ~"calc(2em - 2px)";
@@ -216,6 +217,8 @@
     line-height: 2em;
     cursor: pointer;
     color: @color-gray-light;
+    border: none;
+    background-color: transparent;
     
     .form-addon-control--before & {
         left: 0;

@@ -737,6 +737,8 @@ textarea.form-control {
   line-height: 2em;
   cursor: pointer;
   color: #B2B2A9;
+  border: none;
+  background-color: transparent;
 }
 .form-addon-control--before .form-addon-icon {
   left: 0;
