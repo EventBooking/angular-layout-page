@@ -107,6 +107,19 @@ body-header {
 //         }
 //     }
 }
+nav,
+.nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+    nav,
+    .nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
+}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -209,19 +222,6 @@ body-header {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-nav,
-.nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
-}
-
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-    nav,
-    .nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
 }
 nav-group,
 .nav-group {
@@ -1274,7 +1274,6 @@ pane-header,
     left: -1000em;
 }
 
-.form-labelOptional, // deprecated
 .form-label-sub {
     font-size: .75em;
     color: @form-label-sub-color;
@@ -1328,6 +1327,7 @@ pane-header,
     }
     
     .form-label + &,
+    .form-addon-control + &,
     & + & {
         margin-top: .5em;
     }
@@ -1335,6 +1335,14 @@ pane-header,
     .form-control-row & + &{
         margin-top: 0;
         margin-left: .5em;
+    }
+    
+    .form-addon-control--before & {
+        padding-left: 2em;
+    }
+    
+    .form-addon-control--after & {
+        padding-right: 2em;
     }
 }
 
@@ -1345,6 +1353,51 @@ pane-header,
     
     .form-control + & {
         margin-top: .5em;
+    }
+}
+
+.form-addon-control {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    
+    .form-label + &,
+    .form-control + &,
+    & + & {
+        margin-top: .5em;
+    }
+}
+
+.form-addon-icon {
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 0 .5em;
+    width: 2em;
+    line-height: 2em;
+    cursor: pointer;
+    color: @color-gray-light;
+    
+    .form-addon-control--before & {
+        left: 0;
+    }
+    
+    .form-addon-control--after & {
+        right: 0;
+    }
+    
+    &:hover {
+        color: @color-gray;
+    }
+    
+    &:active {
+        color: @color-gray-light;
+    }
+    
+    &:focus {
+        
     }
 }
 .body {

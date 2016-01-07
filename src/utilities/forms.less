@@ -402,7 +402,6 @@
     left: -1000em;
 }
 
-.form-labelOptional, // deprecated
 .form-label-sub {
     font-size: .75em;
     color: @form-label-sub-color;
@@ -456,6 +455,7 @@
     }
     
     .form-label + &,
+    .form-addon-control + &,
     & + & {
         margin-top: .5em;
     }
@@ -463,6 +463,14 @@
     .form-control-row & + &{
         margin-top: 0;
         margin-left: .5em;
+    }
+    
+    .form-addon-control--before & {
+        padding-left: 2em;
+    }
+    
+    .form-addon-control--after & {
+        padding-right: 2em;
     }
 }
 
@@ -473,5 +481,50 @@
     
     .form-control + & {
         margin-top: .5em;
+    }
+}
+
+.form-addon-control {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    
+    .form-label + &,
+    .form-control + &,
+    & + & {
+        margin-top: .5em;
+    }
+}
+
+.form-addon-icon {
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 0 .5em;
+    width: 2em;
+    line-height: 2em;
+    cursor: pointer;
+    color: @color-gray-light;
+    
+    .form-addon-control--before & {
+        left: 0;
+    }
+    
+    .form-addon-control--after & {
+        right: 0;
+    }
+    
+    &:hover {
+        color: @color-gray;
+    }
+    
+    &:active {
+        color: @color-gray-light;
+    }
+    
+    &:focus {
+        
     }
 }

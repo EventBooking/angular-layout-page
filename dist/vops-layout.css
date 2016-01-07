@@ -652,12 +652,10 @@ label > [type="checkbox"]:focus + .form-label:before {
   position: absolute;
   left: -1000em;
 }
-.form-labelOptional,
 .form-label-sub {
   font-size: .75em;
   color: #72726B;
 }
-.form-label .form-labelOptional,
 .form-label .form-label-sub {
   margin-left: .2em;
 }
@@ -699,12 +697,19 @@ textarea.form-control {
   color: inherit;
 }
 .form-label + .form-control,
+.form-addon-control + .form-control,
 .form-control + .form-control {
   margin-top: .5em;
 }
 .form-control-row .form-control + .form-control {
   margin-top: 0;
   margin-left: .5em;
+}
+.form-addon-control--before .form-control {
+  padding-left: 2em;
+}
+.form-addon-control--after .form-control {
+  padding-right: 2em;
 }
 .form-control-row {
   display: -webkit-box;
@@ -723,6 +728,47 @@ textarea.form-control {
 }
 .form-control + .form-control-row {
   margin-top: .5em;
+}
+.form-addon-control {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+.form-label + .form-addon-control,
+.form-control + .form-addon-control,
+.form-addon-control + .form-addon-control {
+  margin-top: .5em;
+}
+.form-addon-icon {
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 0 .5em;
+  width: 2em;
+  line-height: 2em;
+  cursor: pointer;
+  color: #B2B2A9;
+}
+.form-addon-control--before .form-addon-icon {
+  left: 0;
+}
+.form-addon-control--after .form-addon-icon {
+  right: 0;
+}
+.form-addon-icon:hover {
+  color: #999990;
+}
+.form-addon-icon:active {
+  color: #B2B2A9;
 }
 .button {
   display: -webkit-inline-box;
