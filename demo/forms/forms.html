@@ -1,11 +1,11 @@
 <div class="page page--full">
 
-	<page-header title="Forms"></page-header>
+    <page-header title="Forms"></page-header>
 
-	<div class="page-content">
-		
-		<div class="page-content-body">
-			
+    <div class="page-content">
+
+        <div class="page-content-body">
+
             <div class="grid pad-tb">
                 <div class="grid grid-cols pad-lr" style="width: 480px; padding: 0 32px;">
                     <div>
@@ -54,10 +54,14 @@
                                 <label class="form-label">tel</label>
                                 <input class="form-control" type="tel">
                             </div>
+                            <div class="form-group">
+                                <label class="form-label">time</label>
+                                <input class="form-control" type="time" value="10:00:00">
+                            </div>
                         </form>
                     </div>
                 </div>
-                
+
                 <div class="grid grid-cols pad-lr" style="width: 480px; padding: 0 32px; overflow: hidden;">
                     <div>
                         <form class="form">
@@ -127,6 +131,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="form-label">Contact</label>
+                                <div class="form-addon-control form-addon-control--after inputGroup--selected">
+                                    <span class="form-addon-icon fa fa-times"></span>
+                                    <input class="form-control" type="text" name="contactName"/>
+                                </div>
+                                <div class="form-control-row">
+                                    <input class="form-control" type="text" placeholder="Phone" />
+                                    <input class="form-control" type="email" placeholder="Email" />
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="form-label">Addon After</label>
                                 <div class="form-addon-control form-addon-control--after">
                                     <input class="form-control" type="text" value="This text should not bleed over into the form-addon-control--after">
@@ -144,9 +159,9 @@
                     </div>
                 </div>
             </div>
-            
-		</div>
 
-	</div>
-	
+        </div>
+
+    </div>
+
 </div>

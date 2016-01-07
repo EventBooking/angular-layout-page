@@ -696,6 +696,9 @@ textarea.form-control {
   background-color: transparent;
   color: inherit;
 }
+.form-control::-webkit-inner-spin-button {
+  height: 2em;
+}
 .form-label + .form-control,
 .form-addon-control + .form-control,
 .form-control + .form-control {
@@ -726,6 +729,7 @@ textarea.form-control {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.form-addon-control + .form-control-row,
 .form-control + .form-control-row {
   margin-top: .5em;
 }

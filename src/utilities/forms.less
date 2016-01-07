@@ -454,6 +454,10 @@
         color: inherit;
     }
     
+    &::-webkit-inner-spin-button {
+        height: 2em;
+    }
+    
     .form-label + &,
     .form-addon-control + &,
     & + & {
@@ -479,6 +483,7 @@
     flex-direction: row;
     justify-content: space-between;
     
+    .form-addon-control + &,
     .form-control + & {
         margin-top: .5em;
     }
