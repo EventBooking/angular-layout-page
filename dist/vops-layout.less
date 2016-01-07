@@ -1,49 +1,37 @@
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	font-family: @font-family;
-	line-height: @line-height-base;
-	background-color: @background-color;
-	color: @color;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;
+/// <reference path="assets.less" />
+
+.body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: @layout-body-font-family;
+    font-size: unit(@layout-body-font-size,px);
+    line-height: @layout-body-line-height;
+    background-color: @layout-body-background-color;
+    color: @layout-body-color;
 }
 
-.layout-page-nav {
-	order: 0;	
+* {
+    box-sizing: border-box;
 }
 
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
+p {
+    margin: 0 0 10px;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+[ng-click] {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    &:not(.form-control) {
+        .text-link();
+    }   
 }
 body-header {
     display: flex;
@@ -106,19 +94,6 @@ body-header {
     .ellipsis();
     letter-spacing: unit(@letter-spacing-header,rem);
     line-height: unit(@body-header-subtitle-font-size,px);
-}
-nav,
-.nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
-}
-
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-    nav,
-    .nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
@@ -222,6 +197,66 @@ nav,
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	font-family: @font-family;
+	line-height: @line-height-base;
+	background-color: @background-color;
+	color: @color;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
+}
+nav,
+.nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+    nav,
+    .nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
 }
 nav-group,
 .nav-group {
@@ -356,6 +391,19 @@ nav-header {
         flex-direction: column;
     }
 }
+.page-content-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+// Less width than table landscape
+@media (max-width: unit(@screen-tablet-landscape,px)) {
+    .page-content-body {
+        flex-direction: column;
+        align-content: flex-start;
+    }
+}
 .page-content-body-pane {
     padding: 0 unit(@padding,px);
     width: unit(@page-content-body-pane-width,px);
@@ -405,19 +453,6 @@ nav-header {
 		&--double {
 			width: unit(@page-content-body-pane-width,px);
 		}
-    }
-}
-.page-content-body {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-}
-
-// Less width than table landscape
-@media (max-width: unit(@screen-tablet-landscape,px)) {
-    .page-content-body {
-        flex-direction: column;
-        align-content: flex-start;
     }
 }
 .page-content-nav {
@@ -1100,32 +1135,6 @@ pane-header,
         
     }
 }
-.body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: @layout-body-font-family;
-    font-size: unit(@layout-body-font-size,px);
-    line-height: @layout-body-line-height;
-    background-color: @layout-body-background-color;
-    color: @layout-body-color;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-p {
-    margin: 0 0 10px;
-}
-
-pre {
-    white-space: pre-wrap;
-}
-
-[ng-click] {
-    cursor: pointer;
-}
 /// <reference path="../assets.less" />
 
 .text {
@@ -1235,13 +1244,9 @@ pre {
     font-weight: @font-weight-bold;
 }
 
-a,
 .text-link {
-    .text();
     color: @color-blue;
-    text-decoration: none;
-    cursor: pointer;
-       
+    
     &:hover {
         color: @color-blue-lighter;
     }

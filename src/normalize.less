@@ -1,3 +1,5 @@
+/// <reference path="assets.less" />
+
 .body {
     margin: 0;
     padding: 0;
@@ -23,4 +25,11 @@ pre {
 
 [ng-click] {
     cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    &:not(.form-control) {
+        .text-link();
+    }   
 }
