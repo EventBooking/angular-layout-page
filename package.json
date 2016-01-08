@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp",
+    "bower": "bower",
+    "tsc": "tsc",
+    "tsd": "tsd"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,7 @@
     "gulp-ng-html2js": "^0.2.0",
     "gulp-template": "^3.0.0",
     "tiny-lr": "^0.2.1",
+    "tsd": "^0.6.5",
     "typescript": "1.7.3"
   }
 }
