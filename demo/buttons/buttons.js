@@ -3,4 +3,4 @@
 function ButtonsController($routeParams) {
 }
 
-app.controller('buttonsController', ButtonsController);
+angular.module("demo").controller('buttonsController', ButtonsController);

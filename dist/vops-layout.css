@@ -1,3 +1,304 @@
+@import url("//fonts.googleapis.com/css?family=Source%20Sans%20Pro:300,400,600");
+.color-red-lightest {
+  color: #FBD9D5;
+}
+.background-color-red-lightest {
+  background-color: #FBD9D5;
+}
+.color-red-lighter {
+  color: #F8B5A6;
+}
+.background-color-red-lighter {
+  background-color: #F8B5A6;
+}
+.color-red-light {
+  color: #F48F7F;
+}
+.background-color-red-light {
+  background-color: #F48F7F;
+}
+.color-red {
+  color: #EF5041;
+}
+.background-color-red {
+  background-color: #EF5041;
+}
+.color-red-dark {
+  color: #D43E37;
+}
+.background-color-red-dark {
+  background-color: #D43E37;
+}
+.color-red-darker {
+  color: #8D2924;
+}
+.background-color-red-darker {
+  background-color: #8D2924;
+}
+.color-red-darkest {
+  color: #8D2924;
+}
+.background-color-red-darkest {
+  background-color: #8D2924;
+}
+.color-orange-lightest {
+  color: #FCF2E5;
+}
+.background-color-orange-lightest {
+  background-color: #FCF2E5;
+}
+.color-orange-lighter {
+  color: #FBEAD5;
+}
+.background-color-orange-lighter {
+  background-color: #FBEAD5;
+}
+.color-orange-light {
+  color: #F7D7A6;
+}
+.background-color-orange-light {
+  background-color: #F7D7A6;
+}
+.color-orange {
+  color: #EEA041;
+}
+.background-color-orange {
+  background-color: #EEA041;
+}
+.color-orange-dark {
+  color: #D38A37;
+}
+.background-color-orange-dark {
+  background-color: #D38A37;
+}
+.color-orange-darker {
+  color: #8D5C24;
+}
+.background-color-orange-darker {
+  background-color: #8D5C24;
+}
+.color-orange-darkest {
+  color: #8D5C24;
+}
+.background-color-orange-darkest {
+  background-color: #8D5C24;
+}
+.color-yellow-lightest {
+  color: #FBF5D5;
+}
+.background-color-yellow-lightest {
+  background-color: #FBF5D5;
+}
+.color-yellow-lighter {
+  color: #F7ECA6;
+}
+.background-color-yellow-lighter {
+  background-color: #F7ECA6;
+}
+.color-yellow-light {
+  color: #F4E37F;
+}
+.background-color-yellow-light {
+  background-color: #F4E37F;
+}
+.color-yellow {
+  color: #EED341;
+}
+.background-color-yellow {
+  background-color: #EED341;
+}
+.color-yellow-dark {
+  color: #D3BA37;
+}
+.background-color-yellow-dark {
+  background-color: #D3BA37;
+}
+.color-yellow-darker {
+  color: #8D7C24;
+}
+.background-color-yellow-darker {
+  background-color: #8D7C24;
+}
+.color-yellow-darkest {
+  color: #8D7C24;
+}
+.background-color-yellow-darkest {
+  background-color: #8D7C24;
+}
+.color-green-lightest {
+  color: #D6F1D6;
+}
+.background-color-green-lightest {
+  background-color: #D6F1D6;
+}
+.color-green-lighter {
+  color: #AEE5A7;
+}
+.background-color-green-lighter {
+  background-color: #AEE5A7;
+}
+.color-green-light {
+  color: #85D882;
+}
+.background-color-green-light {
+  background-color: #85D882;
+}
+.color-green {
+  color: #48C245;
+}
+.background-color-green {
+  background-color: #48C245;
+}
+.color-green-dark {
+  color: #30AA3A;
+}
+.background-color-green-dark {
+  background-color: #30AA3A;
+}
+.color-green-darker {
+  color: #207126;
+}
+.background-color-green-darker {
+  background-color: #207126;
+}
+.color-green-darkest {
+  color: #207126;
+}
+.background-color-green-darkest {
+  background-color: #207126;
+}
+.color-blue-lightest {
+  color: #D7EFF6;
+}
+.background-color-blue-lightest {
+  background-color: #D7EFF6;
+}
+.color-blue-lighter {
+  color: #B1E0ED;
+}
+.background-color-blue-lighter {
+  background-color: #B1E0ED;
+}
+.color-blue-light {
+  color: #89D0E5;
+}
+.background-color-blue-light {
+  background-color: #89D0E5;
+}
+.color-blue {
+  color: #4EB6D6;
+}
+.background-color-blue {
+  background-color: #4EB6D6;
+}
+.color-blue-dark {
+  color: #369FB6;
+}
+.background-color-blue-dark {
+  background-color: #369FB6;
+}
+.color-blue-darker {
+  color: #246A78;
+}
+.background-color-blue-darker {
+  background-color: #246A78;
+}
+.color-blue-darkest {
+  color: #246A78;
+}
+.background-color-blue-darkest {
+  background-color: #246A78;
+}
+.color-purple-lightest {
+  color: #ff1aff;
+}
+.background-color-purple-lightest {
+  background-color: #ff1aff;
+}
+.color-purple-lighter {
+  color: #e600e6;
+}
+.background-color-purple-lighter {
+  background-color: #e600e6;
+}
+.color-purple-light {
+  color: #b300b3;
+}
+.background-color-purple-light {
+  background-color: #b300b3;
+}
+.color-purple {
+  color: #800080;
+}
+.background-color-purple {
+  background-color: #800080;
+}
+.color-purple-dark {
+  color: #4d004d;
+}
+.background-color-purple-dark {
+  background-color: #4d004d;
+}
+.color-purple-darker {
+  color: #1a001a;
+}
+.background-color-purple-darker {
+  background-color: #1a001a;
+}
+.color-purple-darkest {
+  color: #000000;
+}
+.background-color-purple-darkest {
+  background-color: #000000;
+}
+.color-gray-lightest2 {
+  color: #EFEFEE;
+}
+.background-color-gray-lightest2 {
+  background-color: #EFEFEE;
+}
+.color-gray-lightest {
+  color: #E5E5E3;
+}
+.background-color-gray-lightest {
+  background-color: #E5E5E3;
+}
+.color-gray-lighter {
+  color: #CCCCC3;
+}
+.background-color-gray-lighter {
+  background-color: #CCCCC3;
+}
+.color-gray-light {
+  color: #B2B2A9;
+}
+.background-color-gray-light {
+  background-color: #B2B2A9;
+}
+.color-gray {
+  color: #999990;
+}
+.background-color-gray {
+  background-color: #999990;
+}
+.color-gray-dark {
+  color: #72726B;
+}
+.background-color-gray-dark {
+  background-color: #72726B;
+}
+.color-gray-darker {
+  color: #4C4C47;
+}
+.background-color-gray-darker {
+  background-color: #4C4C47;
+}
+.color-gray-darkest {
+  color: #262624;
+}
+.background-color-gray-darkest {
+  background-color: #262624;
+}
 /* General */
 /* Colors */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -6,7 +307,6 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
-@import url("//fonts.googleapis.com/css?family=Source%20Sans%20Pro:300,400,600");
 html {
   font-family: sans-serif;
   /* 1 */

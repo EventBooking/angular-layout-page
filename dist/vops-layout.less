@@ -140,19 +140,6 @@ body-header {
 //         }
 //     }
 }
-nav,
-.nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
-}
-
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-    nav,
-    .nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
-}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -256,6 +243,32 @@ nav,
     overflow: hidden;
     text-overflow: ellipsis;
 }
+nav,
+.nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+    nav,
+    .nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
+}
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: unit(@nav-group-padding,px) 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
+}
 nav-group-item,
 [nav-group-item],
 .nav-group-item {
@@ -312,19 +325,6 @@ nav-group-item,
 	.nav-group-item-text {
         display: none;
     }
-}
-nav-group,
-.nav-group {
-	display: flex;
-	flex-direction: column;
-	padding: unit(@nav-group-padding,px) 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
 }
 nav-header {
 	display: block;
@@ -627,25 +627,6 @@ page-slider {
     line-height: @line-height-base;
     .font-size(@pane-font-size);
 }
-pane-footer {
-    display: block;
-    height: unit(@pane-footer-height,px);
-    line-height: unit(@pane-footer-height,px);
-    margin: 0 unit(@padding,px);
-    border-style: solid;
-    border-width: 1px 0 0 0;
-    border-color: @border-color;
-    z-index: 1;
-    color: @pane-footer-color;
-    background-color: @pane-footer-background-color;
-}
-
-.pane-footer-button {
-	&--right {
-    	float: right;
-    	margin-top: unit(@padding-half,px);
-	}
-}
 .pane-body {
     display: block;
     max-height: 100%;
@@ -668,6 +649,25 @@ pane-footer {
         max-height: ~"calc(100% - @{pane-footer-height}px)";
         padding-bottom: unit(@padding-half,px);
     }
+}
+pane-footer {
+    display: block;
+    height: unit(@pane-footer-height,px);
+    line-height: unit(@pane-footer-height,px);
+    margin: 0 unit(@padding,px);
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: @border-color;
+    z-index: 1;
+    color: @pane-footer-color;
+    background-color: @pane-footer-background-color;
+}
+
+.pane-footer-button {
+	&--right {
+    	float: right;
+    	margin-top: unit(@padding-half,px);
+	}
 }
 pane-header,
 .pane-header {
@@ -1551,6 +1551,7 @@ pane-header,
 @color-red-lightest:    #FBD9D5;
 @color-red-dark:        #D43E37; 
 @color-red-darker:      #8D2924;
+@color-red-darkest:     #8D2924;
 
 @color-orange:          #EEA041; 
 @color-orange-light:    #F7D7A6; 
@@ -1558,6 +1559,7 @@ pane-header,
 @color-orange-lightest: #FCF2E5;
 @color-orange-dark:     #D38A37; 
 @color-orange-darker:   #8D5C24;
+@color-orange-darkest:  #8D5C24;
 
 @color-yellow:          #EED341; 
 @color-yellow-light:    #F4E37F; 
@@ -1565,6 +1567,7 @@ pane-header,
 @color-yellow-lightest: #FBF5D5;
 @color-yellow-dark:     #D3BA37; 
 @color-yellow-darker:   #8D7C24;
+@color-yellow-darkest:  #8D7C24;
 
 @color-green:           #48C245; 
 @color-green-light:     #85D882; 
@@ -1572,19 +1575,23 @@ pane-header,
 @color-green-lightest:  #D6F1D6;
 @color-green-dark:      #30AA3A; 
 @color-green-darker:    #207126;
+@color-green-darkest:   #207126;
 
 @color-blue:            #4EB6D6; 
 @color-blue-light:      #89D0E5; 
 @color-blue-lighter:    #B1E0ED;
 @color-blue-lightest:   #D7EFF6;
 @color-blue-dark:       #369FB6; 
-@color-blue-darker:     #246A78; 
+@color-blue-darker:     #246A78;
+@color-blue-darkest:    #246A78; 
 
 @color-purple:          #800080;
 @color-purple-light:    lighten(@color-purple, @color-scale);
 @color-purple-lighter:  lighten(@color-purple-light, @color-scale);
-@color-purple-dark:     darker(@color-purple, @color-scale);
-@color-purple-darker:   darker(@color-purple-dark, @color-scale);
+@color-purple-lightest: lighten(@color-purple-lighter, @color-scale);
+@color-purple-dark:     darken(@color-purple, @color-scale);
+@color-purple-darker:   darken(@color-purple-dark, @color-scale);
+@color-purple-darkest:  darken(@color-purple-darker, @color-scale);
 
 @color-gray:            #999990; 
 @color-gray-light:      #B2B2A9; 
@@ -1594,3 +1601,32 @@ pane-header,
 @color-gray-dark:       #72726B; 
 @color-gray-darker:     #4C4C47;
 @color-gray-darkest:    #262624;
+
+.colorClasses(@color) {
+    .colorClass(~"@{color}-lightest", ~"color-@{color}-lightest");
+    .colorClass(~"@{color}-lighter", ~"color-@{color}-lighter");
+    .colorClass(~"@{color}-light", ~"color-@{color}-light");
+    .colorClass(~"@{color}", ~"color-@{color}");
+    .colorClass(~"@{color}-dark", ~"color-@{color}-dark");
+    .colorClass(~"@{color}-darker", ~"color-@{color}-darker");
+    .colorClass(~"@{color}-darkest", ~"color-@{color}-darkest");
+}
+
+.colorClass(@name, @color) {
+    .color-@{name} {
+        color: @@color;
+    }
+    
+    .background-color-@{name} {
+        background-color: @@color;
+    }
+}
+
+.colorClasses(red);
+.colorClasses(orange);
+.colorClasses(yellow);
+.colorClasses(green);
+.colorClasses(blue);
+.colorClasses(purple);
+.colorClass(~"gray-lightest2", ~"color-gray-lightest2");
+.colorClasses(gray);

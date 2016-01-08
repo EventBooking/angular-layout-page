@@ -43,11 +43,13 @@
 }
 
 .list {
-    
+    display: flex;
+    flex-direction: column;
 }
 
 .list-item {
-        
+    display: flex;
+    flex-direction: row;
 }
 
 .list-item + .list-item {
@@ -56,4 +58,30 @@
 
 .address-state {
     width: 35px;
+}
+
+.color {
+    display: flex;
+}
+
+.color-item {
+    width: 32px;
+    height: 32px;
+}
+
+.color-name {
+    font-size: 20px;
+    margin-left: 10px;
+    line-height: 32px;
+}
+
+.color-value {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.color-title .color-name {
+    font-size: 32px;
+    color: #000;
+    line-height: 32px;
 }
