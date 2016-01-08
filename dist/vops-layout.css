@@ -1680,6 +1680,8 @@ page-header,
   color: #E5E5E3;
   background-color: #72726B;
   line-height: 48px;
+  min-height: 48px;
+  /* Safari flex-box fix */
 }
 .page-header-titles {
   -webkit-box-ordinal-group: 2;

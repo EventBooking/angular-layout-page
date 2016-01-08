@@ -5,6 +5,7 @@
     color: @page-header-color;
     background-color: @page-header-background-color;
     line-height: unit(@page-header-height,px);
+    min-height: unit(@page-header-height,px); /* Safari flex-box fix */
 }
 
 .page-header-titles {
