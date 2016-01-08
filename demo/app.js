@@ -55,6 +55,6 @@ function Run($rootScope) {
 
 }
 
-angular.module("demo", ['ngRoute', 'ngAnimate', 'ngLayoutPage', 'ngResource'])
+angular.module("demo", ['ngRoute', 'ngAnimate', 'ngLayoutPage'])
     .config(Config)
     .run(Run);
