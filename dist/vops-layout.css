@@ -605,7 +605,7 @@ label > [type="checkbox"] + .form-label:before {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: solid 2px #CCCCC3;
+  border: solid 2px #E5E5E3;
   margin-right: .5em;
   width: 1.5em;
   line-height: 1.25em;
@@ -620,7 +620,7 @@ label > [type="checkbox"]:checked + .form-label:before {
   color: #fff;
 }
 label > [type="checkbox"]:focus + .form-label:before {
-  box-shadow: inset 0 0 0.3em #AEE5A7;
+  box-shadow: 0 0 0.3em #B1E0ED;
 }
 :root .form-group label > [type="checkbox"] {
   position: absolute;
@@ -640,14 +640,14 @@ label > [type="checkbox"]:focus + .form-label:before {
   display: flex;
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: .5em;
-  height: 2em;
+  padding-left: 0.5em;
+  height: 2.5em;
   border-style: solid;
   border-width: 1px;
   border-radius: 4px;
-  border-color: #CCCCC3;
+  border-color: #E5E5E3;
   color: #72726B;
-  line-height: calc(2em - 2px);
+  line-height: calc(2.5em - 2px);
   background-color: #fff;
 }
 .form-control:not(.form-control--customWidth) {
@@ -668,7 +668,7 @@ textarea.form-control {
 }
 .form-control:focus {
   outline: none;
-  box-shadow: inset 0 0 0.3em #AEE5A7;
+  box-shadow: 0 0 0.3em #B1E0ED;
 }
 .form-group > label > .form-control {
   vertical-align: middle;
@@ -676,7 +676,7 @@ textarea.form-control {
 .form-control::-ms-expand {
   background-color: transparent;
   border-style: none;
-  padding-right: .5em;
+  padding-right: 0.5em;
   color: #72726B;
 }
 .form-control::-ms-value {
@@ -684,22 +684,22 @@ textarea.form-control {
   color: inherit;
 }
 .form-control::-webkit-inner-spin-button {
-  height: 2em;
+  height: 2.5em;
 }
 .form-label + .form-control,
 .form-addon-control + .form-control,
 .form-control + .form-control {
-  margin-top: .5em;
+  margin-top: .2em;
 }
 .form-control-row .form-control + .form-control {
   margin-top: 0;
   margin-left: .5em;
 }
 .form-addon-control--before .form-control {
-  padding-left: 2em;
+  padding-left: 3em;
 }
 .form-addon-control--after .form-control {
-  padding-right: 2em;
+  padding-right: 3em;
 }
 .form-control.ng-touched.ng-invalid {
   border-color: #EF5041;
@@ -746,19 +746,25 @@ textarea.form-control {
   top: 0;
   bottom: 0;
   z-index: 1;
-  padding: 0 .5em;
-  width: 2em;
-  line-height: 2em;
+  padding: 0 0.5em;
+  width: 2.5em;
+  line-height: 2.5em;
+  text-align: center;
   cursor: pointer;
   color: #B2B2A9;
   border: none;
-  background-color: transparent;
+  background-color: #fff;
+  margin: 1px;
 }
 .form-addon-control--before .form-addon-icon {
   left: 0;
+  border-right: solid 1px #E5E5E3;
+  border-radius: 4px 0 0 4px;
 }
 .form-addon-control--after .form-addon-icon {
   right: 0;
+  border-left: solid 1px #E5E5E3;
+  border-radius: 0 4px 4px 0;
 }
 .form-addon-icon:hover {
   color: #999990;

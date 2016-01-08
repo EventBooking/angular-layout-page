@@ -93,53 +93,6 @@ body-header {
     letter-spacing: unit(@letter-spacing-header,rem);
     line-height: unit(@body-header-subtitle-font-size,px);
 }
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	font-family: @font-family;
-	line-height: @line-height-base;
-	background-color: @background-color;
-	color: @color;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
-}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -243,6 +196,53 @@ body-header {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	font-family: @font-family;
+	line-height: @line-height-base;
+	background-color: @background-color;
+	color: @color;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
+}
 nav,
 .nav {
 	width: unit(@nav-large,px);
@@ -268,6 +268,29 @@ nav-group,
 		background-size: 100% 1px;
 		background-repeat: no-repeat;
 	}
+}
+nav-header {
+	display: block;
+	text-align: center;
+	color: @nav-header-color;
+	.font-size(@nav-header-font-size);
+	line-height: unit(@page-header-height,px);
+    font-weight: @nav-header-font-weight;
+    text-transform: none;
+}
+
+.nav-header-small {
+	display: none;
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+	.nav-header-text {
+		display: none;
+	}
+	
+    .nav-header-small {
+        display: inline;
+    }
 }
 nav-group-item,
 [nav-group-item],
@@ -324,29 +347,6 @@ nav-group-item,
 @media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
 	.nav-group-item-text {
         display: none;
-    }
-}
-nav-header {
-	display: block;
-	text-align: center;
-	color: @nav-header-color;
-	.font-size(@nav-header-font-size);
-	line-height: unit(@page-header-height,px);
-    font-weight: @nav-header-font-weight;
-    text-transform: none;
-}
-
-.nav-header-small {
-	display: none;
-}
-
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-	.nav-header-text {
-		display: none;
-	}
-	
-    .nav-header-small {
-        display: inline;
     }
 }
 .page {
@@ -541,6 +541,25 @@ page-content-nav-item {
         padding: 0 unit(@padding-quarter,px);
     }
 }
+page-slider {
+    position: absolute;
+    right: 0;
+    width: unit(@page-slider-width,px);
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    transition: right .25s ease-in-out;
+    color: @page-slider-color;
+    background-color: @page-slider-background-color;
+
+    &:not(.is-visible) {
+        right: unit(-@page-slider-width,px);
+    }
+
+    &.is-visible {
+        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
+    }
+}
 page-header,
 .page-header {
     display: flex;
@@ -601,25 +620,6 @@ page-header,
         background-color: @page-header-actions-item-active-background-color;
     }
 }
-page-slider {
-    position: absolute;
-    right: 0;
-    width: unit(@page-slider-width,px);
-    top: 0;
-    bottom: 0;
-    z-index: 10;
-    transition: right .25s ease-in-out;
-    color: @page-slider-color;
-    background-color: @page-slider-background-color;
-
-    &:not(.is-visible) {
-        right: unit(-@page-slider-width,px);
-    }
-
-    &.is-visible {
-        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
-    }
-}
 .pane {
     height: 100vh;
     max-height: 100%; // removes scrollbar browser bug
@@ -648,25 +648,6 @@ page-slider {
         max-height: ~"calc(100% - @{pane-footer-height}px)";
         padding-bottom: unit(@padding-half,px);
     }
-}
-pane-footer {
-    display: block;
-    height: unit(@pane-footer-height,px);
-    line-height: unit(@pane-footer-height,px);
-    margin: 0 unit(@padding,px);
-    border-style: solid;
-    border-width: 1px 0 0 0;
-    border-color: @border-color;
-    z-index: 1;
-    color: @pane-footer-color;
-    background-color: @pane-footer-background-color;
-}
-
-.pane-footer-button {
-	&--right {
-    	float: right;
-    	margin-top: unit(@padding-half,px);
-	}
 }
 pane-header,
 .pane-header {
@@ -776,537 +757,24 @@ pane-header,
         background-color: @pane-header-actions-item-active-background-color;
     }
 }
-/// <reference path="../assets.less" />
-
-.button {
-    display: inline-flex;
-    white-space: nowrap;
-    max-width: 100%;
-    border-width: 1px;
-    border-radius: 2px;
+pane-footer {
+    display: block;
+    height: unit(@pane-footer-height,px);
+    line-height: unit(@pane-footer-height,px);
+    margin: 0 unit(@padding,px);
     border-style: solid;
-    cursor: pointer;
-    transition: all .1s ease-in-out;
-    background-color: @button-background-color;
-    border-color: @button-border-color;
-    color: @button-color;
-    padding: 0 1em;
-    line-height: 2em;
-    
-    &:hover {
-        background-color: @button-hover-background-color;
-        border-color: @button-hover-border-color;
-        color: @button-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-active-background-color;
-        border-color: @button-active-border-color;
-        color: @button-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-focus-outline-color;
-    }
-}
-
-.button-default {
-    .button();
-    background-color: @button-default-background-color;
-    border-color: @button-default-border-color;
-    color: @button-default-color;
-    
-    &:hover {
-        background-color: @button-default-hover-background-color;
-        border-color: @button-default-hover-border-color;
-        color: @button-default-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-default-active-background-color;
-        border-color: @button-default-active-border-color;
-        color: @button-default-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-default-focus-outline-color;
-    }
-}
-
-.button-primary {
-    .button();
-    background-color: @button-primary-background-color;
-    border-color: @button-primary-border-color;
-    color: @button-primary-color;
-    
-    &:hover {
-        background-color: @button-primary-hover-background-color;
-        border-color: @button-primary-hover-border-color;
-        color: @button-primary-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-primary-active-background-color;
-        border-color: @button-primary-active-border-color;
-        color: @button-primary-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-primary-focus-outline-color;
-    }
-}
-
-.button-success {
-    .button();
-    background-color: @button-success-background-color;
-    border-color: @button-success-border-color;
-    color: @button-success-color;
-    
-    &:hover {
-        background-color: @button-success-hover-background-color;
-        border-color: @button-success-hover-border-color;
-        color: @button-success-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-success-active-background-color;
-        border-color: @button-success-active-border-color;
-        color: @button-success-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-success-focus-outline-color;
-    }
-}
-
-.button-danger {
-    .button();
-    background-color: @button-danger-background-color;
-    border-color: @button-danger-border-color;
-    color: @button-danger-color;
-    
-    &:hover {
-        background-color: @button-danger-hover-background-color;
-        border-color: @button-danger-hover-border-color;
-        color: @button-danger-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-danger-active-background-color;
-        border-color: @button-danger-active-border-color;
-        color: @button-danger-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-danger-focus-outline-color;
-    }
-}
-
-// this should be deprecated
-.button-link {
-    .button();
-    .text-link();
-    background-color: transparent;
-    border: none;
-    outline: none;
-    
-    &:hover {
-        background-color: transparent;
-        border: none;
-    }
-    
-    &:active {
-        background-color: transparent;
-        border: none;    
-    }
-    
-    &:focus {
-        background-color: transparent;
-        border: none; 
-        outline: none;   
-    }
-}
-/// <reference path="../assets.less" />
-
-@form-label-color: @color-gray-dark;
-@form-label-sub-color: @color-gray-dark;
-@form-control-color: @color-gray-dark;
-@form-control-border-color: @color-gray-lighter;
-@form-control-focus-color: @color-green-lighter;
-@form-control-error-color: @color-red;
-@form-control-focus-blur: .3em;
-@form-control-background-color: #fff;
-@form-control-border-radius: 4;
-
-.form {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-    .form-group ~ &,
-    & ~ & {
-       margin-top: 1em;
-    }
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-    .form-row & {
-        flex-grow: 1;
-    }
-    
-    .form-row ~ &,
-    & ~ & {
-       margin-top: 1em;
-    }
-    
-    .form-row & ~ & {
-        margin-top: 0;
-        margin-left: .5em;
-    }
-}
-
-.form-label {
-    text-transform: uppercase;
-    font-size: .875em;
-    color: @form-label-color;
-    position: relative;
-    user-select: none;
-    
-    .form-group  label > & {
-        vertical-align: middle;
-        display: flex;
-    }
-    
-    label > [type="checkbox"] + & {
-        outline: none;
-        
-        &:before {
-            content: "\0000a0";
-            display: inline-flex;
-            box-sizing: border-box;
-            justify-content: center;
-            border: solid 2px @form-control-border-color;
-            margin-right: .5em;
-            width: 1.5em;
-            line-height: 1.25em;
-            border-radius: 2px;
-            transition: all .25s linear;
-        }
-    }
-    
-    label > [type="checkbox"]:checked + & {
-        &:before {
-            content: "\2714";
-            background-color: @color-green;
-            border-color: @color-green;
-            color: #fff;
-        }
-    }
-    
-    label > [type="checkbox"]:focus + & {
-        &:before {
-            box-shadow: inset 0 0 @form-control-focus-blur @form-control-focus-color;
-        }
-    }
-}
-
-:root .form-group  label > [type="checkbox"] {
-    position: absolute;
-    left: -1000em;
-}
-
-.form-label-sub {
-    font-size: .75em;
-    color: @form-label-sub-color;
-    
-    .form-label & {
-        margin-left: .2em;
-    }
-}
-
-.form-control {
-    display: flex;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: .5em;
-    height: 2em;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: unit(@form-control-border-radius,px);
-    border-color: @form-control-border-color;
-    color: @form-control-color;
-    line-height: ~"calc(2em - 2px)";
-    background-color: @form-control-background-color;
-    
-    &:not(&--customWidth) {
-        width: 100%;
-    }
-    
-    input[type]& {
-        box-sizing: border-box;
-    }
-    
-    textarea& {
-        height: auto;
-        line-height: 1.5em;
-    }
-    
-    &:hover {
-        color: @form-control-color;
-    }
-    
-    &:active {
-        color: @form-control-color;
-    }
-    
-    &:focus {
-        outline: none;
-        box-shadow: inset 0 0 @form-control-focus-blur @form-control-focus-color;
-    }
-    
-    .form-group > label > & {
-        vertical-align: middle;
-    }
-    
-    &::-ms-expand {
-        background-color: transparent;
-        border-style: none;
-        padding-right: .5em;
-        color: @color-gray-dark;
-    }
-    &::-ms-value {
-        background-color: transparent;
-        color: inherit;
-    }
-    
-    &::-webkit-inner-spin-button {
-        height: 2em;
-    }
-    
-    .form-label + &,
-    .form-addon-control + &,
-    & + & {
-        margin-top: .5em;
-    }
-    
-    .form-control-row & + &{
-        margin-top: 0;
-        margin-left: .5em;
-    }
-    
-    .form-addon-control--before & {
-        padding-left: 2em;
-    }
-    
-    .form-addon-control--after & {
-        padding-right: 2em;
-    }
-    
-    &.ng-touched.ng-invalid {
-        border-color: @form-control-error-color;
-    }
-}
-
-.form-control-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-    .form-addon-control + &,
-    .form-control + & {
-        margin-top: .5em;
-    }
-}
-
-.form-addon-control {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    
-    .form-label + &,
-    .form-control + &,
-    & + & {
-        margin-top: .5em;
-    }
-}
-
-.form-addon-icon {
-    vertical-align: middle;
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    border-width: 1px 0 0 0;
+    border-color: @border-color;
     z-index: 1;
-    padding: 0 .5em;
-    width: 2em;
-    line-height: 2em;
-    cursor: pointer;
-    color: @color-gray-light;
-    border: none;
-    background-color: transparent;
-    
-    .form-addon-control--before & {
-        left: 0;
-    }
-    
-    .form-addon-control--after & {
-        right: 0;
-    }
-    
-    &:hover {
-        color: @color-gray;
-    }
-    
-    &:active {
-        color: @color-gray-light;
-    }
-    
-    &:focus {
-        
-    }
+    color: @pane-footer-color;
+    background-color: @pane-footer-background-color;
 }
 
-.form-message {
-    .text-danger();
-}
-
-.form-message-link {
-    .text-link();
-    float: right;
-    cursor: pointer;
-}
-/// <reference path="../assets.less" />
-
-.text {
-    color: @color-gray;
-    
-    input&[type="button"],
-    button& {
-        text-align: left;
-        padding: 0;
-        border-style: none;
-        background-color: transparent;
-    }
-}
-
-.text-light {
-    color: @color-gray-light;
-}
-
-.text-lighter {
-    color: @color-gray-lighter;
-}
-
-.text-lightest {
-    color: @color-gray-lightest;
-}
-
-.text-lightest2 {
-    color: @color-gray-lightest2;
-}
-
-.text-medium,
-.text-dark {
-    color: @color-gray-dark;
-}
-
-.text-darker {
-    color: @color-gray-darker;
-}
-
-.text-darkest {
-    color: @color-gray-darkest;
-}
-
-.text-success {
-    .text();
-    color: @color-green;
-    
-    a&:hover,
-    &.text-link:hover {
-        color: @color-green-lighter;
-    }
-}
-
-.text-warning {
-    .text();
-    color: @color-orange;
-    
-    a&:hover,
-    &.text-link:hover {
-        color: @color-orange-lighter;
-    }
-}
-
-.text-muted {
-    .text();
-    color: @color-gray;
-    
-    a&:hover,
-    &.text-link:hover {
-        color: @color-gray-lighter;
-    }
-}
-
-.text-danger {
-    .text();
-    color: @color-red;
-
-    a&:hover,
-    &.text-link:hover {
-        color: @color-red-lighter;
-    }
-}
-
-.text-empty {
-    font-style: italic;
-    color: @color-gray-lighter;
-}
-
-.text-nowrap {
-    white-space: nowrap;
-}
-
-.text-upper {
-    text-transform: uppercase;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-normal {
-    .font-size(@typescale);
-    font-weight: @font-weight;
-}
-
-.text-light {
-    font-weight: @font-weight-light;
-}
-
-.text-bold {
-    font-weight: @font-weight-bold;
-}
-
-.text-link {
-    .text();
-    color: @color-blue;
-    
-    &:hover {
-        color: @color-blue-lighter;
-    }
-    
-    &:active {
-        color: @color-blue;
-    }
+.pane-footer-button {
+	&--right {
+    	float: right;
+    	margin-top: unit(@padding-half,px);
+	}
 }
 /* General */
 @padding: 32;
@@ -1585,3 +1053,543 @@ pane-header,
 @color-gray-dark:       #72726B; 
 @color-gray-darker:     #4C4C47;
 @color-gray-darkest:    #262624;
+/// <reference path="../assets.less" />
+
+.button {
+    display: inline-flex;
+    white-space: nowrap;
+    max-width: 100%;
+    border-width: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    background-color: @button-background-color;
+    border-color: @button-border-color;
+    color: @button-color;
+    padding: 0 1em;
+    line-height: 2em;
+    
+    &:hover {
+        background-color: @button-hover-background-color;
+        border-color: @button-hover-border-color;
+        color: @button-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-active-background-color;
+        border-color: @button-active-border-color;
+        color: @button-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-focus-outline-color;
+    }
+}
+
+.button-default {
+    .button();
+    background-color: @button-default-background-color;
+    border-color: @button-default-border-color;
+    color: @button-default-color;
+    
+    &:hover {
+        background-color: @button-default-hover-background-color;
+        border-color: @button-default-hover-border-color;
+        color: @button-default-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-default-active-background-color;
+        border-color: @button-default-active-border-color;
+        color: @button-default-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-default-focus-outline-color;
+    }
+}
+
+.button-primary {
+    .button();
+    background-color: @button-primary-background-color;
+    border-color: @button-primary-border-color;
+    color: @button-primary-color;
+    
+    &:hover {
+        background-color: @button-primary-hover-background-color;
+        border-color: @button-primary-hover-border-color;
+        color: @button-primary-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-primary-active-background-color;
+        border-color: @button-primary-active-border-color;
+        color: @button-primary-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-primary-focus-outline-color;
+    }
+}
+
+.button-success {
+    .button();
+    background-color: @button-success-background-color;
+    border-color: @button-success-border-color;
+    color: @button-success-color;
+    
+    &:hover {
+        background-color: @button-success-hover-background-color;
+        border-color: @button-success-hover-border-color;
+        color: @button-success-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-success-active-background-color;
+        border-color: @button-success-active-border-color;
+        color: @button-success-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-success-focus-outline-color;
+    }
+}
+
+.button-danger {
+    .button();
+    background-color: @button-danger-background-color;
+    border-color: @button-danger-border-color;
+    color: @button-danger-color;
+    
+    &:hover {
+        background-color: @button-danger-hover-background-color;
+        border-color: @button-danger-hover-border-color;
+        color: @button-danger-hover-color;
+    }
+    
+    &:active {
+        background-color: @button-danger-active-background-color;
+        border-color: @button-danger-active-border-color;
+        color: @button-danger-active-color;
+    }
+    
+    &:focus {
+        outline-color: @button-danger-focus-outline-color;
+    }
+}
+
+// this should be deprecated
+.button-link {
+    .button();
+    .text-link();
+    background-color: transparent;
+    border: none;
+    outline: none;
+    
+    &:hover {
+        background-color: transparent;
+        border: none;
+    }
+    
+    &:active {
+        background-color: transparent;
+        border: none;    
+    }
+    
+    &:focus {
+        background-color: transparent;
+        border: none; 
+        outline: none;   
+    }
+}
+/// <reference path="../assets.less" />
+
+@form-label-color: @color-gray-dark;
+@form-label-sub-color: @color-gray-dark;
+@form-control-color: @color-gray-dark;
+@form-control-border-color: @color-gray-lightest;
+@form-control-focus-color: @color-blue-lighter;
+@form-control-error-color: @color-red;
+@form-control-focus-blur: .3em;
+@form-control-background-color: #fff;
+@form-control-border-radius: 4;
+@form-control-height: 2.5;
+@form-control-padding: .5;
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    .form-group ~ &,
+    & ~ & {
+       margin-top: 1em;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    .form-row & {
+        flex-grow: 1;
+    }
+    
+    .form-row ~ &,
+    & ~ & {
+       margin-top: 1em;
+    }
+    
+    .form-row & ~ & {
+        margin-top: 0;
+        margin-left: .5em;
+    }
+}
+
+.form-label {
+    text-transform: uppercase;
+    font-size: .875em;
+    color: @form-label-color;
+    position: relative;
+    user-select: none;
+    
+    .form-group  label > & {
+        vertical-align: middle;
+        display: flex;
+    }
+    
+    label > [type="checkbox"] + & {
+        outline: none;
+        
+        &:before {
+            content: "\0000a0";
+            display: inline-flex;
+            box-sizing: border-box;
+            justify-content: center;
+            border: solid 2px @form-control-border-color;
+            margin-right: .5em;
+            width: 1.5em;
+            line-height: 1.25em;
+            border-radius: 2px;
+            transition: all .25s linear;
+        }
+    }
+    
+    label > [type="checkbox"]:checked + & {
+        &:before {
+            content: "\2714";
+            background-color: @color-green;
+            border-color: @color-green;
+            color: #fff;
+        }
+    }
+    
+    label > [type="checkbox"]:focus + & {
+        &:before {
+            box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
+        }
+    }
+}
+
+:root .form-group  label > [type="checkbox"] {
+    position: absolute;
+    left: -1000em;
+}
+
+.form-label-sub {
+    font-size: .75em;
+    color: @form-label-sub-color;
+    
+    .form-label & {
+        margin-left: .2em;
+    }
+}
+
+.form-control {
+    display: flex;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: unit(@form-control-padding,em);
+    height: unit(@form-control-height,em);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: unit(@form-control-border-radius,px);
+    border-color: @form-control-border-color;
+    color: @form-control-color;
+    line-height: ~"calc(@{form-control-height}em - 2px)";
+    background-color: @form-control-background-color;
+    
+    &:not(&--customWidth) {
+        width: 100%;
+    }
+    
+    input[type]& {
+        box-sizing: border-box;
+    }
+    
+    textarea& {
+        height: auto;
+        line-height: 1.5em;
+    }
+    
+    &:hover {
+        color: @form-control-color;
+    }
+    
+    &:active {
+        color: @form-control-color;
+    }
+    
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
+    }
+    
+    .form-group > label > & {
+        vertical-align: middle;
+    }
+    
+    &::-ms-expand {
+        background-color: transparent;
+        border-style: none;
+        padding-right: unit(@form-control-padding,em);
+        color: @color-gray-dark;
+    }
+    &::-ms-value {
+        background-color: transparent;
+        color: inherit;
+    }
+    
+    &::-webkit-inner-spin-button {
+        height: unit(@form-control-height,em);
+    }
+    
+    .form-label + &,
+    .form-addon-control + &,
+    & + & {
+        margin-top: .2em;
+    }
+    
+    .form-control-row & + &{
+        margin-top: 0;
+        margin-left: .5em;
+    }
+    
+    .form-addon-control--before & {
+        padding-left: unit(@form-control-height + @form-control-padding,em);
+    }
+    
+    .form-addon-control--after & {
+        padding-right: unit(@form-control-height + @form-control-padding,em);
+    }
+    
+    &.ng-touched.ng-invalid {
+        border-color: @form-control-error-color;
+    }
+}
+
+.form-control-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    .form-addon-control + &,
+    .form-control + & {
+        margin-top: .5em;
+    }
+}
+
+.form-addon-control {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    
+    .form-label + &,
+    .form-control + &,
+    & + & {
+        margin-top: .5em;
+    }
+}
+
+.form-addon-icon {
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 0 unit(@form-control-padding,em);
+    width: unit(@form-control-height,em);
+    line-height: unit(@form-control-height,em);
+    text-align: center;
+    cursor: pointer;
+    color: @color-gray-light;
+    border: none;
+    background-color: @form-control-background-color;
+    margin: 1px;
+    
+    .form-addon-control--before & {
+        left: 0;
+        border-right: solid 1px @form-control-border-color;
+        border-radius: unit(@form-control-border-radius,px) 0 0 unit(@form-control-border-radius,px);
+    }
+    
+    .form-addon-control--after & {
+        right: 0;
+        border-left: solid 1px @form-control-border-color;
+        border-radius: 0 unit(@form-control-border-radius,px) unit(@form-control-border-radius,px) 0;
+    }
+    
+    &:hover {
+        color: @color-gray;
+    }
+    
+    &:active {
+        color: @color-gray-light;
+    }
+    
+    &:focus {
+        
+    }
+}
+
+.form-message {
+    .text-danger();
+}
+
+.form-message-link {
+    .text-link();
+    float: right;
+    cursor: pointer;
+}
+/// <reference path="../assets.less" />
+
+.text {
+    color: @color-gray;
+    
+    input&[type="button"],
+    button& {
+        text-align: left;
+        padding: 0;
+        border-style: none;
+        background-color: transparent;
+    }
+}
+
+.text-light {
+    color: @color-gray-light;
+}
+
+.text-lighter {
+    color: @color-gray-lighter;
+}
+
+.text-lightest {
+    color: @color-gray-lightest;
+}
+
+.text-lightest2 {
+    color: @color-gray-lightest2;
+}
+
+.text-medium,
+.text-dark {
+    color: @color-gray-dark;
+}
+
+.text-darker {
+    color: @color-gray-darker;
+}
+
+.text-darkest {
+    color: @color-gray-darkest;
+}
+
+.text-success {
+    .text();
+    color: @color-green;
+    
+    a&:hover,
+    &.text-link:hover {
+        color: @color-green-lighter;
+    }
+}
+
+.text-warning {
+    .text();
+    color: @color-orange;
+    
+    a&:hover,
+    &.text-link:hover {
+        color: @color-orange-lighter;
+    }
+}
+
+.text-muted {
+    .text();
+    color: @color-gray;
+    
+    a&:hover,
+    &.text-link:hover {
+        color: @color-gray-lighter;
+    }
+}
+
+.text-danger {
+    .text();
+    color: @color-red;
+
+    a&:hover,
+    &.text-link:hover {
+        color: @color-red-lighter;
+    }
+}
+
+.text-empty {
+    font-style: italic;
+    color: @color-gray-lighter;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.text-upper {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-normal {
+    .font-size(@typescale);
+    font-weight: @font-weight;
+}
+
+.text-light {
+    font-weight: @font-weight-light;
+}
+
+.text-bold {
+    font-weight: @font-weight-bold;
+}
+
+.text-link {
+    .text();
+    color: @color-blue;
+    
+    &:hover {
+        color: @color-blue-lighter;
+    }
+    
+    &:active {
+        color: @color-blue;
+    }
+}

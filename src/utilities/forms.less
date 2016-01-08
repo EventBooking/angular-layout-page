@@ -3,12 +3,14 @@
 @form-label-color: @color-gray-dark;
 @form-label-sub-color: @color-gray-dark;
 @form-control-color: @color-gray-dark;
-@form-control-border-color: @color-gray-lighter;
-@form-control-focus-color: @color-green-lighter;
+@form-control-border-color: @color-gray-lightest;
+@form-control-focus-color: @color-blue-lighter;
 @form-control-error-color: @color-red;
 @form-control-focus-blur: .3em;
 @form-control-background-color: #fff;
 @form-control-border-radius: 4;
+@form-control-height: 2.5;
+@form-control-padding: .5;
 
 .form {
     display: flex;
@@ -86,7 +88,7 @@
     
     label > [type="checkbox"]:focus + & {
         &:before {
-            box-shadow: inset 0 0 @form-control-focus-blur @form-control-focus-color;
+            box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
         }
     }
 }
@@ -109,14 +111,14 @@
     display: flex;
     padding-top: 0;
     padding-bottom: 0;
-    padding-left: .5em;
-    height: 2em;
+    padding-left: unit(@form-control-padding,em);
+    height: unit(@form-control-height,em);
     border-style: solid;
     border-width: 1px;
     border-radius: unit(@form-control-border-radius,px);
     border-color: @form-control-border-color;
     color: @form-control-color;
-    line-height: ~"calc(2em - 2px)";
+    line-height: ~"calc(@{form-control-height}em - 2px)";
     background-color: @form-control-background-color;
     
     &:not(&--customWidth) {
@@ -142,7 +144,7 @@
     
     &:focus {
         outline: none;
-        box-shadow: inset 0 0 @form-control-focus-blur @form-control-focus-color;
+        box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
     }
     
     .form-group > label > & {
@@ -152,7 +154,7 @@
     &::-ms-expand {
         background-color: transparent;
         border-style: none;
-        padding-right: .5em;
+        padding-right: unit(@form-control-padding,em);
         color: @color-gray-dark;
     }
     &::-ms-value {
@@ -161,13 +163,13 @@
     }
     
     &::-webkit-inner-spin-button {
-        height: 2em;
+        height: unit(@form-control-height,em);
     }
     
     .form-label + &,
     .form-addon-control + &,
     & + & {
-        margin-top: .5em;
+        margin-top: .2em;
     }
     
     .form-control-row & + &{
@@ -176,11 +178,11 @@
     }
     
     .form-addon-control--before & {
-        padding-left: 2em;
+        padding-left: unit(@form-control-height + @form-control-padding,em);
     }
     
     .form-addon-control--after & {
-        padding-right: 2em;
+        padding-right: unit(@form-control-height + @form-control-padding,em);
     }
     
     &.ng-touched.ng-invalid {
@@ -217,20 +219,26 @@
     top: 0;
     bottom: 0;
     z-index: 1;
-    padding: 0 .5em;
-    width: 2em;
-    line-height: 2em;
+    padding: 0 unit(@form-control-padding,em);
+    width: unit(@form-control-height,em);
+    line-height: unit(@form-control-height,em);
+    text-align: center;
     cursor: pointer;
     color: @color-gray-light;
     border: none;
-    background-color: transparent;
+    background-color: @form-control-background-color;
+    margin: 1px;
     
     .form-addon-control--before & {
         left: 0;
+        border-right: solid 1px @form-control-border-color;
+        border-radius: unit(@form-control-border-radius,px) 0 0 unit(@form-control-border-radius,px);
     }
     
     .form-addon-control--after & {
         right: 0;
+        border-left: solid 1px @form-control-border-color;
+        border-radius: 0 unit(@form-control-border-radius,px) unit(@form-control-border-radius,px) 0;
     }
     
     &:hover {
