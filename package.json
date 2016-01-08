@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "gulp": "gulp",
-    "bower": "bower",
-    "tsc": "tsc",
-    "tsd": "tsd"
+    "tsc": "tsc -p src",
+    "tsc:w": "tsc -w -p src",
+    "tsd": "tsd install"
   },
   "repository": {
     "type": "git",

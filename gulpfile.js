@@ -87,15 +87,15 @@ function tsdInstall(callback) {
 		del = require('del');
 
 	del(bundle, function () {
-		exec('tsd install', null, callback);
+		exec('npm run tsd', null, callback);
 	});
 }
 
 gulp.task('tsd:install', tsdInstall);
 
 function typescript(callback, watch) {
-	var watchFlag = watch ? ' -w' : '';
-	exec('tsc' + watchFlag + ' -p src', null, callback);
+	var watchFlag = watch ? ':w' : '';
+	exec('npm run tsc' + watchFlag, null, callback);
 }
 
 gulp.task('typescript', ['tsd:install'], function (callback) {
