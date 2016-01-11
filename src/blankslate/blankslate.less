@@ -1,0 +1,58 @@
+/// <reference path="../assets.less" />
+
+@blankslate-icon-color: @color-gray-darker;
+@blankslate-title-color: @color-gray-darker;
+@blankslate-subtitle-color: @color-gray;
+
+blankslate {
+    display: flex;
+    flex-direction: row;
+    color: @color-gray-darker;
+    border-color: @color-gray-lightest2;
+    border-style: solid;
+    border-width: 1px 0;
+    padding: 2em 0;
+
+    &[center] {
+        flex-direction: column;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    &[noborder] {
+        border-style: none;
+    }
+}
+
+.blankslate-icon,
+.blankslate-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.blankslate-icon {
+    font-size: 3.75em;
+    color: @blankslate-icon-color;
+    padding: 0 .5em;
+    margin: 0;
+}
+
+.blankslate-content {
+}
+
+.blankslate-content-title {
+    display: block;
+    font-size: 1.5em;
+    color: @blankslate-title-color;
+}
+
+.blankslate-content-subtitle {
+    display: block;
+    font-size: 1.25em;
+    color: @blankslate-subtitle-color;
+}
+
+.blankslate-content-link {
+    font-weight: bold;
+}

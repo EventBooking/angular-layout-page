@@ -5,6 +5,22 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('blankslate/blankslate.html',
+    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
+    '<div class="blankslate-content">\n' +
+    '    <span class="blankslate-content-title">{{vm.title}}</span>\n' +
+    '    <span class="blankslate-content-subtitle" ng-if="vm.hasSubtitle">{{vm.subtitle}}</span>\n' +
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('body-header/body-header.html',
     '<div class="body-header-actions" ng-transclude></div>\n' +
     '<div class="body-header-titles">\n' +

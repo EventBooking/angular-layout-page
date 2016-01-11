@@ -11,6 +11,7 @@
 @form-control-border-radius: 4;
 @form-control-height: 2.5;
 @form-control-padding: .5;
+@form-control-selected-background-color: @color-green-lightest;
 
 .form {
     display: flex;
@@ -120,6 +121,10 @@
     color: @form-control-color;
     line-height: ~"calc(@{form-control-height}em - 2px)";
     background-color: @form-control-background-color;
+    
+    &--selected {
+        background-color: @form-control-selected-background-color;
+    }
     
     &:not(&--customWidth) {
         width: 100%;

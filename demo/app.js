@@ -5,6 +5,11 @@ function Config($routeProvider, $locationProvider) {
 
     $routeProvider
 
+        .when("/blankslate", {
+            templateUrl: "/blankslate/blankslate.html",
+            controller: 'blankslateController',
+            controllerAs: 'vm'
+        })
         .when("/colors", {
             templateUrl: "/colors/colors.html",
             controller: 'colorsController',
