@@ -1350,7 +1350,6 @@ button.form-message-link {
   color: #262624;
   padding: 0 1em;
   line-height: 2em;
-  color: #999990;
   color: #4EB6D6;
   background-color: transparent;
   border: none;
@@ -1369,24 +1368,13 @@ button.form-message-link {
 .button-link:focus {
   outline-color: #72726B;
 }
-input.button-link[type="button"],
-button.button-link {
-  text-align: left;
-  padding: 0;
-  border-style: none;
-  background-color: transparent;
-}
 .button-link:hover {
   color: #B1E0ED;
-}
-.button-link:active {
-  color: #4EB6D6;
-}
-.button-link:hover {
   background-color: transparent;
   border: none;
 }
 .button-link:active {
+  color: #4EB6D6;
   background-color: transparent;
   border: none;
 }
