@@ -9,7 +9,7 @@ module.run(['$templateCache', function($templateCache) {
     '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
     '<div class="blankslate-content">\n' +
     '    <span class="blankslate-content-title">{{vm.title}}</span>\n' +
-    '    <span class="blankslate-content-subtitle" ng-if="vm.hasSubtitle">{{vm.subtitle}}</span>\n' +
+    '    <span class="blankslate-content-subtitle" ng-transclude></span>\n' +
     '</div>');
 }]);
 })();
