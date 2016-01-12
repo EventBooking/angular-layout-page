@@ -1485,13 +1485,25 @@ blankslate[noborder] {
   padding: 0 .5em;
   margin: 0;
 }
+.blankslate-content-title,
+.blankslate-content-subtitle {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+blankslate[center] .blankslate-content-title,
+blankslate[center] .blankslate-content-subtitle {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 .blankslate-content-title {
-  display: block;
   font-size: 1.5em;
   color: #4C4C47;
 }
 .blankslate-content-subtitle {
-  display: block;
   font-size: 1.25em;
   color: #999990;
 }

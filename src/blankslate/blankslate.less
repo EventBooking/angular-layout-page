@@ -41,14 +41,21 @@ blankslate {
 .blankslate-content {
 }
 
+.blankslate-content-title,
+.blankslate-content-subtitle {
+    display: flex;
+    
+    blankslate[center] & {
+        justify-content: center;
+    }
+}
+
 .blankslate-content-title {
-    display: block;
     font-size: 1.5em;
     color: @blankslate-title-color;
 }
 
 .blankslate-content-subtitle {
-    display: block;
     font-size: 1.25em;
     color: @blankslate-subtitle-color;
 }
