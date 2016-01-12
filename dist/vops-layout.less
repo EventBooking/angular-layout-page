@@ -99,6 +99,53 @@ blankslate {
     .text-link();
     font-weight: bold;
 }
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	font-family: @font-family;
+	line-height: @line-height-base;
+	background-color: @background-color;
+	color: @color;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
+}
 body-header {
     display: flex;
     line-height: unit(@body-header-height,px);
@@ -160,53 +207,6 @@ body-header {
     .ellipsis();
     letter-spacing: unit(@letter-spacing-header,rem);
     line-height: unit(@body-header-subtitle-font-size,px);
-}
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	font-family: @font-family;
-	line-height: @line-height-base;
-	background-color: @background-color;
-	color: @color;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
@@ -337,6 +337,29 @@ nav-group,
 		background-repeat: no-repeat;
 	}
 }
+nav-header {
+	display: block;
+	text-align: center;
+	color: @nav-header-color;
+	.font-size(@nav-header-font-size);
+	line-height: unit(@page-header-height,px);
+    font-weight: @nav-header-font-weight;
+    text-transform: none;
+}
+
+.nav-header-small {
+	display: none;
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+	.nav-header-text {
+		display: none;
+	}
+	
+    .nav-header-small {
+        display: inline;
+    }
+}
 nav-group-item,
 [nav-group-item],
 .nav-group-item {
@@ -394,29 +417,6 @@ nav-group-item,
         display: none;
     }
 }
-nav-header {
-	display: block;
-	text-align: center;
-	color: @nav-header-color;
-	.font-size(@nav-header-font-size);
-	line-height: unit(@page-header-height,px);
-    font-weight: @nav-header-font-weight;
-    text-transform: none;
-}
-
-.nav-header-small {
-	display: none;
-}
-
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-	.nav-header-text {
-		display: none;
-	}
-	
-    .nav-header-small {
-        display: inline;
-    }
-}
 .page {
     display: flex;
     flex-direction: column;
@@ -470,32 +470,6 @@ nav-header {
         align-content: flex-start;
     }
 }
-.page-content-nav {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: unit(@page-content-nav-width,px);
-    padding: unit(@padding-half,px) 0;
-    border-width: 1px;
-    border-color: @border-color;
-    border-style: none solid none none;
-    background-color: @page-content-nav-background-color;
-    list-style-type: none;
-    margin: 0;
-}
-
-// tablet landscape mode
-@media (max-width: unit(@screen-desktop-sm,px)) {
-    .page-content-nav {
-        flex-direction: row;
-        width: auto;
-        border-style: none none solid none;
-        padding: 0 unit(@padding-half,px);
-        height: unit(@page-content-nav-height,px);
-        line-height: unit(@page-content-nav-height,px);
-    }
-}
 .page-content-body-pane {
     padding: 0 unit(@padding,px);
     width: unit(@page-content-body-pane-width,px);
@@ -545,6 +519,32 @@ nav-header {
 		&--double {
 			width: unit(@page-content-body-pane-width,px);
 		}
+    }
+}
+.page-content-nav {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: unit(@page-content-nav-width,px);
+    padding: unit(@padding-half,px) 0;
+    border-width: 1px;
+    border-color: @border-color;
+    border-style: none solid none none;
+    background-color: @page-content-nav-background-color;
+    list-style-type: none;
+    margin: 0;
+}
+
+// tablet landscape mode
+@media (max-width: unit(@screen-desktop-sm,px)) {
+    .page-content-nav {
+        flex-direction: row;
+        width: auto;
+        border-style: none none solid none;
+        padding: 0 unit(@padding-half,px);
+        height: unit(@page-content-nav-height,px);
+        line-height: unit(@page-content-nav-height,px);
     }
 }
 page-content-nav-item {
@@ -609,25 +609,6 @@ page-content-nav-item {
         padding: 0 unit(@padding-quarter,px);
     }
 }
-page-slider {
-    position: absolute;
-    right: 0;
-    width: unit(@page-slider-width,px);
-    top: 0;
-    bottom: 0;
-    z-index: 10;
-    transition: right .25s ease-in-out;
-    color: @page-slider-color;
-    background-color: @page-slider-background-color;
-
-    &:not(.is-visible) {
-        right: unit(-@page-slider-width,px);
-    }
-
-    &.is-visible {
-        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
-    }
-}
 page-header,
 .page-header {
     display: flex;
@@ -689,6 +670,31 @@ page-header,
         background-color: @page-header-actions-item-active-background-color;
     }
 }
+page-slider {
+    position: absolute;
+    right: 0;
+    width: unit(@page-slider-width,px);
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    transition: right .25s ease-in-out;
+    color: @page-slider-color;
+    background-color: @page-slider-background-color;
+
+    &:not(.is-visible) {
+        right: unit(-@page-slider-width,px);
+    }
+
+    &.is-visible {
+        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
+    }
+}
+.pane {
+    height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+    line-height: @line-height-base;
+    .font-size(@pane-font-size);
+}
 .pane-body {
     display: block;
     max-height: 100%;
@@ -711,12 +717,6 @@ page-header,
         max-height: ~"calc(100% - @{pane-footer-height}px)";
         padding-bottom: unit(@padding-half,px);
     }
-}
-.pane {
-    height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-    line-height: @line-height-base;
-    .font-size(@pane-font-size);
 }
 pane-footer {
     display: block;
@@ -1391,9 +1391,6 @@ pane-header,
         color: @color-blue;
     }
 }
-@import "text";
-@import "forms";
-@import "buttons";
 /* General */
 @padding: 32;
 @padding-half: @padding/2;
