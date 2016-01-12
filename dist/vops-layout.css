@@ -1507,8 +1507,23 @@ blankslate[center] .blankslate-content-subtitle {
   font-size: 1.25em;
   color: #999990;
 }
-.blankslate-content-link {
+.blankslate-link {
+  color: #999990;
+  color: #4EB6D6;
   font-weight: bold;
+}
+input.blankslate-link[type="button"],
+button.blankslate-link {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+.blankslate-link:hover {
+  color: #B1E0ED;
+}
+.blankslate-link:active {
+  color: #4EB6D6;
 }
 .layout-page {
   display: -webkit-box;
