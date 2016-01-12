@@ -22,12 +22,16 @@ function PaneTestController($routeParams) {
 	}
 	
 	this.closeSlider1 = function() {
-		this.showSlider1 = false;
+		// this.showSlider1 = false;
 	}
 	
 	this.closeSlider2 = function() {
 		this.showSlider2 = false;
 	}
+    
+    this.slider1Closed = function() {
+        this.showSlider1 = false;
+    }
 }
 
 app.controller('paneTestController', PaneTestController);
