@@ -5,22 +5,6 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('blankslate/blankslate.html',
-    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
-    '<div class="blankslate-content">\n' +
-    '    <span class="blankslate-content-title">{{vm.title}}</span>\n' +
-    '    <span class="blankslate-content-subtitle" ng-transclude></span>\n' +
-    '</div>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('body-header/body-header.html',
     '<div class="body-header-actions" ng-transclude></div>\n' +
     '<div class="body-header-titles">\n' +
@@ -37,9 +21,14 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-group-item/nav-group-item.html',
-    '<i ng-if="vm.hasIcon" class="nav-group-item-icon" ng-class="vm.iconClass"></i>\n' +
-    '<span class="nav-group-item-text" ng-transclude></span>');
+  $templateCache.put('blankslate/blankslate.html',
+    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
+    '<div class="blankslate-content">\n' +
+    '    <div class="blankslate-content-title">{{vm.title}}</div>\n' +
+    '    <div class="blankslate-content-subtitle">\n' +
+    '        <div ng-transclude></div>\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 
@@ -53,6 +42,19 @@ module.run(['$templateCache', function($templateCache) {
   $templateCache.put('nav-header/nav-header.html',
     '<span class="nav-header-text">{{vm.text}}</span>\n' +
     '<span class="nav-header-small">{{vm.small}}</span>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('nav-group-item/nav-group-item.html',
+    '<i ng-if="vm.hasIcon" class="nav-group-item-icon" ng-class="vm.iconClass"></i>\n' +
+    '<span class="nav-group-item-text" ng-transclude></span>');
 }]);
 })();
 
