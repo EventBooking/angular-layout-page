@@ -1485,6 +1485,36 @@ blankslate[noborder] {
   padding: 0 .5em;
   margin: 0;
 }
+blankslate[warning] .blankslate-icon {
+  color: #999990;
+  color: #EEA041;
+}
+inputblankslate[warning] .blankslate-icon[type="button"],
+buttonblankslate[warning] .blankslate-icon {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+ablankslate[warning] .blankslate-icon:hover,
+blankslate[warning] .blankslate-icon.text-link:hover {
+  color: #FBEAD5;
+}
+blankslate[danger] .blankslate-icon {
+  color: #999990;
+  color: #EF5041;
+}
+inputblankslate[danger] .blankslate-icon[type="button"],
+buttonblankslate[danger] .blankslate-icon {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+ablankslate[danger] .blankslate-icon:hover,
+blankslate[danger] .blankslate-icon.text-link:hover {
+  color: #F8B5A6;
+}
 .blankslate-content-title,
 .blankslate-content-subtitle {
   display: -webkit-box;

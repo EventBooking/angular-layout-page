@@ -36,6 +36,14 @@ blankslate {
     color: @blankslate-icon-color;
     padding: 0 .5em;
     margin: 0;
+    
+    blankslate[warning] & {
+        .text-warning();
+    }
+    
+    blankslate[danger] & {
+        .text-danger();
+    }
 }
 
 .blankslate-content {
