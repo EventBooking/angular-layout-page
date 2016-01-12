@@ -74,7 +74,9 @@ function styles() {
 		
 	gulp.src(['src/assets.less'])
 		.pipe(debug())
-		.pipe(less())
+		.pipe(less({
+            plugins: [require('less-plugin-glob')]
+        }))
 		.pipe(autoprefixer())
 		.pipe(concat(project.name + '.css'))
 		.pipe(gulp.dest(dest));
@@ -129,7 +131,6 @@ function server() {
 	app.use('/', express.static(__dirname + '/demo'));
 	app.use('*', express.static(__dirname + '/demo'));
 
-	watch();
 	gulp.watch(['demo/**/*.css','dist/**/*.css'], notifyLiveReload);
 	gulp.watch(['demo/**/*.js','dist/**/*.js'], notifyLiveReload);
 	gulp.watch(['demo/**/*.html','dist/**/*.html'], notifyLiveReload);
@@ -137,7 +138,7 @@ function server() {
 	app.listen(4000);
 }
 
-gulp.task('server', server);
+gulp.task('server', ['watch'], server);
 
 function watch() {
 	gulp.watch(['src/**/*.less'], ['styles']);

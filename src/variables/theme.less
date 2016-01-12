@@ -56,32 +56,3 @@
 @color-gray-dark:       #72726B; 
 @color-gray-darker:     #4C4C47;
 @color-gray-darkest:    #262624;
-
-.colorClasses(@color) {
-    .colorClass(~"@{color}-lightest", ~"color-@{color}-lightest");
-    .colorClass(~"@{color}-lighter", ~"color-@{color}-lighter");
-    .colorClass(~"@{color}-light", ~"color-@{color}-light");
-    .colorClass(~"@{color}", ~"color-@{color}");
-    .colorClass(~"@{color}-dark", ~"color-@{color}-dark");
-    .colorClass(~"@{color}-darker", ~"color-@{color}-darker");
-    .colorClass(~"@{color}-darkest", ~"color-@{color}-darkest");
-}
-
-.colorClass(@name, @color) {
-    .color-@{name} {
-        color: @@color;
-    }
-    
-    .background-color-@{name} {
-        background-color: @@color;
-    }
-}
-
-.colorClasses(red);
-.colorClasses(orange);
-.colorClasses(yellow);
-.colorClasses(green);
-.colorClasses(blue);
-.colorClasses(purple);
-.colorClass(~"gray-lightest2", ~"color-gray-lightest2");
-.colorClasses(gray);

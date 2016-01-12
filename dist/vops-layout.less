@@ -1,3 +1,31 @@
+.colorClasses(@color) {
+    .colorClass(~"@{color}-lightest", ~"color-@{color}-lightest");
+    .colorClass(~"@{color}-lighter", ~"color-@{color}-lighter");
+    .colorClass(~"@{color}-light", ~"color-@{color}-light");
+    .colorClass(~"@{color}", ~"color-@{color}");
+    .colorClass(~"@{color}-dark", ~"color-@{color}-dark");
+    .colorClass(~"@{color}-darker", ~"color-@{color}-darker");
+    .colorClass(~"@{color}-darkest", ~"color-@{color}-darkest");
+}
+
+.colorClass(@name, @color) {
+    .color-@{name} {
+        color: @@color;
+    }
+    
+    .background-color-@{name} {
+        background-color: @@color;
+    }
+}
+
+.colorClasses(red);
+.colorClasses(orange);
+.colorClasses(yellow);
+.colorClasses(green);
+.colorClasses(blue);
+.colorClasses(purple);
+.colorClass(~"gray-lightest2", ~"color-gray-lightest2");
+.colorClasses(gray);
 /// <reference path="assets.less" />
 
 .body {
@@ -99,53 +127,6 @@ blankslate {
     .text-link();
     font-weight: bold;
 }
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	font-family: @font-family;
-	line-height: @line-height-base;
-	background-color: @background-color;
-	color: @color;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
-}
 body-header {
     display: flex;
     line-height: unit(@body-header-height,px);
@@ -207,6 +188,53 @@ body-header {
     .ellipsis();
     letter-spacing: unit(@letter-spacing-header,rem);
     line-height: unit(@body-header-subtitle-font-size,px);
+}
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	font-family: @font-family;
+	line-height: @line-height-base;
+	background-color: @background-color;
+	color: @color;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
@@ -337,29 +365,6 @@ nav-group,
 		background-repeat: no-repeat;
 	}
 }
-nav-header {
-	display: block;
-	text-align: center;
-	color: @nav-header-color;
-	.font-size(@nav-header-font-size);
-	line-height: unit(@page-header-height,px);
-    font-weight: @nav-header-font-weight;
-    text-transform: none;
-}
-
-.nav-header-small {
-	display: none;
-}
-
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-	.nav-header-text {
-		display: none;
-	}
-	
-    .nav-header-small {
-        display: inline;
-    }
-}
 nav-group-item,
 [nav-group-item],
 .nav-group-item {
@@ -440,6 +445,29 @@ nav-group-item,
     & .page-content-area {
         order: 1;
         flex-grow: 1;
+    }
+}
+nav-header {
+	display: block;
+	text-align: center;
+	color: @nav-header-color;
+	.font-size(@nav-header-font-size);
+	line-height: unit(@page-header-height,px);
+    font-weight: @nav-header-font-weight;
+    text-transform: none;
+}
+
+.nav-header-small {
+	display: none;
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+	.nav-header-text {
+		display: none;
+	}
+	
+    .nav-header-small {
+        display: inline;
     }
 }
 .page-content,
@@ -1680,32 +1708,3 @@ pane-header,
 @color-gray-dark:       #72726B; 
 @color-gray-darker:     #4C4C47;
 @color-gray-darkest:    #262624;
-
-.colorClasses(@color) {
-    .colorClass(~"@{color}-lightest", ~"color-@{color}-lightest");
-    .colorClass(~"@{color}-lighter", ~"color-@{color}-lighter");
-    .colorClass(~"@{color}-light", ~"color-@{color}-light");
-    .colorClass(~"@{color}", ~"color-@{color}");
-    .colorClass(~"@{color}-dark", ~"color-@{color}-dark");
-    .colorClass(~"@{color}-darker", ~"color-@{color}-darker");
-    .colorClass(~"@{color}-darkest", ~"color-@{color}-darkest");
-}
-
-.colorClass(@name, @color) {
-    .color-@{name} {
-        color: @@color;
-    }
-    
-    .background-color-@{name} {
-        background-color: @@color;
-    }
-}
-
-.colorClasses(red);
-.colorClasses(orange);
-.colorClasses(yellow);
-.colorClasses(green);
-.colorClasses(blue);
-.colorClasses(purple);
-.colorClass(~"gray-lightest2", ~"color-gray-lightest2");
-.colorClasses(gray);
