@@ -5,6 +5,18 @@ var gulp = require('gulp'),
     project = require('./package.json'),
 	dest = 'dist';
 
+gulp.task('clean', clean);
+gulp.task('tsd:install', tsdInstall);
+gulp.task('default', ['clean'], build);
+gulp.task('stripRefs', stripRefs);
+gulp.task('styles', styles);
+gulp.task('html', html);
+gulp.task('watch', watch);
+gulp.task('server', ['watch'], server);
+gulp.task('typescript', ['tsd:install'], function (callback) {
+	typescript(callback);
+});
+
 function exec(cmd, options, fn) {
 	var proc = require('child_process').exec,
 		child = proc(cmd, options, fn);
@@ -23,8 +35,6 @@ function clean() {
 	return del(dest);
 }
 
-gulp.task('clean', clean);
-
 function html() {
 	var html2js = require('gulp-ng-html2js');
 
@@ -38,8 +48,6 @@ function html() {
 		.pipe(concat(project.name + '.templates.js'))
 		.pipe(gulp.dest(dest));
 }
-
-gulp.task('html', html);
 
 function styles() {
 	var less = require('gulp-less'),
@@ -82,8 +90,6 @@ function styles() {
 		.pipe(gulp.dest(dest));
 }
 
-gulp.task('styles', styles);
-
 function tsdInstall(callback) {
 	var bundle = require('./tsd.json').bundle,
 		del = require('del');
@@ -93,16 +99,10 @@ function tsdInstall(callback) {
 	});
 }
 
-gulp.task('tsd:install', tsdInstall);
-
 function typescript(callback, watch) {
 	var watchFlag = watch ? ':w' : '';
 	exec('npm run tsc' + watchFlag, null, callback);
 }
-
-gulp.task('typescript', ['tsd:install'], function (callback) {
-	typescript(callback);
-});
 
 function server() {
 	var express = require('express'),
@@ -138,15 +138,12 @@ function server() {
 	app.listen(4000);
 }
 
-gulp.task('server', ['watch'], server);
-
 function watch() {
 	gulp.watch(['src/**/*.less'], ['styles']);
 	gulp.watch(['src/**/*.html'], ['html']);
+    gulp.watch(['dist/**/*.d.ts'], ['stripRefs']);
 	typescript(null, true);
 }
-
-gulp.task('watch', watch);
 
 function build() {
 	styles();
@@ -154,4 +151,11 @@ function build() {
 	typescript();
 }
 
-gulp.task('default', ['clean'], build);
+function stripRefs() {
+    var strip = require("gulp-strip-comments");
+    
+    return gulp.src(dest + '/**/*.d.ts')
+        .pipe(debug())
+        .pipe(strip())
+        .pipe(gulp.dest(dest));
+}
