@@ -16,5 +16,5 @@
         };
     }
 
-    app.directive('bodyHeader', BodyHeaderDirective);
+    Angular.module("ngLayoutPage").directive('bodyHeader', BodyHeaderDirective);
 }

@@ -22,5 +22,5 @@ module LayoutPageModule {
         };
     }
 
-    app.directive('blankslate', BlankslateDirective);
+    Angular.module("ngLayoutPage").directive('blankslate', BlankslateDirective);
 }

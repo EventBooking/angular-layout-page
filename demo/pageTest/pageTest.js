@@ -4,4 +4,4 @@ function PageTestController($routeParams) {
 	
 }
 
-app.controller('pageTestController', PageTestController);
+angular.module("demo").controller('pageTestController', PageTestController);

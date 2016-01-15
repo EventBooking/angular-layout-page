@@ -34,4 +34,4 @@ function PaneTestController($routeParams) {
     }
 }
 
-app.controller('paneTestController', PaneTestController);
+angular.module("demo").controller('paneTestController', PaneTestController);

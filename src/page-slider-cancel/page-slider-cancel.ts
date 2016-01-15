@@ -16,5 +16,5 @@
         };
     }
 
-    app.directive('pageSliderCancel', PageSliderCancelDirective);
+    Angular.module("ngLayoutPage").directive('pageSliderCancel', PageSliderCancelDirective);
 }

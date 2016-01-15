@@ -66,5 +66,5 @@
         };
     }
 
-    app.directive('pageSlider', PageSliderDirective);
+    Angular.module("ngLayoutPage").directive('pageSlider', PageSliderDirective);
 }

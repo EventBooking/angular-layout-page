@@ -1,4 +1,3 @@
-declare var app: AngularTypescriptModule.Module;
 declare module LayoutPageModule {
 }
 declare module LayoutPageModule {

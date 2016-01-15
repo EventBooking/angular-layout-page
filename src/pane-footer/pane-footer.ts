@@ -8,5 +8,5 @@
         };
     }
 
-    app.directive('paneFooter', PaneFooterDirective);
+    Angular.module("ngLayoutPage").directive('paneFooter', PaneFooterDirective);
 }

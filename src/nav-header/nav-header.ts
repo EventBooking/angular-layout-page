@@ -4,7 +4,7 @@ module LayoutPageModule {
         
     }
 	
-	app.controller('navHeaderController', NavHeaderController);
+	Angular.module("ngLayoutPage").controller('navHeaderController', NavHeaderController);
 
     class NavHeaderDirective {
         restrict = 'E';
@@ -18,5 +18,5 @@ module LayoutPageModule {
         }
     }
 
-    app.directive('navHeader', NavHeaderDirective);
+    Angular.module("ngLayoutPage").directive('navHeader', NavHeaderDirective);
 }

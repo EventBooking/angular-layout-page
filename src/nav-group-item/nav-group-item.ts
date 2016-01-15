@@ -36,7 +36,7 @@ module LayoutPageModule {
         }
     }
 
-    app.controller('navGroupItemController', NavGroupItemController);
+    Angular.module("ngLayoutPage").controller('navGroupItemController', NavGroupItemController);
 
     class NavGroupItemDirective {
         static $inject = ['$compile'];
@@ -70,5 +70,5 @@ module LayoutPageModule {
         };
     }
 
-    app.directive('navGroupItem', NavGroupItemDirective);
+    Angular.module("ngLayoutPage").directive('navGroupItem', NavGroupItemDirective);
 }

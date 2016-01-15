@@ -4,4 +4,4 @@ function TextController() {
 	
 }
 
-app.controller('textController', TextController);
+angular.module("demo").controller('textController', TextController);

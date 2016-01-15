@@ -40,5 +40,5 @@ module LayoutPageModule {
         };
     }
 
-    app.directive('pageContentNavItem', PageContentNavItemDirective);
+    Angular.module("ngLayoutPage").directive('pageContentNavItem', PageContentNavItemDirective);
 }

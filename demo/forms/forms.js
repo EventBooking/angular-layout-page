@@ -6,4 +6,4 @@ function FormsController($routeParams) {
     }
 }
 
-app.controller('formsController', FormsController);
+angular.module("demo").controller('formsController', FormsController);

@@ -33,5 +33,5 @@
         };
     }
 
-    app.directive('paneHeader', PaneHeaderDirective);
+    Angular.module("ngLayoutPage").directive('paneHeader', PaneHeaderDirective);
 }

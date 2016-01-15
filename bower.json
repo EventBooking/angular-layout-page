@@ -27,6 +27,6 @@
     "jquery": "~2.1.4",
     "normalize-css": "~3.0.3",
     "angular-animate": "~1.4.8",
-    "angular-typescript-module": "https://github.com/EventBooking/angular-typescript-module.git#v1.0.0"
+    "angular-typescript-module": "https://github.com/EventBooking/angular-typescript-module.git#v1.0.1"
   }
 }
