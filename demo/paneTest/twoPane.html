@@ -1,48 +1,59 @@
 <div class="page-content-body-pane">
-	<body-header title="Two Panes" subtitle="with a subtitle">
-		<i class="body-header-actions-item fa fa-ellipsis-v"></i>
-	</body-header>
-
-	<div>
-        <p>
-            <a href="/routetest">goto '/routetest'</a> (highlights "PANE TEST')
-        </p>
-		<p>
-			<a href="#" ng-click="vm.openSlider1()" ng-hide="vm.showSlider1">open slider 1</a>
-			<a href="#" ng-click="vm.closeSlider1()" ng-show="vm.showSlider1">close slider 1</a>
-		</p>
-		<p>
-			<a href="#" ng-click="vm.openSlider2()" ng-hide="vm.showSlider2">open slider 2</a>
-			<a href="#" ng-click="vm.closeSlider2()" ng-show="vm.showSlider2">close slider 2</a>
-		</p>
-		<p>
-			<a href="#" ng-click="vm.openSlider2OverSlider1()" ng-hide="vm.showSlider2">open slider 2 over slider 1</a>
-		</p>
-	</div>
-    
     <body-header title="Two Panes" subtitle="with a subtitle">
-		<i class="body-header-actions-item fa fa-ellipsis-v"></i>
-	</body-header>
+        <i class="body-header-actions-item fa fa-ellipsis-v"></i>
+    </body-header>
 
-	<div>
+    <div class="section">
+        <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
+        <div class="section-content">
+            <a href="/routetest">goto '/routetest'</a> (highlights "PANE TEST')
+        </div>
+        <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
+        <div class="section-content">
+            <a href="#" ng-click="vm.openSlider1()" ng-hide="vm.showSlider1">open slider 1</a>
+            <a href="#" ng-click="vm.closeSlider1()" ng-show="vm.showSlider1">close slider 1</a>
+        </div>
+        <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
+        <div class="section-content">
+            <a href="#" ng-click="vm.openSlider2()" ng-hide="vm.showSlider2">open slider 2</a>
+            <a href="#" ng-click="vm.closeSlider2()" ng-show="vm.showSlider2">close slider 2</a>
+        </div>
+        <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
+        <div class="section-content">
+            <a href="#" ng-click="vm.openSlider2OverSlider1()" ng-hide="vm.showSlider2">open slider 2 over slider 1</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-label section-label--large">Large Section Label <span class="section-label-sublabel">sublabel</span></div>
+        <div>
+            another content
+        </div>
+    </div>
+
+    <body-header title="Two Panes" subtitle="with a subtitle">
+        <i class="body-header-actions-item fa fa-ellipsis-v"></i>
+    </body-header>
+
+    <div>
         another content
     </div>
 </div>
 
 <div class="page-content-body-pane">
-	<body-header title="This title should show an ellipsis because its so long">
-		<i class="body-header-actions-item fa fa-ellipsis-v"></i>
-	</body-header>
-		
-	<div>
-		content
-	</div>
+    <body-header title="This title should show an ellipsis because its so long">
+        <i class="body-header-actions-item fa fa-ellipsis-v"></i>
+    </body-header>
+
+    <div>
+        content
+    </div>
 </div>
 
 <page-slider slide-if="vm.showSlider1" on-close="vm.slider1Closed()">
-	<ng-include src="'paneTest/slider1.html'"></ng-include>
+    <ng-include src="'paneTest/slider1.html'"></ng-include>
 </page-slider>
 
 <page-slider slide-if="vm.showSlider2">
-	<ng-include src="'paneTest/slider2.html'"></ng-include>
+    <ng-include src="'paneTest/slider2.html'"></ng-include>
 </page-slider>

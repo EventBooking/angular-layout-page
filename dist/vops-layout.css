@@ -5197,6 +5197,43 @@ pane-header:after,
   font-size: 16px;
   font-size: 1rem;
 }
+.section {
+  display: block;
+  color: #4C4C47;
+  font-size: 16px;
+}
+.section + .section {
+  border-top: solid 1px #E5E5E3;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+.section--noborder + .section {
+  border-top: none;
+  margin-top: 0;
+}
+.section-label {
+  display: block;
+  font-size: .875em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #72726B;
+}
+.section-label--large {
+  font-size: 1.25em;
+}
+.section-content + .section-label {
+  margin-top: 16px;
+}
+.section-label-sublabel {
+  font-size: 14px;
+  margin-left: .5em;
+}
+.section-label--large .section-label-sublabel {
+  font-size: 14px;
+}
+.section-content {
+  display: block;
+}
 .button {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
