@@ -12,6 +12,7 @@
 @form-control-height: 2.5;
 @form-control-padding: .5;
 @form-control-selected-background-color: @color-green-lightest;
+@form-control-disabled-background-color: @color-gray-lightest;
 
 .form {
     display: flex;
@@ -121,6 +122,11 @@
     color: @form-control-color;
     line-height: ~"calc(@{form-control-height}em - 2px)";
     background-color: @form-control-background-color;
+    
+    &[disabled] {
+        background-color: @form-control-disabled-background-color;
+        cursor: not-allowed;
+    }
     
     &--selected {
         background-color: @form-control-selected-background-color;

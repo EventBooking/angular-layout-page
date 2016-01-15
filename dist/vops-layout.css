@@ -858,6 +858,10 @@ label > [type="checkbox"]:focus + .form-label:before {
   line-height: calc(2.5em - 2px);
   background-color: #fff;
 }
+.form-control[disabled] {
+  background-color: #E5E5E3;
+  cursor: not-allowed;
+}
 .form-control--selected {
   background-color: #D6F1D6;
 }
@@ -5678,6 +5682,10 @@ label > [type="checkbox"]:focus + .form-label:before {
   color: #72726B;
   line-height: calc(2.5em - 2px);
   background-color: #fff;
+}
+.form-control[disabled] {
+  background-color: #E5E5E3;
+  cursor: not-allowed;
 }
 .form-control--selected {
   background-color: #D6F1D6;
