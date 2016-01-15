@@ -3063,9 +3063,7 @@ body-header {
   text-transform: capitalize;
 }
 body-header ~ body-header {
-  margin-top: 16px;
-  border-top: solid 1px #E5E5E3;
-  padding-top: 16px;
+  margin-top: 32px;
 }
 .body-header-top {
   display: -webkit-box;
