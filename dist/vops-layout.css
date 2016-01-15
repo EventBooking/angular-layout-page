@@ -4652,29 +4652,34 @@ a:active {
 }
 page-content-nav-item {
   display: block;
-  line-height: 48px;
+  line-height: 42px;
   padding: 0 32px;
   cursor: pointer;
   -webkit-transition: background-color 0.25s ease-in-out;
           transition: background-color 0.25s ease-in-out;
   position: relative;
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 14px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
 }
 page-content-nav-item ~ page-content-nav-item {
   margin-top: 1px;
   margin-left: 0;
 }
 page-content-nav-item:hover {
+  background-color: transparent;
   color: #4C4C47;
 }
 page-content-nav-item:active {
   background-color: transparent;
   color: #262624;
+  font-weight: 600;
 }
+.page-content-nav-item--active:hover,
 .page-content-nav-item--active {
   background-color: #E5E5E3;
   color: #262624;
+  font-weight: 600;
 }
 .page-content-nav-item--active:before,
 .page-content-nav-item--active:after {

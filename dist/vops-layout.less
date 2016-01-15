@@ -576,6 +576,7 @@ page-content-nav-item {
     transition: background-color .25s ease-in-out;
     position: relative;
     .font-size(@page-content-nav-item-font-size);
+    text-transform: uppercase;
     
     & ~ & {
         margin-top: 1px;
@@ -583,20 +584,23 @@ page-content-nav-item {
     }
     
     &:hover {
-        // background-color: @page-content-nav-item-hover-background-color;
+        background-color: @page-content-nav-item-hover-background-color;
         color: @page-content-nav-item-hover-color;
     }
     
     &:active {
         background-color: @page-content-nav-item-active-background-color;
         color: @page-content-nav-item-active-color;
+        font-weight: @font-weight-bold;
     }
 }
 
 .page-content-nav-item {
+    &--active:hover,
     &--active {
         background-color: @page-content-nav-item-selected-background-color;
         color: @page-content-nav-item-selected-color;
+        font-weight: @font-weight-bold;
     }
     
     &--active {
@@ -1549,7 +1553,7 @@ pane-header,
 @page-content-nav-background-color: @color-gray-lightest2;
 
 // page-content-nav-item
-@page-content-nav-item-font-size: @typescale;
+@page-content-nav-item-font-size: @typescale-sm;
 @page-content-nav-item-hover-color: @color-gray-darker;
 @page-content-nav-item-hover-background-color: transparent;
 @page-content-nav-item-active-color: @color-gray-darkest;
