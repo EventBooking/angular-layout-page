@@ -145,13 +145,13 @@ body-header {
 .body-header-top {
     display: flex;
     justify-content: space-between;
+    border-bottom: solid 1px @border-color;
     .font-size(@body-header-title-font-size);
 }
 
 .body-header-bottom {
     display: flex;
-    padding-bottom: .5em;
-    border-bottom: solid 1px @border-color;
+    padding-top: .5em;
     .font-size(@body-header-subtitle-font-size);
 }
 
@@ -181,6 +181,53 @@ body-header {
 .body-header-subtitle {
     display: block;
     .ellipsis();
+}
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	font-family: @font-family;
+	line-height: @line-height-base;
+	background-color: @background-color;
+	color: @color;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
@@ -285,53 +332,6 @@ body-header {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	font-family: @font-family;
-	line-height: @line-height-base;
-	background-color: @background-color;
-	color: @color;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
-}
 nav,
 .nav {
 	width: unit(@nav-large,px);
@@ -357,29 +357,6 @@ nav-group,
 		background-size: 100% 1px;
 		background-repeat: no-repeat;
 	}
-}
-nav-header {
-	display: block;
-	text-align: center;
-	color: @nav-header-color;
-	.font-size(@nav-header-font-size);
-	line-height: unit(@page-header-height,px);
-    font-weight: @nav-header-font-weight;
-    text-transform: none;
-}
-
-.nav-header-small {
-	display: none;
-}
-
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-	.nav-header-text {
-		display: none;
-	}
-	
-    .nav-header-small {
-        display: inline;
-    }
 }
 nav-group-item,
 [nav-group-item],
@@ -409,6 +386,7 @@ nav-group-item,
 }
 
 .nav-group-item {
+    &--selected:hover,
     &--selected {
         color: @nav-group-item-selected-color;
 		background-color: @nav-group-item-selected-background-color;
@@ -438,6 +416,44 @@ nav-group-item,
         display: none;
     }
 }
+nav-header {
+	display: block;
+	text-align: center;
+	color: @nav-header-color;
+	.font-size(@nav-header-font-size);
+	line-height: unit(@page-header-height,px);
+    font-weight: @nav-header-font-weight;
+    text-transform: none;
+}
+
+.nav-header-small {
+	display: none;
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+	.nav-header-text {
+		display: none;
+	}
+	
+    .nav-header-small {
+        display: inline;
+    }
+}
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+// tablet landscape mode
+@media (max-width: unit(@screen-desktop-sm,px)) {
+    .page-content,
+    .page-content-area {
+        flex-direction: column;
+    }
+}
 .page {
     display: flex;
     flex-direction: column;
@@ -461,21 +477,6 @@ nav-group-item,
     & .page-content-area {
         order: 1;
         flex-grow: 1;
-    }
-}
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: row;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-// tablet landscape mode
-@media (max-width: unit(@screen-desktop-sm,px)) {
-    .page-content,
-    .page-content-area {
-        flex-direction: column;
     }
 }
 .page-content-body {
@@ -581,11 +582,9 @@ page-content-nav-item {
         margin-top: 1px;
         margin-left: 0;
     }
-}
     
-.page-content-nav-item {
     &:hover {
-        background-color: @page-content-nav-item-hover-background-color;
+        // background-color: @page-content-nav-item-hover-background-color;
         color: @page-content-nav-item-hover-color;
     }
     
@@ -593,9 +592,9 @@ page-content-nav-item {
         background-color: @page-content-nav-item-active-background-color;
         color: @page-content-nav-item-active-color;
     }
-    
-    &--active:active,
-    &--active:hover,
+}
+
+.page-content-nav-item {
     &--active {
         background-color: @page-content-nav-item-selected-background-color;
         color: @page-content-nav-item-selected-color;
@@ -1442,13 +1441,13 @@ pane-header,
 // body-header
 @body-header-title-font-size: @typescale-xlg;
 @body-header-subtitle-font-size: @typescale-sm;
-@body-header-color: @color-gray;
+@body-header-color: @color-gray-darker;
 @body-header-background-color: transparent;
 @body-header-actions-item-color: @color-gray;
 @body-header-actions-item-background-color: transparent;
-@body-header-actions-item-hover-color: @color-gray-lighter;
+@body-header-actions-item-hover-color: @color-gray-darker;
 @body-header-actions-item-hover-background-color: transparent;
-@body-header-actions-item-active-color: @color-gray-lightest;
+@body-header-actions-item-active-color: @color-gray-darkest;
 @body-header-actions-item-active-background-color: transparent;
 
 // layout-body
@@ -1470,19 +1469,19 @@ pane-header,
 @nav-group-item-padding: 8;
 @nav-group-item-color: @color-gray-light;
 @nav-group-item-background-color: transparent;
-@nav-group-item-selected-color: @color-gray-dark;
+@nav-group-item-selected-color: @color-gray-darkest;
 @nav-group-item-selected-background-color: transparent;
 @nav-group-item-selected-font-weight: @font-weight-bold;
 @nav-group-item-hover-color: @color-gray-dark;
 @nav-group-item-hover-background-color: transparent;
-@nav-group-item-active-color: @color-gray-darker;
+@nav-group-item-active-color: @color-gray-darkest;
 @nav-group-item-active-background-color: transparent;
 @nav-group-item-icon-font-size: @typescale-lg;
 @nav-group-item-text-font-size: @typescale-sm;
 
 // nav-header
 @nav-header-font-size: @typescale-sm;
-@nav-header-color: @color-gray-dark;
+@nav-header-color: @color-gray-darker;
 @nav-header-font-weight: @font-weight-bold;
 
 // page
@@ -1506,17 +1505,17 @@ pane-header,
 // page-content-nav-item
 @page-content-nav-item-font-size: @typescale;
 @page-content-nav-item-hover-color: @color-gray-darker;
-@page-content-nav-item-hover-background-color: @color-gray-lightest;
+@page-content-nav-item-hover-background-color: transparent;
 @page-content-nav-item-active-color: @color-gray-darkest;
-@page-content-nav-item-active-background-color: @color-gray-light;
-@page-content-nav-item-selected-color: @color-gray-darker;
+@page-content-nav-item-active-background-color: transparent;
+@page-content-nav-item-selected-color: @color-gray-darkest;
 @page-content-nav-item-selected-background-color: @color-gray-lightest;
 @page-content-nav-item-selected-arrow-size: @typescale/2;
 
 // page-header
 @page-header-height: 48;
 @page-header-color: @color-gray-lightest;
-@page-header-background-color: @color-gray-dark;
+@page-header-background-color: @color-gray-darker;
 @page-header-actions-font-size: @typescale-lg;
 @page-header-title-font-size: @typescale-lg;
 @page-header-title-font-weight: @font-weight;
