@@ -24,10 +24,14 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('body-header/body-header.html',
-    '<div class="body-header-actions" ng-transclude></div>\n' +
-    '<div class="body-header-titles">\n' +
-    '    <span class="body-header-title">{{vm.title}}</span>\n' +
-    '    <span class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</span>\n' +
+    '<div class="body-header-top">\n' +
+    '    <div class="body-header-title">{{vm.title}}</div>\n' +
+    '    <div class="body-header-actions">\n' +
+    '        <div ng-transclude></div>\n' +
+    '    </div>\n' +
+    '</div>\n' +
+    '<div class="body-header-bottom">\n' +
+    '    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>\n' +
     '</div>');
 }]);
 })();

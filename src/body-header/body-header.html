@@ -1,5 +1,9 @@
-﻿<div class="body-header-actions" ng-transclude></div>
-<div class="body-header-titles">
-    <span class="body-header-title">{{vm.title}}</span>
-    <span class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</span>
+﻿<div class="body-header-top">
+    <div class="body-header-title">{{vm.title}}</div>
+    <div class="body-header-actions">
+        <div ng-transclude></div>
+    </div>
+</div>
+<div class="body-header-bottom">
+    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>
 </div>
