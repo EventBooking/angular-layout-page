@@ -4,7 +4,11 @@ function Config($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({ enabled: true })
 
     $routeProvider
-
+        .when("/charts", {
+            templateUrl: "/charts/charts.html",
+            controller: 'chartsController',
+            controllerAs: 'vm'
+        })
         .when("/blankslate", {
             templateUrl: "/blankslate/blankslate.html",
             controller: 'blankslateController',

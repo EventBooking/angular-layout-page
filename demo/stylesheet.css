@@ -85,3 +85,19 @@
     color: #000;
     line-height: 32px;
 }
+
+.doughnut-test {
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #000;
+}
+
+.doughnut-color-test {
+    background-color: blue;
+}
+
+.doughnut-empty-color-test {
+    background-color: lightgrey;
+}

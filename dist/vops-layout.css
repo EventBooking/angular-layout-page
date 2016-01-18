@@ -3112,6 +3112,40 @@ body-header ~ body-header {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+doughnut {
+  display: block;
+  position: relative;
+}
+doughnut canvas {
+  display: block;
+}
+.doughnut-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+.doughnut-empty-color {
+  background-color: #4C4C47;
+}
+.doughnut-fill-color {
+  background-color: #48C245;
+}
 .color-red-lightest {
   color: #FBD9D5;
 }
