@@ -373,17 +373,6 @@ th {
   background-image: -webkit-radial-gradient(circle, #e5e5e5, #ffffff);
   background-image: radial-gradient(circle, #e5e5e5, #ffffff);
 }
-.clearfix {
-  zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  content: "";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
 .button {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -4375,17 +4364,6 @@ body-header ~ body-header {
   background-image: -webkit-radial-gradient(circle, #e5e5e5, #ffffff);
   background-image: radial-gradient(circle, #e5e5e5, #ffffff);
 }
-.clearfix {
-  zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  content: "";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
 nav-group-item,
 [nav-group-item],
 .nav-group-item {
@@ -5060,29 +5038,6 @@ pane-header,
   padding: 0 32px;
   color: #999990;
   background-color: transparent;
-  zoom: 1;
-}
-pane-header:before,
-.pane-header:before,
-pane-header:after,
-.pane-header:after {
-  content: "";
-  display: table;
-}
-pane-header:after,
-.pane-header:after {
-  clear: both;
-}
-pane-header:before,
-.pane-header:before,
-pane-header:after,
-.pane-header:after {
-  content: "";
-  display: table;
-}
-pane-header:after,
-.pane-header:after {
-  clear: both;
 }
 .pane-header-close {
   -webkit-box-ordinal-group: 1;
