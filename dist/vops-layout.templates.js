@@ -89,6 +89,7 @@ module.run(['$templateCache', function($templateCache) {
     '<div class="page-header-titles">\n' +
     '    <span class="page-header-title">{{vm.title}}</span>\n' +
     '    <span class="page-header-subtitle" ng-if="vm.subtitle">{{vm.subtitle}}</span>\n' +
+    '    <span class="page-header-label" ng-if="vm.label">{{vm.label}}</span>\n' +
     '</div>');
 }]);
 })();

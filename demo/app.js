@@ -37,14 +37,15 @@ function Config($routeProvider, $locationProvider) {
         .when("/routetest", {
             redirectTo: '/routetest/twoPane'
         })
-        .when("/panes/:area", {
+        .when("/panes", {
             templateUrl: "/paneTest/paneTest.html",
             controller: 'paneTestController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            reloadOnSearch: false
         })
-        .when("/panes", {
-            redirectTo: '/panes/twoPane'
-        })
+        // .when("/panes", {
+        //     redirectTo: '/panes?area=twoPane'
+        // })
         .when("/pages/fullscreen", {
             templateUrl: "/pageTest/pageTest.html",
             controller: 'pageTestController',

@@ -3,18 +3,46 @@ module LayoutPageModule {
     class PageContentNavItemController {
         static $inject = ['$routeParams', '$location'];
 
-        constructor($routeParams, private $location) {
-            this.isActive = $routeParams.area === this.area;
+        constructor(private $routeParams, private $location) {
+
         }
 
+        onInit($element) {
+            this.init = true;
+            this.$element = $element;
+            this.area = this.$routeParams.area;
+        }
+
+        init: boolean;
         path: string;
-        area: string;
-        isActive;
+        $element: any;
+
+        private _area: string;
+        get area(): string {
+            return this._area;
+        }
+
+        set area(value: string) {
+            this._area = value;
+            if (!this.init)
+                return;
+
+            this.$location.search({
+                area: this.path
+            });
+
+            this.toggleActive(this);
+        }
+
+        get isActive() {
+            return this.path == this.area;
+        }
 
         select() {
-            var url = [this.path, this.area].join("/");
-            this.$location.url(url);
+            this.area = this.path;
         }
+
+        toggleActive = ($ctrl: PageContentNavItemController) => { }
     }
 
     class PageContentNavItemDirective {
@@ -25,19 +53,26 @@ module LayoutPageModule {
         bindToController = true;
         scope = {
             path: '@',
-            area: '@'
+            area: '='
         };
 
-        link = ($scope, $element) => {
-            var ctrl: PageContentNavItemController = $scope[this.controllerAs],
-                clickEvent = `click.${$scope.id}`;
+        link = ($scope, $element, $attr, $ctrl: PageContentNavItemController) => {
+            var clickEvent = `click.${$scope.id}`;
 
-            $element.toggleClass('page-content-nav-item--active', ctrl.isActive);
+            $ctrl.$element = $element;
+
             $element.on(clickEvent, () => {
-                ctrl.select();
+                $ctrl.select();
                 $scope.$apply();
             });
+
+            $ctrl.toggleActive = this.toggleActive;
+            $ctrl.onInit($element);
         };
+
+        toggleActive($ctrl: PageContentNavItemController) {
+            $ctrl.$element.toggleClass('page-content-nav-item--active', $ctrl.isActive);
+        }
     }
 
     Angular.module("ngLayoutPage").directive('pageContentNavItem', PageContentNavItemDirective);

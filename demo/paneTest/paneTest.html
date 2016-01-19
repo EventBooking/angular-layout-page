@@ -1,16 +1,16 @@
 <pane-test> <!--mimicks directive routing-->
     <div class="page">
 
-        <page-header title="Panes" subtitle="with subtitle">
+        <page-header title="Panes" subtitle="with subtitle" label="label">
             <i class="page-header-actions-item fa fa-ellipsis-v"></i>
         </page-header>
 
         <div class="page-content" ng-switch="vm.area">
             
             <div class="page-content-nav">
-                <page-content-nav-item path="/panes" area="twoPane">Two panes</page-content-nav-item>
-                <page-content-nav-item path="/panes" area="doublePane">Double pane</page-content-nav-item>
-                <page-content-nav-item path="/panes" area="doublePane2">Third</page-content-nav-item>
+                <page-content-nav-item area="vm.area" path="twoPane">Two panes</page-content-nav-item>
+                <page-content-nav-item area="vm.area" path="doublePane">Double pane</page-content-nav-item>
+                <page-content-nav-item area="vm.area" path="doublePane2">Third</page-content-nav-item>
             </div>
 
             <div class="page-content-area" ng-switch-default>

@@ -15,6 +15,11 @@
     padding: 0 unit(@padding,px);
 }
 
+.page-header-titles-content {
+    display: block;
+    line-height: 1em;
+}
+
 .page-header-title {
     display: inline-block;
     font-weight: @page-header-title-font-weight;
@@ -29,6 +34,14 @@
     margin-left: 8px;
     font-weight: @page-header-subtitle-font-weight;
     .font-size(@page-header-subtitle-font-size);
+    .ellipsis();
+}
+
+.page-header-label {
+    display: inline-block;
+    margin-left: 8px;
+    font-weight: @page-header-label-font-weight;
+    .font-size(@page-header-label-font-size);
     .ellipsis();
 }
 

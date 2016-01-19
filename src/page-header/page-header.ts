@@ -13,7 +13,8 @@
         bindToController = true;
         scope = {
             title: '@',
-            subtitle: '@'
+            subtitle: '@',
+            label: '@'
         };
     }
 
