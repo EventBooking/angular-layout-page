@@ -87,9 +87,15 @@ module.run(['$templateCache', function($templateCache) {
   $templateCache.put('page-header/page-header.html',
     '<div class="page-header-actions" ng-transclude></div>\n' +
     '<div class="page-header-titles">\n' +
-    '    <span class="page-header-title">{{vm.title}}</span>\n' +
-    '    <span class="page-header-subtitle" ng-if="vm.subtitle">{{vm.subtitle}}</span>\n' +
-    '    <span class="page-header-label" ng-if="vm.label">{{vm.label}}</span>\n' +
+    '    <div class="page-header-titles-item">\n' +
+    '        <span class="page-header-title">{{vm.title}}</span>\n' +
+    '    </div>\n' +
+    '    <div class="page-header-titles-item">\n' +
+    '        <span class="page-header-subtitle" ng-if="vm.subtitle">{{vm.subtitle}}</span>\n' +
+    '    </div>\n' +
+    '    <div class="page-header-titles-item">\n' +
+    '        <span class="page-header-label" ng-if="vm.label">{{vm.label}}</span>\n' +
+    '    </div>\n' +
     '</div>');
 }]);
 })();

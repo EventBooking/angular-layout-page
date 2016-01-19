@@ -15,6 +15,17 @@
     padding: 0 unit(@padding,px);
 }
 
+.page-header-titles-item {
+    line-height: unit(@page-header-title-font-size,px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    & ~ & {
+        margin-left: 8px;
+    }   
+}
+
 .page-header-titles-content {
     display: block;
     line-height: 1em;
@@ -31,7 +42,6 @@
 
 .page-header-subtitle {
     display: inline-block;
-    margin-left: 8px;
     font-weight: @page-header-subtitle-font-weight;
     .font-size(@page-header-subtitle-font-size);
     .ellipsis();
@@ -39,10 +49,13 @@
 
 .page-header-label {
     display: inline-block;
-    margin-left: 8px;
     font-weight: @page-header-label-font-weight;
     .font-size(@page-header-label-font-size);
     .ellipsis();
+    color: @page-header-background-color;
+    background-color: #fff;
+    border-radius: .5em;
+    padding: 0 .5em;
 }
 
 .page-header-actions {
