@@ -722,7 +722,6 @@ th {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 1em;
 }
 .form-row {
   display: -webkit-box;
@@ -5574,7 +5573,6 @@ pane-header,
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 1em;
 }
 .form-row {
   display: -webkit-box;
