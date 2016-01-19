@@ -1,21 +1,22 @@
 module LayoutPageModule {
 
     class PageContentNavItemController {
-        static $inject = ['$routeParams', '$location'];
+        static $inject = ['$location'];
 
-        constructor(private $routeParams, private $location) {
+        constructor(private $location) {
 
         }
 
         onInit($element) {
             this.init = true;
             this.$element = $element;
-            this.area = this.$routeParams.area;
+            this.toggleActive(this);
         }
 
         init: boolean;
         path: string;
         $element: any;
+        param: string;
 
         private _area: string;
         get area(): string {
@@ -27,9 +28,9 @@ module LayoutPageModule {
             if (!this.init)
                 return;
 
-            this.$location.search({
-                area: this.path
-            });
+            var params = {};
+            params[this.param || 'area'] = value;
+            this.$location.search(params);
 
             this.toggleActive(this);
         }
@@ -52,16 +53,18 @@ module LayoutPageModule {
         controllerAs = 'vm';
         bindToController = true;
         scope = {
+            param: '@',
             path: '@',
             area: '='
         };
 
         link = ($scope, $element, $attr, $ctrl: PageContentNavItemController) => {
-            var clickEvent = `click.${$scope.id}`;
+            var clickEvent = `click.${$scope.$id}`;
 
-            $ctrl.$element = $element;
+            console.log($ctrl);
 
             $element.on(clickEvent, () => {
+                console.log($ctrl.area, $ctrl.path);
                 $ctrl.select();
                 $scope.$apply();
             });

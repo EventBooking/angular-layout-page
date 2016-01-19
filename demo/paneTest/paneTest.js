@@ -1,7 +1,7 @@
 /// <reference path="../app.js"/>
 
 function PaneTestController($routeParams) {
-	this.area = $routeParams.area;	
+	this.area = $routeParams.area || 'twoPane';	
 	
 	this.showSlider1 = false;
 	this.showSlider2 = false;
