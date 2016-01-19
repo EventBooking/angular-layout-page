@@ -2,11 +2,7 @@
     display: block;
     max-height: 100%;
     overflow: auto;
-    padding: 0 unit(@padding,px);
-
-    &--pad {
-        padding: unit(@padding-half,px) unit(@padding,px);
-    }
+    padding: unit(@padding-half,px) unit(@padding,px);
 
     pane-header ~ & {
         max-height: ~"calc(100% - @{pane-header-height}px)";
@@ -18,6 +14,5 @@
 
     .pane--withFooter & {
         max-height: ~"calc(100% - @{pane-footer-height}px)";
-        padding-bottom: unit(@padding-half,px);
     }
 }

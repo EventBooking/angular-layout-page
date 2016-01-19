@@ -722,6 +722,7 @@ th {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 1em;
 }
 .form-row {
   display: -webkit-box;
@@ -5023,9 +5024,6 @@ page-slider.is-visible {
   display: block;
   max-height: 100%;
   overflow: auto;
-  padding: 0 32px;
-}
-.pane-body--pad {
   padding: 16px 32px;
 }
 pane-header ~ .pane-body {
@@ -5036,7 +5034,6 @@ pane-header ~ .pane-body {
 }
 .pane--withFooter .pane-body {
   max-height: calc(100% - 64px);
-  padding-bottom: 16px;
 }
 pane-footer {
   display: block;
@@ -5577,6 +5574,7 @@ pane-header,
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 1em;
 }
 .form-row {
   display: -webkit-box;

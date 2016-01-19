@@ -740,11 +740,7 @@ page-slider {
     display: block;
     max-height: 100%;
     overflow: auto;
-    padding: 0 unit(@padding,px);
-
-    &--pad {
-        padding: unit(@padding-half,px) unit(@padding,px);
-    }
+    padding: unit(@padding-half,px) unit(@padding,px);
 
     pane-header ~ & {
         max-height: ~"calc(100% - @{pane-header-height}px)";
@@ -756,7 +752,6 @@ page-slider {
 
     .pane--withFooter & {
         max-height: ~"calc(100% - @{pane-footer-height}px)";
-        padding-bottom: unit(@padding-half,px);
     }
 }
 pane-footer {
@@ -1102,6 +1097,7 @@ pane-header,
 .form {
     display: flex;
     flex-direction: column;
+    margin-top: 1em;
 }
 
 .form-row {
