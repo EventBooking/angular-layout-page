@@ -1,39 +1,52 @@
 page-content-nav-item {
     display: block;
-    line-height: unit(@page-content-nav-item-font-size*3,px);
-    padding: 0 unit(@padding,px);
+    line-height: unit(@page-content-nav-item-font-size*3.5,px);
+    padding: 0 2em;
     cursor: pointer;
     transition: background-color .25s ease-in-out;
     position: relative;
     .font-size(@page-content-nav-item-font-size);
     text-transform: uppercase;
-    
+    border-style: none;
+    border-width: 1px;
+    border-color: #fff;
+    .text-link();
+        
     & ~ & {
-        margin-top: 1px;
         margin-left: 0;
     }
     
-    &:hover {
-        background-color: @page-content-nav-item-hover-background-color;
-        color: @page-content-nav-item-hover-color;
+    &:not(.page-content-nav-item--active) + &:not(.page-content-nav-item--active) {
+        border-top-style: solid;
     }
     
-    &:active {
-        background-color: @page-content-nav-item-active-background-color;
-        color: @page-content-nav-item-active-color;
-        font-weight: @font-weight-bold;
+    &:last-child:not(.page-content-nav-item--active) {
+        border-bottom-style: solid;
     }
+    
+    // &:hover {
+    //     background-color: @page-content-nav-item-hover-background-color;
+    //     color: @page-content-nav-item-hover-color;
+    // }
+    // 
+    // &:active {
+    //     background-color: @page-content-nav-item-active-background-color;
+    //     color: @page-content-nav-item-active-color;
+    //     font-weight: @font-weight-bold;
+    // }
 }
 
-.page-content-nav-item {
-    &--active:hover,
-    &--active {
+.page-content-nav-item--active {
+    border-style: none;
+    
+    &:hover,
+    & {
         background-color: @page-content-nav-item-selected-background-color;
         color: @page-content-nav-item-selected-color;
         font-weight: @font-weight-bold;
     }
     
-    &--active {
+    & {
         .arrow-inset-right(@page-content-nav-item-selected-arrow-size);
     }
 }
