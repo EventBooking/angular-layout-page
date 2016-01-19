@@ -4960,7 +4960,7 @@ page-header,
           justify-content: center;
 }
 .page-header-titles-item ~ .page-header-titles-item {
-  margin-left: 8px;
+  margin-left: 1em;
 }
 .page-header-titles-content {
   display: block;
@@ -4998,6 +4998,8 @@ page-header,
   background-color: #fff;
   border-radius: .5em;
   padding: 0 .5em;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 .page-header-actions {
   -webkit-box-ordinal-group: 3;
