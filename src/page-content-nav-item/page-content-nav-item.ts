@@ -8,6 +8,7 @@ module LayoutPageModule {
         }
 
         onInit($element) {
+            console.log('ctor', this.area, this.path);
             this.init = true;
             this.$element = $element;
             this.toggleActive(this);
@@ -36,9 +37,10 @@ module LayoutPageModule {
             this.area = this.path;
         }
 
-        // onRouteChange($routeParams) {
-        //     this.area = $routeParams[this.param || 'area'];
-        // }
+        onRouteChange($routeParams) {
+            this._area = $routeParams[this.param || 'area'];
+            this.toggleActive(this);
+        }
 
         private onAreaChange() {
             if (!this.init)
@@ -80,9 +82,9 @@ module LayoutPageModule {
             $ctrl.toggleActive = this.toggleActive;
             $ctrl.onInit($element);
 
-            // $scope.$on('$routeChangeStart', function(next, current) {
-            //     $ctrl.onRouteChange(current.params);
-            // });
+            $scope.$on('$routeChangeStart', function(next, current) {
+                $ctrl.onRouteChange(current.params);
+            });
         };
 
         toggleActive($ctrl: PageContentNavItemController) {
