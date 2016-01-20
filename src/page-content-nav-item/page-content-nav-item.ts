@@ -25,22 +25,30 @@ module LayoutPageModule {
 
         set area(value: string) {
             this._area = value;
-            if (!this.init)
-                return;
-
-            var params = {};
-            params[this.param || 'area'] = value;
-            this.$location.search(params);
-
-            this.toggleActive(this);
+            this.onAreaChange();
         }
 
         get isActive() {
-            return this.path == this.area;
+            return this.path.toLowerCase() == this._area.toLowerCase();
         }
 
         select() {
             this.area = this.path;
+        }
+
+        // onRouteChange($routeParams) {
+        //     this.area = $routeParams[this.param || 'area'];
+        // }
+
+        private onAreaChange() {
+            if (!this.init)
+                return;
+
+            var params = {};
+            params[this.param || 'area'] = this._area;
+            this.$location.search(params);
+
+            this.toggleActive(this);
         }
 
         toggleActive = ($ctrl: PageContentNavItemController) => { }
@@ -71,6 +79,10 @@ module LayoutPageModule {
 
             $ctrl.toggleActive = this.toggleActive;
             $ctrl.onInit($element);
+
+            // $scope.$on('$routeChangeStart', function(next, current) {
+            //     $ctrl.onRouteChange(current.params);
+            // });
         };
 
         toggleActive($ctrl: PageContentNavItemController) {
