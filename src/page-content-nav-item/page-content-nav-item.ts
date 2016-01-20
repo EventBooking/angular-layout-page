@@ -8,7 +8,6 @@ module LayoutPageModule {
         }
 
         onInit($element) {
-            console.log('ctor', this.area, this.path);
             this.init = true;
             this.$element = $element;
             this.toggleActive(this);
@@ -82,7 +81,7 @@ module LayoutPageModule {
             $ctrl.toggleActive = this.toggleActive;
             $ctrl.onInit($element);
 
-            $scope.$on('$routeChangeStart', function(next, current) {
+            $scope.$on('$routeUpdate', function(evt, current) {
                 $ctrl.onRouteChange(current.params);
             });
         };
