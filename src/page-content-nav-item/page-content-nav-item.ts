@@ -29,6 +29,8 @@ module LayoutPageModule {
         }
 
         get isActive() {
+            if(this._area == null)
+                return;
             return this.path.toLowerCase() == this._area.toLowerCase();
         }
 
