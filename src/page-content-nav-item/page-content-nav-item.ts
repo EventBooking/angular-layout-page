@@ -10,8 +10,8 @@ module LayoutPageModule {
         onInit($element, isDefault) {
             this.init = true;
             this.$element = $element;
-            this.toggleActive(this);
             this.isDefault = isDefault;
+            this.toggleActive(this);
         }
 
         init: boolean;
