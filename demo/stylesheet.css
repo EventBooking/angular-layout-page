@@ -101,3 +101,8 @@
 .doughnut-empty-color-test {
     background-color: lightgrey;
 }
+
+.doughnut-container {
+    margin: 0 20%;
+    padding: 0.5em;
+}

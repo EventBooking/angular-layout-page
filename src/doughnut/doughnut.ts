@@ -13,6 +13,7 @@ module LayoutPageModule {
 
         $element: any;
         context: any;
+        animationPromise: any;
         color: string;
         colorClass: string;
         emptyColorClass: string;
@@ -60,10 +61,10 @@ module LayoutPageModule {
                 return this.animate($ctrl, from, to);
             });
 
-            // var promise = this.watchSize($ctrl);
-            // $scope.$on("$destroy", () => {
-            //     this.$interval.cancel(promise);
-            // });
+            var promise = this.watchSize($ctrl);
+            $scope.$on("$destroy", () => {
+                this.$interval.cancel(promise);
+            });
         }
 
         private getSize($ctrl: DoughnutController): number {
@@ -168,16 +169,18 @@ module LayoutPageModule {
             var nTo = Number(to);
 
             if (nFrom < nTo)
-                this.animateUp($ctrl, nFrom, nTo, emptyColor, fillColor);
+                return this.animateUp($ctrl, nFrom, nTo, emptyColor, fillColor);
             else
-                this.animateDown($ctrl, nFrom, nTo, emptyColor, fillColor);
+                return this.animateDown($ctrl, nFrom, nTo, emptyColor, fillColor);
         }
 
         animateUp($ctrl: DoughnutController, from: number, to: number, emptyColor, fillColor) {
+            this.cancelAnimation($ctrl);
+
             var value = from;
-            var ticket = this.$interval(() => {
+            $ctrl.animationPromise = this.$interval(() => {
                 if (value > to) {
-                    this.$interval.cancel(ticket);
+                    this.cancelAnimation($ctrl);
                     return;
                 }
                 this.draw($ctrl, from, value, emptyColor, fillColor);
@@ -186,15 +189,22 @@ module LayoutPageModule {
         }
 
         animateDown($ctrl: DoughnutController, from: number, to: number, emptyColor, fillColor) {
+            this.cancelAnimation($ctrl);
+
             var value = from;
-            var ticket = this.$interval(() => {
+            $ctrl.animationPromise = this.$interval(() => {
                 if (value < to) {
-                    this.$interval.cancel(ticket);
+                    this.cancelAnimation($ctrl);
                     return;
                 }
                 this.draw($ctrl, to, value, emptyColor, fillColor);
                 value--;
             }, $ctrl.animateSpeed);
+        }
+
+        cancelAnimation($ctrl) {
+            if ($ctrl.animationPromise)
+                this.$interval.cancel($ctrl.animationPromise);
         }
     }
 

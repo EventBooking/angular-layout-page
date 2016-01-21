@@ -10,11 +10,19 @@
                 {{vm}}
                 <h2>doughnut {{vm.value1}}</h2>
                 <div>
+                    <div>
+                        <input type="text" ng-model="vm.value1" ng-model-options="{ updateOn: 'blur' }" placeholder="Value">
+                        <div>
+                            <input type="text" ng-model="vm.width" ng-model-options="{ updateOn: 'blur' }" placeholder="Width">
+                            <input type="text" ng-model="vm.height" ng-model-options="{ updateOn: 'blur' }" placeholder="Height">
+                        </div>
+                    </div>
                     <label>default</label>
-                    <input type="text" ng-model="vm.value1" ng-model-options="{ updateOn: 'blur' }">
-                    <doughnut class="doughnut-test" value="{{vm.value1}}">
-                        {{vm.value1}}%
-                    </doughnut>
+                    <div class="doughnut-container">
+                        <doughnut class="doughnut-test" value="{{vm.value1}}" ng-style="{width: vm.width, height: vm.height}">
+                            {{vm.value1}}%
+                        </doughnut>
+                    </div>
                 </div>
                 <div>
                     <label>empty-color-class - override the default empty color</label>
