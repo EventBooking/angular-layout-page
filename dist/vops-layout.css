@@ -3094,15 +3094,18 @@ body-header ~ body-header {
 }
 .body-header-actions-item {
   cursor: pointer;
-  color: #999990;
+  color: #4EB6D6;
   background-color: transparent;
 }
+.body-header-actions-item + .body-header-actions-item {
+  margin-left: .25em;
+}
 .body-header-actions-item:hover {
-  color: #4C4C47;
+  color: #B1E0ED;
   background-color: transparent;
 }
 .body-header-actions-item:active {
-  color: #262624;
+  color: #4EB6D6;
   background-color: transparent;
 }
 .body-header-title,
@@ -5243,18 +5246,18 @@ pane-header,
   line-height: 48px;
   text-align: center;
   cursor: pointer;
-  color: #999990;
+  color: #4EB6D6;
   background-color: transparent;
 }
 .pane-header-actions-item + .pane-header-actions-item {
-  margin-left: 16px;
+  margin-left: .25em;
 }
 .pane-header-actions-item:hover {
-  color: #CCCCC3;
+  color: #B1E0ED;
   background-color: transparent;
 }
 .pane-header-actions-item:active {
-  color: #E5E5E3;
+  color: #4EB6D6;
   background-color: transparent;
 }
 .pane {

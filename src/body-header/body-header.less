@@ -34,7 +34,11 @@
 .body-header-actions-item {
     cursor: pointer;
     color: @body-header-actions-item-color;
-    background-color: @body-header-actions-item-background-color; 
+    background-color: @body-header-actions-item-background-color;
+    
+    & + & {
+        margin-left: .25em;
+    }
     
     &:hover {
         color: @body-header-actions-item-hover-color;
