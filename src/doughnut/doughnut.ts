@@ -93,9 +93,6 @@ module LayoutPageModule {
             var fromRadians = this.convertToRadians(from);
             var toRadians = this.convertToRadians(to);
 
-            if (from != 0 && to != 100)
-                console.log(from, to, fromRadians, toRadians);
-            
             // draw the wedge
             $ctrl.context.save();
             $ctrl.context.beginPath();
