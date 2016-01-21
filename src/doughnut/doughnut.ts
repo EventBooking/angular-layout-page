@@ -18,13 +18,13 @@ module LayoutPageModule {
         emptyColorClass: string;
         innerRadius = 65; // 75%
         animateSpeed = 10;
-        animate: ($ctrl: DoughnutController, from: number, to: number) => {};
+        animate: ($ctrl: DoughnutController, from: number | string, to: number | string) => {};
 
-        _value: number;
-        get value(): number {
+        _value: number | string;
+        get value(): number | string {
             return this._value;
         }
-        set value(newVal: number) {
+        set value(newVal: number | string) {
             var oldVal = this._value;
             this._value = newVal;
             if (this.animate != null) {
@@ -92,6 +92,9 @@ module LayoutPageModule {
         drawWedge($ctrl: DoughnutController, cX: number, cY: number, radius: number, from: number, to: number, color: string) {
             var fromRadians = this.convertToRadians(from);
             var toRadians = this.convertToRadians(to);
+
+            if (from != 0 && to != 100)
+                console.log(from, to, fromRadians, toRadians);
             
             // draw the wedge
             $ctrl.context.save();
@@ -155,7 +158,7 @@ module LayoutPageModule {
             return value;
         }
 
-        animate($ctrl: DoughnutController, from: number, to: number) {
+        animate($ctrl: DoughnutController, from: number | string, to: number | string) {
             $ctrl.context.clearRect(0, 0, $ctrl.context.canvas.width, $ctrl.context.canvas.height);
 
             var emptyColor = this.getElementStyle($ctrl.emptyColorClass || "doughnut-empty-color", "background-color");
@@ -164,10 +167,13 @@ module LayoutPageModule {
             if ($ctrl.color)
                 fillColor = $ctrl.color;
 
-            if (from < to)
-                this.animateUp($ctrl, from, to, emptyColor, fillColor);
+            var nFrom = Number(from);
+            var nTo = Number(to);
+
+            if (nFrom < nTo)
+                this.animateUp($ctrl, nFrom, nTo, emptyColor, fillColor);
             else
-                this.animateDown($ctrl, from, to, emptyColor, fillColor);
+                this.animateDown($ctrl, nFrom, nTo, emptyColor, fillColor);
         }
 
         animateUp($ctrl: DoughnutController, from: number, to: number, emptyColor, fillColor) {
