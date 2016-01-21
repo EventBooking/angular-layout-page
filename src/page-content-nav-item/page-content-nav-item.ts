@@ -7,16 +7,18 @@ module LayoutPageModule {
 
         }
 
-        onInit($element) {
+        onInit($element, isDefault) {
             this.init = true;
             this.$element = $element;
             this.toggleActive(this);
+            this.isDefault = isDefault;
         }
 
         init: boolean;
         path: string;
         $element: any;
         param: string;
+        isDefault: boolean;
 
         private _area: string;
         get area(): string {
@@ -30,7 +32,7 @@ module LayoutPageModule {
 
         get isActive() {
             if(this._area == null)
-                return false;
+                return this.isDefault;
             return this.path.toLowerCase() == this._area.toLowerCase();
         }
 
@@ -78,7 +80,7 @@ module LayoutPageModule {
             });
 
             $ctrl.toggleActive = this.toggleActive;
-            $ctrl.onInit($element);
+            $ctrl.onInit($element, $attr.default != null);
 
             $scope.$on('$routeUpdate', function(evt, current) {
                 $ctrl.onRouteChange(current.params);
