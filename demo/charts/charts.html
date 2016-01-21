@@ -7,29 +7,37 @@
         <div class="page-content-body">
 
             <div class="page-content-body-pane">
-                <h2>doughnut</h2>
+                {{vm}}
+                <h2>doughnut {{vm.value1}}</h2>
                 <div>
                     <label>default</label>
-                    <doughnut class="doughnut-test" value="'50'">
-                        50%
+                    <input type="text" ng-model="vm.value1" ng-model-options="{ updateOn: 'blur' }">
+                    <doughnut class="doughnut-test" value="{{vm.value1}}">
+                        {{vm.value1}}%
                     </doughnut>
                 </div>
                 <div>
                     <label>empty-color-class - override the default empty color</label>
-                    <doughnut class="doughnut-test" empty-color-class="doughnut-empty-color-test" value="'45'">
-                        45%
+                    <doughnut class="doughnut-test" empty-color-class="doughnut-empty-color-test" value="{{vm.value2}}">
+                        {{vm.value2}}%
                     </doughnut>
                 </div>
                 <div>
                     <label>color-class - override the default fill color</label>
-                    <doughnut class="doughnut-test" color-class="doughnut-color-test" value="'75'">
-                        75%
+                    <doughnut class="doughnut-test" color-class="doughnut-color-test" value="{{vm.value3}}">
+                        {{vm.value3}}%
                     </doughnut>
                 </div>
                 <div>
                     <label>color - sets the fill color explicitly</label>
-                    <doughnut class="doughnut-test" color="red" value="'25'">
-                        25%
+                    <doughnut class="doughnut-test" color="red" value="{{vm.value4}}">
+                        {{vm.value4}}%
+                    </doughnut>
+                </div>
+                <div>
+                    <label>zero</label>
+                    <doughnut class="doughnut-test" value="{{vm.value5}}">
+                        {{vm.value5}}%
                     </doughnut>
                 </div>
             </div>

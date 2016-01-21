@@ -1,27 +1,36 @@
 module LayoutPageModule {
 
     class DoughnutController {
-        label: string;
+        constructor() {
+            this._value = 0;
+        }
+
+        onInit($element, context, animate) {
+            this.$element = $element;
+            this.context = context;
+            this.animate = animate;
+        }
+
+        $element: any;
+        context: any;
+        color: string;
+        colorClass: string;
+        emptyColorClass: string;
+        innerRadius = 65; // 75%
+        animateSpeed = 10;
+        animate: ($ctrl: DoughnutController, from: number, to: number) => {};
 
         _value: number;
         get value(): number {
             return this._value;
         }
         set value(newVal: number) {
+            var oldVal = this._value;
             this._value = newVal;
-            if (this.animate != null)
-                this.animate(this);
+            if (this.animate != null) {
+                this.animate(this, oldVal, newVal);
+            }
         }
-
-        color: string;
-        colorClass: string;
-        emptyColorClass: string;
-        innerRadius = 65; // 75%
-        animateSpeed = 10;
-
-        $element: any;
-        context: any;
-        animate: ($ctrl: DoughnutController) => {};
     }
 
     class DoughnutDirective {
@@ -38,30 +47,23 @@ module LayoutPageModule {
         controllerAs = 'vm';
         bindToController = true;
         scope = {
-            label: '=',
-            value: '=',
+            value: '@',
             color: '@',
             colorClass: '@',
             emptyColorClass: '@'
         };
 
         link = ($scope, $element, $attr, $ctrl) => {
-            $ctrl.$element = $element;
-            $ctrl.context = $element.find("canvas").get(0).getContext("2d");
 
-            var size = 0;
-            var promise = this.$interval(() => {
-                var temp = this.getSize($ctrl);
-                var changed = size != temp;
-                size = temp;
-
-                if (changed)
-                    this.animate($ctrl);
-            }, 100);
-
-            $scope.$on("$destroy", () => {
-                this.$interval.cancel(promise);
+            var context = $element.find("canvas").get(0).getContext("2d");
+            $ctrl.onInit($element, context, ($ctrl, from, to) => {
+                return this.animate($ctrl, from, to);
             });
+
+            // var promise = this.watchSize($ctrl);
+            // $scope.$on("$destroy", () => {
+            //     this.$interval.cancel(promise);
+            // });
         }
 
         private getSize($ctrl: DoughnutController): number {
@@ -69,14 +71,33 @@ module LayoutPageModule {
             return size;
         }
 
-        drawWedge($ctrl: DoughnutController, cX: number, cY: number, radius: number, percent: number, color: string) {
-            // calc size of our wedge in radians
-            var wedgeInRadians = percent / 100 * 360 * Math.PI / 180;
+        watchSize($ctrl) {
+            var size = 0;
+            var promise = this.$interval(() => {
+                var temp = this.getSize($ctrl);
+                var changed = size != temp;
+                size = temp;
+
+                if (changed)
+                    this.animate($ctrl, $ctrl.value, $ctrl.value);
+            }, 100);
+            return promise;
+        }
+
+        convertToRadians(percent: number) {
+            var radians = percent / 100 * 360 * Math.PI / 180;
+            return radians;
+        }
+
+        drawWedge($ctrl: DoughnutController, cX: number, cY: number, radius: number, from: number, to: number, color: string) {
+            var fromRadians = this.convertToRadians(from);
+            var toRadians = this.convertToRadians(to);
+            
             // draw the wedge
             $ctrl.context.save();
             $ctrl.context.beginPath();
             $ctrl.context.moveTo(cX, cY);
-            $ctrl.context.arc(cX, cY, radius, 0, wedgeInRadians, false);
+            $ctrl.context.arc(cX, cY, radius, 0, toRadians, false);
             $ctrl.context.closePath();
             $ctrl.context.fillStyle = color;
             $ctrl.context.fill();
@@ -92,24 +113,37 @@ module LayoutPageModule {
             $ctrl.context.fill();
         }
 
-        draw($ctrl: DoughnutController, value, emptyColor, fillColor) {
+        draw($ctrl: DoughnutController, from: number, to: number, emptyColor, fillColor) {
             // define the donut
             $ctrl.context.canvas.width = $ctrl.$element.width();
             $ctrl.context.canvas.height = $ctrl.$element.height();
 
-            var cX = Math.floor($ctrl.context.canvas.width / 2);
-            var cY = Math.floor($ctrl.context.canvas.height / 2);
-            var radius = Math.min(cX, cY);
+            var cX = this.getX($ctrl);
+            var cY = this.getY($ctrl);
+            var radius = this.getRadius(cX, cY);
 
-            this.drawWedge($ctrl, cX, cY, radius, 100, emptyColor);
-
-
-            this.drawWedge($ctrl, cX, cY, radius, value, fillColor);
+            this.drawWedge($ctrl, cX, cY, radius, 0, 100, emptyColor);
+            this.drawWedge($ctrl, cX, cY, radius, from, to, fillColor);
 
             var bgcolor = $ctrl.$element.css("background-color");
             if (bgcolor == "rgba(0, 0, 0, 0)")
                 bgcolor = "white";
             this.drawDonut($ctrl, cX, cY, radius, bgcolor);
+        }
+
+        getX($ctrl) {
+            var cX = Math.floor($ctrl.context.canvas.width / 2);
+            return cX;
+        }
+
+        getY($ctrl) {
+            var cY = Math.floor($ctrl.context.canvas.height / 2);
+            return cY;
+        }
+
+        getRadius(x, y) {
+            var radius = Math.min(x, y);
+            return radius;
         }
 
         private getElementStyle(className, style) {
@@ -121,23 +155,42 @@ module LayoutPageModule {
             return value;
         }
 
-        animate($ctrl: DoughnutController) {
-            var emptyColor = this.getElementStyle($ctrl.emptyColorClass || "doughnut-empty-color", "background-color");
+        animate($ctrl: DoughnutController, from: number, to: number) {
+            $ctrl.context.clearRect(0, 0, $ctrl.context.canvas.width, $ctrl.context.canvas.height);
 
+            var emptyColor = this.getElementStyle($ctrl.emptyColorClass || "doughnut-empty-color", "background-color");
             var fillColor = this.getElementStyle($ctrl.colorClass || "doughnut-fill-color", "background-color");
+
             if ($ctrl.color)
                 fillColor = $ctrl.color;
 
-            var value = 0;
+            if (from < to)
+                this.animateUp($ctrl, from, to, emptyColor, fillColor);
+            else
+                this.animateDown($ctrl, from, to, emptyColor, fillColor);
+        }
+
+        animateUp($ctrl: DoughnutController, from: number, to: number, emptyColor, fillColor) {
+            var value = from;
             var ticket = this.$interval(() => {
-                if (value > $ctrl.value) {
+                if (value > to) {
                     this.$interval.cancel(ticket);
                     return;
                 }
-
-                this.draw($ctrl, value, emptyColor, fillColor);
+                this.draw($ctrl, from, value, emptyColor, fillColor);
                 value++;
+            }, $ctrl.animateSpeed);
+        }
 
+        animateDown($ctrl: DoughnutController, from: number, to: number, emptyColor, fillColor) {
+            var value = from;
+            var ticket = this.$interval(() => {
+                if (value < to) {
+                    this.$interval.cancel(ticket);
+                    return;
+                }
+                this.draw($ctrl, to, value, emptyColor, fillColor);
+                value--;
             }, $ctrl.animateSpeed);
         }
     }
