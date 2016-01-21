@@ -13,7 +13,7 @@ gulp.task('styles', styles);
 gulp.task('html', html);
 gulp.task('watch', watch);
 gulp.task('server', ['watch'], server);
-gulp.task('typescript', ['tsd:install'], function (callback) {
+gulp.task('typescript', function (callback) {
 	typescript(callback);
 });
 

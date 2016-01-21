@@ -72,10 +72,7 @@ module LayoutPageModule {
         link = ($scope, $element, $attr, $ctrl: PageContentNavItemController) => {
             var clickEvent = `click.${$scope.$id}`;
 
-            console.log($ctrl);
-
             $element.on(clickEvent, () => {
-                console.log($ctrl.area, $ctrl.path);
                 $ctrl.select();
                 $scope.$apply();
             });
