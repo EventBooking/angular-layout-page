@@ -4,6 +4,11 @@ function Config($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({ enabled: true })
 
     $routeProvider
+        .when("/grid", {
+            templateUrl: "/grid/grid.html",
+            controller: 'gridController',
+            controllerAs: 'vm'
+        })
         .when("/charts", {
             templateUrl: "/charts/charts.html",
             controller: 'chartsController',

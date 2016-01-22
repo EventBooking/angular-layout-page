@@ -1,0 +1,82 @@
+<div class="page page--full">
+    <page-header title="Grid"></page-header>
+    <div class="page-content">
+        <div class="page-content-body">
+
+            <div class="demopage-grid">
+
+                <table>
+                    <tr>
+                        <td>
+
+                            <h3>defaults</h3>
+                            <div class="grid">
+                                grid
+                            </div>
+
+                            <div class="grid" column>
+                                grid[column]
+                            </div>
+
+                            <div class="grid" row>
+                                <div class="grid" column>
+                                    grid[row] > grid[column]
+                                </div>
+                            </div>
+
+                            <div class="grid" column>
+                                <div class="grid" row>
+                                    grid[column] > grid[row]
+                                </div>
+                            </div>
+
+                        </td>
+                        <td>
+
+                            <h3>center</h3>
+
+                            <div class="grid" row center>
+                                grid[row][center]
+                            </div>
+
+                            <div class="grid" column center>
+                                grid[column][center]
+                            </div>
+
+                            <div class="grid" row center>
+                                <div class="grid" column>
+                                    grid[row][center] > grid[column]
+                                </div>
+                            </div>
+
+                            <div class="grid" row center>
+                                <div class="grid" column center>
+                                    grid[row][center] > grid[column][center]
+                                </div>
+                            </div>
+
+                            <div class="grid" column center>
+                                <div class="grid" row>
+                                    grid[column][center] > grid[row]
+                                </div>
+                            </div>
+
+                            <div class="grid" column center>
+                                <div class="grid" row center>
+                                    grid[column][center] > grid[row][center]
+                                </div>
+                            </div>
+
+
+
+                        </td>
+                    </tr>
+                </table>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

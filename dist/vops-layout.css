@@ -1062,6 +1062,62 @@ button.form-message-link {
 .form-message-link:active {
   color: #4EB6D6;
 }
+.grid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.grid[row] {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.grid[column] {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.grid[grow] {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.grid[around] {
+  -webkit-box-pack: flex-around;
+  -webkit-justify-content: flex-around;
+      -ms-flex-pack: flex-around;
+          justify-content: flex-around;
+}
+.grid[between] {
+  -webkit-box-pack: flex-between;
+  -webkit-justify-content: flex-between;
+      -ms-flex-pack: flex-between;
+          justify-content: flex-between;
+}
+.grid[start] {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.grid[end] {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.grid[center] {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 .text {
   color: #999990;
 }
@@ -5992,6 +6048,62 @@ button.form-message-link {
 }
 .form-message-link:active {
   color: #4EB6D6;
+}
+.grid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.grid[row] {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.grid[column] {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.grid[grow] {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.grid[around] {
+  -webkit-box-pack: flex-around;
+  -webkit-justify-content: flex-around;
+      -ms-flex-pack: flex-around;
+          justify-content: flex-around;
+}
+.grid[between] {
+  -webkit-box-pack: flex-between;
+  -webkit-justify-content: flex-between;
+      -ms-flex-pack: flex-between;
+          justify-content: flex-between;
+}
+.grid[start] {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.grid[end] {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.grid[center] {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .text {
   color: #999990;

@@ -1,21 +1,42 @@
-.grid {
+.demogrid {
     display: flex;
 }
 
-.grid-cols {
+.demogrid-cols {
     flex-direction: column;
 }
 
-
-.grid-title {
+.demogrid-title {
     display: block;
     font-size: 1.17em;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-* ~ .grid-title {
+* ~ .demogrid-title {
     margin-top: 16px;
+}
+
+.demopage-grid {
+    margin: 32px;
+}
+
+.demopage-grid td > .grid {
+    width: 350px;
+    height: 350px;
+}
+
+.demopage-grid .grid {
+    border: solid 1px #000;
+    padding: 5px;
+}
+
+.demopage-grid .grid > .grid {
+}
+
+.demopage-grid td {
+    padding-right: 16px;
+    vertical-align: top;
 }
 
 .pad-all {

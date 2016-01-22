@@ -8,8 +8,8 @@
 
             <div>
                 <div ng-repeat="colors in vm.rows">
-                    <div class="grid pad-tb">
-                        <div class="grid grid-cols pad-lr" ng-repeat="color in colors">
+                    <div class="demogrid pad-tb">
+                        <div class="demogrid demogrid-cols pad-lr" ng-repeat="color in colors">
                             <div class="color" ng-class="{'color-title':!shade.name}" ng-repeat="shade in color.shades">
                                 <div class="color-value">{{ shade.css | bgcolor }}</div>
                                 <div class="color-item {{shade.css}}"></div>
