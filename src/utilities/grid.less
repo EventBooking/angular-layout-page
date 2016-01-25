@@ -1,37 +1,89 @@
 .grid {
     display: flex;
-}
-
-.grid {
-    &[row] {
+    
+    &--row {
         flex-direction: row;
+        
+        .grid + & {
+            &.grid--pad-xsm {
+                margin-top: .25em;
+            }
+            
+            &.grid--pad-sm {
+                margin-top: .5em;
+            }
+            
+            &.grid--pad {
+                margin-top: 1em;
+            }
+            
+            &.grid--pad-md {
+                margin-top: 1.5em;
+            } 
+            
+            &.grid--pad-lg {
+                margin-top: 2em;
+            }
+                
+            &.grid--pad-xlg {
+                margin-top: 2.5em;
+            }
+        }
     }
     
-    &[column] {
+    &--column {
         flex-direction: column;
+        
+        .grid + & {
+            &.grid--pad-xsm {
+                margin-left: .25em;
+            }
+            
+            &.grid--pad-sm {
+                margin-left: .5em;
+            }
+            
+            &.grid--pad {
+                margin-left: 1em;
+            }
+            
+            &.grid--pad-md {
+                margin-left: 1.5em;
+            } 
+            
+            &.grid--pad-lg {
+                margin-left: 2em;
+            }
+                
+            &.grid--pad-xlg {
+                margin-left: 2.5em;
+            }
+        }
     }
     
-    &[grow] {
+    &--grow {
         flex-grow: 1;
     }
     
-    &[around] {
+    &--around {
         justify-content: flex-around;
     }
     
-    &[between] {
+    &--between {
         justify-content: flex-between;
     }
     
-    &[start] {
+    &--start {
         justify-content: flex-start;
     }
     
-    &[end] {
+    &--end {
         justify-content: flex-end;
     }
     
-    &[center] {
+    &--center {
         justify-content: center;
     }
+    
+    
 }

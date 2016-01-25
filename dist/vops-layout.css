@@ -1068,51 +1068,87 @@ button.form-message-link {
   display: -ms-flexbox;
   display: flex;
 }
-.grid[row] {
+.grid--row {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
 }
-.grid[column] {
+.grid + .grid--row.grid--pad-xsm {
+  margin-top: .25em;
+}
+.grid + .grid--row.grid--pad-sm {
+  margin-top: .5em;
+}
+.grid + .grid--row.grid--pad {
+  margin-top: 1em;
+}
+.grid + .grid--row.grid--pad-md {
+  margin-top: 1.5em;
+}
+.grid + .grid--row.grid--pad-lg {
+  margin-top: 2em;
+}
+.grid + .grid--row.grid--pad-xlg {
+  margin-top: 2.5em;
+}
+.grid--column {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.grid[grow] {
+.grid + .grid--column.grid--pad-xsm {
+  margin-left: .25em;
+}
+.grid + .grid--column.grid--pad-sm {
+  margin-left: .5em;
+}
+.grid + .grid--column.grid--pad {
+  margin-left: 1em;
+}
+.grid + .grid--column.grid--pad-md {
+  margin-left: 1.5em;
+}
+.grid + .grid--column.grid--pad-lg {
+  margin-left: 2em;
+}
+.grid + .grid--column.grid--pad-xlg {
+  margin-left: 2.5em;
+}
+.grid--grow {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-.grid[around] {
+.grid--around {
   -webkit-box-pack: flex-around;
   -webkit-justify-content: flex-around;
       -ms-flex-pack: flex-around;
           justify-content: flex-around;
 }
-.grid[between] {
+.grid--between {
   -webkit-box-pack: flex-between;
   -webkit-justify-content: flex-between;
       -ms-flex-pack: flex-between;
           justify-content: flex-between;
 }
-.grid[start] {
+.grid--start {
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
-.grid[end] {
+.grid--end {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.grid[center] {
+.grid--center {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -6055,51 +6091,87 @@ button.form-message-link {
   display: -ms-flexbox;
   display: flex;
 }
-.grid[row] {
+.grid--row {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
 }
-.grid[column] {
+.grid + .grid--row.grid--pad-xsm {
+  margin-top: .25em;
+}
+.grid + .grid--row.grid--pad-sm {
+  margin-top: .5em;
+}
+.grid + .grid--row.grid--pad {
+  margin-top: 1em;
+}
+.grid + .grid--row.grid--pad-md {
+  margin-top: 1.5em;
+}
+.grid + .grid--row.grid--pad-lg {
+  margin-top: 2em;
+}
+.grid + .grid--row.grid--pad-xlg {
+  margin-top: 2.5em;
+}
+.grid--column {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.grid[grow] {
+.grid + .grid--column.grid--pad-xsm {
+  margin-left: .25em;
+}
+.grid + .grid--column.grid--pad-sm {
+  margin-left: .5em;
+}
+.grid + .grid--column.grid--pad {
+  margin-left: 1em;
+}
+.grid + .grid--column.grid--pad-md {
+  margin-left: 1.5em;
+}
+.grid + .grid--column.grid--pad-lg {
+  margin-left: 2em;
+}
+.grid + .grid--column.grid--pad-xlg {
+  margin-left: 2.5em;
+}
+.grid--grow {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-.grid[around] {
+.grid--around {
   -webkit-box-pack: flex-around;
   -webkit-justify-content: flex-around;
       -ms-flex-pack: flex-around;
           justify-content: flex-around;
 }
-.grid[between] {
+.grid--between {
   -webkit-box-pack: flex-between;
   -webkit-justify-content: flex-between;
       -ms-flex-pack: flex-between;
           justify-content: flex-between;
 }
-.grid[start] {
+.grid--start {
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
-.grid[end] {
+.grid--end {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.grid[center] {
+.grid--center {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
