@@ -1,5 +1,10 @@
 .grid {
     display: flex;
+    flex-grow: 1;
+    
+    &--nogrow {
+        flex-grow: 0;
+    }
     
     &--row {
         flex-direction: row;
@@ -59,10 +64,6 @@
                 margin-left: 2.5em;
             }
         }
-    }
-    
-    &--grow {
-        flex-grow: 1;
     }
     
     &--around {

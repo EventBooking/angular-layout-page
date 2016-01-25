@@ -1067,6 +1067,16 @@ button.form-message-link {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.grid--nogrow {
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
 }
 .grid--row {
   -webkit-box-orient: horizontal;
@@ -1117,12 +1127,6 @@ button.form-message-link {
 }
 .grid + .grid--column.grid--pad-xlg {
   margin-left: 2.5em;
-}
-.grid--grow {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
 }
 .grid--around {
   -webkit-box-pack: flex-around;
@@ -6090,6 +6094,16 @@ button.form-message-link {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.grid--nogrow {
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
 }
 .grid--row {
   -webkit-box-orient: horizontal;
@@ -6140,12 +6154,6 @@ button.form-message-link {
 }
 .grid + .grid--column.grid--pad-xlg {
   margin-left: 2.5em;
-}
-.grid--grow {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
 }
 .grid--around {
   -webkit-box-pack: flex-around;
