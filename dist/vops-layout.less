@@ -133,6 +133,8 @@ blankslate {
 doughnut {
     display: block;
     position: relative;
+    background-color: inherit;
+    color: inherit;
         
     & canvas {
         display: block;
@@ -667,25 +669,6 @@ page-content-nav-item {
         padding: 0 unit(@padding-quarter,px);
     }
 }
-page-slider {
-    position: absolute;
-    right: 0;
-    width: unit(@page-slider-width,px);
-    top: 0;
-    bottom: 0;
-    z-index: 10;
-    transition: right .25s ease-in-out;
-    color: @page-slider-color;
-    background-color: @page-slider-background-color;
-
-    &:not(.is-visible) {
-        right: unit(-@page-slider-width,px);
-    }
-
-    &.is-visible {
-        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
-    }
-}
 page-header,
 .page-header {
     display: flex;
@@ -773,6 +756,25 @@ page-header,
     &:active {
         color: @page-header-actions-item-active-color;
         background-color: @page-header-actions-item-active-background-color;
+    }
+}
+page-slider {
+    position: absolute;
+    right: 0;
+    width: unit(@page-slider-width,px);
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    transition: right .25s ease-in-out;
+    color: @page-slider-color;
+    background-color: @page-slider-background-color;
+
+    &:not(.is-visible) {
+        right: unit(-@page-slider-width,px);
+    }
+
+    &.is-visible {
+        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
 .pane {

@@ -3215,6 +3215,8 @@ body-header ~ body-header {
 doughnut {
   display: block;
   position: relative;
+  background-color: inherit;
+  color: inherit;
 }
 doughnut canvas {
   display: block;
