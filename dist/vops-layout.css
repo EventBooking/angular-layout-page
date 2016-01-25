@@ -851,7 +851,8 @@ label > [type="checkbox"]:focus + .form-label:before {
   background-color: #E5E5E3;
   cursor: not-allowed;
 }
-.form-control--selected {
+.form-control--selected,
+.form-control--selected[disabled] {
   background-color: #D6F1D6;
 }
 .form-control:not(.form-control--customWidth) {
@@ -5878,7 +5879,8 @@ label > [type="checkbox"]:focus + .form-label:before {
   background-color: #E5E5E3;
   cursor: not-allowed;
 }
-.form-control--selected {
+.form-control--selected,
+.form-control--selected[disabled] {
   background-color: #D6F1D6;
 }
 .form-control:not(.form-control--customWidth) {
