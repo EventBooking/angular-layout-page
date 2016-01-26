@@ -28,16 +28,16 @@
 .colorClasses(gray);
 /// <reference path="assets.less" />
 
-.body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: @layout-body-font-family;
-    font-size: unit(@layout-body-font-size,px);
-    line-height: @layout-body-line-height;
-    background-color: @layout-body-background-color;
-    color: @layout-body-color;
-}
+// .body {
+//     margin: 0;
+//     padding: 0;
+//     overflow: hidden;
+//     font-family: @layout-body-font-family;
+//     font-size: unit(@layout-body-font-size,px);
+//     line-height: @layout-body-line-height;
+//     background-color: @layout-body-background-color;
+//     color: @layout-body-color;
+// }
 
 * {
     box-sizing: border-box;
@@ -127,39 +127,6 @@ blankslate {
     .text-link();
     font-weight: bold;
 }
-@doughnut-empty-color: @color-gray-darker;
-@doughnut-fill-color: @color-green;
-
-doughnut {
-    display: block;
-    position: relative;
-    background-color: inherit;
-    color: inherit;
-        
-    & canvas {
-        display: block;
-    }
-}
-
-.doughnut-text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
-
-.doughnut-empty-color {
-    background-color: @doughnut-empty-color;
-}
-
-.doughnut-fill-color {
-    background-color: @doughnut-fill-color;
-}
 body-header {
     display: flex;
     flex-direction: column;
@@ -218,16 +185,52 @@ body-header {
     display: block;
     .ellipsis();
 }
+@doughnut-empty-color: @color-gray-darker;
+@doughnut-fill-color: @color-green;
+
+doughnut {
+    display: block;
+    position: relative;
+    background-color: inherit;
+    color: inherit;
+        
+    & canvas {
+        display: block;
+    }
+}
+
+.doughnut-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.doughnut-empty-color {
+    background-color: @doughnut-empty-color;
+}
+
+.doughnut-fill-color {
+    background-color: @doughnut-fill-color;
+}
 .layout-page {
 	display: flex;
 	flex-direction: row;
-	font-family: @font-family;
-	line-height: @line-height-base;
-	background-color: @background-color;
-	color: @color;
 	height: 100vh;
     max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;
+	overflow: hidden;  
+    margin: 0;
+    padding: 0;
+    font-family: @layout-page-font-family;
+    font-size: unit(@layout-page-font-size,px);
+    line-height: @layout-page-line-height;
+    background-color: @layout-page-background-color;
+    color: @layout-page-color;
 }
 
 .layout-page-nav {
@@ -1655,11 +1658,11 @@ pane-header,
 @body-header-actions-item-active-background-color: transparent;
 
 // layout-body
-@layout-body-color: @color-gray;
-@layout-body-background-color: @color-gray-lightest;
-@layout-body-line-height: @line-height-base;
-@layout-body-font-size: @typescale;
-@layout-body-font-family: @font-family;
+@layout-page-color: @color-gray;
+@layout-page-background-color: @color-gray-lightest;
+@layout-page-line-height: @line-height-base;
+@layout-page-font-size: @typescale;
+@layout-page-font-family: @font-family;
 
 // nav
 @nav-small: 64;
