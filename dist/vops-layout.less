@@ -1135,11 +1135,13 @@ pane-header,
 
 @form-label-color: @color-gray-dark;
 @form-label-sub-color: @color-gray-dark;
+@form-label-margin: .25rem;
+@form-control-placeholder-color: @color-gray-lighter;
 @form-control-color: @color-gray-dark;
 @form-control-border-color: @color-gray-lightest;
-@form-control-focus-color: @color-blue-lighter;
+@form-control-focus-color: @color-blue;
 @form-control-error-color: @color-red;
-@form-control-focus-blur: .3em;
+@form-control-focus-blur: .5rem;
 @form-control-background-color: #fff;
 @form-control-border-radius: 4;
 @form-control-height: 2.5;
@@ -1159,7 +1161,7 @@ pane-header,
     
     .form-group ~ &,
     & ~ & {
-       margin-top: 1em;
+       margin-top: 1rem;
     }
 }
 
@@ -1174,12 +1176,12 @@ pane-header,
     
     .form-row ~ &,
     & ~ & {
-       margin-top: 1em;
+       margin-top: 1rem;
     }
     
     .form-row & ~ & {
         margin-top: 0;
-        margin-left: .5em;
+        margin-left: .5rem;
     }
 }
 
@@ -1204,7 +1206,7 @@ pane-header,
             box-sizing: border-box;
             justify-content: center;
             border: solid 2px @form-control-border-color;
-            margin-right: .5em;
+            margin-right: .5rem;
             width: 1.5em;
             line-height: 1.25em;
             border-radius: 2px;
@@ -1238,7 +1240,7 @@ pane-header,
     color: @form-label-sub-color;
     
     .form-label & {
-        margin-left: .2em;
+        margin-left: .2rem;
     }
 }
 
@@ -1259,6 +1261,10 @@ pane-header,
     color: @form-control-color;
     line-height: ~"calc(@{form-control-height}em - 2px)";
     background-color: @form-control-background-color;
+    
+    &::placeholder {
+        color: @form-control-placeholder-color;
+    }
     
     &[disabled] {
         background-color: @form-control-disabled-background-color;
@@ -1315,15 +1321,18 @@ pane-header,
         height: unit(@form-control-height,em);
     }
     
-    .form-label + &,
+    .form-label + & {
+        margin-top: @form-label-margin;
+    }
+    
     .form-addon-control + &,
     & + & {
-        margin-top: .2em;
+        margin-top: .2rem;
     }
     
     .form-control-row & + &{
         margin-top: 0;
-        margin-left: .5em;
+        margin-left: .5rem;
     }
     
     .form-addon-control--before & {
@@ -1355,7 +1364,10 @@ pane-header,
     flex-direction: row;
     position: relative;
     
-    .form-label + &,
+    .form-label + & {
+        margin-top: @form-label-margin;    
+    }
+    
     .form-control + &,
     & + & {
         margin-top: .5em;
