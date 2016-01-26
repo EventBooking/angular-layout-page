@@ -2514,6 +2514,11 @@ button.text-link {
 .background-color-gray-darkest {
   background-color: #262624;
 }
+html {
+  font-family: 'Source Sans Pro';
+  font-size: 16px;
+  line-height: 1.5;
+}
 * {
   box-sizing: border-box;
 }
@@ -4441,9 +4446,6 @@ doughnut canvas {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'Source Sans Pro';
-  font-size: 16px;
-  line-height: 1.5;
   background-color: #E5E5E3;
   color: #999990;
 }
@@ -4618,6 +4620,11 @@ nav,
     width: 64px;
     min-width: 64px;
   }
+}
+html {
+  font-family: 'Source Sans Pro';
+  font-size: 16px;
+  line-height: 1.5;
 }
 * {
   box-sizing: border-box;
