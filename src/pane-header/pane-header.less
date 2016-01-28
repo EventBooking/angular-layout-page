@@ -12,28 +12,18 @@
 
 .pane-header-close {
     order: 0;
-    display: block;
+    display: flex;
     width: 30px;
-    .font-size(@typescale-lg);
     cursor: pointer;
 }
 
 .pane-header-closeIcon {
-    display: block;
-    position: relative;
-    font-style: normal;
-    width: 100%;
-    height: 100%;
-    padding: 0;
+    display: inline-block;
+    .font-size(@pane-header-actions-font-size);
+    line-height: unit(@pane-header-height,px);
+    text-align: center;
+    cursor: pointer;
     color: @color-gray-light;
-    
-    &:before {
-        content: "\00d7";
-        position: absolute;
-        top: -4px;
-        bottom: 0;
-        .font-size(40);
-    } 
     
     .pane-header-close:hover & {
         color: @color-gray-lightest;

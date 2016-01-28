@@ -1146,16 +1146,15 @@ button.form-message-link {
   margin-left: 2.5em;
 }
 .grid--around {
-  -webkit-box-pack: flex-around;
-  -webkit-justify-content: flex-around;
-      -ms-flex-pack: flex-around;
-          justify-content: flex-around;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
 }
 .grid--between {
-  -webkit-box-pack: flex-between;
-  -webkit-justify-content: flex-between;
-      -ms-flex-pack: flex-between;
-          justify-content: flex-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .grid--start {
   -webkit-box-pack: start;
@@ -5259,28 +5258,21 @@ pane-header,
   -webkit-order: 0;
       -ms-flex-order: 0;
           order: 0;
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   width: 30px;
-  font-size: 20px;
-  font-size: 1.25rem;
   cursor: pointer;
 }
 .pane-header-closeIcon {
-  display: block;
-  position: relative;
-  font-style: normal;
-  width: 100%;
-  height: 100%;
-  padding: 0;
+  display: inline-block;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 48px;
+  text-align: center;
+  cursor: pointer;
   color: #B2B2A9;
-}
-.pane-header-closeIcon:before {
-  content: "\00d7";
-  position: absolute;
-  top: -4px;
-  bottom: 0;
-  font-size: 40px;
-  font-size: 2.5rem;
 }
 .pane-header-close:hover .pane-header-closeIcon {
   color: #E5E5E3;
@@ -6182,16 +6174,15 @@ button.form-message-link {
   margin-left: 2.5em;
 }
 .grid--around {
-  -webkit-box-pack: flex-around;
-  -webkit-justify-content: flex-around;
-      -ms-flex-pack: flex-around;
-          justify-content: flex-around;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
 }
 .grid--between {
-  -webkit-box-pack: flex-between;
-  -webkit-justify-content: flex-between;
-      -ms-flex-pack: flex-between;
-          justify-content: flex-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .grid--start {
   -webkit-box-pack: start;

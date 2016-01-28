@@ -109,14 +109,14 @@ try {
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('pane-header/pane-header.html',
     '<a href="#" class="pane-header-close" ng-if="vm.showClose" ng-click="vm.close()">\n' +
-    '    <i class="pane-header-closeIcon"></i>\n' +
+    '    <i class="pane-header-closeIcon fa fa-times-circle"></i>\n' +
     '</a>\n' +
     '<div class="pane-header-actions" ng-transclude></div>\n' +
     '<div class="pane-header-titles" ng-class="{ \'pane-header-titles--withSubtitle\': vm.subtitle }">\n' +
     '    <span class="pane-header-title">\n' +
     '        <span class="pane-header-titleText">{{vm.title}}</span>\n' +
     '    </span>\n' +
-    '    <span class="pane-header-subtitle" ng-if="vn.subtitle">\n' +
+    '    <span class="pane-header-subtitle" ng-if="vm.subtitle">\n' +
     '        <span class="pane-header-subtitleText">{{vm.subtitle}}</span>\n' +
     '    </span>\n' +
     '</div>');
