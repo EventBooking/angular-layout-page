@@ -5275,7 +5275,7 @@ pane-header,
   color: #B2B2A9;
 }
 .pane-header-closeIcon:before {
-  content: "\2039";
+  content: "\00d7";
   position: absolute;
   top: -4px;
   bottom: 0;
