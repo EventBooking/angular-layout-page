@@ -805,6 +805,7 @@ label > [type="checkbox"] + .form-label:before {
   border: solid 2px #E5E5E3;
   margin-right: .5rem;
   width: 1.5em;
+  height: 1.5em;
   line-height: 1.25em;
   border-radius: 2px;
   -webkit-transition: all .25s linear;
@@ -5833,6 +5834,7 @@ label > [type="checkbox"] + .form-label:before {
   border: solid 2px #E5E5E3;
   margin-right: .5rem;
   width: 1.5em;
+  height: 1.5em;
   line-height: 1.25em;
   border-radius: 2px;
   -webkit-transition: all .25s linear;
