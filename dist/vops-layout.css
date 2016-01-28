@@ -810,6 +810,7 @@ label > [type="checkbox"] + .form-label:before {
   border-radius: 2px;
   -webkit-transition: all .25s linear;
           transition: all .25s linear;
+  background-color: #fff;
 }
 label > [type="checkbox"]:checked + .form-label:before {
   content: "\2714";
@@ -5839,6 +5840,7 @@ label > [type="checkbox"] + .form-label:before {
   border-radius: 2px;
   -webkit-transition: all .25s linear;
           transition: all .25s linear;
+  background-color: #fff;
 }
 label > [type="checkbox"]:checked + .form-label:before {
   content: "\2714";
