@@ -19,6 +19,7 @@ module LayoutPageModule {
         emptyColorClass: string;
         innerRadius = 65; // 75%
         animateSpeed = 10;
+        percentOffset = -25;
         animate: ($ctrl: DoughnutController, from: number | string, to: number | string) => {};
 
         _value: number | string;
@@ -98,7 +99,7 @@ module LayoutPageModule {
             $ctrl.context.save();
             $ctrl.context.beginPath();
             $ctrl.context.moveTo(cX, cY);
-            $ctrl.context.arc(cX, cY, radius, 0, toRadians, false);
+            $ctrl.context.arc(cX, cY, radius, this.convertToRadians($ctrl.percentOffset), toRadians, false);
             $ctrl.context.closePath();
             $ctrl.context.fillStyle = color;
             $ctrl.context.fill();
@@ -161,13 +162,13 @@ module LayoutPageModule {
 
             var emptyColor = this.getElementStyle($ctrl.emptyColorClass || "doughnut-empty-color", "background-color");
             var fillColor = this.getElementStyle($ctrl.colorClass || "doughnut-fill-color", "background-color");
-
+            
             if ($ctrl.color)
                 fillColor = $ctrl.color;
 
-            var nFrom = Number(from);
-            var nTo = Number(to);
-
+            var nFrom = Number(from) + $ctrl.percentOffset;
+            var nTo = Number(to) + $ctrl.percentOffset;
+            
             if (nFrom < nTo)
                 return this.animateUp($ctrl, nFrom, nTo, emptyColor, fillColor);
             else
