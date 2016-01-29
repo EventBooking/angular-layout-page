@@ -771,6 +771,12 @@ th {
   margin-top: 0;
   margin-left: .5rem;
 }
+.form-checkbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 .form-label {
   text-transform: uppercase;
   font-size: .875em;
@@ -788,10 +794,10 @@ label > .form-label {
   display: -ms-flexbox;
   display: flex;
 }
-label > [type="checkbox"] + .form-label {
+label > .form-control[type="checkbox"] + .form-label {
   outline: none;
 }
-label > [type="checkbox"] + .form-label:before {
+label > .form-control[type="checkbox"] + .form-label:before {
   content: "\0000a0";
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -812,16 +818,16 @@ label > [type="checkbox"] + .form-label:before {
           transition: all .25s linear;
   background-color: #fff;
 }
-label > [type="checkbox"]:checked + .form-label:before {
+label > .form-control[type="checkbox"]:checked + .form-label:before {
   content: "\2714";
   background-color: #48C245;
   border-color: #48C245;
   color: #fff;
 }
-label > [type="checkbox"]:focus + .form-label:before {
+label > .form-control[type="checkbox"]:focus + .form-label:before {
   box-shadow: 0 0 0.5rem #4EB6D6;
 }
-:root label > [type="checkbox"] {
+:root label > .form-control[type="checkbox"] {
   position: absolute;
   left: -1000em;
 }
@@ -5801,6 +5807,12 @@ pane-header,
   margin-top: 0;
   margin-left: .5rem;
 }
+.form-checkbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 .form-label {
   text-transform: uppercase;
   font-size: .875em;
@@ -5818,10 +5830,10 @@ label > .form-label {
   display: -ms-flexbox;
   display: flex;
 }
-label > [type="checkbox"] + .form-label {
+label > .form-control[type="checkbox"] + .form-label {
   outline: none;
 }
-label > [type="checkbox"] + .form-label:before {
+label > .form-control[type="checkbox"] + .form-label:before {
   content: "\0000a0";
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -5842,16 +5854,16 @@ label > [type="checkbox"] + .form-label:before {
           transition: all .25s linear;
   background-color: #fff;
 }
-label > [type="checkbox"]:checked + .form-label:before {
+label > .form-control[type="checkbox"]:checked + .form-label:before {
   content: "\2714";
   background-color: #48C245;
   border-color: #48C245;
   color: #fff;
 }
-label > [type="checkbox"]:focus + .form-label:before {
+label > .form-control[type="checkbox"]:focus + .form-label:before {
   box-shadow: 0 0 0.5rem #4EB6D6;
 }
-:root label > [type="checkbox"] {
+:root label > .form-control[type="checkbox"] {
   position: absolute;
   left: -1000em;
 }

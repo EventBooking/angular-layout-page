@@ -271,6 +271,19 @@ doughnut {
 //         }
 //     }
 }
+nav,
+.nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+}
+
+@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+    nav,
+    .nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
+}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -361,19 +374,6 @@ doughnut {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-nav,
-.nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
-}
-
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-    nav,
-    .nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
-}
 nav-group,
 .nav-group {
 	display: flex;
@@ -445,31 +445,6 @@ nav-group-item,
         display: none;
     }
 }
-.page {
-    display: flex;
-    flex-direction: column;
-    background-color: @page-background-color;
-    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
-    position: relative;
-    overflow: hidden;
-    flex-grow: 0;
-
-    &--full {
-        flex-grow: 1;
-    }
-    
-    & page-header,
-    & .page-header {
-        order: 0;
-        flex-grow: 0;
-    }
-    
-    & .page-content,
-    & .page-content-area {
-        order: 1;
-        flex-grow: 1;
-    }
-}
 nav-header {
 	display: block;
 	text-align: center;
@@ -508,6 +483,31 @@ nav-header {
         flex-direction: column;
     }
 }
+.page {
+    display: flex;
+    flex-direction: column;
+    background-color: @page-background-color;
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+    flex-grow: 0;
+
+    &--full {
+        flex-grow: 1;
+    }
+    
+    & page-header,
+    & .page-header {
+        order: 0;
+        flex-grow: 0;
+    }
+    
+    & .page-content,
+    & .page-content-area {
+        order: 1;
+        flex-grow: 1;
+    }
+}
 .page-content-body {
     display: flex;
     flex-direction: row;
@@ -519,32 +519,6 @@ nav-header {
     .page-content-body {
         flex-direction: column;
         align-content: flex-start;
-    }
-}
-.page-content-nav {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: unit(@page-content-nav-width,px);
-    padding: 0;
-    margin: 0;
-    // border-width: 1px;
-    // border-color: @border-color;
-    // border-style: none solid none none;
-    background-color: @page-content-nav-background-color;
-    list-style-type: none;
-}
-
-// tablet landscape mode
-@media (max-width: unit(@screen-desktop-sm,px)) {
-    .page-content-nav {
-        flex-direction: row;
-        width: auto;
-        // border-style: none none solid none;
-        padding: 0 1em;
-        height: unit(@page-content-nav-height,px);
-        line-height: unit(@page-content-nav-height,px);
     }
 }
 .page-content-body-pane {
@@ -596,6 +570,32 @@ nav-header {
 		&--double {
 			width: unit(@page-content-body-pane-width,px);
 		}
+    }
+}
+.page-content-nav {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: unit(@page-content-nav-width,px);
+    padding: 0;
+    margin: 0;
+    // border-width: 1px;
+    // border-color: @border-color;
+    // border-style: none solid none none;
+    background-color: @page-content-nav-background-color;
+    list-style-type: none;
+}
+
+// tablet landscape mode
+@media (max-width: unit(@screen-desktop-sm,px)) {
+    .page-content-nav {
+        flex-direction: row;
+        width: auto;
+        // border-style: none none solid none;
+        padding: 0 1em;
+        height: unit(@page-content-nav-height,px);
+        line-height: unit(@page-content-nav-height,px);
     }
 }
 page-content-nav-item {
@@ -1175,6 +1175,11 @@ pane-header,
     }
 }
 
+// Used for label wrappers
+.form-checkbox {
+    display: flex;
+}
+
 .form-label {
     text-transform: uppercase;
     font-size: .875em;
@@ -1187,7 +1192,7 @@ pane-header,
         display: flex;
     }
     
-    label > [type="checkbox"] + & {
+    label > .form-control[type="checkbox"] + & {
         outline: none;
         
         &:before {
@@ -1206,7 +1211,7 @@ pane-header,
         }
     }
     
-    label > [type="checkbox"]:checked + & {
+    label > .form-control[type="checkbox"]:checked + & {
         &:before {
             content: "\2714";
             background-color: @color-green;
@@ -1215,14 +1220,14 @@ pane-header,
         }
     }
     
-    label > [type="checkbox"]:focus + & {
+    label > .form-control[type="checkbox"]:focus + & {
         &:before {
             box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
         }
     }
 }
 
-:root label > [type="checkbox"] {
+:root label > .form-control[type="checkbox"] {
     position: absolute;
     left: -1000em;
 }
