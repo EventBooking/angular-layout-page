@@ -3259,12 +3259,21 @@ doughnut canvas {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  z-index: 3;
 }
 .doughnut-empty-color {
   background-color: #4C4C47;
 }
 .doughnut-fill-color {
   background-color: #48C245;
+}
+.doughnut-hole {
+  position: absolute;
+  z-index: 2;
+}
+.doughnut-fill {
+  position: absolute;
+  z-index: 1;
 }
 .color-red-lightest {
   color: #FBD9D5;

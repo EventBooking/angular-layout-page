@@ -47,7 +47,9 @@ module.run(['$templateCache', function($templateCache) {
     '<div class="doughnut-text">\n' +
     '    <div ng-transclude></div>\n' +
     '</div>\n' +
-    '<canvas></canvas>');
+    '<canvas class="doughnut-hole"></canvas>\n' +
+    '<canvas class="doughnut-fill"></canvas>\n' +
+    '<canvas class="doughnut-bg"></canvas>');
 }]);
 })();
 
