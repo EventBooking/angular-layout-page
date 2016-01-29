@@ -23,21 +23,6 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('doughnut/doughnut.html',
-    '<div class="doughnut-text">\n' +
-    '    <div ng-transclude></div>\n' +
-    '</div>\n' +
-    '<canvas></canvas>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('body-header/body-header.html',
     '<div class="body-header-top">\n' +
     '    <div class="body-header-title">{{vm.title}}</div>\n' +
@@ -48,6 +33,21 @@ module.run(['$templateCache', function($templateCache) {
     '<div class="body-header-bottom">\n' +
     '    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>\n' +
     '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('doughnut/doughnut.html',
+    '<div class="doughnut-text">\n' +
+    '    <div ng-transclude></div>\n' +
+    '</div>\n' +
+    '<canvas></canvas>');
 }]);
 })();
 
