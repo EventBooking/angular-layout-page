@@ -27,6 +27,7 @@ module LayoutPageModule {
         innerRadius = 65; // 75%
         animateSpeed = 10;
         percentOffset = -25;
+        holeColor: string;
         animate: ($ctrl: DoughnutController, from: number | string, to: number | string) => {};
 
         _value: number | string;
@@ -74,7 +75,15 @@ module LayoutPageModule {
 
             this.init($ctrl, 0, $ctrl.value);
             var promise = this.watchSize($ctrl);
-            
+
+            $scope.$watch(() => {
+                return this.getBgColor($ctrl);
+            }, bgcolor => {
+                // did background color change?
+                if (bgcolor != $ctrl.holeColor)
+                    this.initHole($ctrl);
+            });
+
             $scope.$on("$destroy", () => {
                 this.$interval.cancel(promise);
             });
@@ -134,7 +143,7 @@ module LayoutPageModule {
 
         draw($ctrl: DoughnutController, from: number, to: number, fillColor) {
             this.reset($ctrl.contextFill);
-            
+
             var cX = this.getX($ctrl.contextBg);
             var cY = this.getY($ctrl.contextBg);
             var radius = this.getRadius(cX, cY);
@@ -169,14 +178,17 @@ module LayoutPageModule {
         reset(context: any) {
             context.clearRect(0, 0, context.canvas.width, context.canvas.height);
         }
-        
+
         init($ctrl: DoughnutController, from: number | string, to: number | string) {
-            this.reset($ctrl.contextHole);
+            this.initBg($ctrl, from, to);
+            this.initHole($ctrl);
+
             this.reset($ctrl.contextFill);
-            this.reset($ctrl.contextBg);
-            
-            this.setSize($ctrl, $ctrl.contextHole);
             this.setSize($ctrl, $ctrl.contextFill);
+        }
+
+        initBg($ctrl: DoughnutController, from: number | string, to: number | string) {
+            this.reset($ctrl.contextBg);
             this.setSize($ctrl, $ctrl.contextBg);
 
             var emptyColor = this.getElementStyle($ctrl.emptyColorClass || "doughnut-empty-color", "background-color");
@@ -184,13 +196,27 @@ module LayoutPageModule {
             var cX = this.getX($ctrl.contextBg);
             var cY = this.getY($ctrl.contextBg);
             var radius = this.getRadius(cX, cY);
-            
+
             this.drawWedge($ctrl, $ctrl.contextBg, cX, cY, radius, 0, 100, emptyColor);
-            
+        }
+
+        initHole($ctrl: DoughnutController) {
+            this.reset($ctrl.contextHole);
+            this.setSize($ctrl, $ctrl.contextHole);
+
+            var cX = this.getX($ctrl.contextBg);
+            var cY = this.getY($ctrl.contextBg);
+            var radius = this.getRadius(cX, cY);
+
+            $ctrl.holeColor = this.getBgColor($ctrl);
+            this.drawDonut($ctrl, $ctrl.contextHole, cX, cY, radius, $ctrl.holeColor);
+        }
+
+        getBgColor($ctrl: DoughnutController) {
             var bgcolor = $ctrl.$element.css("background-color");
             if (bgcolor == "rgba(0, 0, 0, 0)")
                 bgcolor = "white";
-            this.drawDonut($ctrl, $ctrl.contextHole, cX, cY, radius, bgcolor);
+            return bgcolor;
         }
 
         animate($ctrl: DoughnutController, from: number | string, to: number | string) {

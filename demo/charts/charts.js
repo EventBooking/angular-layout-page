@@ -9,6 +9,17 @@ function ChartsController() {
     this.value3 = 75;
     this.value4 = 25;
     this.value5 = 0;
+    
+    this.bg = function() {
+        if(this.value1 == 0)
+            return "#fff";
+        if(this.value1 < 20)
+            return "gray";
+        if(this.value1 < 50)
+            return "lightblue";
+        if(this.value1 > 50)
+            return "lightgreen";
+    } 
 }
 
 angular.module("demo").controller('chartsController', ChartsController);

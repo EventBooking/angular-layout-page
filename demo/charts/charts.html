@@ -18,7 +18,10 @@
                     </div>
                     <label>default</label>
                     <div class="doughnut-container">
-                        <doughnut class="doughnut-test" value="{{vm.value1}}" ng-style="{width: vm.width, height: vm.height}">
+                        <doughnut 
+                            class="doughnut-test" 
+                            value="{{vm.value1}}" 
+                            ng-style="{width: vm.width, height: vm.height, backgroundColor: vm.bg()}">
                             {{vm.value1}}%
                         </doughnut>
                     </div>
