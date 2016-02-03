@@ -4786,15 +4786,11 @@ a:active {
     width: auto;
     border-right: none;
   }
-  .page-content-body-pane--double {
-    width: 480px;
-  }
   .page-content-body-pane--fluid {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
-    width: 480px;
   }
 }
 .page-content-body {
