@@ -2,7 +2,7 @@
 @screen-desktop-lg:         1440;
 @screen-desktop-sm:         1280;
 @screen-tablet-landscape:   1024;
-@screen-tablet-portrate:    768;
+@screen-tablet-portrait:    768;
 @screen-phone-landscape:    480;
 @screen-phone-portrait:     320;
 
@@ -11,10 +11,15 @@
 @screen-small: @screen-phone-landscape;
 
 // see: http://blog.scur.pl/2012/06/variable-media-queries-less-css/
-@media-desktop-xlg:         ~"only screen and (min-width: @{screen-desktop-xlg + 1}px)";
-@media-desktop-lg:          ~"only screen and (min-width: @{screen-desktop-lg + 1}px) and (max-width: @{screen-desktop-lg}px)";
-@media-desktop-sm:          ~"only screen and (min-width: @{screen-desktop-sm + 1}px) and (max-width: @{screen-desktop-sm}px)";
-@media-tablet-landscape:    ~"only screen and (min-width: @{screen-tablet-portrate + 1}px) and (max-width: @{screen-tablet-landscape}px)";
-@media-tablet-portrate:     ~"only screen and (min-width: @{screen-phone-landscape + 1}px) and (max-width: @{screen-tablet-portrate}px)";
-@media-phone-landscape:     ~"only screen and (min-width: @{screen-phone-portrait + 1}px) and (max-width: @{screen-phone-landscape}px)";
-@media-phone-portrait:      ~"only screen and (max-width: @{screen-phone-portrait}px)";
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+              
+@media-desktop-xlg:         %(~"screen and (min-width: %apx)", @screen-desktop-xlg );
+@media-desktop-lg:          %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-desktop-lg, (@screen-desktop-xlg - 1));
+@media-desktop-sm:          %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-desktop-sm, (@screen-desktop-lg - 1));
+@media-tablet-landscape:    %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-tablet-landscape, (@screen-desktop-sm - 1));
+@media-tablet-portrait:     %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-tablet-portrait, (@screen-tablet-landscape - 1));
+@media-phone-landscape:     %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-phone-landscape, (@screen-tablet-portrait - 1));
+@media-phone-portrait:      %(~"screen and (max-width: %apx)", (@screen-phone-landscape - 1) );

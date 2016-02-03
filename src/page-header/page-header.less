@@ -8,8 +8,17 @@
     min-height: unit(@page-header-height,px); /* Safari flex-box fix */
 }
 
-.page-header-titles {
+.page-header-navMenu {
     order: 1;
+    width: 48px;
+    line-height: unit(@page-header-title-font-size,px);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-header-titles {
+    order: 2;
     flex-grow: 1;
     display: flex;
     padding: 0 unit(@padding,px);
@@ -61,7 +70,7 @@
 }
 
 .page-header-actions {
-    order: 2;
+    order: 3;
     display: flex;
     padding: 0 unit(@padding-half,px);
 }
@@ -85,5 +94,19 @@
     &:active {
         color: @page-header-actions-item-active-color;
         background-color: @page-header-actions-item-active-background-color;
+    }
+}
+
+@media @media-phone-landscape, 
+    @media-phone-portrait {
+    .page-header-navMenu {
+        display: flex;
+    }
+    
+    .page-header-titles {
+        order: 2;
+        flex-grow: 1;
+        display: flex;
+        padding: 0 unit(@padding,px) 0 0;
     }
 }

@@ -12,12 +12,25 @@ nav-header {
 	display: none;
 }
 
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+@media @media-tablet-landscape,
+    @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
 	.nav-header-text {
 		display: none;
 	}
 	
     .nav-header-small {
         display: inline;
+    }
+}
+
+@media @media-phone-portrait {
+    nav-header {
+        display: none;
+        
+        .nav--show & {
+            display: block;
+        }
     }
 }

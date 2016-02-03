@@ -7,7 +7,6 @@
         restrict = 'E';
         transclude = true;
         templateUrl = 'page-header/page-header.html';
-        multiElement = true;
         controller = PageHeaderController;
         controllerAs = 'vm';
         bindToController = true;

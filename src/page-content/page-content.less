@@ -7,7 +7,9 @@
 }
 
 // tablet landscape mode
-@media (max-width: unit(@screen-desktop-sm,px)) {
+@media @media-tablet-landscape,
+    @media-phone-landscape,
+    @media-phone-portrait {
     .page-content,
     .page-content-area {
         flex-direction: column;

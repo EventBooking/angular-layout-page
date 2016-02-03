@@ -11,3 +11,14 @@ nav-group,
 		background-repeat: no-repeat;
 	}
 }
+
+@media @media-phone-portrait {
+    nav-group,
+    .nav-group {
+        display: none;
+        
+        .nav--show & {
+            display: block;
+        }
+    }
+}

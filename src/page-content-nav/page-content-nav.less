@@ -6,19 +6,16 @@
     width: unit(@page-content-nav-width,px);
     padding: 0;
     margin: 0;
-    // border-width: 1px;
-    // border-color: @border-color;
-    // border-style: none solid none none;
     background-color: @page-content-nav-background-color;
     list-style-type: none;
 }
 
-// tablet landscape mode
-@media (max-width: unit(@screen-desktop-sm,px)) {
+@media @media-tablet-landscape,
+    @media-phone-landscape,
+    @media-phone-portrait {
     .page-content-nav {
         flex-direction: row;
         width: auto;
-        // border-style: none none solid none;
         padding: 0 1em;
         height: unit(@page-content-nav-height,px);
         line-height: unit(@page-content-nav-height,px);

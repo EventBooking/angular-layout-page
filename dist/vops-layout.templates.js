@@ -86,8 +86,21 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('nav-menu/nav-menu.html',
+    '<i ng-class="vm.iconClass"></i>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('page-header/page-header.html',
     '<div class="page-header-actions" ng-transclude></div>\n' +
+    '<nav-menu class="page-header-navMenu" icon="fa fa-navicon"></nav-menu>\n' +
     '<div class="page-header-titles">\n' +
     '    <div class="page-header-titles-item">\n' +
     '        <span class="page-header-title">{{vm.title}}</span>\n' +

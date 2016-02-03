@@ -1,13 +1,37 @@
-nav,
-.nav {
+nav {
 	width: unit(@nav-large,px);
     min-width: unit(@nav-large,px);
 }
 
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-    nav,
-    .nav {
+@media @media-tablet-landscape,
+    @media-tablet-portrait {
+    nav {
         width: unit(@nav-small,px);
         min-width: unit(@nav-small,px);
+    }
+}
+
+@media @media-phone-landscape,
+    @media-phone-portrait {
+    nav {
+        transition: all .1s ease-in-out;
+        width: 0;
+        min-width: 0;
+        
+        .nav--show & {
+            width: unit(@nav-small,px);
+            min-width: unit(@nav-small,px);
+        }
+    }
+    
+    .nav-icon {
+        position: absolute;
+        top: 17px;
+        left: 9px;
+        z-index: 1;
+        
+        .nav--show & {
+            left: unit(@nav-small + 9,px);
+        }
     }
 }

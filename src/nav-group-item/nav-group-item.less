@@ -51,7 +51,10 @@ nav-group-item,
 	}
 }
 
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+@media @media-tablet-landscape,
+    @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
 	.nav-group-item-text {
         display: none;
     }

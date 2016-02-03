@@ -189,7 +189,7 @@ body-header {
 .body-header-title,
 .body-header-subtitle {
     display: block;
-    .ellipsis();
+    // .ellipsis();
 }
 @doughnut-empty-color: @color-gray-darker;
 @doughnut-fill-color: @color-green;
@@ -376,17 +376,41 @@ doughnut {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-nav,
-.nav {
+nav {
 	width: unit(@nav-large,px);
     min-width: unit(@nav-large,px);
 }
 
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
-    nav,
-    .nav {
+@media @media-tablet-landscape,
+    @media-tablet-portrait {
+    nav {
         width: unit(@nav-small,px);
         min-width: unit(@nav-small,px);
+    }
+}
+
+@media @media-phone-landscape,
+    @media-phone-portrait {
+    nav {
+        transition: all .1s ease-in-out;
+        width: 0;
+        min-width: 0;
+        
+        .nav--show & {
+            width: unit(@nav-small,px);
+            min-width: unit(@nav-small,px);
+        }
+    }
+    
+    .nav-icon {
+        position: absolute;
+        top: 17px;
+        left: 9px;
+        z-index: 1;
+        
+        .nav--show & {
+            left: unit(@nav-small + 9,px);
+        }
     }
 }
 nav-group,
@@ -401,6 +425,17 @@ nav-group,
 		background-size: 100% 1px;
 		background-repeat: no-repeat;
 	}
+}
+
+@media @media-phone-portrait {
+    nav-group,
+    .nav-group {
+        display: none;
+        
+        .nav--show & {
+            display: block;
+        }
+    }
 }
 nav-group-item,
 [nav-group-item],
@@ -455,7 +490,10 @@ nav-group-item,
 	}
 }
 
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+@media @media-tablet-landscape,
+    @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
 	.nav-group-item-text {
         display: none;
     }
@@ -474,7 +512,10 @@ nav-header {
 	display: none;
 }
 
-@media (max-width: unit((@screen-tablet-landscape + @nav-large),px)) {
+@media @media-tablet-landscape,
+    @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
 	.nav-header-text {
 		display: none;
 	}
@@ -482,6 +523,19 @@ nav-header {
     .nav-header-small {
         display: inline;
     }
+}
+
+@media @media-phone-portrait {
+    nav-header {
+        display: none;
+        
+        .nav--show & {
+            display: block;
+        }
+    }
+}
+nav-menu {
+    text-align: center;
 }
 .page {
     display: flex;
@@ -508,6 +562,14 @@ nav-header {
         flex-grow: 1;
     }
 }
+
+@media @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
+    .page {
+		flex-grow: 1;
+    }
+}
 .page-content,
 .page-content-area {
     display: flex;
@@ -517,7 +579,9 @@ nav-header {
 }
 
 // tablet landscape mode
-@media (max-width: unit(@screen-desktop-sm,px)) {
+@media @media-tablet-landscape,
+    @media-phone-landscape,
+    @media-phone-portrait {
     .page-content,
     .page-content-area {
         flex-direction: column;
@@ -530,16 +594,21 @@ nav-header {
 }
 
 // Less width than table landscape
-@media (max-width: unit(@screen-tablet-landscape,px)) {
+@media @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
     .page-content-body {
-        flex-direction: column;
-        align-content: flex-start;
+        display: block;
+        // flex-direction: column;
+        // align-content: flex-start;
+        // flex-grow: 0;
     }
 }
 .page-content-body-pane {
     padding: 0 unit(@padding,px);
     width: unit(@page-content-body-pane-width,px);
     margin-top: unit(@page-content-body-pane-padding-top,px);
+    margin-bottom: unit(@page-content-body-pane-padding-top,px);
     
     &--flush {
         padding: 0;
@@ -567,22 +636,20 @@ nav-header {
 }
 
 
-// tablet landscape mode
-@media (max-width: unit(@screen-desktop-sm,px)) {
+@media @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
     .page-content-body-pane {
-		&--fluid {
-			flex: 0 0 auto;
-			width: unit(@page-content-body-pane-width,px);
-		}
-    }
-}
-
-// Less width than table landscape
-@media (max-width: unit(@screen-tablet-landscape,px)) {
-    .page-content-body-pane {
+        display: block;
+        width: auto;
         border-right: none;
 		
 		&--double {
+			width: unit(@page-content-body-pane-width,px);
+		}
+        
+		&--fluid {
+			flex: 0 0 auto;
 			width: unit(@page-content-body-pane-width,px);
 		}
     }
@@ -595,19 +662,16 @@ nav-header {
     width: unit(@page-content-nav-width,px);
     padding: 0;
     margin: 0;
-    // border-width: 1px;
-    // border-color: @border-color;
-    // border-style: none solid none none;
     background-color: @page-content-nav-background-color;
     list-style-type: none;
 }
 
-// tablet landscape mode
-@media (max-width: unit(@screen-desktop-sm,px)) {
+@media @media-tablet-landscape,
+    @media-phone-landscape,
+    @media-phone-portrait {
     .page-content-nav {
         flex-direction: row;
         width: auto;
-        // border-style: none none solid none;
         padding: 0 1em;
         height: unit(@page-content-nav-height,px);
         line-height: unit(@page-content-nav-height,px);
@@ -625,6 +689,8 @@ page-content-nav-item {
     border-style: none;
     border-width: 1px;
     border-color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     .text-link();
         
     & ~ & {
@@ -638,17 +704,6 @@ page-content-nav-item {
     &:last-child:not(.page-content-nav-item--active) {
         border-bottom-style: solid;
     }
-    
-    // &:hover {
-    //     background-color: @page-content-nav-item-hover-background-color;
-    //     color: @page-content-nav-item-hover-color;
-    // }
-    // 
-    // &:active {
-    //     background-color: @page-content-nav-item-active-background-color;
-    //     color: @page-content-nav-item-active-color;
-    //     font-weight: @font-weight-bold;
-    // }
 }
 
 .page-content-nav-item--active {
@@ -667,7 +722,9 @@ page-content-nav-item {
 }
 
 // tablet landscape mode
-@media (max-width: unit(@screen-desktop-sm,px)) {
+@media @media-tablet-landscape,
+    @media-phone-landscape,
+    @media-phone-portrait {
     page-content-nav-item {
         padding: 0 unit(@padding-half,px);
     }
@@ -685,11 +742,11 @@ page-content-nav-item {
 }
 
 // Less width than table landscape
-@media (max-width: unit(@screen-tablet-landscape,px)) {
-    page-content-nav-item {
-        padding: 0 unit(@padding-quarter,px);
-    }
-}
+// @media @media-tablet-portrait {
+//     page-content-nav-item {
+//         padding: 0 unit(@padding-quarter,px);
+//     }
+// }
 page-header,
 .page-header {
     display: flex;
@@ -700,8 +757,17 @@ page-header,
     min-height: unit(@page-header-height,px); /* Safari flex-box fix */
 }
 
-.page-header-titles {
+.page-header-navMenu {
     order: 1;
+    width: 48px;
+    line-height: unit(@page-header-title-font-size,px);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-header-titles {
+    order: 2;
     flex-grow: 1;
     display: flex;
     padding: 0 unit(@padding,px);
@@ -753,7 +819,7 @@ page-header,
 }
 
 .page-header-actions {
-    order: 2;
+    order: 3;
     display: flex;
     padding: 0 unit(@padding-half,px);
 }
@@ -777,6 +843,20 @@ page-header,
     &:active {
         color: @page-header-actions-item-active-color;
         background-color: @page-header-actions-item-active-background-color;
+    }
+}
+
+@media @media-phone-landscape, 
+    @media-phone-portrait {
+    .page-header-navMenu {
+        display: flex;
+    }
+    
+    .page-header-titles {
+        order: 2;
+        flex-grow: 1;
+        display: flex;
+        padding: 0 unit(@padding,px) 0 0;
     }
 }
 page-slider {
@@ -1861,7 +1941,7 @@ pane-header,
 @screen-desktop-lg:         1440;
 @screen-desktop-sm:         1280;
 @screen-tablet-landscape:   1024;
-@screen-tablet-portrate:    768;
+@screen-tablet-portrait:    768;
 @screen-phone-landscape:    480;
 @screen-phone-portrait:     320;
 
@@ -1870,13 +1950,18 @@ pane-header,
 @screen-small: @screen-phone-landscape;
 
 // see: http://blog.scur.pl/2012/06/variable-media-queries-less-css/
-@media-desktop-xlg:         ~"only screen and (min-width: @{screen-desktop-xlg + 1}px)";
-@media-desktop-lg:          ~"only screen and (min-width: @{screen-desktop-lg + 1}px) and (max-width: @{screen-desktop-lg}px)";
-@media-desktop-sm:          ~"only screen and (min-width: @{screen-desktop-sm + 1}px) and (max-width: @{screen-desktop-sm}px)";
-@media-tablet-landscape:    ~"only screen and (min-width: @{screen-tablet-portrate + 1}px) and (max-width: @{screen-tablet-landscape}px)";
-@media-tablet-portrate:     ~"only screen and (min-width: @{screen-phone-landscape + 1}px) and (max-width: @{screen-tablet-portrate}px)";
-@media-phone-landscape:     ~"only screen and (min-width: @{screen-phone-portrait + 1}px) and (max-width: @{screen-phone-landscape}px)";
-@media-phone-portrait:      ~"only screen and (max-width: @{screen-phone-portrait}px)";
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+              
+@media-desktop-xlg:         %(~"screen and (min-width: %apx)", @screen-desktop-xlg );
+@media-desktop-lg:          %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-desktop-lg, (@screen-desktop-xlg - 1));
+@media-desktop-sm:          %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-desktop-sm, (@screen-desktop-lg - 1));
+@media-tablet-landscape:    %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-tablet-landscape, (@screen-desktop-sm - 1));
+@media-tablet-portrait:     %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-tablet-portrait, (@screen-tablet-landscape - 1));
+@media-phone-landscape:     %(~"screen and (min-width: %apx) and (max-width: %apx)", @screen-phone-landscape, (@screen-tablet-portrait - 1));
+@media-phone-portrait:      %(~"screen and (max-width: %apx)", (@screen-phone-landscape - 1) );
 // font weights
 @font-family: 'Source Sans Pro';
 @font-family-uri: escape(@font-family);
