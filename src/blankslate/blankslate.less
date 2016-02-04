@@ -16,6 +16,10 @@ blankslate {
     &[noborder] {
         border-style: none;
     }
+    
+    &[link] {
+        .text-link();
+    }
 }
 
 .blankslate-icon,
@@ -30,6 +34,10 @@ blankslate {
     color: @blankslate-icon-color;
     padding: 0 .5em;
     margin: 0;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
     
     blankslate[warning] & {
         .text-warning();
@@ -55,11 +63,19 @@ blankslate {
 .blankslate-content-title {
     font-size: 1.5em;
     color: @blankslate-title-color;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
 }
 
 .blankslate-content-subtitle {
     font-size: 1.25em;
     color: @blankslate-subtitle-color;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
 }
 
 .blankslate-link {

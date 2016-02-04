@@ -83,6 +83,10 @@ blankslate {
     &[noborder] {
         border-style: none;
     }
+    
+    &[link] {
+        .text-link();
+    }
 }
 
 .blankslate-icon,
@@ -97,6 +101,10 @@ blankslate {
     color: @blankslate-icon-color;
     padding: 0 .5em;
     margin: 0;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
     
     blankslate[warning] & {
         .text-warning();
@@ -122,11 +130,19 @@ blankslate {
 .blankslate-content-title {
     font-size: 1.5em;
     color: @blankslate-title-color;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
 }
 
 .blankslate-content-subtitle {
     font-size: 1.25em;
     color: @blankslate-subtitle-color;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
 }
 
 .blankslate-link {
@@ -537,23 +553,6 @@ nav-header {
 nav-menu {
     text-align: center;
 }
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: row;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-// tablet landscape mode
-@media @media-tablet-landscape,
-    @media-phone-landscape,
-    @media-phone-portrait {
-    .page-content,
-    .page-content-area {
-        flex-direction: column;
-    }
-}
 .page {
     display: flex;
     flex-direction: column;
@@ -585,6 +584,23 @@ nav-menu {
     @media-phone-portrait {
     .page {
 		flex-grow: 1;
+    }
+}
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+// tablet landscape mode
+@media @media-tablet-landscape,
+    @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content,
+    .page-content-area {
+        flex-direction: column;
     }
 }
 .page-content-body {
@@ -672,76 +688,6 @@ nav-menu {
         line-height: unit(@page-content-nav-height,px);
     }
 }
-page-content-nav-item {
-    display: block;
-    line-height: unit(@page-content-nav-item-font-size*3.5,px);
-    padding: 0 2em;
-    cursor: pointer;
-    transition: background-color .25s ease-in-out;
-    position: relative;
-    .font-size(@page-content-nav-item-font-size);
-    text-transform: uppercase;
-    border-style: none;
-    border-width: 1px;
-    border-color: #fff;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    .text-link();
-        
-    & ~ & {
-        margin-left: 0;
-    }
-    
-    &:not(.page-content-nav-item--active) + &:not(.page-content-nav-item--active) {
-        border-top-style: solid;
-    }
-    
-    &:last-child:not(.page-content-nav-item--active) {
-        border-bottom-style: solid;
-    }
-}
-
-.page-content-nav-item--active {
-    border-style: none;
-    
-    &:hover,
-    & {
-        background-color: @page-content-nav-item-selected-background-color;
-        color: @page-content-nav-item-selected-color;
-        font-weight: @font-weight-bold;
-    }
-    
-    & {
-        .arrow-inset-right(@page-content-nav-item-selected-arrow-size);
-    }
-}
-
-// tablet landscape mode
-@media @media-tablet-landscape,
-    @media-phone-landscape,
-    @media-phone-portrait {
-    page-content-nav-item {
-        padding: 0 unit(@padding-half,px);
-    }
-    
-    .page-content-nav-item {
-        &--active {
-            .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
-        }
-        
-        & ~ & {
-            margin-top: 0;
-            margin-left: 1px;
-        }
-    }
-}
-
-// Less width than table landscape
-// @media @media-tablet-portrait {
-//     page-content-nav-item {
-//         padding: 0 unit(@padding-quarter,px);
-//     }
-// }
 page-header,
 .page-header {
     display: flex;
@@ -873,6 +819,76 @@ page-slider {
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
+page-content-nav-item {
+    display: block;
+    line-height: unit(@page-content-nav-item-font-size*3.5,px);
+    padding: 0 2em;
+    cursor: pointer;
+    transition: background-color .25s ease-in-out;
+    position: relative;
+    .font-size(@page-content-nav-item-font-size);
+    text-transform: uppercase;
+    border-style: none;
+    border-width: 1px;
+    border-color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    .text-link();
+        
+    & ~ & {
+        margin-left: 0;
+    }
+    
+    &:not(.page-content-nav-item--active) + &:not(.page-content-nav-item--active) {
+        border-top-style: solid;
+    }
+    
+    &:last-child:not(.page-content-nav-item--active) {
+        border-bottom-style: solid;
+    }
+}
+
+.page-content-nav-item--active {
+    border-style: none;
+    
+    &:hover,
+    & {
+        background-color: @page-content-nav-item-selected-background-color;
+        color: @page-content-nav-item-selected-color;
+        font-weight: @font-weight-bold;
+    }
+    
+    & {
+        .arrow-inset-right(@page-content-nav-item-selected-arrow-size);
+    }
+}
+
+// tablet landscape mode
+@media @media-tablet-landscape,
+    @media-phone-landscape,
+    @media-phone-portrait {
+    page-content-nav-item {
+        padding: 0 unit(@padding-half,px);
+    }
+    
+    .page-content-nav-item {
+        &--active {
+            .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
+        }
+        
+        & ~ & {
+            margin-top: 0;
+            margin-left: 1px;
+        }
+    }
+}
+
+// Less width than table landscape
+// @media @media-tablet-portrait {
+//     page-content-nav-item {
+//         padding: 0 unit(@padding-quarter,px);
+//     }
+// }
 .pane {
     height: 100vh;
     max-height: 100%; // removes scrollbar browser bug

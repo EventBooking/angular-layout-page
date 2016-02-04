@@ -2982,6 +2982,50 @@ blankslate[center] {
 blankslate[noborder] {
   border-style: none;
 }
+blankslate[link] {
+  color: #999990;
+  color: #4EB6D6;
+}
+inputblankslate[link][type="button"],
+buttonblankslate[link] {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+inputblankslate[link][type="button"],
+buttonblankslate[link] {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+blankslate[link]:hover {
+  color: #B1E0ED;
+}
+blankslate[link]:active {
+  color: #4EB6D6;
+}
+inputblankslate[link][type="button"],
+buttonblankslate[link] {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+inputblankslate[link][type="button"],
+buttonblankslate[link] {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+blankslate[link]:hover {
+  color: #B1E0ED;
+}
+blankslate[link]:active {
+  color: #4EB6D6;
+}
 .blankslate-icon,
 .blankslate-content {
   display: -webkit-box;
@@ -3003,6 +3047,9 @@ blankslate[noborder] {
   color: #4C4C47;
   padding: 0 .5em;
   margin: 0;
+}
+blankslate[link] .blankslate-icon {
+  color: inherit;
 }
 blankslate[warning] .blankslate-icon {
   color: #999990;
@@ -3102,9 +3149,15 @@ blankslate[center] .blankslate-content-subtitle {
   font-size: 1.5em;
   color: #4C4C47;
 }
+blankslate[link] .blankslate-content-title {
+  color: inherit;
+}
 .blankslate-content-subtitle {
   font-size: 1.25em;
   color: #72726B;
+}
+blankslate[link] .blankslate-content-subtitle {
+  color: inherit;
 }
 .blankslate-link {
   color: #999990;
