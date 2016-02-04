@@ -1,4 +1,5 @@
-﻿body-header {
+﻿body-header,
+.body-header {
     display: flex;
     flex-direction: column;
 	margin-bottom: unit(@padding-half, px);
@@ -6,7 +7,7 @@
     background-color: @body-header-background-color;
     text-transform: capitalize;
 
-    body-header ~ & {
+    & ~ & {
         margin-top: unit(@padding,px);
     }
 }
@@ -54,5 +55,4 @@
 .body-header-title,
 .body-header-subtitle {
     display: block;
-    // .ellipsis();
 }

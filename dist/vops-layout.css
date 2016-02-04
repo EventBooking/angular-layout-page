@@ -3204,7 +3204,8 @@ button.blankslate-link {
 .blankslate-link:active {
   color: #4EB6D6;
 }
-body-header {
+body-header,
+.body-header {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3219,7 +3220,10 @@ body-header {
   background-color: transparent;
   text-transform: capitalize;
 }
-body-header ~ body-header {
+body-header ~ body-header,
+body-header ~ .body-header,
+.body-header ~ body-header,
+.body-header ~ .body-header {
   margin-top: 32px;
 }
 .body-header-top {
