@@ -12,6 +12,7 @@
                 <page-content-nav-item area="vm.area" path="twoPane" default>Two panes</page-content-nav-item>
                 <page-content-nav-item area="vm.area" path="doublePane">Double pane</page-content-nav-item>
                 <page-content-nav-item area="vm.area" path="thirdPane">Third</page-content-nav-item>
+                <page-content-nav-item area="vm.area" path="tabs">Tabs</page-content-nav-item>
             </div>
 
             <div class="page-content-area" ng-switch-default>
@@ -34,6 +35,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="page-content-area" ng-switch-when="tabs">
+                <ng-include class="page-content-body" src="'paneTest/tabPane.html'"></ng-include>            
             </div>
 
         </div>

@@ -1,0 +1,14 @@
+<div class="tab-titles">
+    <div class="tab-titles-item" 
+        ng-class="{'tab-titles-item--selected': tab == vm.selectedTab }"
+        ng-repeat="tab in vm.tabs" 
+        ng-click="vm.selectTab(tab)">
+        {{tab.title}}
+    </div>
+</div>
+<div class="tab-content">
+    <div class="tab-content-window" 
+        ng-style="{'width': vm.width, 'left': vm.tabPosition}"
+        ng-transclude>
+    </div>
+</div>

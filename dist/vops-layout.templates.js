@@ -137,3 +137,40 @@ module.run(['$templateCache', function($templateCache) {
     '</div>');
 }]);
 })();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('tab/tab.html',
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('tabs/tabs.html',
+    '<div class="tab-titles">\n' +
+    '    <div class="tab-titles-item" \n' +
+    '        ng-class="{\'tab-titles-item--selected\': tab == vm.selectedTab }"\n' +
+    '        ng-repeat="tab in vm.tabs" \n' +
+    '        ng-click="vm.selectTab(tab)">\n' +
+    '        {{tab.title}}\n' +
+    '    </div>\n' +
+    '</div>\n' +
+    '<div class="tab-content">\n' +
+    '    <div class="tab-content-window" \n' +
+    '        ng-style="{\'width\': vm.width, \'left\': vm.tabPosition}"\n' +
+    '        ng-transclude>\n' +
+    '    </div>\n' +
+    '</div>');
+}]);
+})();

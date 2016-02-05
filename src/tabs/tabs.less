@@ -1,0 +1,63 @@
+tabs {
+    width: 100%;
+    overflow: hidden;
+}
+
+.tab-titles {
+    display: flex;
+    margin-bottom: unit(@padding-half, px);
+}
+
+.tab-titles-item {
+    position: relative;
+    padding: 0 1em;
+    color: @color-gray-darker;
+    transition: color .25s ease-in-out;
+    padding-bottom: .15em;
+    .font-size(@typescale-xlg);
+    line-height: unit(@typescale-xlg*1.5,px);
+    cursor: pointer;
+    
+    &:not(&--selected) {
+        .text-link();
+        cursor: pointer;
+    }
+    
+    &:before {
+        content: " ";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        border-bottom: solid 2px @color-gray-lightest2;
+        transition: border-bottom-color .25s ease-in-out;
+    }
+    
+    &--selected {
+        &:before {
+            border-bottom-color: @color-orange;
+        }
+    }
+    
+    & ~ & {
+        margin-left: 1em;
+    }
+}
+
+.tab-content {
+    position: relative;
+    overflow: hidden;
+    padding: unit(@padding,px) 0;
+    width: 100%;
+}
+
+.tab-content-window {
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: left .25s ease-in-out;
+
+    // .contracting-content--isContractTab & {
+    //     left: -100%;
+    // }
+}

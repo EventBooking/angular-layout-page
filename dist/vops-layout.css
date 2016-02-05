@@ -5548,6 +5548,109 @@ pane-header,
 .section-content {
   display: block;
 }
+tab {
+  width: 100%;
+}
+tabs {
+  width: 100%;
+  overflow: hidden;
+}
+.tab-titles {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 16px;
+}
+.tab-titles-item {
+  position: relative;
+  padding: 0 1em;
+  color: #4C4C47;
+  -webkit-transition: color 0.25s ease-in-out;
+          transition: color 0.25s ease-in-out;
+  padding-bottom: .15em;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 36px;
+  cursor: pointer;
+}
+.tab-titles-item:not(.tab-titles-item--selected) {
+  color: #999990;
+  color: #4EB6D6;
+  cursor: pointer;
+}
+input.tab-titles-item:not(.tab-titles-item--selected)[type="button"],
+button.tab-titles-item:not(.tab-titles-item--selected) {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+input.tab-titles-item:not(.tab-titles-item--selected)[type="button"],
+button.tab-titles-item:not(.tab-titles-item--selected) {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+.tab-titles-item:not(.tab-titles-item--selected):hover {
+  color: #B1E0ED;
+}
+.tab-titles-item:not(.tab-titles-item--selected):active {
+  color: #4EB6D6;
+}
+input.tab-titles-item:not(.tab-titles-item--selected)[type="button"],
+button.tab-titles-item:not(.tab-titles-item--selected) {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+input.tab-titles-item:not(.tab-titles-item--selected)[type="button"],
+button.tab-titles-item:not(.tab-titles-item--selected) {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+.tab-titles-item:not(.tab-titles-item--selected):hover {
+  color: #B1E0ED;
+}
+.tab-titles-item:not(.tab-titles-item--selected):active {
+  color: #4EB6D6;
+}
+.tab-titles-item:before {
+  content: " ";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  border-bottom: solid 2px #EFEFEE;
+  -webkit-transition: border-bottom-color 0.25s ease-in-out;
+          transition: border-bottom-color 0.25s ease-in-out;
+}
+.tab-titles-item--selected:before {
+  border-bottom-color: #EEA041;
+}
+.tab-titles-item ~ .tab-titles-item {
+  margin-left: 1em;
+}
+.tab-content {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 0;
+  width: 100%;
+}
+.tab-content-window {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  left: 0;
+  -webkit-transition: left 0.25s ease-in-out;
+          transition: left 0.25s ease-in-out;
+}
 .button {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
