@@ -5562,6 +5562,12 @@ tabs {
   display: flex;
   margin-bottom: 16px;
 }
+.tabs--center .tab-titles {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 .tab-titles-item {
   position: relative;
   padding: 0 1em;
