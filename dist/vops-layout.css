@@ -712,6 +712,12 @@ th {
   border: none;
   outline: none;
 }
+.button-icon {
+  line-height: 2em;
+}
+* + .button-icon {
+  margin-left: .5em;
+}
 .form {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5995,6 +6001,12 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   background-color: transparent;
   border: none;
   outline: none;
+}
+.button-icon {
+  line-height: 2em;
+}
+* + .button-icon {
+  margin-left: .5em;
 }
 .form {
   display: -webkit-box;

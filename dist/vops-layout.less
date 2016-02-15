@@ -138,54 +138,6 @@ blankslate {
     .text-link();
     font-weight: bold;
 }
-@doughnut-empty-color: @color-gray-darker;
-@doughnut-fill-color: @color-green;
-
-doughnut {
-    display: block;
-    position: relative;
-    background-color: inherit;
-    color: inherit;
-        
-    & canvas {
-        display: block;
-    }
-}
-
-.doughnut-text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    z-index: 3;
-}
-
-.doughnut-empty-color {
-    background-color: @doughnut-empty-color;
-}
-
-.doughnut-fill-color {
-    background-color: @doughnut-fill-color;
-}
-
-.doughnut-hole {
-    position: absolute;
-    z-index: 2;
-}
-
-.doughnut-fill {
-    position: absolute;
-    z-index: 1;
-}
-
-.doughnut-bg {
-    
-}
 body-header,
 .body-header {
     display: flex;
@@ -243,6 +195,54 @@ body-header,
 .body-header-title,
 .body-header-subtitle {
     display: block;
+}
+@doughnut-empty-color: @color-gray-darker;
+@doughnut-fill-color: @color-green;
+
+doughnut {
+    display: block;
+    position: relative;
+    background-color: inherit;
+    color: inherit;
+        
+    & canvas {
+        display: block;
+    }
+}
+
+.doughnut-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 3;
+}
+
+.doughnut-empty-color {
+    background-color: @doughnut-empty-color;
+}
+
+.doughnut-fill-color {
+    background-color: @doughnut-fill-color;
+}
+
+.doughnut-hole {
+    position: absolute;
+    z-index: 2;
+}
+
+.doughnut-fill {
+    position: absolute;
+    z-index: 1;
+}
+
+.doughnut-bg {
+    
 }
 .layout-page {
 	display: flex;
@@ -542,23 +542,6 @@ nav-header {
 nav-menu {
     text-align: center;
 }
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: row;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-// tablet landscape mode
-@media @media-tablet-landscape,
-    @media-phone-landscape,
-    @media-phone-portrait {
-    .page-content,
-    .page-content-area {
-        flex-direction: column;
-    }
-}
 .page {
     display: flex;
     flex-direction: column;
@@ -590,6 +573,23 @@ nav-menu {
     @media-phone-portrait {
     .page {
 		flex-grow: 1;
+    }
+}
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+// tablet landscape mode
+@media @media-tablet-landscape,
+    @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content,
+    .page-content-area {
+        flex-direction: column;
     }
 }
 .page-content-body {
@@ -1284,6 +1284,14 @@ tabs {
         background-color: transparent;
         border: none; 
         outline: none;   
+    }
+}
+
+.button-icon {
+    line-height: 2em;
+    
+    * + & {
+        margin-left: .5em;
     }
 }
 /// <reference path="../assets.less" />
