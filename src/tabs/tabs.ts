@@ -55,6 +55,8 @@ module LayoutPageModule {
             var idx = this.tabs.indexOf(this.selectedTab);
             this.selectTabByIndex(idx - 1);
         }
+        
+        tabLink: ITabsController
     }
 
     class TabsDirective {
@@ -69,7 +71,7 @@ module LayoutPageModule {
         };
 
         link = ($scope, $element, $attrs, $ctrl) => {
-            if($ctrl.tabLink != null)
+            if ($attrs.tabLink)
                 $ctrl.tabLink = $ctrl;
         };
     }
