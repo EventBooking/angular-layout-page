@@ -69,7 +69,8 @@ module LayoutPageModule {
         };
 
         link = ($scope, $element, $attrs, $ctrl) => {
-            $ctrl.tabLink = $ctrl;
+            if($ctrl.tabLink != null)
+                $ctrl.tabLink = $ctrl;
         };
     }
 
