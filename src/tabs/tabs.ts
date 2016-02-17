@@ -2,11 +2,16 @@ module LayoutPageModule {
 
     export interface ITabsController {
         addTab(tab: ITabController);
+        selectTabByName(name: string);
+        selectTabByIndex(idx: number);
+        selectNextTab();
+        selectPreviousTab();
     }
 
     class TabsController implements ITabsController {
         constructor() {
             this.tabs = [];
+            this.onInit({ tabs: this });
         }
 
         selectedTab: ITabController;
@@ -30,6 +35,29 @@ module LayoutPageModule {
         selectTab(tab: ITabController) {
             this.selectedTab = tab;
         }
+
+        selectTabByName(name: string) {
+            var found = this.tabs.filter(x => x.name == name);
+            if (found.length > 0)
+                this.selectTab(found[0]);
+        }
+
+        selectTabByIndex(idx: number) {
+            if (idx > 0 && this.tabs.length > idx)
+                this.selectTab(this.tabs[idx]);
+        }
+
+        selectNextTab() {
+            var idx = this.tabs.indexOf(this.selectedTab);
+            this.selectTabByIndex(idx + 1);
+        }
+
+        selectPreviousTab() {
+            var idx = this.tabs.indexOf(this.selectedTab);
+            this.selectTabByIndex(idx - 1);
+        }
+
+        onInit;
     }
 
     class TabsDirective {
@@ -40,10 +68,10 @@ module LayoutPageModule {
         controllerAs = 'vm';
         bindToController = true;
         scope = {
+            onInit: '&'
         };
 
-        link = ($scope, $element) => {
-
+        link = ($scope, $element, $attrs, $ctrl) => {
         };
     }
 

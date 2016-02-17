@@ -1,13 +1,18 @@
 <div class="page-content-body-pane">
-    <tabs class="tabs--center">
-        <tab title="Tab 1">
-            content 1
+    <tabs class="tabs--center" on-init="vm.tabsInit(tabs)">
+        <tab name="tab1" title="Tab 1">
+            <div>
+                <a href="#" ng-click="vm.tabs.selectTabByName('tab2')">select 'tab2' by name</a>
+            </div>
+            <div>
+                <a href="#" ng-click="vm.tabs.selectTabByIndex(2)">select tab3 by index</a>
+            </div>
         </tab>
-        <tab title="Tab 2">
-            content 2
+        <tab name="tab2" title="Tab 2">
+            <a href="#" ng-click="vm.tabs.selectNextTab()">select next tab</a>
         </tab>
-        <tab title="Tab 3">
-            content 3
+        <tab name="tab3" title="Tab 3">
+            <a href="#" ng-click="vm.tabs.selectPreviousTab()">select previous tab</a>
         </tab>
     </tabs>
 </div>

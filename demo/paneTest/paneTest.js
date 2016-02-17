@@ -1,6 +1,7 @@
 /// <reference path="../app.js"/>
 
 function PaneTestController($routeParams) {
+    var self = this;
 	this.area = $routeParams.area;// || 'twoPane';	
 	
 	this.showSlider1 = false;
@@ -31,6 +32,10 @@ function PaneTestController($routeParams) {
     
     this.slider1Closed = function() {
         this.showSlider1 = false;
+    }
+    
+    this.tabsInit = function(tabs) {
+        self.tabs = tabs;
     }
 }
 
