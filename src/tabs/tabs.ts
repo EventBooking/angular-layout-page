@@ -11,7 +11,6 @@ module LayoutPageModule {
     class TabsController implements ITabsController {
         constructor() {
             this.tabs = [];
-            this.onInit({ tabs: this });
         }
 
         selectedTab: ITabController;
@@ -56,8 +55,6 @@ module LayoutPageModule {
             var idx = this.tabs.indexOf(this.selectedTab);
             this.selectTabByIndex(idx - 1);
         }
-
-        onInit;
     }
 
     class TabsDirective {
@@ -68,10 +65,11 @@ module LayoutPageModule {
         controllerAs = 'vm';
         bindToController = true;
         scope = {
-            onInit: '&'
+            tabLink: '='
         };
 
         link = ($scope, $element, $attrs, $ctrl) => {
+            $ctrl.tabLink = $ctrl;
         };
     }
 

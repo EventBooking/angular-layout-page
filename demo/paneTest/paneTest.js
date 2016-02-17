@@ -33,10 +33,6 @@ function PaneTestController($routeParams) {
     this.slider1Closed = function() {
         this.showSlider1 = false;
     }
-    
-    this.tabsInit = function(tabs) {
-        self.tabs = tabs;
-    }
 }
 
 angular.module("demo").controller('paneTestController', PaneTestController);
