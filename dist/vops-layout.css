@@ -5650,7 +5650,6 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .tab-content {
   position: relative;
   overflow: hidden;
-  padding: 32px 0;
   width: 100%;
 }
 .tab-content-window {
