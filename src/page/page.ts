@@ -18,8 +18,6 @@ module LayoutPageModule {
 
     class PageDirective {
         restrict = 'C';
-        transclude = true;
-        templateUrl = '/components/loading-animation.html';
         controller = PageController;
 
         link = ($scope, $element, $attrs, $ctrl: PageController) => {
