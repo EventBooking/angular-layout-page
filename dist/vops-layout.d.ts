@@ -11,6 +11,11 @@ declare module LayoutPageModule {
 declare module LayoutPageModule {
 }
 declare module LayoutPageModule {
+    interface IPageController {
+        addControl(control: any): any;
+    }
+}
+declare module LayoutPageModule {
 }
 declare module LayoutPageModule {
 }
