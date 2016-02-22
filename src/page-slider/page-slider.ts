@@ -29,6 +29,7 @@
 
     class PageSliderDirective {
         restrict = 'E';
+        require = '^page';
         transclude = true;
         controller = PageSliderController;
         controllerAs = 'vm';
@@ -38,12 +39,17 @@
             onClose: '&'
         };
 
-        link = ($scope, $element, $attrs, $ctrl, $transclude) => {
-            var ctrl: PageSliderController = $scope[this.controllerAs],
+        link = ($scope, $element, $attrs, $page: LayoutPageModule.IPageController, $transclude) => {
+            var $ctrl: PageSliderController = $scope[this.controllerAs],
                 sliderScope = null;
 
-            ctrl.toggleVisibility = () => {
-                var isVisible = !!ctrl.slideIf;
+            $page.addControl($element);
+            $scope.$on("$destroy", () => {
+                $element.remove();
+            });
+
+            $ctrl.toggleVisibility = () => {
+                var isVisible = !!$ctrl.slideIf;
 
                 $element.empty()
                     .toggleClass("is-visible", isVisible);
@@ -56,13 +62,13 @@
                 if (!isVisible)
                     return;
 
-                $transclude( (clone, scope) => {
+                $transclude((clone, scope) => {
                     $element.append(clone);
                     sliderScope = scope;
                 });
             };
 
-            ctrl.toggleVisibility();
+            $ctrl.toggleVisibility();
         };
     }
 

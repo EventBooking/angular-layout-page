@@ -593,6 +593,7 @@ var LayoutPageModule;
         function PageSliderDirective() {
             var _this = this;
             this.restrict = 'E';
+            this.require = '^page';
             this.transclude = true;
             this.controller = PageSliderController;
             this.controllerAs = 'vm';
@@ -601,10 +602,14 @@ var LayoutPageModule;
                 slideIf: '=',
                 onClose: '&'
             };
-            this.link = function ($scope, $element, $attrs, $ctrl, $transclude) {
-                var ctrl = $scope[_this.controllerAs], sliderScope = null;
-                ctrl.toggleVisibility = function () {
-                    var isVisible = !!ctrl.slideIf;
+            this.link = function ($scope, $element, $attrs, $page, $transclude) {
+                var $ctrl = $scope[_this.controllerAs], sliderScope = null;
+                $page.addControl($element);
+                $scope.$on("$destroy", function () {
+                    $element.remove();
+                });
+                $ctrl.toggleVisibility = function () {
+                    var isVisible = !!$ctrl.slideIf;
                     $element.empty()
                         .toggleClass("is-visible", isVisible);
                     if (sliderScope) {
@@ -618,7 +623,7 @@ var LayoutPageModule;
                         sliderScope = scope;
                     });
                 };
-                ctrl.toggleVisibility();
+                $ctrl.toggleVisibility();
             };
         }
         return PageSliderDirective;
