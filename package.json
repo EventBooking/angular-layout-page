@@ -6,7 +6,8 @@
     "scripts": {
         "tsc": "tsc -p src & gulp postTsc",
         "tsc:w": "tsc -w -p src & gulp postTsc",
-        "tsd": "tsd install"
+        "tsd": "tsd install",
+        "gulp": "gulp"
     },
     "repository": {
         "type": "git",
