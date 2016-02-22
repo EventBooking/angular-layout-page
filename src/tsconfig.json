@@ -7,6 +7,6 @@
         "inlineSourceMap": true,
         "inlineSources": true,
         "target": "es5",
-        "out": "dist/vops-layout.js"
+        "out": "dist/vops-layout.debug.js"
     }
 }

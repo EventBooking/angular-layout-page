@@ -244,53 +244,6 @@ doughnut {
 .doughnut-bg {
     
 }
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;  
-    margin: 0;
-    padding: 0;
-    background-color: @layout-page-background-color;
-    color: @layout-page-color;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
-}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -381,6 +334,77 @@ doughnut {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;  
+    margin: 0;
+    padding: 0;
+    background-color: @layout-page-background-color;
+    color: @layout-page-color;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
+}
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
+}
+
+@media @media-phone-portrait {
+    nav-group,
+    .nav-group {
+        display: none;
+        
+        .nav--show & {
+            display: block;
+        }
+    }
+}
 nav {
 	width: unit(@nav-large,px);
     min-width: unit(@nav-large,px);
@@ -415,30 +439,6 @@ nav {
         
         .nav--show & {
             left: unit(@nav-small + 9,px);
-        }
-    }
-}
-nav-group,
-.nav-group {
-	display: flex;
-	flex-direction: column;
-	padding: 1em 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
-}
-
-@media @media-phone-portrait {
-    nav-group,
-    .nav-group {
-        display: none;
-        
-        .nav--show & {
-            display: block;
         }
     }
 }

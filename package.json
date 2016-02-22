@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "tsc": "tsc -p src & gulp stripRefs",
-        "tsc:w": "tsc -w -p src",
+        "tsc": "tsc -p src & gulp postTsc",
+        "tsc:w": "tsc -w -p src & gulp postTsc",
         "tsd": "tsd install"
     },
     "repository": {
