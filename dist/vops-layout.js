@@ -436,11 +436,17 @@ var LayoutPageModule;
 (function (LayoutPageModule) {
     var PageController = (function () {
         function PageController() {
+            this.controls = [];
         }
         PageController.prototype.onInit = function ($element) {
             this.$element = $element;
+            this.controls = [];
         };
         PageController.prototype.addControl = function (control) {
+            if (this.$element == null) {
+                this.controls.push(control);
+                return;
+            }
             this.$element.append(control);
         };
         return PageController;
@@ -450,6 +456,10 @@ var LayoutPageModule;
             this.restrict = 'C';
             this.controller = PageController;
             this.link = function ($scope, $element, $attrs, $ctrl) {
+                $ctrl.controls.forEach(function (x) {
+                    $element.append(x);
+                });
+                $ctrl.controls = [];
                 $ctrl.onInit($element);
             };
         }
