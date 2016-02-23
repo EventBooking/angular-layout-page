@@ -12,7 +12,6 @@ module LayoutPageModule {
 
         onInit($element) {
             this.$element = $element;
-            this.controls = [];
         }
 
         addControl(control: any) {
