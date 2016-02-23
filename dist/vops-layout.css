@@ -1317,8 +1317,14 @@ a.text-danger:hover,
 .text-upper {
   text-transform: uppercase;
 }
+.text-left {
+  text-align: left;
+}
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .text-normal {
   font-size: 16px;
@@ -6606,8 +6612,14 @@ a.text-danger:hover,
 .text-upper {
   text-transform: uppercase;
 }
+.text-left {
+  text-align: left;
+}
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .text-normal {
   font-size: 16px;
