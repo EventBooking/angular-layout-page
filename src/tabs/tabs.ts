@@ -16,6 +16,12 @@ module LayoutPageModule {
         selectedTab: ITabController;
         tabs: ITabController[];
 
+        onInit() {
+            var found = this.tabs.filter(x => x.name == this.tabDefault);
+            if (found.length > 0)
+                this.selectTab(found[0]);
+        }
+
         get width(): string {
             return `${this.tabs.length * 100}%`;
         }
@@ -55,8 +61,9 @@ module LayoutPageModule {
             var idx = this.tabs.indexOf(this.selectedTab);
             this.selectTabByIndex(idx - 1);
         }
-        
+
         tabLink: ITabsController
+        tabDefault: string;
     }
 
     class TabsDirective {
@@ -67,12 +74,14 @@ module LayoutPageModule {
         controllerAs = 'vm';
         bindToController = true;
         scope = {
-            tabLink: '='
+            tabLink: '=',
+            tabDefault: '@'
         };
 
         link = ($scope, $element, $attrs, $ctrl) => {
             if ($attrs.tabLink)
                 $ctrl.tabLink = $ctrl;
+            $ctrl.onInit();
         };
     }
 

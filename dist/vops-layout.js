@@ -440,7 +440,6 @@ var LayoutPageModule;
         }
         PageController.prototype.onInit = function ($element) {
             this.$element = $element;
-            this.controls = [];
         };
         PageController.prototype.addControl = function (control) {
             if (this.$element == null) {
@@ -744,6 +743,12 @@ var LayoutPageModule;
         function TabsController() {
             this.tabs = [];
         }
+        TabsController.prototype.onInit = function () {
+            var _this = this;
+            var found = this.tabs.filter(function (x) { return x.name == _this.tabDefault; });
+            if (found.length > 0)
+                this.selectTab(found[0]);
+        };
         Object.defineProperty(TabsController.prototype, "width", {
             get: function () {
                 return this.tabs.length * 100 + "%";
@@ -795,11 +800,13 @@ var LayoutPageModule;
             this.controllerAs = 'vm';
             this.bindToController = true;
             this.scope = {
-                tabLink: '='
+                tabLink: '=',
+                tabDefault: '@'
             };
             this.link = function ($scope, $element, $attrs, $ctrl) {
                 if ($attrs.tabLink)
                     $ctrl.tabLink = $ctrl;
+                $ctrl.onInit();
             };
         }
         return TabsDirective;
