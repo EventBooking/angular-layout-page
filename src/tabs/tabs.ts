@@ -17,9 +17,19 @@ module LayoutPageModule {
         tabs: ITabController[];
 
         onInit() {
-            var found = this.tabs.filter(x => x.name == this.tabDefault);
-            if (found.length > 0)
-                this.selectTab(found[0]);
+            if (this._activeTab != null)
+                this.selectTabByName(this._activeTab);
+        }
+
+        private _activeTab: string;
+        get activeTab(): string {
+            return this.selectedTab.name;
+        }
+
+        set activeTab(name: string) {
+            this._activeTab = name;
+            if (this.tabs != null)
+                this.selectTabByName(name);
         }
 
         get width(): string {
@@ -75,7 +85,7 @@ module LayoutPageModule {
         bindToController = true;
         scope = {
             tabLink: '=',
-            tabDefault: '@'
+            activeTab: '='
         };
 
         link = ($scope, $element, $attrs, $ctrl) => {

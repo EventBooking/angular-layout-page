@@ -1,5 +1,6 @@
 <div class="page-content-body-pane">
-    <tabs class="tabs--center" tab-link="vm.tabs1" tab-default="tab2">
+    Active Tab: {{vm.activeTab}} <a ng-click="vm.activeTab = 'tab3'">set to 'tab3'</a>
+    <tabs class="tabs--center" tab-link="vm.tabs1" active-tab="vm.activeTab">
         <tab name="tab1" title="Tab 1">
             <div>
                 <a href="#" ng-click="vm.tabs1.selectTabByName('tab2')">select 'tab2' by name</a>

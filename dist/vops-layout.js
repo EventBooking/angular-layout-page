@@ -744,11 +744,21 @@ var LayoutPageModule;
             this.tabs = [];
         }
         TabsController.prototype.onInit = function () {
-            var _this = this;
-            var found = this.tabs.filter(function (x) { return x.name == _this.tabDefault; });
-            if (found.length > 0)
-                this.selectTab(found[0]);
+            if (this._activeTab != null)
+                this.selectTabByName(this._activeTab);
         };
+        Object.defineProperty(TabsController.prototype, "activeTab", {
+            get: function () {
+                return this.selectedTab.name;
+            },
+            set: function (name) {
+                this._activeTab = name;
+                if (this.tabs != null)
+                    this.selectTabByName(name);
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(TabsController.prototype, "width", {
             get: function () {
                 return this.tabs.length * 100 + "%";
@@ -801,7 +811,7 @@ var LayoutPageModule;
             this.bindToController = true;
             this.scope = {
                 tabLink: '=',
-                tabDefault: '@'
+                activeTab: '='
             };
             this.link = function ($scope, $element, $attrs, $ctrl) {
                 if ($attrs.tabLink)
