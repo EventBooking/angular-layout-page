@@ -2966,6 +2966,9 @@ td,
 th {
   padding: 0;
 }
+bar-graph {
+  display: block;
+}
 bar-graph + bar-graph {
   margin-top: .5em;
 }
