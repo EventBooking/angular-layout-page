@@ -1,6 +1,45 @@
 Angular.module("ngLayoutPage", []);
 var LayoutPageModule;
 (function (LayoutPageModule) {
+    var BarGraphController = (function () {
+        function BarGraphController() {
+        }
+        Object.defineProperty(BarGraphController.prototype, "style", {
+            get: function () {
+                return {
+                    width: (this.percent || 0) + "%"
+                };
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(BarGraphController.prototype, "isFull", {
+            get: function () {
+                return this.percent == 100;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return BarGraphController;
+    })();
+    var BarGraphDirective = (function () {
+        function BarGraphDirective() {
+            this.restrict = 'E';
+            this.transclude = true;
+            this.templateUrl = 'bar-graph/bar-graph.html';
+            this.controller = BarGraphController;
+            this.controllerAs = 'vm';
+            this.bindToController = true;
+            this.scope = {
+                percent: '@'
+            };
+        }
+        return BarGraphDirective;
+    })();
+    Angular.module("ngLayoutPage").directive('barGraph', BarGraphDirective);
+})(LayoutPageModule || (LayoutPageModule = {}));
+var LayoutPageModule;
+(function (LayoutPageModule) {
     var BlankslateController = (function () {
         function BlankslateController() {
         }

@@ -5,6 +5,20 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('bar-graph/bar-graph.html',
+    '<div class="bar-graph-bg">\n' +
+    '    <div class="bar-graph-fill" ng-class="{\'bar-graph-fill--full\': vm.isFull}" ng-style="vm.style" ng-transclude></div>\n' +
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('blankslate/blankslate.html',
     '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
     '<div class="blankslate-content">\n' +

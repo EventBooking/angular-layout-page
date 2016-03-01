@@ -2966,6 +2966,45 @@ td,
 th {
   padding: 0;
 }
+bar-graph + bar-graph {
+  margin-top: .5em;
+}
+.bar-graph-bg {
+  background-color: #72726B;
+  border-radius: 4px;
+}
+.bar-graph-fill {
+  background: -webkit-linear-gradient(left, #4EB6D6, #89D0E5);
+  background: linear-gradient(to right, #4EB6D6, #89D0E5);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  color: #fff;
+  height: 32px;
+  line-height: 32px;
+  font-size: 1rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: visible;
+  -webkit-transition: width 0.5s ease-in-out;
+          transition: width 0.5s ease-in-out;
+}
+.bar-graph-fill--full {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.bar-graph--lg .bar-graph-fill {
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.125rem;
+}
+.bar-graph--sm .bar-graph-fill {
+  height: 24px;
+  line-height: 24px;
+  font-size: .875rem;
+}
+.bar-graph-fill > span {
+  margin: 0 1em;
+}
 blankslate {
   display: -webkit-box;
   display: -webkit-flex;

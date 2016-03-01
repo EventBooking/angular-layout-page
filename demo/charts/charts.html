@@ -53,7 +53,22 @@
             </div>
 
             <div class="page-content-body-pane">
-
+                <input type="text" ng-model="vm.percent">
+                <div style="margin-top: .5em">
+                    <bar-graph class="bar-graph--lg" percent="{{vm.percent}}">
+                        {{vm.percent||0}}/100 .bar-graph--lg 
+                    </bar-graph>
+                </div>
+                <div style="margin-top: .5em">
+                    <bar-graph percent="{{vm.percent}}">
+                        {{vm.percent||0}}/100 (default)
+                    </bar-graph>
+                </div>
+                <div style="margin-top: .5em">
+                    <bar-graph class="bar-graph--sm" percent="{{vm.percent}}">
+                        {{vm.percent||0}}/100 .bar-graph--sm
+                    </bar-graph>
+                </div>
             </div>
         </div>
 

@@ -54,6 +54,55 @@ a {
     .text-link();
     text-decoration: none;
 }
+@bar-graph-lg: unit(@typescale*2.5,px);
+@bar-graph: unit(@typescale*2,px);
+@bar-graph-sm: unit(@typescale*1.5,px);
+
+bar-graph {
+    & + & {
+        margin-top: .5em;
+    }
+}
+
+.bar-graph-bg {
+    background-color: @color-gray-dark;
+    border-radius: 4px;
+}
+
+.bar-graph-fill {
+    background: linear-gradient( to right, @color-blue, @color-blue-light );
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #fff;
+    height: @bar-graph;
+    line-height: @bar-graph;
+    font-size: 1rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
+    transition: width .5s ease-in-out;
+
+    &--full {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+    
+    .bar-graph--lg & {
+        height: @bar-graph-lg; 
+        line-height: @bar-graph-lg;
+        font-size: 1.125rem;   
+    }
+    
+    .bar-graph--sm & {
+        height: @bar-graph-sm; 
+        line-height: @bar-graph-sm;
+        font-size: .875rem;
+    }
+    
+    > span {
+        margin: 0 1em;
+    }
+}
 blankslate {
     display: flex;
     flex-direction: row;
@@ -418,30 +467,6 @@ nav {
         }
     }
 }
-nav-group,
-.nav-group {
-	display: flex;
-	flex-direction: column;
-	padding: 1em 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
-}
-
-@media @media-phone-portrait {
-    nav-group,
-    .nav-group {
-        display: none;
-        
-        .nav--show & {
-            display: block;
-        }
-    }
-}
 nav-group-item,
 [nav-group-item],
 .nav-group-item {
@@ -501,6 +526,30 @@ nav-group-item,
     @media-phone-portrait {
 	.nav-group-item-text {
         display: none;
+    }
+}
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
+}
+
+@media @media-phone-portrait {
+    nav-group,
+    .nav-group {
+        display: none;
+        
+        .nav--show & {
+            display: block;
+        }
     }
 }
 nav-header {
