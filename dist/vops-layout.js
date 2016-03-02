@@ -3,7 +3,10 @@ var LayoutPageModule;
 (function (LayoutPageModule) {
     var BarGraphController = (function () {
         function BarGraphController() {
-            this.steps = 10;
+            this.barSteps = 10;
+            this.init = true;
+            this.setTicks();
+            this.setPercent();
         }
         Object.defineProperty(BarGraphController.prototype, "style", {
             get: function () {
@@ -21,29 +24,87 @@ var LayoutPageModule;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(BarGraphController.prototype, "percent", {
+        Object.defineProperty(BarGraphController.prototype, "barMin", {
             get: function () {
-                var x = this.value || this.min;
-                if (x > this.max)
-                    x = this.max;
-                if (x < this.min)
-                    x = this.min;
-                return (x - this.min) / (this.max - this.min);
+                return this._barMin;
+            },
+            set: function (value) {
+                console.log(value);
+                this._barMin = value;
+                this.setTicks();
+                this.setPercent();
             },
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(BarGraphController.prototype, "ticks", {
+        Object.defineProperty(BarGraphController.prototype, "barMax", {
             get: function () {
-                var ticks = [];
-                for (var index = this.min; index < this.max; index += this.steps) {
-                    ticks.push(index);
-                }
-                return ticks;
+                return this._barMax;
+            },
+            set: function (value) {
+                console.log(value);
+                this._barMax = value;
+                this.setTicks();
+                this.setPercent();
             },
             enumerable: true,
             configurable: true
         });
+        Object.defineProperty(BarGraphController.prototype, "barValue", {
+            get: function () {
+                return this._barValue;
+            },
+            set: function (value) {
+                console.log(value);
+                this._barValue = value;
+                this.setPercent();
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(BarGraphController.prototype, "barSteps", {
+            get: function () {
+                return this._barSteps;
+            },
+            set: function (value) {
+                console.log(value);
+                this._barSteps = value;
+                this.setTicks();
+            },
+            enumerable: true,
+            configurable: true
+        });
+        BarGraphController.prototype.setPercent = function () {
+            if (!this.init)
+                return;
+            var x = Number(this.barValue == null ? this.barMin : this.barValue);
+            var min = Number(this.barMin);
+            var max = Number(this.barMax);
+            if (x < min)
+                x = min;
+            if (x > max)
+                x = max;
+            this.percent = 100 * (x - min) / (max - min);
+        };
+        BarGraphController.prototype.setTicks = function () {
+            if (!this.init)
+                return;
+            var min = Number(this.barMin);
+            var max = Number(this.barMax);
+            var steps = (max - min) / Number(this.barSteps);
+            var ticks = [];
+            for (var index = min; index <= max; index += steps) {
+                var value = index.toString();
+                if (index > 999)
+                    value = (index / 1000) + "K";
+                if (index > 999999)
+                    value = (index / 1000000) + "M";
+                if (index > 999999999)
+                    value = (index / 1000000000) + "B";
+                ticks.push(value);
+            }
+            this.ticks = ticks;
+        };
         return BarGraphController;
     })();
     var BarGraphDirective = (function () {
@@ -55,10 +116,10 @@ var LayoutPageModule;
             this.controllerAs = 'vm';
             this.bindToController = true;
             this.scope = {
-                min: '@',
-                max: '@',
-                value: '@',
-                steps: '@'
+                barMin: '@',
+                barMax: '@',
+                barValue: '@',
+                barSteps: '@?'
             };
         }
         return BarGraphDirective;
