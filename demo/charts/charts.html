@@ -53,20 +53,25 @@
             </div>
 
             <div class="page-content-body-pane">
-                <input type="text" ng-model="vm.percent">
-                <div style="margin-top: .5em">
-                    <bar-graph class="bar-graph--lg" percent="{{vm.percent}}">
-                        {{vm.percent||0}}/100 .bar-graph--lg 
-                    </bar-graph>
+                <input type="text" ng-model="vm.barValue1">
+                <div>
+                    <label>XYZ Goal: 5M</label>
                 </div>
                 <div style="margin-top: .5em">
-                    <bar-graph percent="{{vm.percent}}">
-                        {{vm.percent||0}}/100 (default)
+                    <bar-graph class="bar-graph--lg" bar-min="0" bar-max="100" bar-value="{{vm.barValue1}}">
+                        {{vm.barValue1||0}}/100 (.bar-graph--lg) 
                     </bar-graph>
                 </div>
+                <input type="text" ng-model="vm.barValue2" style="margin-top: .5em">
                 <div style="margin-top: .5em">
-                    <bar-graph class="bar-graph--sm" percent="{{vm.percent}}">
-                        {{vm.percent||0}}/100 .bar-graph--sm
+                    <bar-graph bar-min="0" bar-max="10000" bar-value="{{vm.barValue2}}">
+                        {{vm.barValue2||0}}/10K (default)
+                    </bar-graph>
+                </div>
+                <input type="text" ng-model="vm.barValue3" style="margin-top: .5em">
+                <div style="margin-top: .5em">
+                    <bar-graph class="bar-graph--sm" bar-min="0" bar-max="10000000" bar-value="{{vm.barValue3}}">
+                        {{vm.barValue3||0}}/10m (.bar-graph--sm)
                     </bar-graph>
                 </div>
             </div>

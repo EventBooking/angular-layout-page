@@ -1,6 +1,6 @@
-@bar-graph-lg: unit(@typescale*2.5,px);
-@bar-graph: unit(@typescale*2,px);
-@bar-graph-sm: unit(@typescale*1.5,px);
+@bar-graph-lg: @typescale*2.5;
+@bar-graph: @typescale*2;
+@bar-graph-sm: @typescale*1.5;
 
 bar-graph {
     display: block;
@@ -16,12 +16,13 @@ bar-graph {
 }
 
 .bar-graph-fill {
-    background: linear-gradient( to right, @color-blue, @color-blue-light );
+    background: fade(@color-blue,60);
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+    border: solid 2px @color-blue;
     color: #fff;
-    height: @bar-graph;
-    line-height: @bar-graph;
+    height: unit(@bar-graph,px);
+    line-height: unit(@bar-graph - 4,px);
     font-size: 1rem;
     text-align: center;
     white-space: nowrap;
@@ -34,14 +35,14 @@ bar-graph {
     }
     
     .bar-graph--lg & {
-        height: @bar-graph-lg; 
-        line-height: @bar-graph-lg;
-        font-size: 1.125rem;   
+        height: unit(@bar-graph-lg,px); 
+        line-height: unit(@bar-graph-lg - 4,px);
+        font-size: 1.125rem;
     }
     
     .bar-graph--sm & {
-        height: @bar-graph-sm; 
-        line-height: @bar-graph-sm;
+        height: unit(@bar-graph-sm,px); 
+        line-height: unit(@bar-graph-sm - 4,px);
         font-size: .875rem;
     }
     

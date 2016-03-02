@@ -9,6 +9,9 @@ function ChartsController() {
     this.value3 = 75;
     this.value4 = 25;
     this.value5 = 0;
+    this.barValue1 = 50;
+    this.barValue2 = 2500;
+    this.barValue3 = 7500000;
     
     this.bg = function() {
         if(this.value1 == 0)

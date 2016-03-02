@@ -3,11 +3,12 @@ var LayoutPageModule;
 (function (LayoutPageModule) {
     var BarGraphController = (function () {
         function BarGraphController() {
+            this.steps = 10;
         }
         Object.defineProperty(BarGraphController.prototype, "style", {
             get: function () {
                 return {
-                    width: (this.percent || 0) + "%"
+                    width: this.percent + "%"
                 };
             },
             enumerable: true,
@@ -16,6 +17,29 @@ var LayoutPageModule;
         Object.defineProperty(BarGraphController.prototype, "isFull", {
             get: function () {
                 return this.percent == 100;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(BarGraphController.prototype, "percent", {
+            get: function () {
+                var x = this.value || this.min;
+                if (x > this.max)
+                    x = this.max;
+                if (x < this.min)
+                    x = this.min;
+                return (x - this.min) / (this.max - this.min);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(BarGraphController.prototype, "ticks", {
+            get: function () {
+                var ticks = [];
+                for (var index = this.min; index < this.max; index += this.steps) {
+                    ticks.push(index);
+                }
+                return ticks;
             },
             enumerable: true,
             configurable: true
@@ -31,7 +55,10 @@ var LayoutPageModule;
             this.controllerAs = 'vm';
             this.bindToController = true;
             this.scope = {
-                percent: '@'
+                min: '@',
+                max: '@',
+                value: '@',
+                steps: '@'
             };
         }
         return BarGraphDirective;
