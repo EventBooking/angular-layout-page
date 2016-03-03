@@ -24,7 +24,6 @@ module LayoutPageModule {
         }
 
         set barMin(value: number) {
-            console.log(value);
             this._barMin = value;
             this.setTicks();
             this.setPercent();
@@ -36,7 +35,6 @@ module LayoutPageModule {
         }
 
         set barMax(value: number) {
-            console.log(value);
             this._barMax = value;
             this.setTicks();
             this.setPercent();
@@ -48,7 +46,6 @@ module LayoutPageModule {
         }
 
         set barValue(value: number) {
-            console.log(value);
             this._barValue = value;
             this.setPercent();
         }
@@ -59,7 +56,6 @@ module LayoutPageModule {
         }
 
         set barSteps(value: number) {
-            console.log(value);
             this._barSteps = value;
             this.setTicks();
         }
@@ -72,9 +68,9 @@ module LayoutPageModule {
             if (!this.init)
                 return;
 
-            var x = Number(this.barValue == null ? this.barMin : this.barValue);
             var min = Number(this.barMin);
             var max = Number(this.barMax);
+            var x = Number(this.barValue);
 
             if (x < min)
                 x = min;
@@ -82,7 +78,11 @@ module LayoutPageModule {
             if (x > max)
                 x = max;
 
-            this.percent = 100 * (x - min) / (max - min);
+            var div = max - min;
+            if (div <= 0)
+                div = 1; // prevent divide by zero error
+
+            this.percent = 100 * (x - min) / div;
         }
 
         setTicks() {
@@ -91,7 +91,11 @@ module LayoutPageModule {
 
             var min = Number(this.barMin);
             var max = Number(this.barMax);
-            var steps = (max - min) / Number(this.barSteps);
+            var div = Number(this.barSteps == null ? 10 : this.barSteps);
+            if (div <= 0)
+                div = 1; // prevent divide by zero error
+                
+            var steps = (max - min) / div;
 
             var ticks = [];
             for (var index = min; index <= max; index += steps) {
