@@ -2,15 +2,25 @@
     position: absolute;
     right: 0;
     width: unit(@page-slider-width,px);
+    max-width: 100%;
     top: 0;
     bottom: 0;
     z-index: 10;
     transition: right .25s ease-in-out;
     color: @page-slider-color;
     background-color: @page-slider-background-color;
+    
+    &.page-slider--lg {
+        width: unit(@page-slider-width-lg,px);
+    }
+    
+    &.page-slider--sm {
+        width: unit(@page-slider-width-sm,px);
+    }
 
     &:not(.is-visible) {
-        right: unit(-@page-slider-width,px);
+        // right: unit(-@page-slider-width,px);
+        right: -100%;
     }
 
     &.is-visible {

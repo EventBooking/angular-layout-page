@@ -4587,7 +4587,7 @@ doughnut canvas {
   margin: 0;
   padding: 0;
   background-color: #E5E5E3;
-  color: #999990;
+  color: #72726B;
 }
 .layout-page-nav {
   -webkit-box-ordinal-group: 1;
@@ -5335,6 +5335,7 @@ page-slider {
   position: absolute;
   right: 0;
   width: 480px;
+  max-width: 100%;
   top: 0;
   bottom: 0;
   z-index: 10;
@@ -5343,8 +5344,14 @@ page-slider {
   color: #999990;
   background-color: #fff;
 }
+page-slider.page-slider--lg {
+  width: 768px;
+}
+page-slider.page-slider--sm {
+  width: 375px;
+}
 page-slider:not(.is-visible) {
-  right: -480px;
+  right: -100%;
 }
 page-slider.is-visible {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);

@@ -87,9 +87,8 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-header/nav-header.html',
-    '<span class="nav-header-text">{{vm.text}}</span>\n' +
-    '<span class="nav-header-small">{{vm.small}}</span>');
+  $templateCache.put('nav-menu/nav-menu.html',
+    '<i ng-class="vm.iconClass"></i>');
 }]);
 })();
 
@@ -100,8 +99,9 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-menu/nav-menu.html',
-    '<i ng-class="vm.iconClass"></i>');
+  $templateCache.put('nav-header/nav-header.html',
+    '<span class="nav-header-text">{{vm.text}}</span>\n' +
+    '<span class="nav-header-small">{{vm.small}}</span>');
 }]);
 })();
 
