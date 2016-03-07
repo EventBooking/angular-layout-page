@@ -2980,10 +2980,9 @@ bar-graph + bar-graph {
   background: rgba(78, 182, 214, 0.6);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  border: solid 2px #4EB6D6;
   color: #fff;
   height: 32px;
-  line-height: 28px;
+  line-height: 32px;
   font-size: 1rem;
   text-align: center;
   white-space: nowrap;
@@ -2997,12 +2996,12 @@ bar-graph + bar-graph {
 }
 .bar-graph--lg .bar-graph-fill {
   height: 40px;
-  line-height: 36px;
+  line-height: 40px;
   font-size: 1.125rem;
 }
 .bar-graph--sm .bar-graph-fill {
   height: 24px;
-  line-height: 20px;
+  line-height: 24px;
   font-size: .875rem;
 }
 .bar-graph-fill > span {
