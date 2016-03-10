@@ -4864,7 +4864,7 @@ a:active {
 }
 .page-content-body-pane {
   padding: 0 32px;
-  width: 480px;
+  width: 552px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -4874,7 +4874,7 @@ a:active {
   border-left: 0;
 }
 .page-content-body-pane--double {
-  width: 960px;
+  width: 1104px;
 }
 .page-content-body-pane--fluid {
   -webkit-box-flex: 1;
@@ -4939,6 +4939,7 @@ page-content-nav-item {
   border-color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding: 0 16px;
   color: #999990;
   color: #4EB6D6;
 }
@@ -5008,22 +5009,22 @@ page-content-nav-item:last-child:not(.page-content-nav-item--active) {
   position: absolute;
   width: 0;
   height: 0;
-  top: calc(50% - 8px);
-  left: auto;
-  right: auto;
+  left: calc(50% - 8px);
+  top: auto;
   bottom: auto;
+  right: auto;
 }
 .page-content-nav-item--active:before {
-  right: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid #E5E5E3;
+  bottom: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #E5E5E3;
 }
 .page-content-nav-item--active:after {
-  right: -1px;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid #fff;
+  bottom: -1px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
 }
 .page-content-nav-item--active:before,
 .page-content-nav-item--active:after {
@@ -5033,120 +5034,28 @@ page-content-nav-item:last-child:not(.page-content-nav-item--active) {
   position: absolute;
   width: 0;
   height: 0;
-  top: calc(50% - 8px);
-  left: auto;
-  right: auto;
+  left: calc(50% - 8px);
+  top: auto;
   bottom: auto;
+  right: auto;
 }
 .page-content-nav-item--active:before {
-  right: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid #E5E5E3;
+  bottom: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #E5E5E3;
 }
 .page-content-nav-item--active:after {
-  right: -1px;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid #fff;
+  bottom: -1px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
 }
-@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
-  page-content-nav-item {
-    padding: 0 16px;
-  }
-  .page-content-nav-item--active:before,
-  .page-content-nav-item--active:after {
-    content: "";
-    display: block;
-    overflow: hidden;
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: calc(50% - 8px);
-    top: auto;
-    bottom: auto;
-    right: auto;
-  }
-  .page-content-nav-item--active:before {
-    bottom: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #E5E5E3;
-  }
-  .page-content-nav-item--active:after {
-    bottom: -1px;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #fff;
-  }
-  .page-content-nav-item--active:before,
-  .page-content-nav-item--active:after {
-    content: "";
-    display: block;
-    overflow: hidden;
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: calc(50% - 8px);
-    top: auto;
-    bottom: auto;
-    right: auto;
-  }
-  .page-content-nav-item--active:before {
-    bottom: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #E5E5E3;
-  }
-  .page-content-nav-item--active:after {
-    bottom: -1px;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #fff;
-  }
-  .page-content-nav-item ~ .page-content-nav-item {
-    margin-top: 0;
-    margin-left: 1px;
-  }
+.page-content-nav-item--active ~ .page-content-nav-item--active {
+  margin-top: 0;
+  margin-left: 1px;
 }
 .page-content-nav {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
-  width: 176px;
-  padding: 0;
-  margin: 0;
-  background-color: #EFEFEE;
-  list-style-type: none;
-}
-@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
-  .page-content-nav {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    width: auto;
-    padding: 0 1em;
-    height: 48px;
-    line-height: 48px;
-  }
-}
-.page-content,
-.page-content-area {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5156,18 +5065,34 @@ page-content-nav-item:last-child:not(.page-content-nav-item--active) {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  width: auto;
+  height: 48px;
+  padding: 0 1em;
+  line-height: 48px;
+  margin: 0;
+  background-color: #EFEFEE;
+  list-style-type: none;
+}
+.page-content,
+.page-content-area {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-}
-@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
-  .page-content,
-  .page-content-area {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
 }
 page-header,
 .page-header {

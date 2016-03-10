@@ -1,23 +1,13 @@
 .page-content-nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-grow: 0;
     flex-shrink: 0;
-    width: unit(@page-content-nav-width,px);
-    padding: 0;
+    width: auto;
+    height: unit(@page-content-nav-height,px);
+    padding: 0 1em;
+    line-height: unit(@page-content-nav-height,px);
     margin: 0;
     background-color: @page-content-nav-background-color;
     list-style-type: none;
-}
-
-@media @media-tablet-landscape,
-    @media-phone-landscape,
-    @media-phone-portrait {
-    .page-content-nav {
-        flex-direction: row;
-        width: auto;
-        padding: 0 1em;
-        height: unit(@page-content-nav-height,px);
-        line-height: unit(@page-content-nav-height,px);
-    }
 }
