@@ -36,6 +36,7 @@ declare module LayoutPageModule {
     interface ITabController {
         title: string;
         name: string;
+        icon: string;
     }
 }
 declare module LayoutPageModule {

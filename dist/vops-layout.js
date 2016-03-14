@@ -854,7 +854,8 @@ var LayoutPageModule;
             this.bindToController = true;
             this.scope = {
                 title: '@',
-                name: '@'
+                name: '@',
+                icon: '@'
             };
             this.link = function ($scope, $element, $attrs, $ctrls) {
                 var $tabs = $ctrls[0];

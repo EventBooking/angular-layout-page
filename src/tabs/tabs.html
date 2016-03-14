@@ -3,7 +3,8 @@
         ng-class="{'tab-titles-item--selected': tab == vm.selectedTab }"
         ng-repeat="tab in vm.tabs" 
         ng-click="vm.selectTab(tab)">
-        {{tab.title}}
+        <i class="tab-titles-item-icon {{tab.icon}}" ng-if="tab.icon"></i>
+        <div class="tab-titles-item-title">{{tab.title}}</div>
     </div>
 </div>
 <div class="tab-content">

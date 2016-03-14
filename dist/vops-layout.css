@@ -5567,6 +5567,15 @@ tabs {
           justify-content: center;
 }
 .tab-titles-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: relative;
   padding: 0 1em;
   color: #4C4C47;
@@ -5577,6 +5586,13 @@ tabs {
   font-size: 1.5rem;
   line-height: 36px;
   cursor: pointer;
+}
+.tabs--inlineIcons .tab-titles-item {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .tab-titles-item:not(.tab-titles-item--selected) {
   color: #999990;
@@ -5626,7 +5642,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .tab-titles-item:before {
   content: " ";
   position: absolute;
-  bottom: -5px;
+  bottom: -1px;
   left: 0;
   right: 0;
   border-bottom: solid 2px #EFEFEE;
@@ -5638,6 +5654,19 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 }
 .tab-titles-item ~ .tab-titles-item {
   margin-left: 1em;
+}
+.tab-titles-item-icon {
+  font-size: .75em;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: .15em;
+}
+.tabs--inlineIcons .tab-titles-item-icon {
+  line-height: 36px;
+  padding-top: 0;
+}
+.tabs--inlineIcons .tab-titles-item-icon + .tab-titles-item-title {
+  padding-left: .25em;
 }
 .tab-content {
   position: relative;

@@ -3,11 +3,13 @@ module LayoutPageModule {
     export interface ITabController {
         title: string;
         name: string;
+        icon: string;
     }
 
     class TabController implements ITabController {
         title: string;
         name: string;
+        icon: string;
     }
 
     class TabDirective {
@@ -20,7 +22,8 @@ module LayoutPageModule {
         bindToController = true;
         scope = {
             title: '@',
-            name: '@'
+            name: '@',
+            icon: '@'
         };
 
         link = ($scope, $element, $attrs, $ctrls: any[]) => {

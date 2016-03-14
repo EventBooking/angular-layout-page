@@ -1,7 +1,7 @@
 <div class="page-content-body-pane">
-    Active Tab: {{vm.activeTab}} <a ng-click="vm.activeTab = 'tab3'">set to 'tab3'</a>
-    <tabs class="tabs--center" tab-link="vm.tabs1" active-tab="vm.activeTab">
-        <tab name="tab1" title="Tab 1">
+    
+    <tabs class="tabs--center tabs--inlineIcons" tab-link="vm.tabs1" active-tab="vm.activeTab">
+        <tab name="tab1" title="Tab 1" icon="fa fa-anchor">
             <div>
                 <a href="#" ng-click="vm.tabs1.selectTabByName('tab2')">select 'tab2' by name</a>
             </div>
@@ -9,13 +9,32 @@
                 <a href="#" ng-click="vm.tabs1.selectTabByIndex(2)">select tab3 by index</a>
             </div>
         </tab>
-        <tab name="tab2" title="Tab 2">
+        <tab name="tab2" title="Tab 2" icon="fa fa-bank">
             <a href="#" ng-click="vm.tabs1.selectNextTab()">select next tab</a>
         </tab>
-        <tab name="tab3" title="Tab 3">
+        <tab name="tab3" title="Tab 3" icon="fa fa-bolt">
             <a href="#" ng-click="vm.tabs1.selectPreviousTab()">select previous tab</a>
         </tab>
     </tabs>
+    
+    <tabs class="tabs--center" tab-link="vm.tabs1" active-tab="vm.activeTab">
+        <tab name="tab1" title="Tab 1" icon="fa fa-anchor">
+            <div>
+                <a href="#" ng-click="vm.tabs1.selectTabByName('tab2')">select 'tab2' by name</a>
+            </div>
+            <div>
+                <a href="#" ng-click="vm.tabs1.selectTabByIndex(2)">select tab3 by index</a>
+            </div>
+        </tab>
+        <tab name="tab2" title="Tab 2" icon="fa fa-bank">
+            <a href="#" ng-click="vm.tabs1.selectNextTab()">select next tab</a>
+        </tab>
+        <tab name="tab3" title="Tab 3" icon="fa fa-bolt">
+            <a href="#" ng-click="vm.tabs1.selectPreviousTab()">select previous tab</a>
+        </tab>
+    </tabs>
+    
+    Active Tab: {{vm.activeTab}} <a ng-click="vm.activeTab = 'tab3'">set to 'tab3'</a>
 </div>
 <div class="page-content-body-pane">
     <body-header title="Title"></body-header>

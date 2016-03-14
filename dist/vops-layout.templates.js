@@ -177,7 +177,8 @@ module.run(['$templateCache', function($templateCache) {
     '        ng-class="{\'tab-titles-item--selected\': tab == vm.selectedTab }"\n' +
     '        ng-repeat="tab in vm.tabs" \n' +
     '        ng-click="vm.selectTab(tab)">\n' +
-    '        {{tab.title}}\n' +
+    '        <i class="tab-titles-item-icon {{tab.icon}}" ng-if="tab.icon"></i>\n' +
+    '        <div class="tab-titles-item-title">{{tab.title}}</div>\n' +
     '    </div>\n' +
     '</div>\n' +
     '<div class="tab-content">\n' +

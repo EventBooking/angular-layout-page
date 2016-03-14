@@ -13,6 +13,8 @@ tabs {
 }
 
 .tab-titles-item {
+    display: flex;
+    flex-direction: column;
     position: relative;
     padding: 0 1em;
     color: @color-gray-darker;
@@ -22,6 +24,10 @@ tabs {
     line-height: unit(@typescale-xlg*1.5,px);
     cursor: pointer;
     
+    .tabs--inlineIcons & {
+        flex-direction: row;
+    } 
+    
     &:not(&--selected) {
         .text-link();
         cursor: pointer;
@@ -30,7 +36,7 @@ tabs {
     &:before {
         content: " ";
         position: absolute;
-        bottom: -5px;
+        bottom: -1px;
         left: 0;
         right: 0;
         border-bottom: solid 2px @color-gray-lightest2;
@@ -48,10 +54,27 @@ tabs {
     }
 }
 
+.tab-titles-item-icon {
+    font-size: .75em;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: .15em;
+    
+    .tabs--inlineIcons & {
+        line-height: unit(@typescale-xlg*1.5,px);
+        padding-top: 0;    
+    }
+}
+
+.tab-titles-item-title {
+    .tabs--inlineIcons .tab-titles-item-icon + & {
+        padding-left: .25em;    
+    }
+}
+
 .tab-content {
     position: relative;
     overflow: hidden;
-    // padding: unit(@padding,px) 0;
     width: 100%;
 }
 
@@ -60,8 +83,4 @@ tabs {
     position: relative;
     left: 0;
     transition: left .25s ease-in-out;
-
-    // .contracting-content--isContractTab & {
-    //     left: -100%;
-    // }
 }
