@@ -37,16 +37,13 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('body-header/body-header.html',
-    '<div class="body-header-top">\n' +
-    '    <div class="body-header-title">{{vm.title}}</div>\n' +
-    '    <div class="body-header-actions">\n' +
-    '        <div ng-transclude></div>\n' +
-    '    </div>\n' +
+  $templateCache.put('doughnut/doughnut.html',
+    '<div class="doughnut-text">\n' +
+    '    <div ng-transclude></div>\n' +
     '</div>\n' +
-    '<div class="body-header-bottom">\n' +
-    '    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>\n' +
-    '</div>');
+    '<canvas class="doughnut-hole"></canvas>\n' +
+    '<canvas class="doughnut-fill"></canvas>\n' +
+    '<canvas class="doughnut-bg"></canvas>');
 }]);
 })();
 
@@ -57,13 +54,16 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('doughnut/doughnut.html',
-    '<div class="doughnut-text">\n' +
-    '    <div ng-transclude></div>\n' +
+  $templateCache.put('body-header/body-header.html',
+    '<div class="body-header-top">\n' +
+    '    <div class="body-header-title">{{vm.title}}</div>\n' +
+    '    <div class="body-header-actions">\n' +
+    '        <div ng-transclude></div>\n' +
+    '    </div>\n' +
     '</div>\n' +
-    '<canvas class="doughnut-hole"></canvas>\n' +
-    '<canvas class="doughnut-fill"></canvas>\n' +
-    '<canvas class="doughnut-bg"></canvas>');
+    '<div class="body-header-bottom">\n' +
+    '    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>\n' +
+    '</div>');
 }]);
 })();
 

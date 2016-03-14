@@ -29,9 +29,20 @@
     }
 }
 
+@media @media-tablet-landscape {
+    .page-content-body-pane {
+        display: block;
+        width: @page-content-body-pane-width-tableLandscape;;
+        border-right: none;
+		
+		&--fluid {
+			flex: 0 0 auto;
+		}
+    }
+}
+
 
 @media @media-tablet-portrait,
-    @media-phone-landscape,
     @media-phone-portrait {
     .page-content-body-pane {
         display: block;
