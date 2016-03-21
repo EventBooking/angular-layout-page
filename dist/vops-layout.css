@@ -3336,6 +3336,9 @@ body-header ~ .body-header,
 .body-header-title,
 .body-header-subtitle {
   display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 doughnut {
   display: block;
@@ -5456,7 +5459,7 @@ pane-header,
   display: block;
   font-size: 14px;
   font-size: 0.875rem;
-  line-height: 14px;
+  line-height: 16px;
   color: #777;
   white-space: nowrap;
   overflow: hidden;
