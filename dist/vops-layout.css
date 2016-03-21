@@ -4947,9 +4947,6 @@ page-content-nav-item {
   font-size: 14px;
   font-size: 0.875rem;
   text-transform: uppercase;
-  border-style: none;
-  border-width: 1px;
-  border-color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap;
   padding: 0 16px;
@@ -4998,12 +4995,6 @@ page-content-nav-item:active {
 }
 page-content-nav-item ~ page-content-nav-item {
   margin-left: 0;
-}
-page-content-nav-item:not(.page-content-nav-item--active) + page-content-nav-item:not(.page-content-nav-item--active) {
-  border-top-style: solid;
-}
-page-content-nav-item:last-child:not(.page-content-nav-item--active) {
-  border-bottom-style: solid;
 }
 .page-content-nav-item--active {
   border-style: none;

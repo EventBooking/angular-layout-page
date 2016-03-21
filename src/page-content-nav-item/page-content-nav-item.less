@@ -7,9 +7,6 @@ page-content-nav-item {
     position: relative;
     .font-size(@page-content-nav-item-font-size);
     text-transform: uppercase;
-    border-style: none;
-    border-width: 1px;
-    border-color: #fff;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 0 unit(@padding-half,px);
@@ -17,14 +14,6 @@ page-content-nav-item {
         
     & ~ & {
         margin-left: 0;
-    }
-    
-    &:not(.page-content-nav-item--active) + &:not(.page-content-nav-item--active) {
-        border-top-style: solid;
-    }
-    
-    &:last-child:not(.page-content-nav-item--active) {
-        border-bottom-style: solid;
     }
 }
 
