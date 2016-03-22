@@ -435,30 +435,6 @@ doughnut {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-nav-group,
-.nav-group {
-	display: flex;
-	flex-direction: column;
-	padding: 1em 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
-}
-
-@media @media-phone-portrait {
-    nav-group,
-    .nav-group {
-        display: none;
-        
-        .nav--show & {
-            display: block;
-        }
-    }
-}
 nav {
 	width: unit(@nav-large,px);
     min-width: unit(@nav-large,px);
@@ -493,6 +469,30 @@ nav {
         
         .nav--show & {
             left: unit(@nav-small + 9,px);
+        }
+    }
+}
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
+}
+
+@media @media-phone-portrait {
+    nav-group,
+    .nav-group {
+        display: none;
+        
+        .nav--show & {
+            display: block;
         }
     }
 }
@@ -901,6 +901,12 @@ page-slider {
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
+.pane {
+    height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+    line-height: @line-height-base;
+    .font-size(@pane-font-size);
+}
 .pane-body {
     display: block;
     max-height: 100%;
@@ -919,11 +925,24 @@ page-slider {
         max-height: ~"calc(100% - @{pane-footer-height}px)";
     }
 }
-.pane {
-    height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-    line-height: @line-height-base;
-    .font-size(@pane-font-size);
+pane-footer {
+    display: block;
+    height: unit(@pane-footer-height,px);
+    line-height: unit(@pane-footer-height,px);
+    margin: 0 unit(@padding,px);
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: @border-color;
+    z-index: 1;
+    color: @pane-footer-color;
+    background-color: @pane-footer-background-color;
+}
+
+.pane-footer-button {
+	&--right {
+    	float: right;
+    	margin-top: unit(@padding-half,px);
+	}
 }
 pane-header,
 .pane-header {
@@ -1021,25 +1040,6 @@ pane-header,
         color: @pane-header-actions-item-active-color;
         background-color: @pane-header-actions-item-active-background-color;
     }
-}
-pane-footer {
-    display: block;
-    height: unit(@pane-footer-height,px);
-    line-height: unit(@pane-footer-height,px);
-    margin: 0 unit(@padding,px);
-    border-style: solid;
-    border-width: 1px 0 0 0;
-    border-color: @border-color;
-    z-index: 1;
-    color: @pane-footer-color;
-    background-color: @pane-footer-background-color;
-}
-
-.pane-footer-button {
-	&--right {
-    	float: right;
-    	margin-top: unit(@padding-half,px);
-	}
 }
 /// <reference path="../assets.less" />
 
@@ -1194,20 +1194,22 @@ tabs {
     padding: 0 1em;
     line-height: 2em;
     
-    &:hover {
-        background-color: @button-hover-background-color;
-        border-color: @button-hover-border-color;
-        color: @button-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-active-background-color;
-        border-color: @button-active-border-color;
-        color: @button-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-hover-background-color;
+            border-color: @button-hover-border-color;
+            color: @button-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-active-background-color;
+            border-color: @button-active-border-color;
+            color: @button-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-focus-outline-color;
+        }
     }
 }
 
@@ -1217,20 +1219,28 @@ tabs {
     border-color: @button-default-border-color;
     color: @button-default-color;
     
-    &:hover {
-        background-color: @button-default-hover-background-color;
-        border-color: @button-default-hover-border-color;
-        color: @button-default-hover-color;
+    &[disabled] {
+        background-color: @button-default-disabled-background-color;
+        border-color: @button-default-disabled-border-color;
+        color: @button-default-disabled-color;
     }
     
-    &:active {
-        background-color: @button-default-active-background-color;
-        border-color: @button-default-active-border-color;
-        color: @button-default-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-default-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-default-hover-background-color;
+            border-color: @button-default-hover-border-color;
+            color: @button-default-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-default-active-background-color;
+            border-color: @button-default-active-border-color;
+            color: @button-default-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-default-focus-outline-color;
+        }
     }
 }
 
@@ -1240,20 +1250,22 @@ tabs {
     border-color: @button-primary-border-color;
     color: @button-primary-color;
     
-    &:hover {
-        background-color: @button-primary-hover-background-color;
-        border-color: @button-primary-hover-border-color;
-        color: @button-primary-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-primary-active-background-color;
-        border-color: @button-primary-active-border-color;
-        color: @button-primary-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-primary-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-primary-hover-background-color;
+            border-color: @button-primary-hover-border-color;
+            color: @button-primary-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-primary-active-background-color;
+            border-color: @button-primary-active-border-color;
+            color: @button-primary-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-primary-focus-outline-color;
+        }
     }
 }
 
@@ -1263,20 +1275,22 @@ tabs {
     border-color: @button-success-border-color;
     color: @button-success-color;
     
-    &:hover {
-        background-color: @button-success-hover-background-color;
-        border-color: @button-success-hover-border-color;
-        color: @button-success-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-success-active-background-color;
-        border-color: @button-success-active-border-color;
-        color: @button-success-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-success-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-success-hover-background-color;
+            border-color: @button-success-hover-border-color;
+            color: @button-success-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-success-active-background-color;
+            border-color: @button-success-active-border-color;
+            color: @button-success-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-success-focus-outline-color;
+        }
     }
 }
 
@@ -1286,20 +1300,22 @@ tabs {
     border-color: @button-danger-border-color;
     color: @button-danger-color;
     
-    &:hover {
-        background-color: @button-danger-hover-background-color;
-        border-color: @button-danger-hover-border-color;
-        color: @button-danger-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-danger-active-background-color;
-        border-color: @button-danger-active-border-color;
-        color: @button-danger-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-danger-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-danger-hover-background-color;
+            border-color: @button-danger-hover-border-color;
+            color: @button-danger-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-danger-active-background-color;
+            border-color: @button-danger-active-border-color;
+            color: @button-danger-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-danger-focus-outline-color;
+        }
     }
 }
 
@@ -1310,22 +1326,24 @@ tabs {
     border: none;
     outline: none;
     
-    &:hover {
-        color: @color-blue-lighter;
-        background-color: transparent;
-        border: none;
-    }
-    
-    &:active {
-        color: @color-blue;
-        background-color: transparent;
-        border: none;    
-    }
-    
-    &:focus {
-        background-color: transparent;
-        border: none; 
-        outline: none;   
+    &:not([disabled]) {
+        &:hover {
+            color: @color-blue-lighter;
+            background-color: transparent;
+            border: none;
+        }
+        
+        &:active {
+            color: @color-blue;
+            background-color: transparent;
+            border: none;    
+        }
+        
+        &:focus {
+            background-color: transparent;
+            border: none; 
+            outline: none;   
+        }
     }
 }
 
@@ -2025,6 +2043,9 @@ tabs {
 @button-default-background-color: #fff;
 @button-default-border-color: @color-gray-light;
 @button-default-color: @color-gray-darkest;
+@button-default-disabled-background-color: #fff;
+@button-default-disabled-border-color: @color-gray-lighter;
+@button-default-disabled-color: @color-gray;
 @button-default-hover-background-color: @color-gray-light;
 @button-default-hover-border-color: @color-gray-light;
 @button-default-hover-color: @color-gray-darkest;

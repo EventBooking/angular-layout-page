@@ -15,20 +15,22 @@
     padding: 0 1em;
     line-height: 2em;
     
-    &:hover {
-        background-color: @button-hover-background-color;
-        border-color: @button-hover-border-color;
-        color: @button-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-active-background-color;
-        border-color: @button-active-border-color;
-        color: @button-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-hover-background-color;
+            border-color: @button-hover-border-color;
+            color: @button-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-active-background-color;
+            border-color: @button-active-border-color;
+            color: @button-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-focus-outline-color;
+        }
     }
 }
 
@@ -38,20 +40,28 @@
     border-color: @button-default-border-color;
     color: @button-default-color;
     
-    &:hover {
-        background-color: @button-default-hover-background-color;
-        border-color: @button-default-hover-border-color;
-        color: @button-default-hover-color;
+    &[disabled] {
+        background-color: @button-default-disabled-background-color;
+        border-color: @button-default-disabled-border-color;
+        color: @button-default-disabled-color;
     }
     
-    &:active {
-        background-color: @button-default-active-background-color;
-        border-color: @button-default-active-border-color;
-        color: @button-default-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-default-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-default-hover-background-color;
+            border-color: @button-default-hover-border-color;
+            color: @button-default-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-default-active-background-color;
+            border-color: @button-default-active-border-color;
+            color: @button-default-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-default-focus-outline-color;
+        }
     }
 }
 
@@ -61,20 +71,22 @@
     border-color: @button-primary-border-color;
     color: @button-primary-color;
     
-    &:hover {
-        background-color: @button-primary-hover-background-color;
-        border-color: @button-primary-hover-border-color;
-        color: @button-primary-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-primary-active-background-color;
-        border-color: @button-primary-active-border-color;
-        color: @button-primary-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-primary-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-primary-hover-background-color;
+            border-color: @button-primary-hover-border-color;
+            color: @button-primary-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-primary-active-background-color;
+            border-color: @button-primary-active-border-color;
+            color: @button-primary-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-primary-focus-outline-color;
+        }
     }
 }
 
@@ -84,20 +96,22 @@
     border-color: @button-success-border-color;
     color: @button-success-color;
     
-    &:hover {
-        background-color: @button-success-hover-background-color;
-        border-color: @button-success-hover-border-color;
-        color: @button-success-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-success-active-background-color;
-        border-color: @button-success-active-border-color;
-        color: @button-success-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-success-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-success-hover-background-color;
+            border-color: @button-success-hover-border-color;
+            color: @button-success-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-success-active-background-color;
+            border-color: @button-success-active-border-color;
+            color: @button-success-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-success-focus-outline-color;
+        }
     }
 }
 
@@ -107,20 +121,22 @@
     border-color: @button-danger-border-color;
     color: @button-danger-color;
     
-    &:hover {
-        background-color: @button-danger-hover-background-color;
-        border-color: @button-danger-hover-border-color;
-        color: @button-danger-hover-color;
-    }
-    
-    &:active {
-        background-color: @button-danger-active-background-color;
-        border-color: @button-danger-active-border-color;
-        color: @button-danger-active-color;
-    }
-    
-    &:focus {
-        outline-color: @button-danger-focus-outline-color;
+    &:not([disabled]) {
+        &:hover {
+            background-color: @button-danger-hover-background-color;
+            border-color: @button-danger-hover-border-color;
+            color: @button-danger-hover-color;
+        }
+        
+        &:active {
+            background-color: @button-danger-active-background-color;
+            border-color: @button-danger-active-border-color;
+            color: @button-danger-active-color;
+        }
+        
+        &:focus {
+            outline-color: @button-danger-focus-outline-color;
+        }
     }
 }
 
@@ -131,22 +147,24 @@
     border: none;
     outline: none;
     
-    &:hover {
-        color: @color-blue-lighter;
-        background-color: transparent;
-        border: none;
-    }
-    
-    &:active {
-        color: @color-blue;
-        background-color: transparent;
-        border: none;    
-    }
-    
-    &:focus {
-        background-color: transparent;
-        border: none; 
-        outline: none;   
+    &:not([disabled]) {
+        &:hover {
+            color: @color-blue-lighter;
+            background-color: transparent;
+            border: none;
+        }
+        
+        &:active {
+            color: @color-blue;
+            background-color: transparent;
+            border: none;    
+        }
+        
+        &:focus {
+            background-color: transparent;
+            border: none; 
+            outline: none;   
+        }
     }
 }
 
