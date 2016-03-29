@@ -59,9 +59,11 @@ module LayoutPageModule {
             var ctrl: NavGroupItemController = $scope[this.controllerAs],
                 clickEvent = `click.${$scope.$id}`;
 
+            // ToDo: this is probably done incorrectly and should be controlled by the nav-group instead
             $scope.$on('$routeChangeSuccess', () => {
                 $element.toggleClass('nav-group-item--selected', ctrl.isSelected);
             });
+            $element.toggleClass('nav-group-item--selected', ctrl.isSelected);
 
             $element.on(clickEvent, () => {
                 ctrl.navigate();
