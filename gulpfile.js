@@ -6,16 +6,9 @@ var gulp = require('gulp'),
     dest = 'dist';
 
 gulp.task('clean', clean);
-gulp.task('tsd:install', tsdInstall);
 gulp.task('default', ['clean'], build);
 gulp.task('styles', styles);
 gulp.task('html', html);
-gulp.task('watch', watch);
-gulp.task('server', ['watch'], server);
-gulp.task('typescript', function (callback) {
-    typescript(callback);
-});
-gulp.task('postTsc', postTsc);
 
 function exec(cmd, options, fn) {
     var proc = require('child_process').exec,
@@ -90,78 +83,7 @@ function styles() {
         .pipe(gulp.dest(dest));
 }
 
-function tsdInstall(callback) {
-    var bundle = require('./tsd.json').bundle,
-        del = require('del');
-
-    del(bundle, function () {
-        exec('npm run tsd', null, callback);
-    });
-}
-
-function typescript(callback, watch) {
-    var watchFlag = watch ? ':w' : '';
-    exec('npm run tsc' + watchFlag, null, callback);
-}
-
-function server() {
-    var express = require('express'),
-        livereload = require('connect-livereload'),
-        tinylr = require('tiny-lr'),
-        path = require('path'),
-        lrport = 35729;
-
-    var listener = tinylr();
-    listener.listen(lrport);
-
-    function notifyLiveReload(event) {
-        var config = {
-            body: {
-                files: [path.relative(__dirname, event.path)]
-            }
-        }
-        listener.changed(config);
-    }
-
-    var app = express();
-    app.use(livereload({ port: lrport }));
-
-    app.use('/bower_components', express.static(__dirname + '/bower_components'));
-    app.use('/dist', express.static(__dirname + '/dist'));
-    app.use('/', express.static(__dirname + '/demo'));
-    app.use('*', express.static(__dirname + '/demo'));
-
-    gulp.watch(['demo/**/*.css', 'dist/**/*.css'], notifyLiveReload);
-    gulp.watch(['demo/**/*.js', 'dist/**/*.js'], notifyLiveReload);
-    gulp.watch(['demo/**/*.html', 'dist/**/*.html'], notifyLiveReload);
-
-    app.listen(4000);
-}
-
-function watch() {
-    gulp.watch(['src/**/*.less'], ['styles']);
-    gulp.watch(['src/**/*.html'], ['html']);
-    gulp.watch(['dist/**/*.d.ts'], ['postTsc']);
-    typescript(null, true);
-}
-
 function build() {
     styles();
     html();
-    typescript();
-}
-
-function stripRefs(src, dest, name) {
-    var strip = require("gulp-strip-comments");
-
-    return gulp.src(src)
-        .pipe(debug())
-        .pipe(strip())
-        .pipe(concat(name))
-        .pipe(gulp.dest(dest));
-}
-
-function postTsc() {
-    stripRefs(dest + '/vops-layout.debug.d.ts', dest, '/vops-layout.d.ts');
-    stripRefs(dest + '/vops-layout.debug.js', dest, '/vops-layout.js');
 }

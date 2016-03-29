@@ -5,37 +5,37 @@ function Config($routeProvider, $locationProvider) {
 
     $routeProvider
         .when("/grid", {
-            templateUrl: "/grid/grid.html",
+            templateUrl: "/demo/grid/grid.html",
             controller: 'gridController',
             controllerAs: 'vm'
         })
         .when("/charts", {
-            templateUrl: "/charts/charts.html",
+            templateUrl: "/demo/charts/charts.html",
             controller: 'chartsController',
             controllerAs: 'vm'
         })
         .when("/blankslate", {
-            templateUrl: "/blankslate/blankslate.html",
+            templateUrl: "/demo/blankslate/blankslate.html",
             controller: 'blankslateController',
             controllerAs: 'vm'
         })
         .when("/colors", {
-            templateUrl: "/colors/colors.html",
+            templateUrl: "/demo/colors/colors.html",
             controller: 'colorsController',
             controllerAs: 'vm'
         })
         .when("/forms", {
-            templateUrl: "/forms/forms.html",
+            templateUrl: "/demo/forms/forms.html",
             controller: 'formsController',
             controllerAs: 'vm'
         })
         .when("/buttons", {
-            templateUrl: "/buttons/buttons.html",
+            templateUrl: "/demo/buttons/buttons.html",
             controller: 'buttonsController',
             controllerAs: 'vm'
         })
         .when("/routetest/:area", {
-            templateUrl: "/paneTest/paneTest.html",
+            templateUrl: "/demo/paneTest/paneTest.html",
             controller: 'paneTestController',
             controllerAs: 'vm'
         })
@@ -43,21 +43,18 @@ function Config($routeProvider, $locationProvider) {
             redirectTo: '/routetest/twoPane'
         })
         .when("/panes", {
-            templateUrl: "/paneTest/paneTest.html",
+            templateUrl: "/demo/paneTest/paneTest.html",
             controller: 'paneTestController',
             controllerAs: 'vm',
             reloadOnSearch: false
         })
-        // .when("/panes", {
-        //     redirectTo: '/panes?area=twoPane'
-        // })
         .when("/pages/fullscreen", {
-            templateUrl: "/pageTest/pageTest.html",
+            templateUrl: "/demo/pageTest/pageTest.html",
             controller: 'pageTestController',
             controllerAs: 'vm'
         })
         .when("/text", {
-            templateUrl: "/text/text.html",
+            templateUrl: "/demo/text/text.html",
             controller: 'textController',
             controllerAs: 'vm'
         })
