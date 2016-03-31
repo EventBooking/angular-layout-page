@@ -298,53 +298,6 @@ doughnut {
 .doughnut-bg {
     
 }
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;  
-    margin: 0;
-    padding: 0;
-    background-color: @layout-page-background-color;
-    color: @layout-page-color;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
-}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -434,6 +387,53 @@ doughnut {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;  
+    margin: 0;
+    padding: 0;
+    background-color: @layout-page-background-color;
+    color: @layout-page-color;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
 }
 nav {
 	width: unit(@nav-large,px);
@@ -709,19 +709,6 @@ nav-menu {
 		}
     }
 }
-.page-content-nav {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: auto;
-    height: unit(@page-content-nav-height,px);
-    padding: 0 1em;
-    line-height: unit(@page-content-nav-height,px);
-    margin: 0;
-    background-color: @page-content-nav-background-color;
-    list-style-type: none;
-}
 page-content-nav-item {
     display: block;
     line-height: unit(@page-content-nav-item-font-size*3.5,px);
@@ -758,6 +745,48 @@ page-content-nav-item {
     & ~ & {
         margin-top: 0;
         margin-left: 1px;
+    }
+}
+.page-content-nav {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: auto;
+    height: unit(@page-content-nav-height,px);
+    padding: 0 1em;
+    line-height: unit(@page-content-nav-height,px);
+    margin: 0;
+    background-color: @page-content-nav-background-color;
+    list-style-type: none;
+}
+page-slider {
+    position: absolute;
+    right: 0;
+    width: unit(@page-slider-width,px);
+    max-width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    transition: right .25s ease-in-out;
+    color: @page-slider-color;
+    background-color: @page-slider-background-color;
+    
+    &.page-slider--lg {
+        width: unit(@page-slider-width-lg,px);
+    }
+    
+    &.page-slider--sm {
+        width: unit(@page-slider-width-sm,px);
+    }
+
+    &:not(.is-visible) {
+        // right: unit(-@page-slider-width,px);
+        right: -100%;
+    }
+
+    &.is-visible {
+        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
 page-header,
@@ -870,35 +899,6 @@ page-header,
         flex-grow: 1;
         display: flex;
         padding: 0 unit(@padding,px) 0 0;
-    }
-}
-page-slider {
-    position: absolute;
-    right: 0;
-    width: unit(@page-slider-width,px);
-    max-width: 100%;
-    top: 0;
-    bottom: 0;
-    z-index: 10;
-    transition: right .25s ease-in-out;
-    color: @page-slider-color;
-    background-color: @page-slider-background-color;
-    
-    &.page-slider--lg {
-        width: unit(@page-slider-width-lg,px);
-    }
-    
-    &.page-slider--sm {
-        width: unit(@page-slider-width-sm,px);
-    }
-
-    &:not(.is-visible) {
-        // right: unit(-@page-slider-width,px);
-        right: -100%;
-    }
-
-    &.is-visible {
-        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
 .pane {
@@ -1583,6 +1583,7 @@ tabs {
     flex-direction: row;
     justify-content: space-between;
     
+    & + &,
     .form-addon-control + &,
     .form-control + & {
         margin-top: .5em;
