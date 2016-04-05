@@ -9,8 +9,9 @@
     "tsc:w": "tsc -w -p src",
     "typings": "typings install",
     "gulp": "gulp",
-    "start": "npm run build & lite-server",
-    "build": "gulp & npm run tsc"
+    "start:w": "start gulp watch && start npm run tsc:w && lite-server",
+    "start": "npm run build && lite-server",
+    "build": "gulp && npm run tsc"
   },
   "repository": {
     "type": "git",

@@ -105,6 +105,90 @@ bar-graph {
         margin: 0 1em;
     }
 }
+blankslate {
+    display: flex;
+    flex-direction: row;
+    color: @color-gray-darker;
+    border-color: @color-gray-lightest2;
+    border-style: solid;
+    border-width: 1px 0;
+    padding: 2em 0;
+
+    &[center] {
+        flex-direction: column;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    &[noborder] {
+        border-style: none;
+    }
+    
+    &[link] {
+        .text-link();
+    }
+}
+
+.blankslate-icon,
+.blankslate-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.blankslate-icon {
+    font-size: 3.75em;
+    color: @blankslate-icon-color;
+    padding: 0 .5em;
+    margin: 0;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
+    
+    blankslate[warning] & {
+        .text-warning();
+    }
+    
+    blankslate[danger] & {
+        .text-danger();
+    }
+}
+
+.blankslate-content {
+}
+
+.blankslate-content-title,
+.blankslate-content-subtitle {
+    display: flex;
+    
+    blankslate[center] & {
+        justify-content: center;
+    }
+}
+
+.blankslate-content-title {
+    font-size: 1.5em;
+    color: @blankslate-title-color;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
+}
+
+.blankslate-content-subtitle {
+    font-size: 1.25em;
+    color: @blankslate-subtitle-color;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
+}
+
+.blankslate-link {
+    .text-link();
+    font-weight: bold;
+}
 body-header,
 .body-header {
     display: flex;
@@ -214,137 +298,6 @@ doughnut {
 .doughnut-bg {
     
 }
-blankslate {
-    display: flex;
-    flex-direction: row;
-    color: @color-gray-darker;
-    border-color: @color-gray-lightest2;
-    border-style: solid;
-    border-width: 1px 0;
-    padding: 2em 0;
-
-    &[center] {
-        flex-direction: column;
-        text-align: center;
-        padding: 1em 0;
-    }
-
-    &[noborder] {
-        border-style: none;
-    }
-    
-    &[link] {
-        .text-link();
-    }
-}
-
-.blankslate-icon,
-.blankslate-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.blankslate-icon {
-    font-size: 3.75em;
-    color: @blankslate-icon-color;
-    padding: 0 .5em;
-    margin: 0;
-    
-    blankslate[link] & {
-        color: inherit;
-    }
-    
-    blankslate[warning] & {
-        .text-warning();
-    }
-    
-    blankslate[danger] & {
-        .text-danger();
-    }
-}
-
-.blankslate-content {
-}
-
-.blankslate-content-title,
-.blankslate-content-subtitle {
-    display: flex;
-    
-    blankslate[center] & {
-        justify-content: center;
-    }
-}
-
-.blankslate-content-title {
-    font-size: 1.5em;
-    color: @blankslate-title-color;
-    
-    blankslate[link] & {
-        color: inherit;
-    }
-}
-
-.blankslate-content-subtitle {
-    font-size: 1.25em;
-    color: @blankslate-subtitle-color;
-    
-    blankslate[link] & {
-        color: inherit;
-    }
-}
-
-.blankslate-link {
-    .text-link();
-    font-weight: bold;
-}
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;  
-    margin: 0;
-    padding: 0;
-    background-color: @layout-page-background-color;
-    color: @layout-page-color;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
-}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -434,6 +387,53 @@ blankslate {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;  
+    margin: 0;
+    padding: 0;
+    background-color: @layout-page-background-color;
+    color: @layout-page-color;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
 }
 nav {
 	width: unit(@nav-large,px);
@@ -593,9 +593,6 @@ nav-header {
         }
     }
 }
-nav-menu {
-    text-align: center;
-}
 .page {
     display: flex;
     flex-direction: column;
@@ -627,6 +624,34 @@ nav-menu {
     @media-phone-portrait {
     .page {
 		flex-grow: 1;
+    }
+}
+nav-menu {
+    text-align: center;
+}
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.page-content-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+// Less width than table landscape
+@media @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content-body {
+        display: block;
+        // flex-direction: column;
+        // align-content: flex-start;
+        // flex-grow: 0;
     }
 }
 .page-content-body-pane {
@@ -685,31 +710,6 @@ nav-menu {
 		}
     }
 }
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-.page-content-body {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    flex-shrink: 0;
-}
-
-// Less width than table landscape
-@media @media-tablet-portrait,
-    @media-phone-landscape,
-    @media-phone-portrait {
-    .page-content-body {
-        display: block;
-        // flex-direction: column;
-        // align-content: flex-start;
-        // flex-grow: 0;
-    }
-}
 .page-content-nav {
     display: flex;
     flex-direction: row;
@@ -722,6 +722,35 @@ nav-menu {
     margin: 0;
     background-color: @page-content-nav-background-color;
     list-style-type: none;
+}
+page-slider {
+    position: absolute;
+    right: 0;
+    width: unit(@page-slider-width,px);
+    max-width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    transition: right .25s ease-in-out;
+    color: @page-slider-color;
+    background-color: @page-slider-background-color;
+    
+    &.page-slider--lg {
+        width: unit(@page-slider-width-lg,px);
+    }
+    
+    &.page-slider--sm {
+        width: unit(@page-slider-width-sm,px);
+    }
+
+    &:not(.is-visible) {
+        // right: unit(-@page-slider-width,px);
+        right: -100%;
+    }
+
+    &.is-visible {
+        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
+    }
 }
 page-header,
 .page-header {
@@ -873,35 +902,6 @@ page-content-nav-item {
         margin-left: 1px;
     }
 }
-page-slider {
-    position: absolute;
-    right: 0;
-    width: unit(@page-slider-width,px);
-    max-width: 100%;
-    top: 0;
-    bottom: 0;
-    z-index: 10;
-    transition: right .25s ease-in-out;
-    color: @page-slider-color;
-    background-color: @page-slider-background-color;
-    
-    &.page-slider--lg {
-        width: unit(@page-slider-width-lg,px);
-    }
-    
-    &.page-slider--sm {
-        width: unit(@page-slider-width-sm,px);
-    }
-
-    &:not(.is-visible) {
-        // right: unit(-@page-slider-width,px);
-        right: -100%;
-    }
-
-    &.is-visible {
-        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
-    }
-}
 .pane-body {
     display: block;
     max-height: 100%;
@@ -944,6 +944,53 @@ pane-footer {
     	float: right;
     	margin-top: unit(@padding-half,px);
 	}
+}
+/// <reference path="../assets.less" />
+
+.section {
+    display: block;
+    color: @color-gray-darker;
+    font-size: unit(@typescale,px);
+    
+    & + & {
+        border-top: solid 1px @border-color;
+        margin-top: 1em;
+        padding-top: 1em;
+    }
+
+    &--noborder + & {
+        border-top: none;
+        margin-top: 0;
+    }
+}
+
+.section-label {
+    display: block;
+    font-size: .875em;
+    text-transform: uppercase;
+    font-weight: @font-weight;
+    color: @color-gray-dark;
+
+    &--large {
+        font-size: 1.25em;
+    }
+
+    .section-content + & {
+        margin-top: unit(@padding-half,px);
+    }
+}
+
+.section-label-sublabel {
+    font-size: unit(@typescale-sm,px);
+    margin-left: .5em;
+
+    .section-label--large & {
+        font-size: unit(@typescale-sm,px);
+    }
+}
+
+.section-content {
+    display: block;
 }
 pane-header,
 .pane-header {
@@ -1044,53 +1091,6 @@ pane-header,
 }
 tab {
     width: 100%;
-}
-/// <reference path="../assets.less" />
-
-.section {
-    display: block;
-    color: @color-gray-darker;
-    font-size: unit(@typescale,px);
-    
-    & + & {
-        border-top: solid 1px @border-color;
-        margin-top: 1em;
-        padding-top: 1em;
-    }
-
-    &--noborder + & {
-        border-top: none;
-        margin-top: 0;
-    }
-}
-
-.section-label {
-    display: block;
-    font-size: .875em;
-    text-transform: uppercase;
-    font-weight: @font-weight;
-    color: @color-gray-dark;
-
-    &--large {
-        font-size: 1.25em;
-    }
-
-    .section-content + & {
-        margin-top: unit(@padding-half,px);
-    }
-}
-
-.section-label-sublabel {
-    font-size: unit(@typescale-sm,px);
-    margin-left: .5em;
-
-    .section-label--large & {
-        font-size: unit(@typescale-sm,px);
-    }
-}
-
-.section-content {
-    display: block;
 }
 tabs {
     width: 100%;
