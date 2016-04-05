@@ -166,6 +166,54 @@ body-header,
     white-space: nowrap;
     overflow: hidden;
 }
+@doughnut-empty-color: @color-gray-darker;
+@doughnut-fill-color: @color-green;
+
+doughnut {
+    display: block;
+    position: relative;
+    background-color: inherit;
+    color: inherit;
+        
+    & canvas {
+        display: block;
+    }
+}
+
+.doughnut-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 3;
+}
+
+.doughnut-empty-color {
+    background-color: @doughnut-empty-color;
+}
+
+.doughnut-fill-color {
+    background-color: @doughnut-fill-color;
+}
+
+.doughnut-hole {
+    position: absolute;
+    z-index: 2;
+}
+
+.doughnut-fill {
+    position: absolute;
+    z-index: 1;
+}
+
+.doughnut-bg {
+    
+}
 blankslate {
     display: flex;
     flex-direction: row;
@@ -249,54 +297,6 @@ blankslate {
 .blankslate-link {
     .text-link();
     font-weight: bold;
-}
-@doughnut-empty-color: @color-gray-darker;
-@doughnut-fill-color: @color-green;
-
-doughnut {
-    display: block;
-    position: relative;
-    background-color: inherit;
-    color: inherit;
-        
-    & canvas {
-        display: block;
-    }
-}
-
-.doughnut-text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    z-index: 3;
-}
-
-.doughnut-empty-color {
-    background-color: @doughnut-empty-color;
-}
-
-.doughnut-fill-color {
-    background-color: @doughnut-fill-color;
-}
-
-.doughnut-hole {
-    position: absolute;
-    z-index: 2;
-}
-
-.doughnut-fill {
-    position: absolute;
-    z-index: 1;
-}
-
-.doughnut-bg {
-    
 }
 .layout-page {
 	display: flex;
@@ -629,31 +629,6 @@ nav-menu {
 		flex-grow: 1;
     }
 }
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-.page-content-body {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    flex-shrink: 0;
-}
-
-// Less width than table landscape
-@media @media-tablet-portrait,
-    @media-phone-landscape,
-    @media-phone-portrait {
-    .page-content-body {
-        display: block;
-        // flex-direction: column;
-        // align-content: flex-start;
-        // flex-grow: 0;
-    }
-}
 .page-content-body-pane {
     padding: 0 unit(@padding,px);
     width: unit(@page-content-body-pane-width,px);
@@ -710,6 +685,31 @@ nav-menu {
 		}
     }
 }
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.page-content-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+// Less width than table landscape
+@media @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content-body {
+        display: block;
+        // flex-direction: column;
+        // align-content: flex-start;
+        // flex-grow: 0;
+    }
+}
 .page-content-nav {
     display: flex;
     flex-direction: row;
@@ -722,44 +722,6 @@ nav-menu {
     margin: 0;
     background-color: @page-content-nav-background-color;
     list-style-type: none;
-}
-page-content-nav-item {
-    display: block;
-    line-height: unit(@page-content-nav-item-font-size*3.5,px);
-    padding: 0 2em;
-    cursor: pointer;
-    transition: background-color .25s ease-in-out;
-    position: relative;
-    .font-size(@page-content-nav-item-font-size);
-    text-transform: uppercase;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding: 0 unit(@padding-half,px);
-    .text-link();
-        
-    & ~ & {
-        margin-left: 0;
-    }
-}
-
-.page-content-nav-item--active {
-    border-style: none;
-    
-    &:hover,
-    & {
-        background-color: @page-content-nav-item-selected-background-color;
-        color: @page-content-nav-item-selected-color;
-        font-weight: @font-weight-bold;
-    }
-    
-    & {
-        .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
-    }
-    
-    & ~ & {
-        margin-top: 0;
-        margin-left: 1px;
-    }
 }
 page-header,
 .page-header {
@@ -873,6 +835,44 @@ page-header,
         padding: 0 unit(@padding,px) 0 0;
     }
 }
+page-content-nav-item {
+    display: block;
+    line-height: unit(@page-content-nav-item-font-size*3.5,px);
+    padding: 0 2em;
+    cursor: pointer;
+    transition: background-color .25s ease-in-out;
+    position: relative;
+    .font-size(@page-content-nav-item-font-size);
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 unit(@padding-half,px);
+    .text-link();
+        
+    & ~ & {
+        margin-left: 0;
+    }
+}
+
+.page-content-nav-item--active {
+    border-style: none;
+    
+    &:hover,
+    & {
+        background-color: @page-content-nav-item-selected-background-color;
+        color: @page-content-nav-item-selected-color;
+        font-weight: @font-weight-bold;
+    }
+    
+    & {
+        .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
+    }
+    
+    & ~ & {
+        margin-top: 0;
+        margin-left: 1px;
+    }
+}
 page-slider {
     position: absolute;
     right: 0;
@@ -902,12 +902,6 @@ page-slider {
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
-.pane {
-    height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-    line-height: @line-height-base;
-    .font-size(@pane-font-size);
-}
 .pane-body {
     display: block;
     max-height: 100%;
@@ -925,6 +919,12 @@ page-slider {
     .pane--withFooter & {
         max-height: ~"calc(100% - @{pane-footer-height}px)";
     }
+}
+.pane {
+    height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+    line-height: @line-height-base;
+    .font-size(@pane-font-size);
 }
 pane-footer {
     display: block;
@@ -1042,6 +1042,9 @@ pane-header,
         background-color: @pane-header-actions-item-active-background-color;
     }
 }
+tab {
+    width: 100%;
+}
 /// <reference path="../assets.less" />
 
 .section {
@@ -1088,9 +1091,6 @@ pane-header,
 
 .section-content {
     display: block;
-}
-tab {
-    width: 100%;
 }
 tabs {
     width: 100%;

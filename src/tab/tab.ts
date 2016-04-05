@@ -31,6 +31,8 @@ module LayoutPageModule {
             var $ctrl: ITabController = $ctrls[1];
 
             $tabs.addTab($ctrl);
+            
+            angular.element($element).removeAttr('title');
         };
     }
 
