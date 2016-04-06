@@ -5534,7 +5534,7 @@ pane-header,
   font-size: .875em;
   text-transform: uppercase;
   font-weight: 400;
-  color: #72726B;
+  color: #B2B2A9;
 }
 .section-label--large {
   font-size: 1.25em;
@@ -5551,6 +5551,9 @@ pane-header,
 }
 .section-content {
   display: block;
+}
+.section-label + .section-content {
+  margin-top: .5em;
 }
 tab {
   width: 100%;

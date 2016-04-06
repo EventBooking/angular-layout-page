@@ -298,6 +298,53 @@ doughnut {
 .doughnut-bg {
     
 }
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;  
+    margin: 0;
+    padding: 0;
+    background-color: @layout-page-background-color;
+    color: @layout-page-color;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
+}
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -387,53 +434,6 @@ doughnut {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;  
-    margin: 0;
-    padding: 0;
-    background-color: @layout-page-background-color;
-    color: @layout-page-color;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
 }
 nav {
 	width: unit(@nav-large,px);
@@ -593,6 +593,9 @@ nav-header {
         }
     }
 }
+nav-menu {
+    text-align: center;
+}
 .page {
     display: flex;
     flex-direction: column;
@@ -625,9 +628,6 @@ nav-header {
     .page {
 		flex-grow: 1;
     }
-}
-nav-menu {
-    text-align: center;
 }
 .page-content,
 .page-content-area {
@@ -723,33 +723,42 @@ nav-menu {
     background-color: @page-content-nav-background-color;
     list-style-type: none;
 }
-page-slider {
-    position: absolute;
-    right: 0;
-    width: unit(@page-slider-width,px);
-    max-width: 100%;
-    top: 0;
-    bottom: 0;
-    z-index: 10;
-    transition: right .25s ease-in-out;
-    color: @page-slider-color;
-    background-color: @page-slider-background-color;
-    
-    &.page-slider--lg {
-        width: unit(@page-slider-width-lg,px);
+page-content-nav-item {
+    display: block;
+    line-height: unit(@page-content-nav-item-font-size*3.5,px);
+    padding: 0 2em;
+    cursor: pointer;
+    transition: background-color .25s ease-in-out;
+    position: relative;
+    .font-size(@page-content-nav-item-font-size);
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 unit(@padding-half,px);
+    .text-link();
+        
+    & ~ & {
+        margin-left: 0;
     }
-    
-    &.page-slider--sm {
-        width: unit(@page-slider-width-sm,px);
-    }
+}
 
-    &:not(.is-visible) {
-        // right: unit(-@page-slider-width,px);
-        right: -100%;
+.page-content-nav-item--active {
+    border-style: none;
+    
+    &:hover,
+    & {
+        background-color: @page-content-nav-item-selected-background-color;
+        color: @page-content-nav-item-selected-color;
+        font-weight: @font-weight-bold;
     }
-
-    &.is-visible {
-        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
+    
+    & {
+        .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
+    }
+    
+    & ~ & {
+        margin-top: 0;
+        margin-left: 1px;
     }
 }
 page-header,
@@ -864,43 +873,40 @@ page-header,
         padding: 0 unit(@padding,px) 0 0;
     }
 }
-page-content-nav-item {
-    display: block;
-    line-height: unit(@page-content-nav-item-font-size*3.5,px);
-    padding: 0 2em;
-    cursor: pointer;
-    transition: background-color .25s ease-in-out;
-    position: relative;
-    .font-size(@page-content-nav-item-font-size);
-    text-transform: uppercase;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding: 0 unit(@padding-half,px);
-    .text-link();
-        
-    & ~ & {
-        margin-left: 0;
+page-slider {
+    position: absolute;
+    right: 0;
+    width: unit(@page-slider-width,px);
+    max-width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    transition: right .25s ease-in-out;
+    color: @page-slider-color;
+    background-color: @page-slider-background-color;
+    
+    &.page-slider--lg {
+        width: unit(@page-slider-width-lg,px);
+    }
+    
+    &.page-slider--sm {
+        width: unit(@page-slider-width-sm,px);
+    }
+
+    &:not(.is-visible) {
+        // right: unit(-@page-slider-width,px);
+        right: -100%;
+    }
+
+    &.is-visible {
+        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
-
-.page-content-nav-item--active {
-    border-style: none;
-    
-    &:hover,
-    & {
-        background-color: @page-content-nav-item-selected-background-color;
-        color: @page-content-nav-item-selected-color;
-        font-weight: @font-weight-bold;
-    }
-    
-    & {
-        .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
-    }
-    
-    & ~ & {
-        margin-top: 0;
-        margin-left: 1px;
-    }
+.pane {
+    height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+    line-height: @line-height-base;
+    .font-size(@pane-font-size);
 }
 .pane-body {
     display: block;
@@ -920,12 +926,6 @@ page-content-nav-item {
         max-height: ~"calc(100% - @{pane-footer-height}px)";
     }
 }
-.pane {
-    height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-    line-height: @line-height-base;
-    .font-size(@pane-font-size);
-}
 pane-footer {
     display: block;
     height: unit(@pane-footer-height,px);
@@ -944,53 +944,6 @@ pane-footer {
     	float: right;
     	margin-top: unit(@padding-half,px);
 	}
-}
-/// <reference path="../assets.less" />
-
-.section {
-    display: block;
-    color: @color-gray-darker;
-    font-size: unit(@typescale,px);
-    
-    & + & {
-        border-top: solid 1px @border-color;
-        margin-top: 1em;
-        padding-top: 1em;
-    }
-
-    &--noborder + & {
-        border-top: none;
-        margin-top: 0;
-    }
-}
-
-.section-label {
-    display: block;
-    font-size: .875em;
-    text-transform: uppercase;
-    font-weight: @font-weight;
-    color: @color-gray-dark;
-
-    &--large {
-        font-size: 1.25em;
-    }
-
-    .section-content + & {
-        margin-top: unit(@padding-half,px);
-    }
-}
-
-.section-label-sublabel {
-    font-size: unit(@typescale-sm,px);
-    margin-left: .5em;
-
-    .section-label--large & {
-        font-size: unit(@typescale-sm,px);
-    }
-}
-
-.section-content {
-    display: block;
 }
 pane-header,
 .pane-header {
@@ -1087,6 +1040,57 @@ pane-header,
     &:active {
         color: @pane-header-actions-item-active-color;
         background-color: @pane-header-actions-item-active-background-color;
+    }
+}
+/// <reference path="../assets.less" />
+
+.section {
+    display: block;
+    color: @color-gray-darker;
+    font-size: unit(@typescale,px);
+    
+    & + & {
+        border-top: solid 1px @border-color;
+        margin-top: 1em;
+        padding-top: 1em;
+    }
+
+    &--noborder + & {
+        border-top: none;
+        margin-top: 0;
+    }
+}
+
+.section-label {
+    display: block;
+    font-size: .875em;
+    text-transform: uppercase;
+    font-weight: @font-weight;
+    color: @color-gray-light;
+
+    &--large {
+        font-size: 1.25em;
+    }
+
+    .section-content + & {
+        margin-top: unit(@padding-half,px);
+    }
+}
+
+.section-label-sublabel {
+    font-size: unit(@typescale-sm,px);
+    margin-left: .5em;
+
+    .section-label--large & {
+        font-size: unit(@typescale-sm,px);
+    }
+}
+
+.section-content {
+    display: block;
+    
+    .section-label + & {
+        margin-top: .5em;
     }
 }
 tab {

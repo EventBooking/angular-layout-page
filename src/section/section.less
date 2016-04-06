@@ -22,7 +22,7 @@
     font-size: .875em;
     text-transform: uppercase;
     font-weight: @font-weight;
-    color: @color-gray-dark;
+    color: @color-gray-light;
 
     &--large {
         font-size: 1.25em;
@@ -44,4 +44,8 @@
 
 .section-content {
     display: block;
+    
+    .section-label + & {
+        margin-top: .5em;
+    }
 }
