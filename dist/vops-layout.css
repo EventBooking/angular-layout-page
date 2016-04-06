@@ -5553,7 +5553,7 @@ pane-header,
   display: block;
 }
 .section-label + .section-content {
-  margin-top: .5em;
+  margin-top: .25rem;
 }
 tab {
   width: 100%;
