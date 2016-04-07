@@ -41,7 +41,7 @@
     flex-grow: 1;
     
     &.pane-header-titles--withSubtitle {
-        padding: 6px 0;
+        // padding: 6px 0;
     }
 }
 
@@ -54,14 +54,14 @@
     letter-spacing: unit(@letter-spacing-header,rem);
     
     .pane-header-titles--withSubtitle & {
-        line-height: unit(@typescale-lg,px);
+        // line-height: unit(@typescale-lg,px); 
     }
 }
 
 .pane-header-subtitle {
     display: block;
-    .font-size(@typescale-sm);
-    line-height: unit(@typescale,px);
+    font-size: .875em;
+    line-height: 17px;
     color: @pane-header-subtitle-color;
     .ellipsis();
 }

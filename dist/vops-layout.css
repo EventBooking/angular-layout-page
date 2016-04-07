@@ -5450,9 +5450,6 @@ pane-header,
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-.pane-header-titles.pane-header-titles--withSubtitle {
-  padding: 6px 0;
-}
 .pane-header-title {
   display: block;
   text-transform: uppercase;
@@ -5464,14 +5461,10 @@ pane-header,
   text-overflow: ellipsis;
   letter-spacing: 0.0625rem;
 }
-.pane-header-titles--withSubtitle .pane-header-title {
-  line-height: 20px;
-}
 .pane-header-subtitle {
   display: block;
-  font-size: 14px;
-  font-size: 0.875rem;
-  line-height: 16px;
+  font-size: .875em;
+  line-height: 17px;
   color: #777;
   white-space: nowrap;
   overflow: hidden;

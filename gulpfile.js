@@ -9,6 +9,7 @@ gulp.task('clean', clean);
 gulp.task('default', ['clean'], build);
 gulp.task('styles', styles);
 gulp.task('html', html);
+gulp.task('watch', watch);
 
 function exec(cmd, options, fn) {
     var proc = require('child_process').exec,
@@ -86,4 +87,9 @@ function styles() {
 function build() {
     styles();
     html();
+}
+
+function watch() {
+    gulp.watch(['src/**/*.less'], styles);
+    gulp.watch(['src/**/*.html'], html);
 }
