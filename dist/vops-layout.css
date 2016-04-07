@@ -5509,7 +5509,7 @@ pane-header.pane-header--withSubtitle,
 .pane-header-subtitleText {
   display: block;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 16px;
   color: #777;
   white-space: nowrap;
   overflow: hidden;
