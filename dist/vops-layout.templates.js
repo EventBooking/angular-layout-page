@@ -74,9 +74,9 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-header/nav-header.html',
-    '<span class="nav-header-text">{{vm.text}}</span>\n' +
-    '<span class="nav-header-small">{{vm.small}}</span>');
+  $templateCache.put('nav-group-item/nav-group-item.html',
+    '<i ng-if="vm.hasIcon" class="nav-group-item-icon" ng-class="vm.iconClass"></i>\n' +
+    '<span class="nav-group-item-text" ng-transclude></span>');
 }]);
 })();
 
@@ -87,9 +87,9 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-group-item/nav-group-item.html',
-    '<i ng-if="vm.hasIcon" class="nav-group-item-icon" ng-class="vm.iconClass"></i>\n' +
-    '<span class="nav-group-item-text" ng-transclude></span>');
+  $templateCache.put('nav-header/nav-header.html',
+    '<span class="nav-header-text">{{vm.text}}</span>\n' +
+    '<span class="nav-header-small">{{vm.small}}</span>');
 }]);
 })();
 
@@ -141,13 +141,13 @@ module.run(['$templateCache', function($templateCache) {
     '    <i class="pane-header-closeIcon fa fa-times-circle"></i>\n' +
     '</a>\n' +
     '<div class="pane-header-actions" ng-transclude></div>\n' +
-    '<div class="pane-header-titles" ng-class="{ \'pane-header-titles--withSubtitle\': vm.subtitle }">\n' +
-    '    <span class="pane-header-title">\n' +
+    '<div class="pane-header-titles">\n' +
+    '    <div class="pane-header-title">\n' +
     '        <span class="pane-header-titleText">{{vm.title}}</span>\n' +
-    '    </span>\n' +
-    '    <span class="pane-header-subtitle" ng-if="vm.subtitle">\n' +
-    '        <span class="pane-header-subtitleText">{{vm.subtitle}}</span>\n' +
-    '    </span>\n' +
+    '    </div>\n' +
+    '    <div class="pane-header-subtitle">\n' +
+    '        <span class="pane-header-subtitleText" ng-if="vm.subtitle">{{vm.subtitle}}</span>\n' +
+    '    </div>\n' +
     '</div>');
 }]);
 })();

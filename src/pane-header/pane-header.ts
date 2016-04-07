@@ -4,11 +4,33 @@
         showClose: boolean;
         pageSlider: IPageSliderController;
 
+        onInit(pageSlider: IPageSliderController, showClose: boolean) {
+            this.pageSlider = pageSlider;
+            this.showClose = showClose;
+            this.setWithSubtitle(this.hasSubtitle);
+        }
+
         close() {
             if (this.pageSlider == null)
                 return;
             this.pageSlider.close();
         }
+
+        get hasSubtitle(): boolean {
+            return this.subtitle != null && this.subtitle.trim().length > 0;
+        }
+
+        private _subtitle: string;
+        get subtitle(): string {
+            return this._subtitle;
+        }
+        set subtitle(value: string) {
+            this._subtitle = value;
+            if (this.setWithSubtitle != null)
+                this.setWithSubtitle(this.hasSubtitle);
+        }
+
+        setWithSubtitle;
     }
 
     class PaneHeaderDirective {
@@ -28,8 +50,10 @@
             $element.removeAttr("title");
 
             var ctrl: PaneHeaderController = $scope[this.controllerAs];
-            ctrl.pageSlider = pageSlider;
-            ctrl.showClose = $attrs.showClose != null;
+            ctrl.setWithSubtitle = (hasSubtitle) => {
+                $element.toggleClass('pane-header--withSubtitle', hasSubtitle);
+            }
+            ctrl.onInit(pageSlider, $attrs.showClose != null);
         };
     }
 

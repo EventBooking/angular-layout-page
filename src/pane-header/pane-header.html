@@ -2,11 +2,11 @@
     <i class="pane-header-closeIcon fa fa-times-circle"></i>
 </a>
 <div class="pane-header-actions" ng-transclude></div>
-<div class="pane-header-titles" ng-class="{ 'pane-header-titles--withSubtitle': vm.subtitle }">
-    <span class="pane-header-title">
+<div class="pane-header-titles">
+    <div class="pane-header-title">
         <span class="pane-header-titleText">{{vm.title}}</span>
-    </span>
-    <span class="pane-header-subtitle" ng-if="vm.subtitle">
-        <span class="pane-header-subtitleText">{{vm.subtitle}}</span>
-    </span>
+    </div>
+    <div class="pane-header-subtitle">
+        <span class="pane-header-subtitleText" ng-if="vm.subtitle">{{vm.subtitle}}</span>
+    </div>
 </div>

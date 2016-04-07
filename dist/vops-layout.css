@@ -5360,11 +5360,21 @@ page-slider.is-visible {
   overflow: auto;
   padding: 16px 32px;
 }
-pane-header ~ .pane-body {
+pane-header ~ .pane-body,
+.pane-header ~ .pane-body {
   max-height: calc(100% - 48px);
 }
-.pane--withFooter pane-header ~ .pane-body {
+.pane--withFooter pane-header ~ .pane-body,
+.pane--withFooter .pane-header ~ .pane-body {
   max-height: calc(100% - 64px - 48px);
+}
+pane-header.pane-header--withSubtitle ~ .pane-body,
+.pane-header.pane-header--withSubtitle ~ .pane-body {
+  max-height: calc(100% - 60px);
+}
+.pane--withFooter pane-header.pane-header--withSubtitle ~ .pane-body,
+.pane--withFooter .pane-header.pane-header--withSubtitle ~ .pane-body {
+  max-height: calc(100% - 64px - 60px);
 }
 .pane--withFooter .pane-body {
   max-height: calc(100% - 64px);
@@ -5398,11 +5408,16 @@ pane-header,
   -webkit-flex-basis: 100%;
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%;
-  height: 48px;
-  line-height: 48px;
   padding: 0 32px;
   color: #999990;
   background-color: transparent;
+  height: 48px;
+  line-height: 48px;
+}
+pane-header.pane-header--withSubtitle,
+.pane-header.pane-header--withSubtitle {
+  height: 60px;
+  line-height: 60px;
 }
 .pane-header-close {
   -webkit-box-ordinal-group: 1;
@@ -5415,15 +5430,20 @@ pane-header,
   display: flex;
   width: 30px;
   cursor: pointer;
+  padding-right: .5em;
 }
 .pane-header-closeIcon {
   display: inline-block;
   font-size: 20px;
   font-size: 1.25rem;
-  line-height: 48px;
   text-align: center;
   cursor: pointer;
   color: #B2B2A9;
+  line-height: 48px;
+}
+.pane-header--withSubtitle .pane-header-closeIcon {
+  height: 60px;
+  line-height: 60px;
 }
 .pane-header-close:hover .pane-header-closeIcon {
   color: #E5E5E3;
@@ -5449,22 +5469,47 @@ pane-header,
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  letter-spacing: 0.0625rem;
+  line-height: 48px;
+  overflow: hidden;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.pane-header--withSubtitle .pane-header-titles {
+  height: 60px;
+  line-height: 60px;
 }
 .pane-header-title {
   display: block;
-  text-transform: uppercase;
   color: #555;
-  font-size: 20px;
-  font-size: 1.25rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  letter-spacing: 0.0625rem;
+}
+.pane-header-titleText {
+  display: block;
+  font-size: 20px;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pane-header--withSubtitle .pane-header-titleText {
+  line-height: 20px;
 }
 .pane-header-subtitle {
   display: block;
-  font-size: .875em;
-  line-height: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pane-header-subtitleText {
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
   color: #777;
   white-space: nowrap;
   overflow: hidden;
@@ -5479,16 +5524,26 @@ pane-header,
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  line-height: 48px;
+  padding-left: .5em;
+}
+.pane-header--withSubtitle .pane-header-actions {
+  height: 60px;
+  line-height: 60px;
 }
 .pane-header-actions-item {
   display: inline-block;
   font-size: 20px;
   font-size: 1.25rem;
-  line-height: 48px;
   text-align: center;
   cursor: pointer;
   color: #4EB6D6;
   background-color: transparent;
+  line-height: 48px;
+}
+.pane-header--withSubtitle .pane-header-actions-item {
+  height: 60px;
+  line-height: 60px;
 }
 .pane-header-actions-item + .pane-header-actions-item {
   margin-left: .25em;

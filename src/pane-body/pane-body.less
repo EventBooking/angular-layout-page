@@ -4,11 +4,21 @@
     overflow: auto;
     padding: unit(@padding-half,px) unit(@padding,px);
 
-    pane-header ~ & {
+    pane-header ~ &,
+    .pane-header ~ & {
         max-height: ~"calc(100% - @{pane-header-height}px)";
         
         .pane--withFooter & {
             max-height: ~"calc(100% - @{pane-footer-height}px - @{pane-header-height}px)";
+        }
+    }
+    
+    pane-header.pane-header--withSubtitle ~ &,
+    .pane-header.pane-header--withSubtitle ~ & {
+        max-height: ~"calc(100% - @{pane-header-height-withSubtitle}px)";
+        
+        .pane--withFooter & {
+            max-height: ~"calc(100% - @{pane-footer-height}px - @{pane-header-height-withSubtitle}px)";
         }
     }
 
