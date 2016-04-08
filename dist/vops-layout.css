@@ -4905,8 +4905,11 @@ a:active {
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .page-content-body-pane {
     display: block;
-    width: 480;
+    width: 50%;
     border-right: none;
+  }
+  .page-content-body-pane--double {
+    width: 100%;
   }
   .page-content-body-pane--fluid {
     -webkit-box-flex: 0;
@@ -4915,7 +4918,7 @@ a:active {
             flex: 0 0 auto;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1023px), screen and (max-width: 479px) {
+@media screen and (min-width: 768px) and (max-width: 1023px), screen and (max-width: 479px), screen and (min-width: 480px) and (max-width: 767px) {
   .page-content-body-pane {
     display: block;
     width: auto;
@@ -5346,12 +5349,17 @@ page-slider.is-visible {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-@media screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   .page {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+  .page {
+    width: 100vw;
   }
 }
 .pane-body {

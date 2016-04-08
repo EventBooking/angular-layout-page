@@ -24,10 +24,18 @@
     }
 }
 
-@media @media-tablet-portrait,
+@media @media-tablet-landscape,
+    @media-tablet-portrait, 
     @media-phone-landscape,
     @media-phone-portrait {
     .page {
 		flex-grow: 1;
+    }
+}
+
+@media @media-phone-landscape,
+    @media-phone-portrait {
+    .page {
+        width: 100vw;
     }
 }

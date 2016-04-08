@@ -32,8 +32,12 @@
 @media @media-tablet-landscape {
     .page-content-body-pane {
         display: block;
-        width: @page-content-body-pane-width-tableLandscape;;
+        width: 50%;
         border-right: none;
+        
+        &--double {
+            width: 100%;
+        }
 		
 		&--fluid {
 			flex: 0 0 auto;
@@ -43,7 +47,8 @@
 
 
 @media @media-tablet-portrait,
-    @media-phone-portrait {
+    @media-phone-portrait,
+    @media-phone-landscape {
     .page-content-body-pane {
         display: block;
         width: auto;
