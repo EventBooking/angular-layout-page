@@ -54,90 +54,6 @@ a {
     .text-link();
     text-decoration: none;
 }
-blankslate {
-    display: flex;
-    flex-direction: row;
-    color: @color-gray-darker;
-    border-color: @color-gray-lightest2;
-    border-style: solid;
-    border-width: 1px 0;
-    padding: 2em 0;
-
-    &[center] {
-        flex-direction: column;
-        text-align: center;
-        padding: 1em 0;
-    }
-
-    &[noborder] {
-        border-style: none;
-    }
-    
-    &[link] {
-        .text-link();
-    }
-}
-
-.blankslate-icon,
-.blankslate-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.blankslate-icon {
-    font-size: 3.75em;
-    color: @blankslate-icon-color;
-    padding: 0 .5em;
-    margin: 0;
-    
-    blankslate[link] & {
-        color: inherit;
-    }
-    
-    blankslate[warning] & {
-        .text-warning();
-    }
-    
-    blankslate[danger] & {
-        .text-danger();
-    }
-}
-
-.blankslate-content {
-}
-
-.blankslate-content-title,
-.blankslate-content-subtitle {
-    display: flex;
-    
-    blankslate[center] & {
-        justify-content: center;
-    }
-}
-
-.blankslate-content-title {
-    font-size: 1.5em;
-    color: @blankslate-title-color;
-    
-    blankslate[link] & {
-        color: inherit;
-    }
-}
-
-.blankslate-content-subtitle {
-    font-size: 1.25em;
-    color: @blankslate-subtitle-color;
-    
-    blankslate[link] & {
-        color: inherit;
-    }
-}
-
-.blankslate-link {
-    .text-link();
-    font-weight: bold;
-}
 @bar-graph-lg: @typescale*2.5;
 @bar-graph: @typescale*2;
 @bar-graph-sm: @typescale*1.5;
@@ -250,6 +166,90 @@ body-header,
     white-space: nowrap;
     overflow: hidden;
 }
+blankslate {
+    display: flex;
+    flex-direction: row;
+    color: @color-gray-darker;
+    border-color: @color-gray-lightest2;
+    border-style: solid;
+    border-width: 1px 0;
+    padding: 2em 0;
+
+    &[center] {
+        flex-direction: column;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    &[noborder] {
+        border-style: none;
+    }
+    
+    &[link] {
+        .text-link();
+    }
+}
+
+.blankslate-icon,
+.blankslate-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.blankslate-icon {
+    font-size: 3.75em;
+    color: @blankslate-icon-color;
+    padding: 0 .5em;
+    margin: 0;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
+    
+    blankslate[warning] & {
+        .text-warning();
+    }
+    
+    blankslate[danger] & {
+        .text-danger();
+    }
+}
+
+.blankslate-content {
+}
+
+.blankslate-content-title,
+.blankslate-content-subtitle {
+    display: flex;
+    
+    blankslate[center] & {
+        justify-content: center;
+    }
+}
+
+.blankslate-content-title {
+    font-size: 1.5em;
+    color: @blankslate-title-color;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
+}
+
+.blankslate-content-subtitle {
+    font-size: 1.25em;
+    color: @blankslate-subtitle-color;
+    
+    blankslate[link] & {
+        color: inherit;
+    }
+}
+
+.blankslate-link {
+    .text-link();
+    font-weight: bold;
+}
 @doughnut-empty-color: @color-gray-darker;
 @doughnut-fill-color: @color-green;
 
@@ -297,90 +297,6 @@ doughnut {
 
 .doughnut-bg {
     
-}
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;  
-    margin: 0;
-    padding: 0;
-    background-color: @layout-page-background-color;
-    color: @layout-page-color;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
-}
-nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
-}
-
-@media @media-tablet-landscape,
-    @media-tablet-portrait {
-    nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
-}
-
-@media @media-phone-landscape,
-    @media-phone-portrait {
-    nav {
-        transition: all .1s ease-in-out;
-        width: 0;
-        min-width: 0;
-        
-        .nav--show & {
-            width: unit(@nav-small,px);
-            min-width: unit(@nav-small,px);
-        }
-    }
-    
-    .nav-icon {
-        position: absolute;
-        top: 17px;
-        left: 9px;
-        z-index: 1;
-        
-        .nav--show & {
-            left: unit(@nav-small + 9,px);
-        }
-    }
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
@@ -472,6 +388,90 @@ nav {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;  
+    margin: 0;
+    padding: 0;
+    background-color: @layout-page-background-color;
+    color: @layout-page-color;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
+}
+nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+}
+
+@media @media-tablet-landscape,
+    @media-tablet-portrait {
+    nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
+}
+
+@media @media-phone-landscape,
+    @media-phone-portrait {
+    nav {
+        transition: all .1s ease-in-out;
+        width: 0;
+        min-width: 0;
+        
+        .nav--show & {
+            width: unit(@nav-small,px);
+            min-width: unit(@nav-small,px);
+        }
+    }
+    
+    .nav-icon {
+        position: absolute;
+        top: 17px;
+        left: 9px;
+        z-index: 1;
+        
+        .nav--show & {
+            left: unit(@nav-small + 9,px);
+        }
+    }
+}
 nav-group,
 .nav-group {
 	display: flex;
@@ -489,6 +489,42 @@ nav-group,
 @media @media-phone-portrait {
     nav-group,
     .nav-group {
+        display: none;
+        
+        .nav--show & {
+            display: block;
+        }
+    }
+}
+nav-header {
+	display: block;
+	text-align: center;
+	color: @nav-header-color;
+	.font-size(@nav-header-font-size);
+	line-height: unit(@page-header-height,px);
+    font-weight: @nav-header-font-weight;
+    text-transform: none;
+}
+
+.nav-header-small {
+	display: none;
+}
+
+@media @media-tablet-landscape,
+    @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
+	.nav-header-text {
+		display: none;
+	}
+	
+    .nav-header-small {
+        display: inline;
+    }
+}
+
+@media @media-phone-portrait {
+    nav-header {
         display: none;
         
         .nav--show & {
@@ -557,69 +593,8 @@ nav-group-item,
         display: none;
     }
 }
-nav-header {
-	display: block;
-	text-align: center;
-	color: @nav-header-color;
-	.font-size(@nav-header-font-size);
-	line-height: unit(@page-header-height,px);
-    font-weight: @nav-header-font-weight;
-    text-transform: none;
-}
-
-.nav-header-small {
-	display: none;
-}
-
-@media @media-tablet-landscape,
-    @media-tablet-portrait,
-    @media-phone-landscape,
-    @media-phone-portrait {
-	.nav-header-text {
-		display: none;
-	}
-	
-    .nav-header-small {
-        display: inline;
-    }
-}
-
-@media @media-phone-portrait {
-    nav-header {
-        display: none;
-        
-        .nav--show & {
-            display: block;
-        }
-    }
-}
 nav-menu {
     text-align: center;
-}
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-.page-content-body {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    flex-shrink: 0;
-}
-
-// Less width than table landscape
-@media @media-tablet-portrait,
-    @media-phone-landscape,
-    @media-phone-portrait {
-    .page-content-body {
-        display: block;
-        // flex-direction: column;
-        // align-content: flex-start;
-        // flex-grow: 0;
-    }
 }
 .page {
     display: flex;
@@ -660,6 +635,31 @@ nav-menu {
     @media-phone-portrait {
     .page {
         width: 100vw;
+    }
+}
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.page-content-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+// Less width than table landscape
+@media @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content-body {
+        display: block;
+        // flex-direction: column;
+        // align-content: flex-start;
+        // flex-grow: 0;
     }
 }
 .page-content-body-pane {
@@ -915,31 +915,6 @@ page-slider {
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
     }
 }
-.pane {
-    height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-    line-height: @line-height-base;
-    .font-size(@pane-font-size);
-}
-pane-footer {
-    display: block;
-    height: unit(@pane-footer-height,px);
-    line-height: unit(@pane-footer-height,px);
-    margin: 0 unit(@padding,px);
-    border-style: solid;
-    border-width: 1px 0 0 0;
-    border-color: @border-color;
-    z-index: 1;
-    color: @pane-footer-color;
-    background-color: @pane-footer-background-color;
-}
-
-.pane-footer-button {
-	&--right {
-    	float: right;
-    	margin-top: unit(@padding-half,px);
-	}
-}
 .pane-body {
     display: block;
     max-height: 100%;
@@ -967,6 +942,31 @@ pane-footer {
     .pane--withFooter & {
         max-height: ~"calc(100% - @{pane-footer-height}px)";
     }
+}
+.pane {
+    height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+    line-height: @line-height-base;
+    .font-size(@pane-font-size);
+}
+pane-footer {
+    display: block;
+    height: unit(@pane-footer-height,px);
+    line-height: unit(@pane-footer-height,px);
+    margin: 0 unit(@padding,px);
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: @border-color;
+    z-index: 1;
+    color: @pane-footer-color;
+    background-color: @pane-footer-background-color;
+}
+
+.pane-footer-button {
+	&--right {
+    	float: right;
+    	margin-top: unit(@padding-half,px);
+	}
 }
 pane-header,
 .pane-header {
