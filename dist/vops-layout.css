@@ -5233,18 +5233,20 @@ page-header,
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 16px;
+  padding: 0 32px;
 }
 .page-header-actions-item {
   display: inline-block;
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 48px;
-  padding: 0 16px;
   text-align: center;
   cursor: pointer;
   color: #E5E5E3;
   background-color: transparent;
+}
+.page-header-actions-item + .page-header-actions-item {
+  margin-left: 16px;
 }
 .page-header-actions-item:hover {
   color: #CCCCC3;

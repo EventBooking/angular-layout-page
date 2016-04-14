@@ -72,19 +72,22 @@
 .page-header-actions {
     order: 3;
     display: flex;
-    padding: 0 unit(@padding-half,px);
+    padding: 0 unit(@padding,px);
 }
 
 .page-header-actions-item {
     display: inline-block;
     .font-size(@page-header-actions-font-size);
     line-height: unit(@page-header-height,px);
-    padding: 0 unit(@page-header-actions-item-padding,px);
+    // padding: 0 unit(@page-header-actions-item-padding,px);
     text-align: center;
     cursor: pointer;
-    
     color: @page-header-actions-item-color;
     background-color: @page-header-actions-item-background-color; 
+    
+    & + & {
+        margin-left: unit(@page-header-actions-item-padding,px);
+    }
     
     &:hover {
         color: @page-header-actions-item-hover-color;
