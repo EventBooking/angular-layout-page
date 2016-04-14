@@ -37,23 +37,6 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('doughnut/doughnut.html',
-    '<div class="doughnut-text">\n' +
-    '    <div ng-transclude></div>\n' +
-    '</div>\n' +
-    '<canvas class="doughnut-hole"></canvas>\n' +
-    '<canvas class="doughnut-fill"></canvas>\n' +
-    '<canvas class="doughnut-bg"></canvas>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('body-header/body-header.html',
     '<div class="body-header-top">\n' +
     '    <div class="body-header-title">{{vm.title}}</div>\n' +
@@ -64,6 +47,23 @@ module.run(['$templateCache', function($templateCache) {
     '<div class="body-header-bottom">\n' +
     '    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>\n' +
     '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('doughnut/doughnut.html',
+    '<div class="doughnut-text">\n' +
+    '    <div ng-transclude></div>\n' +
+    '</div>\n' +
+    '<canvas class="doughnut-hole"></canvas>\n' +
+    '<canvas class="doughnut-fill"></canvas>\n' +
+    '<canvas class="doughnut-bg"></canvas>');
 }]);
 })();
 
@@ -87,8 +87,9 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-menu/nav-menu.html',
-    '<i ng-class="vm.iconClass"></i>');
+  $templateCache.put('nav-header/nav-header.html',
+    '<span class="nav-header-text">{{vm.text}}</span>\n' +
+    '<span class="nav-header-small">{{vm.small}}</span>');
 }]);
 })();
 
@@ -99,9 +100,8 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-header/nav-header.html',
-    '<span class="nav-header-text">{{vm.text}}</span>\n' +
-    '<span class="nav-header-small">{{vm.small}}</span>');
+  $templateCache.put('nav-menu/nav-menu.html',
+    '<i ng-class="vm.iconClass"></i>');
 }]);
 })();
 
