@@ -820,7 +820,6 @@ label > .form-control[type="checkbox"] + .form-label:before {
       -ms-flex-pack: center;
           justify-content: center;
   border: solid 2px #E5E5E3;
-  margin-right: .5rem;
   width: 1.5em;
   height: 1.5em;
   line-height: 1.25em;
@@ -828,6 +827,10 @@ label > .form-control[type="checkbox"] + .form-label:before {
   -webkit-transition: all .25s linear;
           transition: all .25s linear;
   background-color: #fff;
+  margin-right: .5rem;
+}
+label > .form-control[type="checkbox"] + .form-label:empty:before {
+  margin-right: inherit;
 }
 label > .form-control[type="checkbox"]:checked + .form-label:before {
   content: "\2714";
@@ -6197,7 +6200,6 @@ label > .form-control[type="checkbox"] + .form-label:before {
       -ms-flex-pack: center;
           justify-content: center;
   border: solid 2px #E5E5E3;
-  margin-right: .5rem;
   width: 1.5em;
   height: 1.5em;
   line-height: 1.25em;
@@ -6205,6 +6207,10 @@ label > .form-control[type="checkbox"] + .form-label:before {
   -webkit-transition: all .25s linear;
           transition: all .25s linear;
   background-color: #fff;
+  margin-right: .5rem;
+}
+label > .form-control[type="checkbox"] + .form-label:empty:before {
+  margin-right: inherit;
 }
 label > .form-control[type="checkbox"]:checked + .form-label:before {
   content: "\2714";

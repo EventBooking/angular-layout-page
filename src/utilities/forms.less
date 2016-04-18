@@ -78,13 +78,17 @@
             box-sizing: border-box;
             justify-content: center;
             border: solid 2px @form-control-border-color;
-            margin-right: .5rem;
             width: 1.5em;
             height: 1.5em;
             line-height: 1.25em;
             border-radius: 2px;
             transition: all .25s linear;
             background-color: #fff;
+            margin-right: .5rem;
+        }
+        
+        &:empty:before {            
+            margin-right: inherit;
         }
     }
     
