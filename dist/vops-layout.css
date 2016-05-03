@@ -798,6 +798,9 @@ th {
       -ms-user-select: none;
           user-select: none;
 }
+.form-label--capitalize {
+  text-transform: capitalize;
+}
 label > .form-label {
   vertical-align: middle;
   display: -webkit-box;
@@ -6177,6 +6180,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.form-label--capitalize {
+  text-transform: capitalize;
 }
 label > .form-label {
   vertical-align: middle;
