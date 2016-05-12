@@ -32,10 +32,11 @@ html {
     font-family: @layout-page-font-family;
     font-size: unit(@layout-page-font-size,px);
     line-height: @layout-page-line-height;
+    box-sizing: border-box;
 }
 
-* {
-    box-sizing: border-box;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 p {

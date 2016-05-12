@@ -2568,9 +2568,12 @@ html {
   font-family: 'Source Sans Pro';
   font-size: 16px;
   line-height: 1.5;
-}
-* {
   box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 p {
   margin: 0 0 10px;
@@ -4822,9 +4825,12 @@ html {
   font-family: 'Source Sans Pro';
   font-size: 16px;
   line-height: 1.5;
-}
-* {
   box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 p {
   margin: 0 0 10px;
