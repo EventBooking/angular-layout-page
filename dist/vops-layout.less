@@ -251,53 +251,6 @@ body-header,
     white-space: nowrap;
     overflow: hidden;
 }
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;  
-    margin: 0;
-    padding: 0;
-    background-color: @layout-page-background-color;
-    color: @layout-page-color;
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
-}
 @doughnut-empty-color: @color-gray-darker;
 @doughnut-fill-color: @color-green;
 
@@ -435,6 +388,53 @@ doughnut {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.layout-page {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;  
+    margin: 0;
+    padding: 0;
+    background-color: @layout-page-background-color;
+    color: @layout-page-color;
+}
+
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
 }
 nav {
 	width: unit(@nav-large,px);
@@ -1440,6 +1440,7 @@ tabs {
 @form-control-padding: .5;
 @form-control-selected-background-color: @color-green-lightest;
 @form-control-disabled-background-color: @color-gray-lightest;
+@form-control-disabled-color: @color-gray-dark;
 
 .form {
     display: flex;
@@ -1533,6 +1534,15 @@ tabs {
     label > .form-control[type="checkbox"]:focus + & {
         &:before {
             box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
+        }
+    }
+    
+    label > .form-control[type="checkbox"][disabled]:checked + & {
+        &:before {
+            content: "\2714";
+            background-color: @form-control-disabled-background-color;
+            border-color: @form-control-disabled-background-color; 
+            color: @form-control-disabled-color;
         }
     }
 }

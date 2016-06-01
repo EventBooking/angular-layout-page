@@ -15,6 +15,7 @@
 @form-control-padding: .5;
 @form-control-selected-background-color: @color-green-lightest;
 @form-control-disabled-background-color: @color-gray-lightest;
+@form-control-disabled-color: @color-gray-dark;
 
 .form {
     display: flex;
@@ -108,6 +109,15 @@
     label > .form-control[type="checkbox"]:focus + & {
         &:before {
             box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
+        }
+    }
+    
+    label > .form-control[type="checkbox"][disabled]:checked + & {
+        &:before {
+            content: "\2714";
+            background-color: @form-control-disabled-background-color;
+            border-color: @form-control-disabled-background-color; 
+            color: @form-control-disabled-color;
         }
     }
 }
