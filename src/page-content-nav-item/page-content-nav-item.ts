@@ -31,7 +31,7 @@ module LayoutPageModule {
         }
 
         get isActive() {
-            if(this._area == null)
+            if (this._area == null)
                 return this.isDefault;
             return this.path.toLowerCase() == this._area.toLowerCase();
         }
@@ -49,9 +49,15 @@ module LayoutPageModule {
             if (!this.init)
                 return;
 
-            var params = {};
-            params[this.param || 'area'] = this._area;
-            this.$location.search(params);
+            var name = this.param || 'area';
+
+            if (this.param == null) {
+                var params = {};
+                params[name] = this._area;
+                this.$location.search(params);
+            } else {
+                this.$location.search(name, this._area);
+            }
 
             this.toggleActive(this);
         }
@@ -82,7 +88,7 @@ module LayoutPageModule {
             $ctrl.toggleActive = this.toggleActive;
             $ctrl.onInit($element, $attr.default != null);
 
-            $scope.$on('$routeUpdate', function(evt, current) {
+            $scope.$on('$routeUpdate', function (evt, current) {
                 $ctrl.onRouteChange(current.params);
             });
         };

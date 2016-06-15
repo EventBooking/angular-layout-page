@@ -4,7 +4,7 @@
 
         <page-header title="Panes" subtitle="with subtitle" label="label">
             <i class="page-header-actions-item fa fa-files-o" ng-click></i>
-		    <i class="page-header-actions-item fa fa-coffee" ng-click></i>
+            <i class="page-header-actions-item fa fa-coffee" ng-click></i>
             <i class="page-header-actions-item fa fa-ellipsis-v"></i>
         </page-header>
 
@@ -13,7 +13,7 @@
             <div class="page-content-nav">
                 <page-content-nav-item area="vm.area" path="twoPane" default>Two panes</page-content-nav-item>
                 <page-content-nav-item area="vm.area" path="doublePane">Double pane</page-content-nav-item>
-                <page-content-nav-item area="vm.area" path="thirdPane">Third</page-content-nav-item>
+                <page-content-nav-item area="vm.area" path="thirdPane">Sub Areas</page-content-nav-item>
                 <page-content-nav-item area="vm.area" path="tabs">Tabs</page-content-nav-item>
             </div>
 
@@ -26,21 +26,58 @@
             </div>
 
             <div class="page-content-area" ng-switch-when="thirdPane">
-                <div class="page-content-body">
-                    <div class="page-content-body-pane page-content-body-pane--double">
-                        <body-header title="Third pane">
-                            actions
-                        </body-header>
+                <div class="page-content-area" ng-switch="vm.subarea">
 
-                        <div>
-                            content here
+                    <div class="page-content-nav page-content-nav--subnav">
+                        <page-content-nav-item param="subarea" area="vm.subarea" path="subpane1" default>Sub Pane 1</page-content-nav-item>
+                        <page-content-nav-item param="subarea" area="vm.subarea" path="subpane2">Sub Pane 2</page-content-nav-item>
+                        <page-content-nav-item param="subarea" area="vm.subarea" path="subpane3">Sub Pane 3</page-content-nav-item>
+                    </div>
+
+                    <div class="page-content-area" ng-switch-default>
+                        <div class="page-content-body">
+                            <div class="page-content-body-pane page-content-body-pane--double">
+                                <body-header title="Third pane">
+                                    actions
+                                </body-header>
+
+                                <div>
+                                    content here
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-content-area" ng-switch-when="subpane2">
+                        <div class="page-content-body">
+                            <div class="page-content-body-pane page-content-body-pane--double">
+                                <body-header title="Third pane">
+                                    actions
+                                </body-header>
+
+                                <div>
+                                    content here
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-content-area" ng-switch-when="subpane3">
+                        <div class="page-content-body">
+                            <div class="page-content-body-pane page-content-body-pane--double">
+                                <body-header title="Third pane">
+                                    actions
+                                </body-header>
+
+                                <div>
+                                    content here
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="page-content-area" ng-switch-when="tabs">
-                <ng-include class="page-content-body" src="'demo/paneTest/tabPane.html'"></ng-include>            
+                <ng-include class="page-content-body" src="'demo/paneTest/tabPane.html'"></ng-include>
             </div>
 
         </div>

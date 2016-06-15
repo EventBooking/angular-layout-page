@@ -5032,8 +5032,16 @@ page-content-nav-item:active {
 page-content-nav-item ~ page-content-nav-item {
   margin-left: 0;
 }
+.page-content-nav--subnav page-content-nav-item {
+  line-height: 32px;
+}
 .page-content-nav-item--active {
   border-style: none;
+}
+.page-content-nav--subnav .page-content-nav-item--active:hover,
+.page-content-nav--subnav .page-content-nav-item--active {
+  background-color: #fff;
+  font-weight: 600;
 }
 .page-content-nav-item--active:hover,
 .page-content-nav-item--active {
@@ -5041,8 +5049,8 @@ page-content-nav-item ~ page-content-nav-item {
   color: #262624;
   font-weight: 600;
 }
-.page-content-nav-item--active:before,
-.page-content-nav-item--active:after {
+.page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:before,
+.page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:after {
   content: "";
   display: block;
   overflow: hidden;
@@ -5054,20 +5062,20 @@ page-content-nav-item ~ page-content-nav-item {
   bottom: auto;
   right: auto;
 }
-.page-content-nav-item--active:before {
+.page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:before {
   bottom: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid #E5E5E3;
 }
-.page-content-nav-item--active:after {
+.page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:after {
   bottom: -1px;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid #fff;
 }
-.page-content-nav-item--active:before,
-.page-content-nav-item--active:after {
+.page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:before,
+.page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:after {
   content: "";
   display: block;
   overflow: hidden;
@@ -5079,17 +5087,20 @@ page-content-nav-item ~ page-content-nav-item {
   bottom: auto;
   right: auto;
 }
-.page-content-nav-item--active:before {
+.page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:before {
   bottom: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid #E5E5E3;
 }
-.page-content-nav-item--active:after {
+.page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:after {
   bottom: -1px;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid #fff;
+}
+.page-content-nav--subnav .page-content-nav-item--active {
+  border-bottom: solid 1px #EEA041;
 }
 .page-content-nav-item--active ~ .page-content-nav-item--active {
   margin-top: 0;
@@ -5119,6 +5130,14 @@ page-content-nav-item ~ page-content-nav-item {
   margin: 0;
   background-color: #EFEFEE;
   list-style-type: none;
+}
+.page-content-nav--subnav {
+  background-color: #fff;
+  border-bottom: solid 1px #E5E5E3;
+  border-top: solid 1px #E5E5E3;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 0.66666667em;
 }
 .page-content,
 .page-content-area {

@@ -2,7 +2,8 @@
 
 function PaneTestController($routeParams) {
     var self = this;
-	this.area = $routeParams.area;// || 'twoPane';	
+	this.area = $routeParams.area;	
+	this.subarea = $routeParams.subarea;
     this.activeTab = 'tab2';
 	
 	this.showSlider1 = false;

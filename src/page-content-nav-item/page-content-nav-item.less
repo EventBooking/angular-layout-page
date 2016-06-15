@@ -15,10 +15,20 @@ page-content-nav-item {
     & ~ & {
         margin-left: 0;
     }
+
+    .page-content-nav--subnav & {
+        line-height: unit(@page-content-nav-height/1.5,px);
+    }
 }
 
 .page-content-nav-item--active {
     border-style: none;
+
+    .page-content-nav--subnav &:hover,
+    .page-content-nav--subnav & {
+        background-color: #fff;
+        font-weight: @font-weight-bold;
+    }
     
     &:hover,
     & {
@@ -28,7 +38,13 @@ page-content-nav-item {
     }
     
     & {
-        .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
+        .page-content-nav:not(.page-content-nav--subnav) & {
+            .arrow-inset-bottom(@page-content-nav-item-selected-arrow-size);
+        }
+
+        .page-content-nav--subnav & {
+            border-bottom: solid 1px @color-orange;
+        }
     }
     
     & ~ & {
