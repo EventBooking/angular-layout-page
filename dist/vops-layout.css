@@ -379,6 +379,9 @@ th {
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
+.button-group + .button-group {
+  margin-left: 1em;
+}
 .button {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -6098,6 +6101,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
+}
+.button-group + .button-group {
+  margin-left: 1em;
 }
 .button {
   display: -webkit-inline-box;
