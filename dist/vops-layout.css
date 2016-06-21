@@ -374,10 +374,10 @@ th {
   background-image: radial-gradient(circle, #e5e5e5, #ffffff);
 }
 .button-group {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 .button {
   display: -webkit-inline-box;
@@ -6094,10 +6094,10 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
           transition: left 0.25s ease-in-out;
 }
 .button-group {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 .button {
   display: -webkit-inline-box;
