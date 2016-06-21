@@ -380,7 +380,7 @@ th {
   display: inline-flex;
 }
 .button-group + .button-group {
-  margin-left: 1em;
+  margin-left: .5em;
 }
 .button {
   display: -webkit-inline-box;
@@ -6103,7 +6103,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   display: inline-flex;
 }
 .button-group + .button-group {
-  margin-left: 1em;
+  margin-left: .5em;
 }
 .button {
   display: -webkit-inline-box;
