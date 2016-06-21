@@ -1,5 +1,9 @@
 /// <reference path="../assets.less" />
 
+.button-group {
+    display: flex;
+}
+
 .button {
     display: inline-flex;
     white-space: nowrap;
@@ -32,10 +36,23 @@
             outline-color: @button-focus-outline-color;
         }
     }
+
+    .button-group & {
+        border-radius: 0;
+
+        &:first-child {
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+    }
 }
 
-.button-default {
-    .button();
+.button--default {
     background-color: @button-default-background-color;
     border-color: @button-default-border-color;
     color: @button-default-color;
@@ -63,10 +80,18 @@
             outline-color: @button-default-focus-outline-color;
         }
     }
+
+    .button-group & + & {
+        border-left-width: 0;
+    }
 }
 
-.button-primary {
+.button-default {
     .button();
+    .button--default();
+}
+
+.button--primary {
     background-color: @button-primary-background-color;
     border-color: @button-primary-border-color;
     color: @button-primary-color;
@@ -90,8 +115,12 @@
     }
 }
 
-.button-success {
+.button-primary {
     .button();
+    .button--primary();
+}
+
+.button--success {
     background-color: @button-success-background-color;
     border-color: @button-success-border-color;
     color: @button-success-color;
@@ -115,8 +144,12 @@
     }
 }
 
-.button-danger {
+.button-success {
     .button();
+    .button--success();
+}
+
+.button--danger {
     background-color: @button-danger-background-color;
     border-color: @button-danger-border-color;
     color: @button-danger-color;
@@ -140,8 +173,12 @@
     }
 }
 
-.button-link {
+.button-danger {
     .button();
+    .button--danger();
+}
+
+.button--link {
     color: @color-blue;
     background-color: transparent;
     border: none;
@@ -166,6 +203,11 @@
             outline: none;   
         }
     }
+}
+
+.button-link {
+    .button();
+    .button--link();
 }
 
 .button-icon {
