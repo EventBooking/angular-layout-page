@@ -138,7 +138,7 @@ try {
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('pane-header/pane-header.html',
     '<a href="#" class="pane-header-close" ng-if="vm.showClose" ng-click="vm.close()">\n' +
-    '    <i class="pane-header-closeIcon fa fa-times-circle"></i>\n' +
+    '    <span class="pane-header-closeIcon fa fa-arrow-right"></i>\n' +
     '</a>\n' +
     '<div class="pane-header-actions" ng-transclude></div>\n' +
     '<div class="pane-header-titles">\n' +

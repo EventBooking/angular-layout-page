@@ -9,7 +9,6 @@
     height: unit(@pane-header-height,px);
     line-height: unit(@pane-header-height,px);
     
-    
     &.pane-header--withSubtitle {
         height: unit(@pane-header-height-withSubtitle,px);
         line-height: unit(@pane-header-height-withSubtitle,px);
@@ -17,11 +16,23 @@
 }
 
 .pane-header-close {
-    order: 0;
+    order: 2;
     display: flex;
-    width: 30px;
+    width: 42px;
     cursor: pointer;
-    padding-right: .5em;
+    margin-right: unit(-@padding-half,px);
+    
+    &:before {
+        content: "";
+        width: 1px;
+        height: 2em;
+        margin: unit(@padding-quarter,px) unit(@padding-half,px) unit(@padding-half,px) unit(@padding-quarter,px);
+        background-color: @border-color-light;
+
+        .pane-header--withSubtitle & {
+            margin-top: .875em;
+        }
+    }
 }
 
 .pane-header-closeIcon {
@@ -29,27 +40,17 @@
     .font-size(@pane-header-actions-font-size);
     text-align: center;
     cursor: pointer;
-    color: @color-gray-light;
     line-height: unit(@pane-header-height,px);
-    
+
     .pane-header--withSubtitle & {
-        height: unit(@pane-header-height-withSubtitle,px);
         line-height: unit(@pane-header-height-withSubtitle,px);
-    }
-    
-    .pane-header-close:hover & {
-        color: @color-gray-lightest;
-    }
-    
-    .pane-header-close:active & {
-        color: @color-gray-dark;
     }
 }
 
 .pane-header-titles {
     display: flex;
     flex-direction: column;
-    order: 1;
+    order: 0;
     flex-grow: 1;
     letter-spacing: unit(@letter-spacing-header,rem);
     line-height: unit(@pane-header-height,px);
@@ -93,7 +94,7 @@
 }
 
 .pane-header-actions {
-    order: 2;
+    order: 1;
     display: flex;
     line-height: unit(@pane-header-height,px);
     padding-left: .5em;
@@ -112,6 +113,7 @@
     color: @pane-header-actions-item-color;
     background-color: @pane-header-actions-item-background-color;
     line-height: unit(@pane-header-height,px);
+    width: 24px;
     
     .pane-header--withSubtitle & {
         height: unit(@pane-header-height-withSubtitle,px);
