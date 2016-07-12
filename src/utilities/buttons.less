@@ -53,6 +53,10 @@
             border-bottom-right-radius: 2px;
         }
     }
+
+    .button-group & + & {
+        border-left: solid 1px @color-gray;
+    }
 }
 
 .button--default {
@@ -116,6 +120,10 @@
             outline-color: @button-primary-focus-outline-color;
         }
     }
+
+    .button-group & + & {
+        border-left-color: @border-color;
+    }
 }
 
 .button-primary {
@@ -145,6 +153,10 @@
             outline-color: @button-success-focus-outline-color;
         }
     }
+
+    .button-group & + & {
+        border-left-color: @border-color;
+    }
 }
 
 .button-success {
@@ -173,6 +185,10 @@
         &:focus {
             outline-color: @button-danger-focus-outline-color;
         }
+    }
+
+    .button-group & + & {
+        border-left-color: @border-color;
     }
 }
 

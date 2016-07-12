@@ -190,54 +190,6 @@ blankslate {
     .text-link();
     font-weight: bold;
 }
-@doughnut-empty-color: @color-gray-darker;
-@doughnut-fill-color: @color-green;
-
-doughnut {
-    display: block;
-    position: relative;
-    background-color: inherit;
-    color: inherit;
-        
-    & canvas {
-        display: block;
-    }
-}
-
-.doughnut-text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    z-index: 3;
-}
-
-.doughnut-empty-color {
-    background-color: @doughnut-empty-color;
-}
-
-.doughnut-fill-color {
-    background-color: @doughnut-fill-color;
-}
-
-.doughnut-hole {
-    position: absolute;
-    z-index: 2;
-}
-
-.doughnut-fill {
-    position: absolute;
-    z-index: 1;
-}
-
-.doughnut-bg {
-    
-}
 body-header,
 .body-header {
     display: flex;
@@ -299,6 +251,54 @@ body-header,
     white-space: nowrap;
     overflow: hidden;
 }
+@doughnut-empty-color: @color-gray-darker;
+@doughnut-fill-color: @color-green;
+
+doughnut {
+    display: block;
+    position: relative;
+    background-color: inherit;
+    color: inherit;
+        
+    & canvas {
+        display: block;
+    }
+}
+
+.doughnut-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 3;
+}
+
+.doughnut-empty-color {
+    background-color: @doughnut-empty-color;
+}
+
+.doughnut-fill-color {
+    background-color: @doughnut-fill-color;
+}
+
+.doughnut-hole {
+    position: absolute;
+    z-index: 2;
+}
+
+.doughnut-fill {
+    position: absolute;
+    z-index: 1;
+}
+
+.doughnut-bg {
+    
+}
 .layout-page {
 	display: flex;
 	flex-direction: row;
@@ -345,43 +345,6 @@ body-header,
 //             opacity: 0;
 //         }
 //     }
-}
-nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
-}
-
-@media @media-tablet-landscape,
-    @media-tablet-portrait {
-    nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
-}
-
-@media @media-phone-landscape,
-    @media-phone-portrait {
-    nav {
-        transition: all .1s ease-in-out;
-        width: 0;
-        min-width: 0;
-        
-        .nav--show & {
-            width: unit(@nav-small,px);
-            min-width: unit(@nav-small,px);
-        }
-    }
-    
-    .nav-icon {
-        position: absolute;
-        top: 17px;
-        left: 9px;
-        z-index: 1;
-        
-        .nav--show & {
-            left: unit(@nav-small + 9,px);
-        }
-    }
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
@@ -472,6 +435,43 @@ nav {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+}
+
+@media @media-tablet-landscape,
+    @media-tablet-portrait {
+    nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
+}
+
+@media @media-phone-landscape,
+    @media-phone-portrait {
+    nav {
+        transition: all .1s ease-in-out;
+        width: 0;
+        min-width: 0;
+        
+        .nav--show & {
+            width: unit(@nav-small,px);
+            min-width: unit(@nav-small,px);
+        }
+    }
+    
+    .nav-icon {
+        position: absolute;
+        top: 17px;
+        left: 9px;
+        z-index: 1;
+        
+        .nav--show & {
+            left: unit(@nav-small + 9,px);
+        }
+    }
 }
 nav-group,
 .nav-group {
@@ -834,7 +834,7 @@ page-header,
     
     & ~ & {
         margin-left: 1em;
-    }   
+    }
 }
 
 .page-header-titles-content {
@@ -874,19 +874,37 @@ page-header,
 .page-header-actions {
     order: 3;
     display: flex;
-    padding: 0 unit(@padding,px);
+    padding: 0 unit(@padding-half,px);
+}
+
+.page-header-actions-group {
+    display: flex;
+
+    & + & {
+        margin-left: .5em;
+    }
 }
 
 .page-header-actions-item {
     display: inline-block;
     .font-size(@page-header-actions-font-size);
     line-height: unit(@page-header-height,px);
-    // padding: 0 unit(@page-header-actions-item-padding,px);
     text-align: center;
     cursor: pointer;
     color: @page-header-actions-item-color;
-    background-color: @page-header-actions-item-background-color; 
-    
+    background-color: @page-header-actions-item-background-color;
+    padding: 0 .7em;
+    transition: background-color .25s ease-in-out;
+    box-sizing: content-box;
+
+    &--customWidth {
+        min-width: auto;
+    }
+
+    &--pad {
+        padding: 0 unit(@padding-quarter,px);
+    }
+
     & + & {
         margin-left: unit(@page-header-actions-item-padding,px);
     }
@@ -1328,6 +1346,10 @@ tabs {
             border-bottom-right-radius: 2px;
         }
     }
+
+    .button-group & + & {
+        border-left: solid 1px @color-gray;
+    }
 }
 
 .button--default {
@@ -1391,6 +1413,10 @@ tabs {
             outline-color: @button-primary-focus-outline-color;
         }
     }
+
+    .button-group & + & {
+        border-left-color: @border-color;
+    }
 }
 
 .button-primary {
@@ -1420,6 +1446,10 @@ tabs {
             outline-color: @button-success-focus-outline-color;
         }
     }
+
+    .button-group & + & {
+        border-left-color: @border-color;
+    }
 }
 
 .button-success {
@@ -1448,6 +1478,10 @@ tabs {
         &:focus {
             outline-color: @button-danger-focus-outline-color;
         }
+    }
+
+    .button-group & + & {
+        border-left-color: @border-color;
     }
 }
 
@@ -2147,13 +2181,13 @@ tabs {
 @page-header-subtitle-font-weight: @font-weight;
 @page-header-label-font-size: @typescale-xsm;
 @page-header-label-font-weight: @font-weight;
-@page-header-actions-item-padding: @padding-half;
+@page-header-actions-item-padding: 0;
 @page-header-actions-item-color: @color-gray-lightest;
 @page-header-actions-item-background-color: transparent;
-@page-header-actions-item-hover-color: @color-gray-lighter;
-@page-header-actions-item-hover-background-color: transparent;
+@page-header-actions-item-hover-color: @color-gray-lightest;
+@page-header-actions-item-hover-background-color: @color-gray;
 @page-header-actions-item-active-color: @color-gray-light;
-@page-header-actions-item-active-background-color: transparent;
+@page-header-actions-item-active-background-color: @color-gray;
 
 // page-slider
 @page-slider-background-color: #fff;

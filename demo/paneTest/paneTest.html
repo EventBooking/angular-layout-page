@@ -3,9 +3,15 @@
     <div class="page">
 
         <page-header title="Panes" subtitle="with subtitle" label="label">
-            <i class="page-header-actions-item fa fa-files-o" ng-click></i>
-            <i class="page-header-actions-item fa fa-coffee" ng-click></i>
-            <i class="page-header-actions-item fa fa-ellipsis-v"></i>
+            <!--<div class="page-header-actions-group">
+                <div class="page-header-actions-item page-header-actions-item--customWidth page-header-actions-item--pad" ng-click>Button</div>
+                <i class="page-header-actions-item page-header-actions-item--customWidth page-header-actions-item--pad fa fa-caret-down" ng-click></i>
+            </div>-->
+            <div class="page-header-actions-group">
+                <i class="page-header-actions-item fa fa-files-o" ng-click></i>
+                <i class="page-header-actions-item fa fa-coffee" ng-click></i>
+                <i class="page-header-actions-item fa fa-ellipsis-v"></i>
+            </div>
         </page-header>
 
         <div class="page-content" ng-switch="vm.area">
