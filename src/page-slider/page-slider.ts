@@ -1,10 +1,12 @@
 ﻿module LayoutPageModule {
 
     export interface IPageSliderController {
+        isVisible;
+        withOverlay;
         close();
     }
 
-    class PageSliderController implements IPageSliderController {
+    class PageSliderController implements IPageSliderController, IPageOverlay {
         private _slideIf;
 
         get slideIf() {
@@ -17,9 +19,14 @@
                 this.toggleVisibility();
         }
 
+        get isVisible() {
+            return this._slideIf;
+        }
+
         onClose;
         toggleVisibility;
         withFooter: boolean;
+        withOverlay: boolean;
 
         close() {
             this.slideIf = null;
@@ -43,7 +50,10 @@
             var $ctrl: PageSliderController = $scope[this.controllerAs],
                 sliderScope = null;
 
+            $ctrl.withOverlay = $attrs.showOverlay != null;
+
             $page.addControl($element);
+
             $scope.$on("$destroy", () => {
                 $element.remove();
             });
@@ -53,6 +63,13 @@
 
                 $element.empty()
                     .toggleClass("is-visible", isVisible);
+
+                if ($ctrl.withOverlay) {
+                    if (isVisible)
+                        $page.showOverlay($ctrl);
+                    else
+                        $page.hideOverlay($ctrl);
+                }
 
                 if (sliderScope) {
                     sliderScope.$destroy();

@@ -22,6 +22,26 @@
         order: 1;
         flex-grow: 1;
     }
+
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        opacity: 0;
+        background-color: rgba(0,0,0,.25);
+        z-index: 9;
+        transition: bottom .15s ease-in-out, opacity .15s ease-in-out;
+    }
+
+    &--overlay {
+        &:before {
+            opacity: 1;
+            bottom: 0;
+        }
+    }
 }
 
 @media @media-tablet-landscape,

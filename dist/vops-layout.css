@@ -5705,6 +5705,7 @@ page-header,
   }
 }
 page-slider {
+  display: block;
   position: absolute;
   right: 0;
   width: 480px;
@@ -5775,6 +5776,23 @@ page-slider.is-visible {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+.page:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 9;
+  -webkit-transition: bottom 0.15s ease-in-out, opacity 0.15s ease-in-out;
+          transition: bottom 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+.page--overlay:before {
+  opacity: 1;
+  bottom: 0;
 }
 @media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   .page {
