@@ -41,6 +41,9 @@ module LayoutPageModule {
 
         hideOverlay(overlay: IPageOverlay) {
             var idx = this.overlays.indexOf(overlay);
+            if (idx < 0)
+                return;
+                
             this.overlays.splice(idx, 1);
 
             if (this.overlays.length == 0)
