@@ -11,19 +11,6 @@ gulp.task('styles', styles);
 gulp.task('html', html);
 gulp.task('watch', watch);
 
-function exec(cmd, options, fn) {
-    var proc = require('child_process').exec,
-        child = proc(cmd, options, fn);
-
-    child.stdout.on('data', function (data) {
-        console.log(data);
-    });
-
-    child.stderr.on('data', function (data) {
-        console.log(data);
-    });
-}
-
 function clean() {
     var del = require('del');
     return del(dest);

@@ -1235,9 +1235,7 @@ label > .form-control[type="checkbox"][disabled]:checked + .form-label:before {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 0.5em;
+  padding: 0 0.5em;
   height: 2.5em;
   border-style: solid;
   border-width: 1px;
@@ -7068,9 +7066,7 @@ label > .form-control[type="checkbox"][disabled]:checked + .form-label:before {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 0.5em;
+  padding: 0 0.5em;
   height: 2.5em;
   border-style: solid;
   border-width: 1px;
