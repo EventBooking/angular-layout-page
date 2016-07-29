@@ -1,9 +1,9 @@
 module LayoutPageModule {
 
     class NavGroupItemController {
-        static $inject = ['$attrs', '$location'];
+        static $inject = ['$attrs', '$location', '$window'];
 
-        constructor(private $attrs, private $location) {
+        constructor(private $attrs, private $location: angular.ILocationService, private $window: angular.IWindowService) {
 
         }
 
@@ -31,7 +31,12 @@ module LayoutPageModule {
             return result.length > 0;
         }
 
-        navigate(): void {
+        navigate(newTab: boolean = false): void {
+            if (newTab) {
+                this.$window.open(this.href, '_blank');
+                return;
+            }
+
             this.$location.path(this.href);
         }
     }
@@ -65,8 +70,8 @@ module LayoutPageModule {
             });
             $element.toggleClass('nav-group-item--selected', ctrl.isSelected);
 
-            $element.on(clickEvent, () => {
-                ctrl.navigate();
+            $element.on(clickEvent, e => {
+                ctrl.navigate(e.ctrlKey || (e.which == 2));
                 $scope.$apply();
             });
         };
