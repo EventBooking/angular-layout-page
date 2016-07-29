@@ -214,7 +214,7 @@ module LayoutPageModule {
 
         getBgColor($ctrl: DoughnutController) {
             var bgcolor = $ctrl.$element.css("background-color");
-            if (bgcolor == "rgba(0, 0, 0, 0)")
+            if (bgcolor == "rgba(0, 0, 0, 0)" || bgcolor == "transparent")
                 bgcolor = "white";
             return bgcolor;
         }
