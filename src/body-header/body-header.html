@@ -1,9 +1,12 @@
 ﻿<div class="body-header-top">
-    <div class="body-header-title">{{vm.title}}</div>
+    <div class="body-header-titles">
+        <div class="body-header-subtitle" ng-if="vm.subtitle">{{vm.subtitle}}</div>
+        <div class="body-header-title">{{vm.title}}</div>
+    </div>
     <div class="body-header-actions">
         <div ng-transclude></div>
     </div>
 </div>
-<div class="body-header-bottom">
+<!--<div class="body-header-bottom">
     <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>
-</div>
+</div>-->

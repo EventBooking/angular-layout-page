@@ -6,6 +6,7 @@
     color: @body-header-color;
     background-color: @body-header-background-color;
     text-transform: capitalize;
+    line-height: 48px;
 
     & ~ & {
         margin-top: unit(@padding,px);
@@ -36,10 +37,8 @@
     cursor: pointer;
     color: @body-header-actions-item-color;
     background-color: @body-header-actions-item-background-color;
-    
-    & + & {
-        margin-left: .25em;
-    }
+    padding: 0 .5em;
+    line-height: 48px;
     
     &:hover {
         color: @body-header-actions-item-hover-color;
@@ -58,4 +57,27 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.body-header-titles {
+    display: flex;
+    flex-direction: column;
+    
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.body-header-title {
+    order: 1;
+
+    .body-header-subtitle + & {
+        line-height: 32px; 
+    }    
+}
+
+.body-header-subtitle {
+    order: 2;
+    font-size: .75rem;
+    line-height: 16px;
 }
