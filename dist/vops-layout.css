@@ -5117,6 +5117,9 @@ nav-group-item:active,
   font-size: 1.25rem;
   line-height: 20px;
 }
+.nav-group-item--appSwitcher .nav-group-item-icon {
+  display: none;
+}
 .nav-group-item-text {
   font-size: 14px;
   font-size: 0.875rem;
@@ -5131,6 +5134,9 @@ nav-group-item:active,
 @media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   .nav-group-item-text {
     display: none;
+  }
+  .nav-group-item--appSwitcher .nav-group-item-icon {
+    display: block;
   }
 }
 nav-group,

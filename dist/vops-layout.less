@@ -563,6 +563,10 @@ nav-group-item,
 .nav-group-item-icon {
 	.font-size(@nav-group-item-icon-font-size);
 	line-height: unit(@nav-group-item-icon-font-size, px);
+
+	.nav-group-item--appSwitcher & {
+		display: none;
+	}
 }
 
 .nav-group-item-text {
@@ -584,6 +588,12 @@ nav-group-item,
 	.nav-group-item-text {
         display: none;
     }
+
+	.nav-group-item-icon {
+		.nav-group-item--appSwitcher & {
+			display: block;
+		}
+	}
 }
 nav-header {
 	display: block;

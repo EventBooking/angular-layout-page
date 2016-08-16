@@ -1,59 +1,62 @@
 <html ng-app="demo">
 
-	<head>
-		<base href="/"/>
-        <title>Layout Page Demo</title>
-        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-        <META HTTP-EQUIV="Expires" CONTENT="-1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-		<link rel="stylesheet" href="dist/vops-layout.css" />
-		<link rel="stylesheet" href="demo/stylesheet.css" />
-	</head>
-	
-	<body>
-		
-		<div class="layout-page">
-			<nav class="layout-page-nav">
-				<nav-header text="Nav Header" small="NH"></nav-header>
-				<nav-group>
-					<a nav-group-item icon="fa fa-check-square-o" ng-href="/panes" selected="['/routetest']">Panes</a>
-					<nav-group-item icon="fa fa-group" ng-href="/pages">Pages</nav-group-item>
-				</nav-group>
-				<nav-group>
-					<nav-group-item icon="fa fa-calendar" ng-href="/text">Text</nav-group-item>
-                    <nav-group-item icon="fa fa-calendar" ng-href="/buttons">Buttons</nav-group-item>
-                    <nav-group-item icon="fa fa-calendar" ng-href="/forms">Forms</nav-group-item>
-                    <nav-group-item icon="fa fa-calendar" ng-href="/colors">Colors</nav-group-item>
-                    <nav-group-item icon="fa fa-calendar" ng-href="/blankslate">Blankslate</nav-group-item>
-                    <nav-group-item icon="fa fa-calendar" ng-href="/charts">Charts</nav-group-item>
-                    <nav-group-item icon="fa fa-calendar" ng-href="/grid">Grid</nav-group-item>
-				</nav-group>
-			</nav>
-		
-			<div ng-view class="layout-page-view"></div>
-		</div>
+<head>
+	<base href="/" />
+	<title>Layout Page Demo</title>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="dist/vops-layout.css" />
+	<link rel="stylesheet" href="demo/stylesheet.css" />
+</head>
 
-		<script type="text/javascript" src="bower_components/file-saver.js/FileSaver.js"></script>
-		<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-		<script type="text/javascript" src="bower_components/angular/angular.js"></script>
-        <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
-        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
-		<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
-        <script type="text/javascript" src="bower_components/angular-typescript-module/dist/angular-typescript-module.js"></script>
-		<script type="text/javascript" src="dist/vops-layout.js"></script>
-		<script type="text/javascript" src="dist/vops-layout.templates.js"></script>
-		<script type="text/javascript" src="demo/app.js"></script>
-		<script type="text/javascript" src="demo/pageTest/pageTest.js"></script>
-		<script type="text/javascript" src="demo/paneTest/paneTest.js"></script>
-        <script type="text/javascript" src="demo/text/text.js"></script>
-        <script type="text/javascript" src="demo/forms/forms.js"></script>
-        <script type="text/javascript" src="demo/buttons/buttons.js"></script>
-        <script type="text/javascript" src="demo/colors/bgcolor.js"></script>
-        <script type="text/javascript" src="demo/colors/colors.js"></script>
-        <script type="text/javascript" src="demo/blankslate/blankslate.js"></script>
-        <script type="text/javascript" src="demo/charts/charts.js"></script>
-        <script type="text/javascript" src="demo/grid/grid.js"></script>
-	</body>
+<body>
+
+	<div class="layout-page">
+		<nav class="layout-page-nav">
+			<nav-header text="Nav Header" small="NH"></nav-header>
+			<nav-group>
+				<nav-group-item class="nav-group-item--appSwitcher" icon="fa fa-dollar" ng-href="/pages">Sales <i class="fa fa-caret-down"></i></nav-group-item>
+			</nav-group>
+			<nav-group>
+				<a nav-group-item icon="fa fa-check-square-o" ng-href="/panes" selected="['/routetest']">Panes</a>
+				<nav-group-item icon="fa fa-group" ng-href="/pages">Pages</nav-group-item>
+			</nav-group>
+			<nav-group>
+				<nav-group-item icon="fa fa-calendar" ng-href="/text">Text</nav-group-item>
+				<nav-group-item icon="fa fa-calendar" ng-href="/buttons">Buttons</nav-group-item>
+				<nav-group-item icon="fa fa-calendar" ng-href="/forms">Forms</nav-group-item>
+				<nav-group-item icon="fa fa-calendar" ng-href="/colors">Colors</nav-group-item>
+				<nav-group-item icon="fa fa-calendar" ng-href="/blankslate">Blankslate</nav-group-item>
+				<nav-group-item icon="fa fa-calendar" ng-href="/charts">Charts</nav-group-item>
+				<nav-group-item icon="fa fa-calendar" ng-href="/grid">Grid</nav-group-item>
+			</nav-group>
+		</nav>
+
+		<div ng-view class="layout-page-view"></div>
+	</div>
+
+	<script type="text/javascript" src="bower_components/file-saver.js/FileSaver.js"></script>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+	<script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+	<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="bower_components/angular-typescript-module/dist/angular-typescript-module.js"></script>
+	<script type="text/javascript" src="dist/vops-layout.js"></script>
+	<script type="text/javascript" src="dist/vops-layout.templates.js"></script>
+	<script type="text/javascript" src="demo/app.js"></script>
+	<script type="text/javascript" src="demo/pageTest/pageTest.js"></script>
+	<script type="text/javascript" src="demo/paneTest/paneTest.js"></script>
+	<script type="text/javascript" src="demo/text/text.js"></script>
+	<script type="text/javascript" src="demo/forms/forms.js"></script>
+	<script type="text/javascript" src="demo/buttons/buttons.js"></script>
+	<script type="text/javascript" src="demo/colors/bgcolor.js"></script>
+	<script type="text/javascript" src="demo/colors/colors.js"></script>
+	<script type="text/javascript" src="demo/blankslate/blankslate.js"></script>
+	<script type="text/javascript" src="demo/charts/charts.js"></script>
+	<script type="text/javascript" src="demo/grid/grid.js"></script>
+</body>
 
 </html>
