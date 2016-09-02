@@ -1723,7 +1723,7 @@ a.text-danger:hover,
   font-weight: 300;
 }
 .text-bold {
-  font-weight: 600;
+  font-weight: 700;
 }
 .text-link {
   color: #999990;
@@ -5110,7 +5110,7 @@ nav-group-item:active,
 .nav-group-item--selected {
   color: #262624;
   background-color: transparent;
-  font-weight: 600;
+  font-weight: 700;
 }
 .nav-group-item-icon {
   font-size: 20px;
@@ -5180,7 +5180,7 @@ nav-header {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 48px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: none;
 }
 .nav-header-small {
@@ -5455,13 +5455,13 @@ page-content-nav-item ~ page-content-nav-item {
 .page-content-nav--subnav .page-content-nav-item--active:hover,
 .page-content-nav--subnav .page-content-nav-item--active {
   background-color: #fff;
-  font-weight: 600;
+  font-weight: 700;
 }
 .page-content-nav-item--active:hover,
 .page-content-nav-item--active {
   background-color: #E5E5E3;
   color: #262624;
-  font-weight: 600;
+  font-weight: 700;
 }
 .page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:before,
 .page-content-nav:not(.page-content-nav--subnav) .page-content-nav-item--active:after {
@@ -5642,7 +5642,7 @@ page-header,
 }
 .page-header-title {
   display: inline-block;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 16px;
   font-size: 1rem;
   white-space: nowrap;
@@ -7591,7 +7591,7 @@ a.text-danger:hover,
   font-weight: 300;
 }
 .text-bold {
-  font-weight: 600;
+  font-weight: 700;
 }
 .text-link {
   color: #999990;
