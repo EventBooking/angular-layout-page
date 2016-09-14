@@ -37,7 +37,7 @@ module LayoutPageModule {
                 return;
             }
 
-            this.$location.path(this.href);
+            this.$location.url(this.href);
         }
     }
 
