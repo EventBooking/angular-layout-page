@@ -3,6 +3,7 @@
     class PaneHeaderController {
         showClose: boolean;
         pageSlider: IPageSliderController;
+        onClose: any;
 
         onInit(pageSlider: IPageSliderController, showClose: boolean) {
             this.pageSlider = pageSlider;
@@ -11,6 +12,7 @@
         }
 
         close() {
+            this.onClose();
             if (this.pageSlider == null)
                 return;
             this.pageSlider.close();
@@ -43,7 +45,8 @@
         bindToController = true;
         scope = {
             title: '@',
-            subtitle: '@'
+            subtitle: '@',
+            onClose: '&'
         };
 
         link = ($scope, $element, $attrs, pageSlider: IPageSliderController) => {
