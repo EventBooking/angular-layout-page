@@ -5037,6 +5037,7 @@ doughnut canvas {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  overflow: hidden;
 }
 .layout-page-view > * {
   display: -webkit-box;
@@ -5047,6 +5048,7 @@ doughnut canvas {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  max-width: 100%;
 }
 .divider-dark {
   overflow: hidden;
