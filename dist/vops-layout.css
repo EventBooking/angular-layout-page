@@ -5050,6 +5050,11 @@ doughnut canvas {
           flex-grow: 1;
   max-width: 100%;
 }
+@media screen and (max-width: 479px) {
+  .nav--show .layout-page-view {
+    width: 48px;
+  }
+}
 .divider-dark {
   overflow: hidden;
   height: 1px;
@@ -5133,12 +5138,32 @@ nav-group-item:active,
 .nav-group-item-icon ~ .nav-group-item-text {
   margin-top: 4px;
 }
-@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+@media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+  .nav-group-item--appSwitcher .nav-group-item-icon {
+    display: block;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px) {
   .nav-group-item-text {
     display: none;
   }
   .nav-group-item--appSwitcher .nav-group-item-icon {
     display: block;
+  }
+}
+@media screen and (max-width: 479px) {
+  nav-group-item,
+  [nav-group-item],
+  .nav-group-item {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .nav-group-item-icon {
+    width: 48px;
+    text-align: center;
   }
 }
 nav-group,
@@ -5175,6 +5200,12 @@ nav-group ~ .nav-group,
     display: block;
   }
 }
+@media screen and (max-width: 479px) {
+  .nav--show .page-header-titles,
+  .nav--show .page-header-actions {
+    display: none;
+  }
+}
 nav-header {
   display: block;
   text-align: center;
@@ -5188,7 +5219,7 @@ nav-header {
 .nav-header-small {
   display: none;
 }
-@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px) {
   .nav-header-text {
     display: none;
   }
@@ -5199,9 +5230,17 @@ nav-header {
 @media screen and (max-width: 479px) {
   nav-header {
     display: none;
+    padding-left: 48px;
+    text-align: left;
   }
   .nav--show nav-header {
     display: block;
+  }
+  .nav-header-text {
+    display: inline;
+  }
+  .nav-header-small {
+    display: none;
   }
 }
 nav-menu {
@@ -5217,7 +5256,7 @@ nav {
     min-width: 64px;
   }
 }
-@media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
   nav {
     -webkit-transition: all 0.1s ease-in-out;
             transition: all 0.1s ease-in-out;
@@ -5225,8 +5264,8 @@ nav {
     min-width: 0;
   }
   .nav--show nav {
-    width: 64px;
-    min-width: 64px;
+    width: 144px;
+    min-width: 144px;
   }
   .nav-icon {
     position: absolute;
@@ -5235,7 +5274,28 @@ nav {
     z-index: 1;
   }
   .nav--show .nav-icon {
-    left: 73px;
+    left: 153px;
+  }
+}
+@media screen and (max-width: 479px) {
+  nav {
+    -webkit-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+    width: 0;
+    min-width: 0;
+  }
+  .nav--show nav {
+    width: calc(100% - 48px);
+    min-width: 144px;
+  }
+  .nav-icon {
+    position: absolute;
+    top: 17px;
+    left: 9px;
+    z-index: 1;
+  }
+  .nav--show .nav-icon {
+    left: 153px;
   }
 }
 html {
@@ -5569,6 +5629,11 @@ page-content-nav-item ~ page-content-nav-item {
   overflow-y: auto;
   overflow-x: hidden;
 }
+@media screen and (max-width: 479px) {
+  .nav--show .page-content {
+    display: none;
+  }
+}
 page-header,
 .page-header {
   display: -webkit-box;
@@ -5603,6 +5668,10 @@ page-header,
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  cursor: pointer;
 }
 .page-header-titles {
   -webkit-box-ordinal-group: 3;
@@ -5687,6 +5756,7 @@ page-header,
   display: -ms-flexbox;
   display: flex;
   padding: 0 16px;
+  white-space: nowrap;
 }
 .page-header-actions-group {
   display: -webkit-box;
@@ -5853,6 +5923,12 @@ page-slider.is-visible {
 @media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   .page {
     width: 100vw;
+  }
+}
+@media screen and (max-width: 479px) {
+  .nav--show .page-header-titles,
+  .nav--show .page-header-actions {
+    display: none;
   }
 }
 .pane-body {

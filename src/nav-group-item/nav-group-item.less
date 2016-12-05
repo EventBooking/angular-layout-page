@@ -55,10 +55,17 @@ nav-group-item,
 	}
 }
 
-@media @media-tablet-landscape,
-    @media-tablet-portrait,
-    @media-phone-landscape,
+@media @media-phone-landscape, 
     @media-phone-portrait {
+		.nav-group-item-icon {
+			.nav-group-item--appSwitcher & {
+				display: block;
+			}
+		}
+	}
+
+@media @media-tablet-landscape,
+    @media-tablet-portrait {
 	.nav-group-item-text {
         display: none;
     }
@@ -67,5 +74,18 @@ nav-group-item,
 		.nav-group-item--appSwitcher & {
 			display: block;
 		}
+	}
+}
+
+@media @media-phone-portrait {
+	nav-group-item,
+	[nav-group-item],
+	.nav-group-item {
+		flex-direction: row;
+	}
+
+	.nav-group-item-icon {
+		width: 48px;
+		text-align: center;
 	}
 }

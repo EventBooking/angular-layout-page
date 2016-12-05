@@ -14,8 +14,7 @@ nav-header {
 
 @media @media-tablet-landscape,
     @media-tablet-portrait,
-    @media-phone-landscape,
-    @media-phone-portrait {
+    @media-phone-landscape {
 	.nav-header-text {
 		display: none;
 	}
@@ -28,9 +27,19 @@ nav-header {
 @media @media-phone-portrait {
     nav-header {
         display: none;
+        padding-left: 48px;
+        text-align: left;
         
         .nav--show & {
             display: block;
         }
+    }
+    
+	.nav-header-text {
+		display: inline;
+	}
+
+    .nav-header-small {
+        display: none;
     }
 }

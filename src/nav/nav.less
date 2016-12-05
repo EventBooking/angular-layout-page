@@ -11,16 +11,15 @@ nav {
     }
 }
 
-@media @media-phone-landscape,
-    @media-phone-portrait {
+@media @media-phone-landscape {
     nav {
         transition: all .1s ease-in-out;
         width: 0;
         min-width: 0;
         
         .nav--show & {
-            width: unit(@nav-small,px);
-            min-width: unit(@nav-small,px);
+            width: unit(@nav-large,px);
+            min-width: unit(@nav-large,px);
         }
     }
     
@@ -31,7 +30,31 @@ nav {
         z-index: 1;
         
         .nav--show & {
-            left: unit(@nav-small + 9,px);
+            left: unit(@nav-large + 9,px);
+        }
+    }
+}
+
+@media @media-phone-portrait {
+    nav {
+        transition: all .1s ease-in-out;
+        width: 0;
+        min-width: 0;
+        
+        .nav--show & {
+            width: ~"calc(100% - 48px)";
+            min-width: unit(@nav-large,px);
+        }
+    }
+    
+    .nav-icon {
+        position: absolute;
+        top: 17px;
+        left: 9px;
+        z-index: 1;
+        
+        .nav--show & {
+            left: unit(@nav-large + 9,px);
         }
     }
 }
