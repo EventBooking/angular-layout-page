@@ -31,7 +31,7 @@ module LayoutPageModule {
             return result.length > 0;
         }
 
-        navigate(newTab: boolean = false): void {
+        navigate(newTab: boolean = false) {
             if (newTab) {
                 this.$window.open(this.href, '_blank');
                 return;
@@ -51,6 +51,7 @@ module LayoutPageModule {
         }
 
         restrict = 'AEC';
+        require = ['navGroupItem', '^layoutPage'];
         transclude = true;
         templateUrl = 'nav-group-item/nav-group-item.html';
         controller = NavGroupItemController;
@@ -60,18 +61,22 @@ module LayoutPageModule {
             selected: '='
         };
 
-        link = ($scope, $element, $attrs) => {
-            var ctrl: NavGroupItemController = $scope[this.controllerAs],
+        link = ($scope, $element, $attrs, ctrls: any[]) => {
+            var $ctrl: NavGroupItemController = ctrls[0],
+                $layoutPage: ILayoutPageController = ctrls[1],
                 clickEvent = `click.${$scope.$id}`;
 
             // ToDo: this is probably done incorrectly and should be controlled by the nav-group instead
             $scope.$on('$routeChangeSuccess', () => {
-                $element.toggleClass('nav-group-item--selected', ctrl.isSelected);
+                $element.toggleClass('nav-group-item--selected', $ctrl.isSelected);
+                $layoutPage.hideNav();
             });
-            $element.toggleClass('nav-group-item--selected', ctrl.isSelected);
+            $element.toggleClass('nav-group-item--selected', $ctrl.isSelected);
 
             $element.on(clickEvent, e => {
-                ctrl.navigate(e.ctrlKey || (e.which == 2));
+                if (($ctrl.href || "").length === 0)
+                    return;
+                $ctrl.navigate(e.ctrlKey || (e.which == 2));
                 $scope.$apply();
             });
         };

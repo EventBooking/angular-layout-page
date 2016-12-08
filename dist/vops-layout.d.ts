@@ -8,6 +8,13 @@ declare module LayoutPageModule {
 declare module LayoutPageModule {
 }
 declare module LayoutPageModule {
+    interface ILayoutPageController {
+        showNav(): any;
+        hideNav(): any;
+        toggleNav(): any;
+    }
+}
+declare module LayoutPageModule {
 }
 declare module LayoutPageModule {
 }

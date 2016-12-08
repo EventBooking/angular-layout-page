@@ -7,32 +7,16 @@ module LayoutPageModule {
 
         }
 
-        onInit(toggleShown) {
-            this.toggleShown = toggleShown;
-        }
-
-        $element: any;
-
         get iconClass() {
             return this.$attrs.icon;
         }
-
-        private _isNavShown: boolean;
-        get isNavShown(): boolean {
-            return this._isNavShown;
-        }
-        set isNavShown(value: boolean) {
-            this._isNavShown = value;
-            this.toggleShown(this);
-        }
-
-        toggleShown($ctrl: NavMenuController) { };
     }
 
     Angular.module("ngLayoutPage").controller('navController', NavMenuController);
 
     class NavMenuDirective {
         restrict = 'E';
+        require = '^layoutPage';
         transclude = true;
         templateUrl = 'nav-menu/nav-menu.html';
         controller = NavMenuController;
@@ -40,16 +24,11 @@ module LayoutPageModule {
         bindToController = true;
         scope = true;
 
-        link = ($scope, $element, $attrs, $ctrl: NavMenuController) => {
+        link = ($scope, $element, $attrs, $layoutPage: ILayoutPageController) => {
             $element.on('click', () => {
-                $ctrl.isNavShown = !$ctrl.isNavShown; 
+                $layoutPage.toggleNav();
             });
-            $ctrl.onInit(this.toggleShown);
         }
-
-        toggleShown($ctrl: NavMenuController) {
-            angular.element('body').toggleClass('nav--show', $ctrl.isNavShown);
-        };
     }
 
     Angular.module("ngLayoutPage").directive('navMenu', NavMenuDirective);
