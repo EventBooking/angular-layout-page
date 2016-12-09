@@ -32,7 +32,7 @@ module LayoutPageModule {
         _update: (isVisible: boolean) => void;
     }
 
-    Angular.module("ngLayoutPage").controller('lyoutPageController', LayoutPageController);
+    Angular.module("ngLayoutPage").controller('layoutPageController', LayoutPageController);
 
     class LayoutPageDirective {
         restrict = 'EAC';
