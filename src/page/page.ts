@@ -56,6 +56,12 @@ module LayoutPageModule {
     }
 
     class PageDirective {
+        static $inject = ['$rootScope'];
+
+        constructor(private $rootScope: angular.IRootScopeService) {
+            
+        }
+
         restrict = 'C';
         controller = PageController;
 
@@ -63,10 +69,13 @@ module LayoutPageModule {
             $ctrl.controls.forEach(x => {
                 $element.append(x);
             });
-
             $ctrl.controls = [];
-
             $ctrl.onInit($element);
+
+            this.$rootScope.$emit('$page.$create', $element);
+            $scope.$on("$destroy", () => {
+                this.$rootScope.$emit('$page.$destroy', $element);
+            });
         }
     }
 
