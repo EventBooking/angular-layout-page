@@ -1,5 +1,6 @@
 .demogrid {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .demogrid-cols {

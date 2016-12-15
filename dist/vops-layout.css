@@ -2943,10 +2943,8 @@ html {
   line-height: 1.5;
   box-sizing: border-box;
 }
-@media print {
-  body {
-    -webkit-print-color-adjust: exact;
-  }
+body {
+  -webkit-overflow-scrolling: touch;
 }
 *,
 *:before,
@@ -3006,6 +3004,11 @@ a:hover {
 }
 a:active {
   color: #4EB6D6;
+}
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+  }
 }
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -3597,6 +3600,7 @@ blankslate[center] .blankslate-content-subtitle {
 .blankslate-content-title {
   font-size: 1.5em;
   color: #4C4C47;
+  word-break: break-word;
 }
 blankslate[link] .blankslate-content-title {
   color: inherit;
@@ -3604,6 +3608,7 @@ blankslate[link] .blankslate-content-title {
 .blankslate-content-subtitle {
   font-size: 1.25em;
   color: #72726B;
+  word-break: break-word;
 }
 blankslate[link] .blankslate-content-subtitle {
   color: inherit;
@@ -5258,8 +5263,8 @@ nav {
 }
 @media screen and (min-width: 480px) and (max-width: 767px) {
   nav {
-    -webkit-transition: all 0.1s ease-in-out;
-            transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+            transition: all 0.25s ease-in-out;
     width: 0;
     min-width: 0;
   }
@@ -5279,8 +5284,8 @@ nav {
 }
 @media screen and (max-width: 479px) {
   nav {
-    -webkit-transition: all 0.1s ease-in-out;
-            transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+            transition: all 0.25s ease-in-out;
     width: 0;
     min-width: 0;
   }
@@ -5304,10 +5309,8 @@ html {
   line-height: 1.5;
   box-sizing: border-box;
 }
-@media print {
-  body {
-    -webkit-print-color-adjust: exact;
-  }
+body {
+  -webkit-overflow-scrolling: touch;
 }
 *,
 *:before,
@@ -5368,6 +5371,11 @@ a:hover {
 a:active {
   color: #4EB6D6;
 }
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+  }
+}
 .page-content-body-pane {
   padding: 0 32px;
   width: 568px;
@@ -5423,6 +5431,13 @@ a:active {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
+  }
+}
+@media screen and (max-width: 479px) {
+  .page-content-body-pane {
+    padding: 0 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 .page-content-body {
@@ -5615,6 +5630,11 @@ page-content-nav-item ~ page-content-nav-item {
   line-height: 32px;
   padding: 0 0.66666667em;
 }
+@media screen and (max-width: 479px) {
+  .page-content-nav {
+    padding: 0;
+  }
+}
 .page-content,
 .page-content-area {
   display: -webkit-box;
@@ -5628,10 +5648,13 @@ page-content-nav-item ~ page-content-nav-item {
           flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+  opacity: 1;
+  -webkit-transition: opacity 0.25s ease-in-out;
+          transition: opacity 0.25s ease-in-out;
 }
 @media screen and (max-width: 479px) {
   .nav--show .page-content {
-    display: none;
+    opacity: 0;
   }
 }
 page-header,
@@ -5657,7 +5680,7 @@ page-header,
       -ms-flex-order: 1;
           order: 1;
   width: 48px;
-  line-height: 16px;
+  height: 48px;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -5682,6 +5705,9 @@ page-header,
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5814,11 +5840,46 @@ page-header,
     -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
+    -webkit-flex-shrink: 1;
+        -ms-flex-negative: 1;
+            flex-shrink: 1;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     padding: 0 32px 0 0;
+  }
+}
+@media screen and (max-width: 479px) {
+  .page-header-titles {
+    display: block;
+  }
+  .page-header-titles-item {
+    display: block;
+  }
+  .page-header-titles-item--label {
+    font-size: 12px;
+  }
+  .page-header-titles-item + .page-header-titles-item {
+    margin-left: 0;
+  }
+  .page-header-subtitle {
+    font-size: 12px;
+  }
+  .page-header-label {
+    display: inline;
+    font-size: 12px;
+    padding: 0 .25em;
+  }
+  .page-header-actions {
+    padding: 0;
+  }
+  .page-header-actions-item {
+    padding: 0;
+    min-width: 48px;
+  }
+  .page-header-actions-group + .page-header-actions-group {
+    margin-left: 0;
   }
 }
 page-slider {
@@ -5956,6 +6017,11 @@ pane-header.pane-header--withSubtitle ~ .pane-body,
 .pane--withFooter .pane-body {
   max-height: calc(100% - 64px);
 }
+@media screen and (max-width: 479px) {
+  .pane-body {
+    padding: 16px 16px;
+  }
+}
 pane-footer {
   display: block;
   height: 64px;
@@ -5971,6 +6037,11 @@ pane-footer {
 .pane-footer-button--right {
   float: right;
   margin-top: 16px;
+}
+@media screen and (max-width: 479px) {
+  pane-footer {
+    margin: 0 16px;
+  }
 }
 pane-header,
 .pane-header {
@@ -6005,19 +6076,25 @@ pane-header.pane-header--withSubtitle,
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 42px;
+  width: 48px;
+  min-width: 48px;
   cursor: pointer;
   margin-right: -16px;
+  margin-left: .5em;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
 }
 .pane-header-close:before {
   content: "";
   width: 1px;
-  height: 2em;
-  margin: 8px 16px 16px 8px;
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
   background-color: #EFEFEE;
-}
-.pane-header--withSubtitle .pane-header-close:before {
-  margin-top: .875em;
 }
 .pane-header-closeIcon {
   display: inline-block;
@@ -6135,6 +6212,19 @@ pane-header.pane-header--withSubtitle,
 .pane-header-actions-item:active {
   color: #4EB6D6;
   background-color: transparent;
+}
+@media screen and (max-width: 479px) {
+  pane-header,
+  .pane-header {
+    padding: 0 16px;
+  }
+  .pane-header-close {
+    margin-right: -16px;
+  }
+  .pane-header--withSubtitle .pane-header-close:before {
+    top: 10px;
+    bottom: 10px;
+  }
 }
 .pane {
   height: 100vh;

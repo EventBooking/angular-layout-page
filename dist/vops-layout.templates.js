@@ -119,13 +119,13 @@ module.run(['$templateCache', function($templateCache) {
     '<div class="page-header-actions" ng-transclude></div>\n' +
     '<nav-menu class="page-header-navMenu" icon="fa fa-navicon"></nav-menu>\n' +
     '<div class="page-header-titles">\n' +
-    '    <div class="page-header-titles-item">\n' +
+    '    <div class="page-header-titles-item page-header-titles-item--title">\n' +
     '        <span class="page-header-title">{{vm.title}}</span>\n' +
     '    </div>\n' +
-    '    <div class="page-header-titles-item">\n' +
+    '    <div class="page-header-titles-item page-header-titles-item--subtitle">\n' +
     '        <span class="page-header-subtitle" ng-if="vm.subtitle">{{vm.subtitle}}</span>\n' +
     '    </div>\n' +
-    '    <div class="page-header-titles-item">\n' +
+    '    <div class="page-header-titles-item page-header-titles-item--label">\n' +
     '        <span class="page-header-label" ng-if="vm.label">{{vm.label}}</span>\n' +
     '    </div>\n' +
     '</div>');

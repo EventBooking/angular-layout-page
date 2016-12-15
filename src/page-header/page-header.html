@@ -1,13 +1,13 @@
 ﻿<div class="page-header-actions" ng-transclude></div>
 <nav-menu class="page-header-navMenu" icon="fa fa-navicon"></nav-menu>
 <div class="page-header-titles">
-    <div class="page-header-titles-item">
+    <div class="page-header-titles-item page-header-titles-item--title">
         <span class="page-header-title">{{vm.title}}</span>
     </div>
-    <div class="page-header-titles-item">
+    <div class="page-header-titles-item page-header-titles-item--subtitle">
         <span class="page-header-subtitle" ng-if="vm.subtitle">{{vm.subtitle}}</span>
     </div>
-    <div class="page-header-titles-item">
+    <div class="page-header-titles-item page-header-titles-item--label">
         <span class="page-header-label" ng-if="vm.label">{{vm.label}}</span>
     </div>
 </div>

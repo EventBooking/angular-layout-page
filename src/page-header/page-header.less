@@ -10,8 +10,9 @@
 
 .page-header-navMenu {
     order: 1;
-    width: 48px;
-    line-height: unit(@page-header-title-font-size,px);
+    width: unit(@page-header-height,px);
+    height: unit(@page-header-height,px);
+    // line-height: unit(@page-header-title-font-size,px);
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -22,6 +23,7 @@
 .page-header-titles {
     order: 2;
     flex-grow: 1;
+    flex-shrink: 1;
     display: flex;
     padding: 0 unit(@padding,px);
 }
@@ -130,7 +132,51 @@
     .page-header-titles {
         order: 2;
         flex-grow: 1;
+        flex-shrink: 1;
         display: flex;
         padding: 0 unit(@padding,px) 0 0;
+    }
+}
+
+
+@media @media-phone-portrait {
+    .page-header-titles {
+        display: block;
+    }
+
+    .page-header-titles-item {
+        display: block;
+        &--label {
+            font-size: unit(@typescale-xsm,px);
+        }
+
+        & + & {
+            margin-left: 0;
+        }
+    }
+
+    .page-header-subtitle {
+        font-size: unit(@typescale-xsm,px);
+    }
+
+    .page-header-label {
+        display: inline;
+        font-size: unit(@typescale-xsm,px);
+        padding: 0 .25em;
+    }
+
+    .page-header-actions {
+        padding: 0;
+    }
+
+    .page-header-actions-item {
+        padding: 0;
+        min-width: 48px;
+    }
+
+    .page-header-actions-group {
+        & + & {
+            margin-left: 0;
+        }
     }
 }

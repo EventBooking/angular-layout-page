@@ -8,9 +8,7 @@ html {
 }
 
 body {
-    @media print {
-        -webkit-print-color-adjust: exact;
-    }
+    -webkit-overflow-scrolling: touch;
 }
 
 *, *:before, *:after {
@@ -32,4 +30,10 @@ pre {
 a {
     .text-link();
     text-decoration: none;
+}
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+    }
 }
