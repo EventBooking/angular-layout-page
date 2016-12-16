@@ -19,24 +19,6 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('blankslate/blankslate.html',
-    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
-    '<div class="blankslate-content">\n' +
-    '    <div class="blankslate-content-title">{{vm.title}}</div>\n' +
-    '    <div class="blankslate-content-subtitle">\n' +
-    '        <div ng-transclude></div>\n' +
-    '    </div>\n' +
-    '</div>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('body-header/body-header.html',
     '<div class="body-header-top">\n' +
     '    <div class="body-header-titles">\n' +
@@ -50,6 +32,24 @@ module.run(['$templateCache', function($templateCache) {
     '<!--<div class="body-header-bottom">\n' +
     '    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>\n' +
     '</div>-->');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('blankslate/blankslate.html',
+    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
+    '<div class="blankslate-content">\n' +
+    '    <div class="blankslate-content-title">{{vm.title}}</div>\n' +
+    '    <div class="blankslate-content-subtitle">\n' +
+    '        <div ng-transclude></div>\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 

@@ -4,14 +4,12 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    opacity: 1;
-    transition: opacity .25s ease-in-out;
 }
 
 @media @media-phone-portrait {
 	.page-content {
         .nav--show & {
-		    opacity: 0;
+		    display: none;
         }
 	}
 }

@@ -5648,13 +5648,10 @@ page-content-nav-item ~ page-content-nav-item {
           flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  opacity: 1;
-  -webkit-transition: opacity 0.25s ease-in-out;
-          transition: opacity 0.25s ease-in-out;
 }
 @media screen and (max-width: 479px) {
   .nav--show .page-content {
-    opacity: 0;
+    display: none;
   }
 }
 page-header,
@@ -5984,12 +5981,6 @@ page-slider.is-visible {
 @media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   .page {
     width: 100vw;
-  }
-}
-@media screen and (max-width: 479px) {
-  .nav--show .page-header-titles,
-  .nav--show .page-header-actions {
-    display: none;
   }
 }
 .pane-body {
