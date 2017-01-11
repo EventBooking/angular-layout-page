@@ -5378,6 +5378,7 @@ a:active {
 }
 .page-content-body-pane-section + .page-content-body-pane-section {
   margin-top: 32px;
+  display: block;
 }
 .page-content-body-pane {
   padding: 0 32px;
