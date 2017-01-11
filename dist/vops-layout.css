@@ -3675,10 +3675,10 @@ body-header,
   text-transform: capitalize;
   line-height: 48px;
 }
-body-header ~ body-header,
-body-header ~ .body-header,
-.body-header ~ body-header,
-.body-header ~ .body-header {
+body-header + body-header,
+body-header + .body-header,
+.body-header + body-header,
+.body-header + .body-header {
   margin-top: 32px;
 }
 .body-header-top {
@@ -5375,6 +5375,9 @@ a:active {
   body {
     -webkit-print-color-adjust: exact;
   }
+}
+.page-content-body-pane-section + .page-content-body-pane-section {
+  margin-top: 32px;
 }
 .page-content-body-pane {
   padding: 0 32px;
