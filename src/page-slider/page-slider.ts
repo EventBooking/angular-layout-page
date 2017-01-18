@@ -35,6 +35,12 @@
     }
 
     class PageSliderDirective {
+        static $inject = ['$rootScope'];
+
+        constructor(private $rootScope: angular.IRootScopeService) {
+            
+        }
+
         restrict = 'E';
         require = '^page';
         transclude = true;
@@ -60,6 +66,10 @@
 
             $ctrl.toggleVisibility = () => {
                 var isVisible = !!$ctrl.slideIf;
+
+                if(isVisible)
+                    this.$rootScope.$emit('$pageSlider.$show', $element);
+                else this.$rootScope.$emit('$pageSlider.$hide', $element);
 
                 $element.empty()
                     .toggleClass("is-visible", isVisible);
