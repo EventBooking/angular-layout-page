@@ -202,6 +202,53 @@ blankslate {
     .text-link();
     font-weight: bold;
 }
+@doughnut-empty-color: @color-gray-darker;
+@doughnut-fill-color: @color-green;
+
+doughnut {
+    display: block;
+    position: relative;
+    background-color: inherit;
+    color: inherit;
+        
+    & canvas {
+        display: block;
+    }
+}
+
+.doughnut-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 3;
+}
+
+.doughnut-empty-color {
+    background-color: @doughnut-empty-color;
+}
+
+.doughnut-fill-color {
+    background-color: @doughnut-fill-color;
+}
+
+.doughnut-hole {
+    position: absolute;
+    z-index: 2;
+}
+
+.doughnut-fill {
+    position: absolute;
+    z-index: 1;
+}
+
+.doughnut-bg {
+}
 body-header,
 .body-header {
     display: flex;
@@ -284,53 +331,6 @@ body-header,
     order: 2;
     font-size: .75rem;
     line-height: 16px;
-}
-@doughnut-empty-color: @color-gray-darker;
-@doughnut-fill-color: @color-green;
-
-doughnut {
-    display: block;
-    position: relative;
-    background-color: inherit;
-    color: inherit;
-        
-    & canvas {
-        display: block;
-    }
-}
-
-.doughnut-text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    z-index: 3;
-}
-
-.doughnut-empty-color {
-    background-color: @doughnut-empty-color;
-}
-
-.doughnut-fill-color {
-    background-color: @doughnut-fill-color;
-}
-
-.doughnut-hole {
-    position: absolute;
-    z-index: 2;
-}
-
-.doughnut-fill {
-    position: absolute;
-    z-index: 1;
-}
-
-.doughnut-bg {
 }
 .layout-page {
 	display: flex;
@@ -572,6 +572,51 @@ nav-group,
         }
 	}
 }
+nav-header {
+	display: block;
+	text-align: center;
+	color: @nav-header-color;
+	.font-size(@nav-header-font-size);
+	line-height: unit(@page-header-height,px);
+    font-weight: @nav-header-font-weight;
+    text-transform: none;
+}
+
+.nav-header-small {
+	display: none;
+}
+
+@media @media-tablet-landscape,
+    @media-tablet-portrait,
+    @media-phone-landscape {
+	.nav-header-text {
+		display: none;
+	}
+	
+    .nav-header-small {
+        display: inline;
+    }
+}
+
+@media @media-phone-portrait {
+    nav-header {
+        display: none;
+        padding-left: 48px;
+        text-align: left;
+        
+        .nav--show & {
+            display: block;
+        }
+    }
+    
+	.nav-header-text {
+		display: inline;
+	}
+
+    .nav-header-small {
+        display: none;
+    }
+}
 nav-group-item,
 [nav-group-item],
 .nav-group-item {
@@ -662,51 +707,6 @@ nav-group-item,
 		width: 48px;
 		text-align: center;
 	}
-}
-nav-header {
-	display: block;
-	text-align: center;
-	color: @nav-header-color;
-	.font-size(@nav-header-font-size);
-	line-height: unit(@page-header-height,px);
-    font-weight: @nav-header-font-weight;
-    text-transform: none;
-}
-
-.nav-header-small {
-	display: none;
-}
-
-@media @media-tablet-landscape,
-    @media-tablet-portrait,
-    @media-phone-landscape {
-	.nav-header-text {
-		display: none;
-	}
-	
-    .nav-header-small {
-        display: inline;
-    }
-}
-
-@media @media-phone-portrait {
-    nav-header {
-        display: none;
-        padding-left: 48px;
-        text-align: left;
-        
-        .nav--show & {
-            display: block;
-        }
-    }
-    
-	.nav-header-text {
-		display: inline;
-	}
-
-    .nav-header-small {
-        display: none;
-    }
 }
 nav-menu {
     text-align: center;
@@ -805,6 +805,12 @@ nav-menu {
         // flex-grow: 0;
     }
 }
+.page-content-body-pane-section {
+    & + & {
+        margin-top: unit(@padding,px);
+        display: block;
+    }
+}
 .page-content-body-pane {
     padding: 0 unit(@padding,px);
     width: unit(@page-content-body-pane-width,px);
@@ -871,12 +877,6 @@ nav-menu {
         padding: 0 unit(@padding-half,px);
         margin-top: unit(@page-content-body-pane-padding-top/2,px);
         margin-bottom: unit(@page-content-body-pane-padding-top/2,px);
-    }
-}
-.page-content-body-pane-section {
-    & + & {
-        margin-top: unit(@padding,px);
-        display: block;
     }
 }
 .page-content-nav {
@@ -1104,7 +1104,9 @@ page-header,
 
 @media @media-phone-portrait {
     .page-header-titles {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .page-header-titles-item {
@@ -1212,31 +1214,6 @@ page-slider {
 @media @media-phone-portrait {
     .pane-body {
         padding: unit(@padding-half,px) unit(@padding-half,px);
-    }
-}
-pane-footer {
-    display: block;
-    height: unit(@pane-footer-height,px);
-    line-height: unit(@pane-footer-height,px);
-    margin: 0 unit(@padding,px);
-    border-style: solid;
-    border-width: 1px 0 0 0;
-    border-color: @border-color;
-    z-index: 1;
-    color: @pane-footer-color;
-    background-color: @pane-footer-background-color;
-}
-
-.pane-footer-button {
-	&--right {
-    	float: right;
-    	margin-top: unit(@padding-half,px);
-	}
-}
-
-@media @media-phone-portrait {
-    pane-footer {
-        margin: 0 unit(@padding-half,px);
     }
 }
 pane-header,
@@ -1399,6 +1376,34 @@ pane-header,
     }
 
 }
+pane-footer {
+    display: block;
+    height: unit(@pane-footer-height,px);
+    line-height: unit(@pane-footer-height,px);
+    margin: 0 unit(@padding,px);
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: @border-color;
+    z-index: 1;
+    color: @pane-footer-color;
+    background-color: @pane-footer-background-color;
+}
+
+.pane-footer-button {
+	&--right {
+    	float: right;
+    	margin-top: unit(@padding-half,px);
+	}
+}
+
+@media @media-phone-portrait {
+    pane-footer {
+        margin: 0 unit(@padding-half,px);
+    }
+}
+tab {
+    width: 100%;
+}
 /// <reference path="../assets.less" />
 
 .section {
@@ -1449,9 +1454,6 @@ pane-header,
     .section-label + & {
         margin-top: .25rem;
     }
-}
-tab {
-    width: 100%;
 }
 tabs {
     width: 100%;
