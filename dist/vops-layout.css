@@ -3583,6 +3583,12 @@ ablankslate[danger] .blankslate-icon:hover,
 blankslate[danger] .blankslate-icon.text-link:hover {
   color: #F8B5A6;
 }
+.blankslate-content {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
 .blankslate-content-title,
 .blankslate-content-subtitle {
   display: -webkit-box;
@@ -3601,6 +3607,7 @@ blankslate[center] .blankslate-content-subtitle {
   font-size: 1.5em;
   color: #4C4C47;
   word-break: break-word;
+  display: block;
 }
 blankslate[link] .blankslate-content-title {
   color: inherit;
@@ -3609,6 +3616,7 @@ blankslate[link] .blankslate-content-title {
   font-size: 1.25em;
   color: #72726B;
   word-break: break-word;
+  display: block;
 }
 blankslate[link] .blankslate-content-subtitle {
   color: inherit;
