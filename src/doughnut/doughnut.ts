@@ -166,12 +166,13 @@ module LayoutPageModule {
             return radius;
         }
 
-        private getElementStyle(className, style) {
-            var $body = angular.element("body");
-            var $element = angular.element(`<div class="${className}"></div>`);
-            $body.append($element);
-            var value = $element.css(style);
-            $element.remove();
+        private getElementStyle($element, className, style) {
+            //var $body = angular.element("body");
+            var $temp = angular.element(`<div class="${className}"></div>`);
+            $temp.insertAfter($element);
+            //$body.append($temp);
+            var value = $temp.css(style);
+            $temp.remove();
             return value;
         }
 
@@ -191,7 +192,7 @@ module LayoutPageModule {
             this.reset($ctrl.contextBg);
             this.setSize($ctrl, $ctrl.contextBg);
 
-            var emptyColor = this.getElementStyle($ctrl.emptyColorClass || "doughnut-empty-color", "background-color");
+            var emptyColor = this.getElementStyle($ctrl.$element, $ctrl.emptyColorClass || "doughnut-empty-color", "background-color");
 
             var cX = this.getX($ctrl.contextBg);
             var cY = this.getY($ctrl.contextBg);
@@ -220,7 +221,7 @@ module LayoutPageModule {
         }
 
         animate($ctrl: DoughnutController, from: number | string, to: number | string) {
-            var fillColor = this.getElementStyle($ctrl.colorClass || "doughnut-fill-color", "background-color");
+            var fillColor = this.getElementStyle($ctrl.$element, $ctrl.colorClass || "doughnut-fill-color", "background-color");
 
             if ($ctrl.color)
                 fillColor = $ctrl.color;
