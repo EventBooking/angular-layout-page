@@ -5918,6 +5918,10 @@ page-slider {
   background-color: #fff;
   overflow: hidden;
 }
+page-slider.page-slider--fullScreen {
+  width: 100%;
+  position: fixed;
+}
 page-slider.page-slider--lg {
   width: 768px;
 }

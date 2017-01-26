@@ -11,6 +11,11 @@
     color: @page-slider-color;
     background-color: @page-slider-background-color;
     overflow: hidden;
+
+    &.page-slider--fullScreen {
+        width: 100%;
+        position: fixed;
+    }
     
     &.page-slider--lg {
         width: unit(@page-slider-width-lg,px);
