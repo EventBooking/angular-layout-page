@@ -6284,6 +6284,9 @@ pane-header.pane-header--withSubtitle,
 .section-content + .section-label {
   margin-top: 16px;
 }
+.section-label-actions {
+  float: right;
+}
 .section-label-sublabel {
   font-size: 14px;
   margin-left: .5em;
