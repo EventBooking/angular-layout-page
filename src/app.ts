@@ -1,3 +1,3 @@
-/// <reference path="../typings/browser.d.ts"/>
+/// <reference path="../node_modules/angular-typescript-module/dist/angular-typescript-module.d.ts"/>
 
 Angular.module("ngLayoutPage", []);

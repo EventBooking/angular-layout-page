@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install & typings install",
-    "tsc": "tsc -p src",
-    "tsc:w": "tsc -w -p src",
-    "typings": "typings install",
+    "tsc:v": "tsc -v",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
     "gulp": "gulp",
     "start:w": "start gulp watch && start npm run tsc:w && npm run server",
     "start": "npm run build && npm run server",
@@ -25,6 +24,8 @@
   },
   "homepage": "https://github.com/EventBooking/vops-layout#readme",
   "devDependencies": {
+    "@types/angular": "^1.6.5",
+    "@types/jquery": "^2.0.40",
     "angular-resource": "^1.4.8",
     "bower": "^1.7.0",
     "connect-livereload": "^0.5.4",
@@ -42,11 +43,16 @@
     "less-plugin-glob": "^1.1.1",
     "lite-server": "^2.1.0",
     "tiny-lr": "^0.2.1",
-    "tsd": "^0.6.5",
-    "typescript": "^1.8.9",
-    "typings": "^0.7.9"
+    "typescript": "^2.1.6"
   },
-  "engines": {
-    "node": "<=4.*"
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "angular-animate": "^1.6.2",
+    "jquery": "^3.1.1",
+    "font-awesome": "^4.7.0",
+    "ionicons": "^3.0.0",
+    "normalize.css": "^5.0.0",
+    "angular-typescript-module": "github:eventbooking/angular-typescript-module#ea0498943d5c1e685e43fca0a5a510fb7e7e592c"
   }
 }

@@ -8,5 +8,10 @@
         "inlineSources": true,
         "target": "es5",
         "out": "dist/vops-layout.js"
-    }
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "demo"
+    ]
 }
