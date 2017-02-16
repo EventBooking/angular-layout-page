@@ -1,3 +1,4 @@
-/// <reference path="../node_modules/angular-typescript-module/dist/angular-typescript-module.d.ts"/>
+import Angular from 'angular-typescript-module';
+import "./assets.less";
 
 Angular.module("ngLayoutPage", []);

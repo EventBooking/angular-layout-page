@@ -1,21 +1,23 @@
-﻿module LayoutPageModule {
+﻿import template from './page-header.html';
 
-    class PageHeaderController {
-    }
-
-    class PageHeaderDirective {
-        restrict = 'E';
-        transclude = true;
-        templateUrl = 'page-header/page-header.html';
-        controller = PageHeaderController;
-        controllerAs = 'vm';
-        bindToController = true;
-        scope = {
-            title: '@',
-            subtitle: '@',
-            label: '@'
-        };
-    }
-
-    Angular.module("ngLayoutPage").directive('pageHeader', PageHeaderDirective);
+class PageHeaderController {
+    title: string;
+    subtitle: string;
+    label: string;
 }
+
+class PageHeaderDirective {
+    restrict = 'E';
+    transclude = true;
+    template = template;
+    controller = PageHeaderController;
+    controllerAs = 'vm';
+    bindToController = true;
+    scope = {
+        title: '@',
+        subtitle: '@',
+        label: '@'
+    };
+}
+
+Angular.module("ngLayoutPage").directive('pageHeader', PageHeaderDirective);

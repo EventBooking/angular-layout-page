@@ -1,22 +1,22 @@
-module LayoutPageModule {
+import template from './nav-header.html';
 
-    class NavHeaderController {
-        
-    }
-	
-	Angular.module("ngLayoutPage").controller('navHeaderController', NavHeaderController);
-
-    class NavHeaderDirective {
-        restrict = 'E';
-        templateUrl = 'nav-header/nav-header.html';
-        controller = NavHeaderController;
-        controllerAs = 'vm';
-        bindToController = true;
-        scope = {
-            text: '@',
-            small: '@'
-        }
-    }
-
-    Angular.module("ngLayoutPage").directive('navHeader', NavHeaderDirective);
+class NavHeaderController {
+    text: string;
+    small: string;
 }
+
+Angular.module("ngLayoutPage").controller('navHeaderController', NavHeaderController);
+
+class NavHeaderDirective {
+    restrict = 'E';
+    template = template;
+    controller = NavHeaderController;
+    controllerAs = 'vm';
+    bindToController = true;
+    scope = {
+        text: '@',
+        small: '@'
+    }
+}
+
+Angular.module("ngLayoutPage").directive('navHeader', NavHeaderDirective);

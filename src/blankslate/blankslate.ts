@@ -1,26 +1,25 @@
-module LayoutPageModule {
+import template from "./blankslate.html";
 
-    class BlankslateController {
-        subtitle: string;
-        
-        get hasSubtitle() {
-            return !(this.subtitle == null || this.subtitle.trim().length == 0)
-        }
+class BlankslateController {
+    subtitle: string;
+
+    get hasSubtitle() {
+        return !(this.subtitle == null || this.subtitle.trim().length == 0)
     }
-
-    class BlankslateDirective {
-        restrict = 'E';
-        transclude = true;
-        templateUrl = 'blankslate/blankslate.html';
-        controller = BlankslateController;
-        controllerAs = 'vm';
-        bindToController = true;
-        scope = {
-            icon: '@',
-            title: '@',
-            subtitle: '@'
-        };
-    }
-
-    Angular.module("ngLayoutPage").directive('blankslate', BlankslateDirective);
 }
+
+class BlankslateDirective {
+    restrict = 'E';
+    transclude = true;
+    template = template;
+    controller = BlankslateController;
+    controllerAs = 'vm';
+    bindToController = true;
+    scope = {
+        icon: '@',
+        title: '@',
+        subtitle: '@'
+    };
+}
+
+Angular.module("ngLayoutPage").directive('blankslate', BlankslateDirective);

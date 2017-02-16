@@ -2,15 +2,17 @@
   "name": "vops-layout",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/app.js",
+  "typings": "dist/app.d.ts",
   "scripts": {
     "tsc:v": "tsc -v",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "gulp": "gulp",
-    "start:w": "start gulp watch && start npm run tsc:w && npm run server",
-    "start": "npm run build && npm run server",
-    "build": "gulp && npm run tsc",
+    "build": "tsc",
+    "start:w": "webpack --watch && npm run server",
+    "start": "npm run demo && npm run server",
+    "demo": "webpack",
     "server": "lite-server"
   },
   "repository": {
@@ -27,8 +29,9 @@
     "@types/angular": "^1.6.5",
     "@types/jquery": "^2.0.40",
     "angular-resource": "^1.4.8",
-    "bower": "^1.7.0",
+    "awesome-typescript-loader": "^3.0.4-rc.2",
     "connect-livereload": "^0.5.4",
+    "css-loader": "^0.26.1",
     "del": "^2.2.0",
     "express": "^4.13.3",
     "gulp": "^3.8.10",
@@ -40,10 +43,15 @@
     "gulp-ng-html2js": "^0.2.0",
     "gulp-strip-comments": "^2.2.1",
     "gulp-template": "^3.0.0",
+    "html-loader": "^0.4.4",
+    "import-glob": "^1.5.0",
+    "less-loader": "^2.2.3",
     "less-plugin-glob": "^1.1.1",
     "lite-server": "^2.1.0",
+    "style-loader": "^0.13.1",
     "tiny-lr": "^0.2.1",
-    "typescript": "^2.1.6"
+    "typescript": "^2.1.6",
+    "webpack": "^2.2.1"
   },
   "dependencies": {
     "angular": "^1.6.2",
@@ -53,6 +61,6 @@
     "font-awesome": "^4.7.0",
     "ionicons": "^3.0.0",
     "normalize.css": "^5.0.0",
-    "angular-typescript-module": "github:eventbooking/angular-typescript-module#ea0498943d5c1e685e43fca0a5a510fb7e7e592c"
+    "angular-typescript-module": "github:eventbooking/angular-typescript-module#cf9642188cb57d63620ceb2297d20149164304dd"
   }
 }

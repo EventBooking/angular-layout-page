@@ -1,4 +1,7 @@
-﻿module LayoutPageModule {
+﻿import template from "./pane-header.html";
+import { IPageSliderController } from "../page-slider/page-slider";
+
+module LayoutPageModule {
 
     class PaneHeaderController {
         showClose: boolean;
@@ -39,7 +42,7 @@
         restrict = 'E';
         require = '?^pageSlider';
         transclude = true;
-        templateUrl = 'pane-header/pane-header.html';
+        template = template;
         controller = PaneHeaderController;
         controllerAs = 'vm';
         bindToController = true;
