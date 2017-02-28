@@ -1,11 +1,15 @@
-@import (less) "~normalize.css/normalize.css";
+// variables
+@import "variables/colors";
+@import "variables/components";
+@import "variables/screen";
+@import "variables/text";
+@import "variables/theme";
 
-@import "variables/**/*.less";
-@import "mixins/**/*.less";
-@import "utilities/**/*.less";
+// mixins
+@import "mixins/arrow";
+@import "mixins/divider";
+@import "mixins/text";
 
-@import url("//fonts.googleapis.com/css?family=@{font-family-uri}:@{font-family-sizes}");
-
-@import "generate";
-@import "normalize";
-@import "**/*.less";
+// ToDo: get glob pattern working
+// @import "variables/**/*.less";
+// @import "mixins/**/*.less";

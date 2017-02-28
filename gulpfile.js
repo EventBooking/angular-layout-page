@@ -3,80 +3,107 @@ var gulp = require('gulp'),
     debug = require('gulp-debug'),
     concat = require('gulp-concat'),
     project = require('./package.json'),
-    dest = 'dist';
+    gulpSourceMaps = require('gulp-sourcemaps'),
+    del = require('del'),
+    src = 'src';
+dest = 'dist';
 
-gulp.task('clean', clean);
-gulp.task('default', ['clean'], build);
-gulp.task('styles', styles);
-gulp.task('html', html);
-gulp.task('watch', watch);
+gulp.task('build', ['build:less']);
 
-function clean() {
-    var del = require('del');
-    return del(dest);
-}
+gulp.task('build:ts', () => {
+    del(["/**/*.ts", "/**/*.d.ts"].map(x => dest + x));
+});
 
-function html() {
-    var html2js = require('gulp-ng-html2js');
-
-    var options = {
-        moduleName: 'ngLayoutPage',
-        stripPrefix: 'directives'
-    };
-
-    gulp.src(['src/**/*.html'])
-        .pipe(html2js(options))
-        .pipe(concat(project.name + '.templates.js'))
-        .pipe(gulp.dest(dest));
-}
-
-function styles() {
+gulp.task('build:less', () => {
     var less = require('gulp-less'),
-        autoprefixer = require('gulp-autoprefixer');
+        autoprefixer = require('gulp-autoprefixer'),
+        lessGlobPlugin = require('less-plugin-glob');
 
-    gulp.src([
-        '!src/assets.less',
-        '!src/variables/variables.less',
-        '!src/mixins/mixins.less',
-        'src/**/*.less'
-    ])
-        .pipe(concat(project.name + '.less'))
-        .pipe(gulp.dest(dest));
+    del(dest + "/**/*.less");
 
-    gulp.src([
-        'src/variables/screen.less',
-        'src/variables/theme.less',
-        'src/variables/text.less',
-        'src/variables/components.less'
-    ])
-        .pipe(concat(project.name + '-variables.less'))
-        .pipe(gulp.dest(dest));
-
-    gulp.src([
-        'src/mixins/text.less',
-        'src/mixins/arrow.less',
-        'src/mixins/layout.less',
-        'src/mixins/divider.less'
-    ])
-        .pipe(concat(project.name + '-mixins.less'))
-        .pipe(gulp.dest(dest));
-
-    gulp.src(['src/assets.less'])
+    return gulp.src(src + "/**/*.less")
         .pipe(debug())
+        .pipe(gulpSourceMaps.init())
         .pipe(less({
-            plugins: [require('less-plugin-glob')]
+            plugins: [lessGlobPlugin]
         }))
         .pipe(autoprefixer())
-        .pipe(concat(project.name + '.css'))
+        .pipe(gulpSourcemaps.write('.'))
         .pipe(gulp.dest(dest));
-}
+});
 
-function build() {
-    styles();
-    html();
-}
+// gulp.task('clean', clean);
+// gulp.task('default', ['clean'], build);
+// gulp.task('styles', styles);
+// gulp.task('html', html);
+// gulp.task('watch', watch);
 
-function watch() {
-    gulp.watch(['src/**/*.less'], styles);
-    gulp.watch(['src/**/*.html'], html);
-}
+// function clean() {
+//     var del = require('del');
+//     return del(dest);
+// }
+
+// function html() {
+//     var html2js = require('gulp-ng-html2js');
+
+//     var options = {
+//         moduleName: 'ngLayoutPage',
+//         stripPrefix: 'directives'
+//     };
+
+//     gulp.src(['src/**/*.html'])
+//         .pipe(html2js(options))
+//         .pipe(concat(project.name + '.templates.js'))
+//         .pipe(gulp.dest(dest));
+// }
+
+// function styles() {
+//     var less = require('gulp-less'),
+//         autoprefixer = require('gulp-autoprefixer');
+
+//     gulp.src([
+//         '!src/assets.less',
+//         '!src/variables/variables.less',
+//         '!src/mixins/mixins.less',
+//         'src/**/*.less'
+//     ])
+//         .pipe(concat(project.name + '.less'))
+//         .pipe(gulp.dest(dest));
+
+//     gulp.src([
+//         'src/variables/screen.less',
+//         'src/variables/theme.less',
+//         'src/variables/text.less',
+//         'src/variables/components.less'
+//     ])
+//         .pipe(concat(project.name + '-variables.less'))
+//         .pipe(gulp.dest(dest));
+
+//     gulp.src([
+//         'src/mixins/text.less',
+//         'src/mixins/arrow.less',
+//         'src/mixins/layout.less',
+//         'src/mixins/divider.less'
+//     ])
+//         .pipe(concat(project.name + '-mixins.less'))
+//         .pipe(gulp.dest(dest));
+
+//     gulp.src(['src/assets.less'])
+//         .pipe(debug())
+//         .pipe(less({
+//             plugins: [require('less-plugin-glob')]
+//         }))
+//         .pipe(autoprefixer())
+//         .pipe(concat(project.name + '.css'))
+//         .pipe(gulp.dest(dest));
+// }
+
+// function build() {
+//     styles();
+//     html();
+// }
+
+// function watch() {
+//     gulp.watch(['src/**/*.less'], styles);
+//     gulp.watch(['src/**/*.html'], html);
+// }

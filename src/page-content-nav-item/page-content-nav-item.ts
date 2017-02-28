@@ -1,3 +1,5 @@
+import "./page-content-nav-item.less";
+
 class PageContentNavItemController {
     static $inject = ['$location'];
 
@@ -96,4 +98,4 @@ class PageContentNavItemDirective {
     }
 }
 
-Angular.module("ngLayoutPage").directive('pageContentNavItem', PageContentNavItemDirective);
+export default Angular.module("ngLayoutPage").directive('pageContentNavItem', PageContentNavItemDirective);

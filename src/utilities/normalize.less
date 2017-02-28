@@ -1,0 +1,39 @@
+@import "../assets";
+
+html {
+    font-family: @layout-page-font-family;
+    font-size: unit(@layout-page-font-size,px);
+    line-height: @layout-page-line-height;
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+[ng-click] {
+    cursor: pointer;
+}
+
+a {
+    .text-link();
+    text-decoration: none;
+}
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+    }
+}

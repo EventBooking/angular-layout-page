@@ -1,4 +1,5 @@
-import template from './doughnut.html';
+import * as template from './doughnut.html';
+import "./doughnut.less";
 
 class DoughnutController {
     constructor() {
@@ -269,4 +270,4 @@ class DoughnutDirective {
     }
 }
 
-Angular.module("ngLayoutPage").directive('doughnut', DoughnutDirective);
+export default Angular.module("ngLayoutPage").directive('doughnut', DoughnutDirective);

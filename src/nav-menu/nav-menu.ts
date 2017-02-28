@@ -1,4 +1,5 @@
-import template from './nav-menu.html';
+import * as template from './nav-menu.html';
+import "./nav-menu.less";
 import { ILayoutPageController } from '../layout-page/layout-page';
 
 class NavMenuController {
@@ -32,4 +33,4 @@ class NavMenuDirective {
     }
 }
 
-Angular.module("ngLayoutPage").directive('navMenu', NavMenuDirective);
+export default Angular.module("ngLayoutPage").directive('navMenu', NavMenuDirective);

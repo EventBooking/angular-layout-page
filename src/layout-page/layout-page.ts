@@ -1,3 +1,5 @@
+import "./layout-page.less";
+
 export interface ILayoutPageController {
     showNav();
     hideNav();
@@ -47,4 +49,4 @@ class LayoutPageDirective {
     }
 }
 
-Angular.module("ngLayoutPage").directive('layoutPage', LayoutPageDirective);
+export default Angular.module("ngLayoutPage").directive('layoutPage', LayoutPageDirective);

@@ -1,4 +1,6 @@
-import template from "./blankslate.html";
+import vopsLayout from "../app";
+import * as template from "./blankslate.html";
+import "./blankslate.less";
 
 class BlankslateController {
     subtitle: string;
@@ -22,4 +24,4 @@ class BlankslateDirective {
     };
 }
 
-Angular.module("ngLayoutPage").directive('blankslate', BlankslateDirective);
+export default Angular.module(vopsLayout).directive('blankslate', BlankslateDirective);

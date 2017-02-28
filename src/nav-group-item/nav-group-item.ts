@@ -1,4 +1,5 @@
-import template from './nav-group-item.html';
+import * as template from './nav-group-item.html';
+import "./nav-group-item.less";
 import { ILayoutPageController } from '../layout-page/layout-page';
 
 class NavGroupItemController {
@@ -83,4 +84,4 @@ class NavGroupItemDirective {
     };
 }
 
-Angular.module("ngLayoutPage").directive('navGroupItem', NavGroupItemDirective);
+export default Angular.module("ngLayoutPage").directive('navGroupItem', NavGroupItemDirective);

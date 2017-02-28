@@ -1,4 +1,3 @@
-import Angular from 'angular-typescript-module';
-import "./assets.less";
+import "./app.less";
 
-Angular.module("ngLayoutPage", []);
+export default Angular.module("ngLayoutPage", []).name;

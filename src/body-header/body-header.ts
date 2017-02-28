@@ -1,4 +1,5 @@
-﻿import template from './body-header.html';
+﻿import * as template from './body-header.html';
+import "./body-header.less";
 
 class BodyHeaderController {
     title: string;
@@ -18,4 +19,4 @@ class BodyHeaderDirective {
     };
 }
 
-Angular.module("ngLayoutPage").directive('bodyHeader', BodyHeaderDirective);
+export default Angular.module("ngLayoutPage").directive('bodyHeader', BodyHeaderDirective);

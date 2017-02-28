@@ -1,4 +1,6 @@
-﻿class PaneFooterDirective {
+﻿import "./pane-footer.less";
+
+class PaneFooterDirective {
     restrict = 'E';
 
     link = ($scope, $element) => {
@@ -6,4 +8,4 @@
     };
 }
 
-Angular.module("ngLayoutPage").directive('paneFooter', PaneFooterDirective);
+export default Angular.module("ngLayoutPage").directive('paneFooter', PaneFooterDirective);

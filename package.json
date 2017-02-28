@@ -2,17 +2,17 @@
   "name": "vops-layout",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
-  "typings": "dist/app.d.ts",
+  "main": "dist/vops-layout.browser.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "tsc:v": "tsc -v",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "gulp": "gulp",
-    "build": "tsc",
-    "start:w": "webpack --watch && npm run server",
-    "start": "npm run demo && npm run server",
-    "demo": "webpack",
+    "build": "gulp build",
+    "start": "npm run server",
+    "webpack:w": "webpack --watch",
+    "webpack": "webpack",
     "server": "lite-server"
   },
   "repository": {
@@ -41,10 +41,12 @@
     "gulp-debug": "^2.1.2",
     "gulp-less": "^3.0.3",
     "gulp-ng-html2js": "^0.2.0",
+    "gulp-sourcemaps": "^2.4.1",
     "gulp-strip-comments": "^2.2.1",
     "gulp-template": "^3.0.0",
     "html-loader": "^0.4.4",
     "import-glob": "^1.5.0",
+    "import-glob-loader": "^1.1.0",
     "less-loader": "^2.2.3",
     "less-plugin-glob": "^1.1.1",
     "lite-server": "^2.1.0",
@@ -61,6 +63,6 @@
     "font-awesome": "^4.7.0",
     "ionicons": "^3.0.0",
     "normalize.css": "^5.0.0",
-    "angular-typescript-module": "github:eventbooking/angular-typescript-module#cf9642188cb57d63620ceb2297d20149164304dd"
+    "angular-typescript-module": "github:eventbooking/angular-typescript-module#36ad0cb2a4bc07fd7748b5225d33800bd9720d5b"
   }
 }

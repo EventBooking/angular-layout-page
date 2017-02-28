@@ -1,4 +1,5 @@
-import template from './nav-header.html';
+import * as template from './nav-header.html';
+import "./nav-header.less";
 
 class NavHeaderController {
     text: string;
@@ -19,4 +20,4 @@ class NavHeaderDirective {
     }
 }
 
-Angular.module("ngLayoutPage").directive('navHeader', NavHeaderDirective);
+export default Angular.module("ngLayoutPage").directive('navHeader', NavHeaderDirective);

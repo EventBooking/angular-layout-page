@@ -4,10 +4,11 @@ var webpack = require("webpack"),
 
 module.exports = {
     entry: {
-        "vops-layout.browser": "./src/app.ts"
+        "vops-layout.browser": "./src/index.ts",
+        "demo.browser": "./demo/index.ts"
     },
     output: {
-        path: path.join(__dirname, "demo"),
+        path: path.join(__dirname, "dist"),
         filename: '[name].js'
     },
     resolve: {
@@ -15,7 +16,7 @@ module.exports = {
     },
     devtool: "inline-source-map",
     module: {
-        loaders: [{
+        rules: [{
             test: /\.ts?$/,
             loader: 'awesome-typescript-loader'
         }, {
@@ -23,8 +24,12 @@ module.exports = {
             use: [
                 'style-loader',
                 'css-loader',
-                'less-loader',
-                'import-glob'
+                {
+                    loader: 'less-loader',
+                    options: {
+                        lessPlugins: [lessPluginGlob]
+                    }
+                }
             ]
         }, {
             test: /\.html?$/,
@@ -34,13 +39,6 @@ module.exports = {
     plugins: [
         new webpack.SourceMapDevToolPlugin({
             test: /\.ts$/i
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks: function (module) {
-                // this assumes your vendor imports exist in the node_modules directory
-                return module.context && module.context.indexOf('node_modules') !== -1;
-            }
         })
     ]
 }

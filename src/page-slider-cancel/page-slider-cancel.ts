@@ -16,4 +16,4 @@ class PageSliderCancelDirective {
     };
 }
 
-Angular.module("ngLayoutPage").directive('pageSliderCancel', PageSliderCancelDirective);
+export default Angular.module("ngLayoutPage").directive('pageSliderCancel', PageSliderCancelDirective);

@@ -1,4 +1,5 @@
-﻿import { IPageOverlay, IPageController } from "../page/page";
+﻿import "./page-slider.less";
+import { IPageOverlay, IPageController } from "../page/page";
 
 export interface IPageSliderController {
     isVisible;
@@ -99,4 +100,4 @@ class PageSliderDirective {
     };
 }
 
-Angular.module("ngLayoutPage").directive('pageSlider', PageSliderDirective);
+export default Angular.module("ngLayoutPage").directive('pageSlider', PageSliderDirective);

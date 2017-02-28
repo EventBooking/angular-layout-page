@@ -1,4 +1,5 @@
-import template from "./tabs.html";
+import * as template from "./tabs.html";
+import "./tabs.less";
 
 export interface ITabsController {
     addTab(tab: ITabController);
@@ -101,4 +102,4 @@ class TabsDirective {
     };
 }
 
-Angular.module("ngLayoutPage").directive('tabs', TabsDirective);
+export default Angular.module("ngLayoutPage").directive('tabs', TabsDirective);

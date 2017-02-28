@@ -1,4 +1,5 @@
-﻿import template from './page-header.html';
+﻿import * as template from './page-header.html';
+import "./page-header.less";
 
 class PageHeaderController {
     title: string;
@@ -20,4 +21,4 @@ class PageHeaderDirective {
     };
 }
 
-Angular.module("ngLayoutPage").directive('pageHeader', PageHeaderDirective);
+export default Angular.module("ngLayoutPage").directive('pageHeader', PageHeaderDirective);

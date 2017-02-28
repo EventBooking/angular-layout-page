@@ -1,4 +1,5 @@
-import template from "./bar-graph.html";
+import * as template from "./bar-graph.html";
+import "./bar-graph.less";
 
 class BarGraphController {
     constructor() {
@@ -128,4 +129,4 @@ class BarGraphDirective {
     };
 }
 
-Angular.module("ngLayoutPage").directive('barGraph', BarGraphDirective);
+export default Angular.module("ngLayoutPage").directive('barGraph', BarGraphDirective);

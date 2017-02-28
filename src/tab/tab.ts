@@ -27,4 +27,4 @@ class TabDirective {
     };
 }
 
-Angular.module("ngLayoutPage").directive('tab', TabDirective);
+export default Angular.module("ngLayoutPage").directive('tab', TabDirective);

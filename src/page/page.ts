@@ -1,3 +1,5 @@
+import "./page.less";
+
 export interface IPageOverlay {
 
 }
@@ -77,4 +79,4 @@ class PageDirective {
     }
 }
 
-Angular.module("ngLayoutPage").directive('page', PageDirective);
+export default Angular.module("ngLayoutPage").directive('page', PageDirective);
