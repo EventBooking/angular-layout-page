@@ -1,0 +1,129 @@
+@import "~font-awesome/less/font-awesome";
+// @fa-font-path: "~font-awesome/fonts";
+
+.demogrid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.demogrid-cols {
+    flex-direction: column;
+}
+
+.demogrid-title {
+    display: block;
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+* ~ .demogrid-title {
+    margin-top: 16px;
+}
+
+.demopage-grid {
+    margin: 32px;
+}
+
+.demopage-sized {
+    width: 350px;
+    height: 350px;
+}
+
+.demopage-grid .grid {
+    border: solid 1px #000;
+}
+
+.demopage-grid td {
+    padding-right: 16px;
+    vertical-align: top;
+}
+
+.pad-all {
+    padding: 32px;
+}
+
+.pad-lr {
+    padding: 0 32px;
+}
+
+.pad-tb {
+    padding: 32px 0;
+}
+
+.mar-all {
+    margin: 32px;
+}
+
+.mar-lr {
+    margin: 0 32px;
+}
+
+.mar-tb {
+    margin: 32px 0;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.list-item + .list-item {
+    margin-top: 16px;
+}
+
+.address-state {
+    width: 35px;
+}
+
+.color {
+    display: flex;
+}
+
+.color-item {
+    width: 32px;
+    height: 32px;
+}
+
+.color-name {
+    font-size: 20px;
+    margin-left: 10px;
+    line-height: 32px;
+}
+
+.color-value {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.color-title .color-name {
+    font-size: 32px;
+    color: #000;
+    line-height: 32px;
+}
+
+.doughnut-test {
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #000;
+}
+
+.doughnut-color-test {
+    background-color: blue;
+}
+
+.doughnut-empty-color-test {
+    background-color: lightgrey;
+}
+
+.doughnut-container {
+    margin: 0 20%;
+    padding: 0.5em;
+}

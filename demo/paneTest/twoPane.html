@@ -1,43 +1,46 @@
 <div class="page-content-body-pane">
-    <body-header title="Two Panes" subtitle="with a subtitle">
-        <i class="body-header-actions-item fa fa-plus"></i>
-        <i class="body-header-actions-item fa fa-external-link"></i>
-    </body-header>
+    <div class="page-content-body-pane-section">
+        <body-header title="Two Panes" subtitle="with a subtitle">
+            <i class="body-header-actions-item fa fa-plus"></i>
+            <i class="body-header-actions-item fa fa-external-link"></i>
+        </body-header>
 
-    <div class="section">
-        <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
-        <div class="section-content">
-            <a href="/panes/?area=doublePane">goto 'doublepane' tab</a>
+        <div class="section">
+            <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
+            <div class="section-content">
+                <a href="/panes/?area=doublePane">goto 'doublepane' tab</a>
+            </div>
+            <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
+            <div class="section-content">
+                <a href="#" ng-click="vm.openSlider1()" ng-hide="vm.showSlider1">open slider 1</a>
+                <a href="#" ng-click="vm.closeSlider1()" ng-show="vm.showSlider1">close slider 1</a>
+            </div>
+            <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
+            <div class="section-content">
+                <a href="#" ng-click="vm.openSlider2()" ng-hide="vm.showSlider2">open slider 2</a>
+                <a href="#" ng-click="vm.closeSlider2()" ng-show="vm.showSlider2">close slider 2</a>
+            </div>
+            <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
+            <div class="section-content">
+                <a href="#" ng-click="vm.openSlider2OverSlider1()" ng-hide="vm.showSlider2">open slider 2 over slider 1</a>
+            </div>
         </div>
-        <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
-        <div class="section-content">
-            <a href="#" ng-click="vm.openSlider1()" ng-hide="vm.showSlider1">open slider 1</a>
-            <a href="#" ng-click="vm.closeSlider1()" ng-show="vm.showSlider1">close slider 1</a>
-        </div>
-        <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
-        <div class="section-content">
-            <a href="#" ng-click="vm.openSlider2()" ng-hide="vm.showSlider2">open slider 2</a>
-            <a href="#" ng-click="vm.closeSlider2()" ng-show="vm.showSlider2">close slider 2</a>
-        </div>
-        <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
-        <div class="section-content">
-            <a href="#" ng-click="vm.openSlider2OverSlider1()" ng-hide="vm.showSlider2">open slider 2 over slider 1</a>
+
+        <div class="section">
+            <div class="section-label section-label--large">Large Section Label <span class="section-label-sublabel">sublabel</span></div>
+            <div>
+                another content
+            </div>
         </div>
     </div>
+    <div class="page-content-body-pane-section">
+        <body-header title="Two Panes" subtitle="with a subtitle">
+            <i class="body-header-actions-item fa fa-ellipsis-v"></i>
+        </body-header>
 
-    <div class="section">
-        <div class="section-label section-label--large">Large Section Label <span class="section-label-sublabel">sublabel</span></div>
         <div>
             another content
         </div>
-    </div>
-
-    <body-header title="Two Panes" subtitle="with a subtitle">
-        <i class="body-header-actions-item fa fa-ellipsis-v"></i>
-    </body-header>
-
-    <div>
-        another content
     </div>
 </div>
 

@@ -1,6 +1,3 @@
-import "angular";
-import "angular-resource";
-import "angular-animate";
-import "angular-route";
+import "./vendors";
 import "./bootstrap";
 import "./app";

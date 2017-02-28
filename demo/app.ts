@@ -1,3 +1,4 @@
+import "./stylesheet.less";
 import { routes as paneTestRoutes } from "./paneTest/paneTest";
 import { routes as blankslateRoutes } from "./blankslate/blankslate";
 import { routes as gridRoutes } from "./grid/grid";
