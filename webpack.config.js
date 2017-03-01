@@ -15,7 +15,18 @@ var rules = {
         },
         {                
             test: /\.less?$/, 
-            use: ExtractTextPlugin.extract(['css-loader', 'less-loader'])
+            use: ExtractTextPlugin.extract([
+                'css-loader?importLoaders=1', 
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: () => [
+                            require('autoprefixer')
+                        ]
+                    }
+                }, 
+                'less-loader'
+            ])
         }
     ],
     typescript: { 
