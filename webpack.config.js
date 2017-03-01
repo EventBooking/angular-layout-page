@@ -46,12 +46,15 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, "dist"),
-        filename: '[name].browser.js'
+        filename: '[name].js'
     },
     resolve: {
         extensions: ['.ts', '.js', '.html', '.less', '.css']
     },
     devtool: "inline-source-map",
+    devServer: {
+        historyApiFallback: true
+    },
     module: {
         rules: [
             rules.fonts,
@@ -62,6 +65,6 @@ module.exports = {
     },
     plugins: [
         new webpack.SourceMapDevToolPlugin({ test: /\.ts$/i }),
-        new ExtractTextPlugin({ filename: "[name].styles.css", allChunks: true })
+        new ExtractTextPlugin({ filename: "[name].css", allChunks: true })
     ]
 }
