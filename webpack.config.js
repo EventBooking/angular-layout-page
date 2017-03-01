@@ -3,29 +3,29 @@ var webpack = require("webpack"),
     ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var rules = {
-        fonts: {
-            test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-            loader: 'url-loader?limit=10000&name=[path][name].[ext]?[hash]'
+    fonts: {
+        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        loader: 'url-loader?limit=10000&name=fonts/[name].[ext]?[hash]'
+    },
+    styles: [
+        {           
+            enforce: 'pre',
+            test: /\.less?$/, 
+            use: ['import-glob-loader']
         },
-        styles: [
-            {           
-                enforce: 'pre',
-                test: /\.less?$/, 
-                use: ['import-glob-loader']
-            },
-            {                
-                test: /\.less?$/, 
-                use: ExtractTextPlugin.extract(['css-loader', 'less-loader'])
-            }
-        ],
-        typescript: { 
-            test: /\.ts?$/, 
-            loader: 'awesome-typescript-loader'
-        }, 
-        html: { 
-            test: /\.html?$/, 
-            loader: 'html-loader?exportAsEs6Default' 
+        {                
+            test: /\.less?$/, 
+            use: ExtractTextPlugin.extract(['css-loader', 'less-loader'])
         }
+    ],
+    typescript: { 
+        test: /\.ts?$/, 
+        loader: 'awesome-typescript-loader'
+    }, 
+    html: { 
+        test: /\.html?$/, 
+        loader: 'html-loader?exportAsEs6Default' 
+    }
 };
 
 module.exports = {
@@ -50,9 +50,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.SourceMapDevToolPlugin({
-            test: /\.ts$/i
-        }),
-        new ExtractTextPlugin("[name].styles.css")
+        new webpack.SourceMapDevToolPlugin({ test: /\.ts$/i }),
+        new ExtractTextPlugin({ filename: "[name].styles.css", allChunks: true })
     ]
 }

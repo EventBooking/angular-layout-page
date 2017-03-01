@@ -1,4 +1,4 @@
-import * as buttons from "./buttons.html";
+import template from "./buttons.html";
 
 function ButtonsController($routeParams) {
 }
@@ -7,7 +7,7 @@ var name = Angular.module("demo").controller('buttonsController', ButtonsControl
 
 var routes = {
     "/buttons": {
-        template: buttons,
+        template: template,
         controller: name,
         controllerAs: 'vm'
     }

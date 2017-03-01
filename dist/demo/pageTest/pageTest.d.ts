@@ -1,7 +1,6 @@
-import * as pageTest from "./pageTest.html";
 declare var routes: {
     "/pages/fullscreen": {
-        template: typeof pageTest;
+        template: string;
         controller: string;
         controllerAs: string;
     };

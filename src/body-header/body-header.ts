@@ -1,4 +1,4 @@
-﻿import * as template from './body-header.html';
+﻿import template from './body-header.html';
 import "./body-header.less";
 
 class BodyHeaderController {

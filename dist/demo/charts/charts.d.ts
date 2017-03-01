@@ -1,7 +1,6 @@
-import * as charts from "./charts.html";
 declare var routes: {
     "/charts": {
-        template: typeof charts;
+        template: string;
         controller: string;
         controllerAs: string;
     };

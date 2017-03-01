@@ -41,7 +41,7 @@ function Config($routeProvider, $locationProvider) {
 }
 
 function Run() {
-
+    console.log('Started');
 }
 
 Angular.module("demo").config(Config).run(Run);

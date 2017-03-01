@@ -1,7 +1,6 @@
-import * as buttons from "./buttons.html";
 declare var routes: {
     "/buttons": {
-        template: typeof buttons;
+        template: string;
         controller: string;
         controllerAs: string;
     };

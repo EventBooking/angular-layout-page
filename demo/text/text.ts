@@ -1,4 +1,4 @@
-import * as template from "./text.html";
+import template from "./text.html";
 
 function TextController() {
 	

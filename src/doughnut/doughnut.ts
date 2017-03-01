@@ -1,4 +1,4 @@
-import * as template from './doughnut.html';
+import template from './doughnut.html';
 import "./doughnut.less";
 
 class DoughnutController {

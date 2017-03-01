@@ -1,4 +1,4 @@
-import * as charts from "./charts.html";
+import template from "./charts.html";
 
 function ChartsController() {
     this.color = "green";
@@ -29,7 +29,7 @@ var name = Angular.module("demo").controller('chartsController', ChartsControlle
 
 var routes = {
     "/charts": {
-        template: charts,
+        template: template,
         controller: name,
         controllerAs: 'vm'
     }

@@ -1,4 +1,4 @@
-﻿import * as template from './page-header.html';
+﻿import template from './page-header.html';
 import "./page-header.less";
 
 class PageHeaderController {

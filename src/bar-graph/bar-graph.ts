@@ -1,4 +1,4 @@
-import * as template from "./bar-graph.html";
+import template from "./bar-graph.html";
 import "./bar-graph.less";
 
 class BarGraphController {

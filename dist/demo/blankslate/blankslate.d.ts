@@ -1,7 +1,6 @@
-import * as blankslate from "./blankslate.html";
 declare var routes: {
     "/blankslate": {
-        template: typeof blankslate;
+        template: string;
         controller: string;
         controllerAs: string;
     };

@@ -1,7 +1,6 @@
-import * as grid from "./grid.html";
 declare var routes: {
     "/grid": {
-        template: typeof grid;
+        template: string;
         controller: string;
         controllerAs: string;
     };

@@ -1,7 +1,6 @@
-import * as template from "./text.html";
 declare var routes: {
     "/text": {
-        template: typeof template;
+        template: string;
         controller: string;
         controllerAs: string;
     };

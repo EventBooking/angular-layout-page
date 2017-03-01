@@ -1,4 +1,4 @@
-import * as template from './nav-header.html';
+import template from './nav-header.html';
 import "./nav-header.less";
 
 class NavHeaderController {

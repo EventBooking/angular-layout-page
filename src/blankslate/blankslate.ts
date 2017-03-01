@@ -1,5 +1,5 @@
 import vopsLayout from "../app";
-import * as template from "./blankslate.html";
+import template from "./blankslate.html";
 import "./blankslate.less";
 
 class BlankslateController {

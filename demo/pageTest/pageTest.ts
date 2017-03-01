@@ -1,4 +1,4 @@
-import * as pageTest from "./pageTest.html";
+import template from "./pageTest.html";
 
 function PageTestController($routeParams) {
 	
@@ -8,7 +8,7 @@ var name = Angular.module("demo").controller('pageTestController', PageTestContr
 
 var routes = {
     "/pages/fullscreen": {
-        template: pageTest,
+        template: template,
         controller: name,
         controllerAs: 'vm'
     },

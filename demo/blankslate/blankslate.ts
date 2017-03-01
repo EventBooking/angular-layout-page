@@ -1,4 +1,4 @@
-import * as blankslate from "./blankslate.html";
+import template from "./blankslate.html";
 
 function BlankslateController() {
 }
@@ -7,7 +7,7 @@ var name = Angular.module("demo").controller('blankslateController', BlankslateC
 
 var routes = {
     "/blankslate": {
-        template: blankslate,
+        template: template,
         controller: name,
         controllerAs: 'vm'
     }

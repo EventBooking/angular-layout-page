@@ -1,8 +1,7 @@
-import * as colors from "./colors.html";
 import "./bgcolor";
 declare var routes: {
     "/colors": {
-        template: typeof colors;
+        template: string;
         controller: string;
         controllerAs: string;
     };

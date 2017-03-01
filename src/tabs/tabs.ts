@@ -1,4 +1,4 @@
-import * as template from "./tabs.html";
+import template from "./tabs.html";
 import "./tabs.less";
 
 export interface ITabsController {

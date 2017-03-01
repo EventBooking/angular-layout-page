@@ -1,4 +1,4 @@
-import * as template from './nav-menu.html';
+import template from './nav-menu.html';
 import "./nav-menu.less";
 import { ILayoutPageController } from '../layout-page/layout-page';
 

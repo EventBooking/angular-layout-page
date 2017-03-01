@@ -1,4 +1,4 @@
-﻿import * as template from "./pane-header.html";
+﻿import template from "./pane-header.html";
 import "./pane-header.less";
 import { IPageSliderController } from "../page-slider/page-slider";
 

@@ -1,11 +1,13 @@
-import * as doublePane from "./doublePane.html";
-import * as paneTest from "./paneTest.html";
-import * as slider1 from "./slider1.html";
-import * as slider2 from "./slider2.html";
-import * as tabPane from "./tabPane.html";
-import * as twoPane from "./twoPane.html";
+import doublePane from "./doublePane.html";
+import paneTest from "./paneTest.html";
+import slider1 from "./slider1.html";
+import slider2 from "./slider2.html";
+import tabPane from "./tabPane.html";
+import twoPane from "./twoPane.html";
 
 export function PaneTestController($routeParams) {
+	console.log('PaneTestController');
+
     var self = this;
 	this.area = $routeParams.area;	
 	this.subarea = $routeParams.subarea;

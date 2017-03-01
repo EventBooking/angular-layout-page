@@ -1,4 +1,4 @@
-import * as colors from "./colors.html";
+import template from "./colors.html";
 import "./bgcolor";
 
 function Shade(color, css) {
@@ -48,7 +48,7 @@ var name = Angular.module("demo").controller('colorsController', ColorsControlle
 
 var routes = {
     "/colors": {
-        template: colors,
+        template: template,
         controller: name,
         controllerAs: 'vm'
     }

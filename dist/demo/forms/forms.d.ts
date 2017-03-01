@@ -1,7 +1,6 @@
-import * as forms from "./forms.html";
 declare var routes: {
     "/forms": {
-        template: typeof forms;
+        template: string;
         controller: string;
         controllerAs: string;
     };
