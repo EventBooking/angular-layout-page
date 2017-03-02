@@ -8,7 +8,7 @@
     "tsc:v": "tsc -v",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "build": "webpack",
+    "build": "webpack --config webpack.build.config.js",
     "start": "webpack-dev-server --open"
   },
   "repository": {
