@@ -8,15 +8,15 @@ var rules = {
         loader: 'url-loader?limit=10000&name=fonts/[name].[ext]?[hash]'
     },
     styles: [
-        {           
+        {
             enforce: 'pre',
-            test: /\.less?$/, 
+            test: /\.less?$/,
             use: ['import-glob-loader']
         },
-        {                
-            test: /\.less?$/, 
+        {
+            test: /\.less?$/,
             use: ExtractTextPlugin.extract([
-                'css-loader?importLoaders=1', 
+                'css-loader?importLoaders=1',
                 {
                     loader: 'postcss-loader',
                     options: {
@@ -24,29 +24,29 @@ var rules = {
                             require('autoprefixer')
                         ]
                     }
-                }, 
+                },
                 'less-loader'
             ])
         }
     ],
-    typescript: { 
-        test: /\.ts?$/, 
+    typescript: {
+        test: /\.ts?$/,
         loader: 'awesome-typescript-loader'
-    }, 
-    html: { 
-        test: /\.html?$/, 
-        loader: 'html-loader?exportAsEs6Default' 
+    },
+    html: {
+        test: /\.html?$/,
+        loader: 'html-loader?exportAsEs6Default'
     }
 };
 
 module.exports = {
     entry: {
-        "vops-layout": "./src/index.ts",
-        "vendors": "./src/vendors.less"
+        "vops-layout": "./src/index.ts"
     },
     output: {
         path: path.join(__dirname, "dist"),
-        filename: '[name].js'
+        filename: '[name].js',
+        libraryTarget: 'commonjs'
     },
     resolve: {
         extensions: ['.ts', '.js', '.html', '.less', '.css']

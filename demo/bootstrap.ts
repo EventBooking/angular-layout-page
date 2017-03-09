@@ -1,4 +1,4 @@
-import "../node_modules/angular-typescript-module";
-import vopsLayout from "../src";
+console.log('bootstrap');
+import {vopsLayout} from "./vendors";
 
 Angular.module("demo", ['ngRoute', 'ngAnimate', vopsLayout]);

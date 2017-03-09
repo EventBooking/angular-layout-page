@@ -1,3 +1,4 @@
+import "./vendors";
 import vopsLayout from "./app";
 export default vopsLayout;
 export * from "./bar-graph/bar-graph";

@@ -1,7 +1,6 @@
-import * as jQuery from "jquery";
-window['$'] = window['jQuery'] = jQuery;
+import vopsLayout from "../";
+console.log('vendors', vopsLayout);
 
-import "angular";
-import "angular-resource";
-import "angular-animate";
-import "angular-route";
+export {
+    vopsLayout
+};

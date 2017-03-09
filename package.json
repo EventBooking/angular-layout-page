@@ -2,6 +2,7 @@
   "name": "vops-layout",
   "version": "1.0.0",
   "description": "",
+  "module": "dist/vops-layout.js",
   "main": "dist/vops-layout.js",
   "typings": "dist/src/index.d.ts",
   "scripts": {
@@ -9,6 +10,7 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "build": "webpack --config webpack.build.config.js",
+    "build:w": "webpack --config webpack.build.config.js --watch",
     "start": "webpack-dev-server --open"
   },
   "repository": {
@@ -23,7 +25,7 @@
   "homepage": "https://github.com/EventBooking/vops-layout#readme",
   "devDependencies": {
     "autoprefixer": "^6.7.6",
-    "awesome-typescript-loader": "^3.0.4-rc.2",
+    "awesome-typescript-loader": "=3.0.3",
     "css-loader": "^0.26.2",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.10.1",
