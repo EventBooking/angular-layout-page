@@ -41,12 +41,13 @@ var rules = {
 
 module.exports = {
     entry: {
-        "vops-layout": "./src/index.ts"
+        "vops-layout": "./src/index.ts",
+        "vendors": "./src/vendors.ts"
     },
     output: {
         path: path.join(__dirname, "dist"),
         filename: '[name].js',
-        libraryTarget: 'commonjs'
+        libraryTarget: 'umd'
     },
     resolve: {
         extensions: ['.ts', '.js', '.html', '.less', '.css']
@@ -63,12 +64,12 @@ module.exports = {
     plugins: [
         new webpack.SourceMapDevToolPlugin({ test: /\.ts$/i }),
         new ExtractTextPlugin({ filename: "[name].css", allChunks: true }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendors',
-            minChunks: function (module) {
-                // this assumes your vendor imports exist in the node_modules directory
-                return module.context && module.context.indexOf('node_modules') !== -1;
-            }
-        })
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'vendors',
+        //     minChunks: function (module) {
+        //         // this assumes your vendor imports exist in the node_modules directory
+        //         return module.context && module.context.indexOf('node_modules') !== -1;
+        //     }
+        // })
     ]
 }

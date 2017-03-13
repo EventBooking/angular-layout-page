@@ -15,6 +15,13 @@ module.exports = {
     module: buildConfig.module,
     plugins: [
         new webpack.SourceMapDevToolPlugin({ test: /\.ts$/i }),
-        new ExtractTextPlugin({ filename: "[name].css", allChunks: true })
+        new ExtractTextPlugin({ filename: "[name].css", allChunks: true }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'vendors',
+        //     minChunks: function (module) {
+        //         // this assumes your vendor imports exist in the node_modules directory
+        //         return module.context && module.context.indexOf('node_modules') !== -1;
+        //     }
+        // })
     ]
 }
