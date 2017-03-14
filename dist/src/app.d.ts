@@ -1,3 +1,3 @@
 import "./app.less";
-declare var _default: string;
-export default _default;
+declare const name: string;
+export default name;

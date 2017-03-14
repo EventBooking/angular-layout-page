@@ -1,3 +1,5 @@
 import "./app.less";
+import Angular from "angular-typescript-module";
 
-export default Angular.module("ngLayoutPage", []).name;
+const name = Angular.module("ngLayoutPage", []).name
+export default name;
