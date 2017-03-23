@@ -14,8 +14,7 @@
     "tests",
     "demo",
     "src",
-    "gulpfile.js",
-    "package.json"
+    "gulpfile.js"
   ],
   "devDependencies": {
     "angular-route": "~1.4.8",
