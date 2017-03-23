@@ -48,5 +48,6 @@
   },
   "engines": {
     "node": "<=4.*"
-  }
+  },
+  "typings": "dist/vops-layout.d.ts"
 }
