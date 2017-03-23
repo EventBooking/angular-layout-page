@@ -2,7 +2,8 @@
   "name": "vops-layout",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/vops-layout.js",
+  "typings": "dist/vops-layout.d.ts",
   "scripts": {
     "postinstall": "bower install & typings install",
     "tsc": "tsc -p src",
@@ -48,6 +49,5 @@
   },
   "engines": {
     "node": "<=4.*"
-  },
-  "typings": "dist/vops-layout.d.ts"
+  }
 }
