@@ -1,4 +1,3 @@
-/// <reference path="../typings/browser.d.ts" />
 declare module LayoutPageModule {
 }
 declare module LayoutPageModule {

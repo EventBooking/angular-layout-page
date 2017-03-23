@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "noImplicitAny": false,
+        "noEmitOnError": true,
+        "removeComments": false,
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "target": "es5",
+        "out": "dist/vops-layout.js",
+        "typeRoots": [
+            "node_modules/@types",
+            "bower_components"
+        ],
+        "types": [
+            "angular",
+            "jquery",
+            "angular-typescript-module"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "bower_components",
+        "typings",
+        "demo",
+        "dist"
+    ]
+}

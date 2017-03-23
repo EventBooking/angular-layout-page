@@ -5,9 +5,13 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('bar-graph/bar-graph.html',
-    '<div class="bar-graph-bg">\n' +
-    '    <div class="bar-graph-fill" ng-class="{\'bar-graph-fill--full\': vm.isFull}" ng-style="vm.style" ng-transclude></div>\n' +
+  $templateCache.put('blankslate/blankslate.html',
+    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
+    '<div class="blankslate-content">\n' +
+    '    <div class="blankslate-content-title">{{vm.title}}</div>\n' +
+    '    <div class="blankslate-content-subtitle">\n' +
+    '        <div ng-transclude></div>\n' +
+    '    </div>\n' +
     '</div>');
 }]);
 })();
@@ -19,13 +23,9 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('blankslate/blankslate.html',
-    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
-    '<div class="blankslate-content">\n' +
-    '    <div class="blankslate-content-title">{{vm.title}}</div>\n' +
-    '    <div class="blankslate-content-subtitle">\n' +
-    '        <div ng-transclude></div>\n' +
-    '    </div>\n' +
+  $templateCache.put('bar-graph/bar-graph.html',
+    '<div class="bar-graph-bg">\n' +
+    '    <div class="bar-graph-fill" ng-class="{\'bar-graph-fill--full\': vm.isFull}" ng-style="vm.style" ng-transclude></div>\n' +
     '</div>');
 }]);
 })();
