@@ -1,0 +1,30 @@
+.generateColorSchema(@i) {
+    .colorSchema(@i, ~"colorschema-@{i}-color", ~"colorschema-@{i}-background");
+}
+
+.colorSchema(@i, @color1, @color2) {
+    .colorSchema-@{i} {
+        background-color: @@color2;
+        color: @@color1;
+    }
+}
+
+.generateColorSchema(20);
+.generateColorSchema(19);
+.generateColorSchema(17);
+.generateColorSchema(16);
+.generateColorSchema(15);
+.generateColorSchema(14);
+.generateColorSchema(13);
+.generateColorSchema(12);
+.generateColorSchema(11);
+.generateColorSchema(10);
+.generateColorSchema(9);
+.generateColorSchema(8);
+.generateColorSchema(7);
+.generateColorSchema(6);
+.generateColorSchema(5);
+.generateColorSchema(4);
+.generateColorSchema(3);
+.generateColorSchema(2);
+.generateColorSchema(1);

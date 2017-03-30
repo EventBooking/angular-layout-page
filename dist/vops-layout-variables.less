@@ -31,7 +31,15 @@
 @color-red-lightest:    #FBD9D5;
 @color-red-dark:        #D43E37; 
 @color-red-darker:      #8D2924;
-@color-red-darkest:     #8D2924;
+@color-red-darkest:     darken(@color-red-darker, @color-scale);
+
+@color-red-orange:             #EE7A40; 
+@color-red-orange-light:       #F2A57E; 
+@color-red-orange-lighter:     #F6C0A5;
+@color-red-orange-lightest:    lighten(@color-red-orange-lighter, @color-scale);
+@color-red-orange-dark:        #D06B38; 
+@color-red-orange-darker:      #8E4926;
+@color-red-orange-darkest:     darken(@color-red-orange-darker, @color-scale);
 
 @color-orange:          #EEA041; 
 @color-orange-light:    #F7D7A6; 
@@ -39,7 +47,7 @@
 @color-orange-lightest: #FCF2E5;
 @color-orange-dark:     #D38A37; 
 @color-orange-darker:   #8D5C24;
-@color-orange-darkest:  #8D5C24;
+@color-orange-darkest:  darken(@color-orange-darker, @color-scale);
 
 @color-yellow:          #EED341; 
 @color-yellow-light:    #F4E37F; 
@@ -47,7 +55,31 @@
 @color-yellow-lightest: #FBF5D5;
 @color-yellow-dark:     #D3BA37; 
 @color-yellow-darker:   #8D7C24;
-@color-yellow-darkest:  #8D7C24;
+@color-yellow-darkest:  darken(@color-yellow-darker, @color-scale);
+
+@color-yellow-green:           #D1DE3C; 
+@color-yellow-green-light:     #DFE87C; 
+@color-yellow-green-lighter:   #E8EFA3;
+@color-yellow-green-lightest:  lighten(@color-yellow-green-lighter, @color-scale);
+@color-yellow-green-dark:      #B6C334; 
+@color-yellow-green-darker:    #7C8524;
+@color-yellow-green-darkest:   darken(@color-yellow-green-darker, @color-scale);
+
+@color-chrome-green:           #A2D73A; 
+@color-chrome-green-light:     #C0E37A; 
+@color-chrome-green-lighter:   #D3EBA2;
+@color-chrome-green-lightest:  lighten(@color-chrome-green-lighter, @color-scale);
+@color-chrome-green-dark:      #8EBB32; 
+@color-chrome-green-darker:    #618022;
+@color-chrome-green-darkest:   darken(@color-chrome-green-darker, @color-scale);
+
+@color-inchworm-green:           #77CF37; 
+@color-inchworm-green-light:     #A3DE79; 
+@color-inchworm-green-lighter:   #BFE8A1;
+@color-inchworm-green-lightest:  lighten(@color-inchworm-green-lighter, @color-scale);
+@color-inchworm-green-dark:      #68B531; 
+@color-inchworm-green-darker:    #477C21;
+@color-inchworm-green-darkest:   darken(@color-inchworm-green-darker, @color-scale);
 
 @color-green:           #48C245; 
 @color-green-light:     #85D882; 
@@ -55,7 +87,31 @@
 @color-green-lightest:  #D6F1D6;
 @color-green-dark:      #30AA3A; 
 @color-green-darker:    #207126;
-@color-green-darkest:   #207126;
+@color-green-darkest:   darken(@color-green-darker, @color-scale);
+
+@color-fern-green:           #38CF77; 
+@color-fern-green-light:     #79DEA3; 
+@color-fern-green-lighter:   #A1E8BF;
+@color-fern-green-lightest:  lighten(@color-fern-green-lighter, @color-scale);
+@color-fern-green-dark:      #31B568; 
+@color-fern-green-darker:    #217C47;
+@color-fern-green-darkest:   darken(@color-fern-green-darker, @color-scale);
+
+@color-carribean-green:           #3AD6A2; 
+@color-carribean-green-light:     #7AE3C0; 
+@color-carribean-green-lighter:   #A2EBD3;
+@color-carribean-green-lightest:  lighten(@color-carribean-green-lighter, @color-scale);
+@color-carribean-green-dark:      #32BB8E; 
+@color-carribean-green-darker:    #228061;
+@color-carribean-green-darkest:   darken(@color-carribean-green-darker, @color-scale);
+
+@color-green-blue:           #21C5B7; 
+@color-green-blue-light:     #6AD7CE; 
+@color-green-blue-lighter:   #96E3DD;
+@color-green-blue-lightest:  lighten(@color-green-blue-lighter, @color-scale);
+@color-green-blue-dark:      #1CACA0; 
+@color-green-blue-darker:    #13756D;
+@color-green-blue-darkest:   darken(@color-green-blue-darker, @color-scale);
 
 @color-blue:            #4EB6D6; 
 @color-blue-light:      #89D0E5; 
@@ -65,13 +121,69 @@
 @color-blue-darker:     #246A78;
 @color-blue-darkest:    #246A78; 
 
-@color-purple:          #800080;
-@color-purple-light:    lighten(@color-purple, @color-scale);
-@color-purple-lighter:  lighten(@color-purple-light, @color-scale);
+@color-navy-blue:           #419AF3; 
+@color-navy-blue-light:     #7FBBF6; 
+@color-navy-blue-lighter:   #A5CFF8;
+@color-navy-blue-lightest:  lighten(@color-navy-blue-lighter, @color-scale);
+@color-navy-blue-dark:      #3987D4; 
+@color-navy-blue-darker:    #275C91;
+@color-navy-blue-darkest:   darken(@color-navy-blue-darker, @color-scale);
+
+@color-cerulean-blue:           #547FFF; 
+@color-cerulean-blue-light:     #8CA9FF; 
+@color-cerulean-blue-lighter:   #AEC2FF;
+@color-cerulean-blue-lightest:  lighten(@color-cerulean-blue-lighter, @color-scale);
+@color-cerulean-blue-dark:      #496FE0; 
+@color-cerulean-blue-darker:    #324C99;
+@color-cerulean-blue-darkest:   darken(@color-cerulean-blue-darker, @color-scale);
+
+@color-denim-blue:           #5445FF; 
+@color-denim-blue-light:     #8C82FF; 
+@color-denim-blue-lighter:   #AEA7FF;
+@color-denim-blue-lightest:  lighten(@color-denim-blue-lighter, @color-scale);
+@color-denim-blue-dark:      #493CE0; 
+@color-denim-blue-darker:    #322999;
+@color-denim-blue-darkest:   darken(@color-denim-blue-darker, @color-scale);
+
+@color-purple:          #9245FF;
+@color-purple-light:    #B582FF;
+@color-purple-lighter:  #CBA7FF;
 @color-purple-lightest: lighten(@color-purple-lighter, @color-scale);
-@color-purple-dark:     darken(@color-purple, @color-scale);
-@color-purple-darker:   darken(@color-purple-dark, @color-scale);
+@color-purple-dark:     #803CE0;
+@color-purple-darker:   #572999;
 @color-purple-darkest:  darken(@color-purple-darker, @color-scale);
+
+@color-violet:          #D045FF;
+@color-violet-light:    #DF82FF;
+@color-violet-lighter:  #E8A7FF;
+@color-violet-lightest: lighten(@color-violet-lighter, @color-scale);
+@color-violet-dark:     #B63CE0;
+@color-violet-darker:   #7C2999;
+@color-violet-darkest:  darken(@color-violet-darker, @color-scale);
+
+@color-fuchsia:          #ED40DF;
+@color-fuchsia-light:    #F27EE9;
+@color-fuchsia-lighter:  #F6BBF6;
+@color-fuchsia-lightest: lighten(@color-fuchsia-lighter, @color-scale);
+@color-fuchsia-dark:     #D038C3;
+@color-fuchsia-darker:   #8E2685;
+@color-fuchsia-darkest:  darken(@color-fuchsia-darker, @color-scale);
+
+@color-magenta:          #ED40A5;
+@color-magenta-light:    #F27EC2;
+@color-magenta-lighter:  #F6A5D4;
+@color-magenta-lightest: lighten(@color-magenta-lighter, @color-scale);
+@color-magenta-dark:     #D03890;
+@color-magenta-darker:   #8E2663;
+@color-magenta-darkest:  darken(@color-magenta-darker, @color-scale);
+
+@color-carmine:          #EE406B;
+@color-carmine-light:    #F27E9B;
+@color-carmine-lighter:  #F6A5B9;
+@color-carmine-lightest: lighten(@color-carmine-lighter, @color-scale);
+@color-carmine-dark:     #D0385D;
+@color-carmine-darker:   #8E2640;
+@color-carmine-darkest:  darken(@color-carmine-darker, @color-scale);
 
 @color-gray:            #999990; 
 @color-gray-light:      #B2B2A9; 
@@ -81,6 +193,89 @@
 @color-gray-dark:       #72726B; 
 @color-gray-darker:     #4C4C47;
 @color-gray-darkest:    #262624;
+
+@colorSchemaCount: 20;
+
+// Color Schema - 1
+@colorschema-1-color: @color-red-darker;
+@colorschema-1-background: @color-red-lighter;
+
+// Color Schema - 2 
+@colorschema-2-color: @color-red-orange-darker;
+@colorschema-2-background: @color-red-orange-lighter;
+
+// Color Schema - 3
+@colorschema-3-color: @color-orange-darkest;
+@colorschema-3-background: @color-orange-lighter;
+
+// Color Schema - 4 
+@colorschema-4-color: @color-yellow-darker;
+@colorschema-4-background: @color-yellow-lighter;
+
+// Color Schema - 5
+@colorschema-5-color: @color-yellow-green-darkest;
+@colorschema-5-background: @color-yellow-green-lighter;
+
+// Color Schema - 6 
+@colorschema-6-color: @color-chrome-green-darker;
+@colorschema-6-background: @color-chrome-green-lighter;
+
+// Color Schema - 7
+@colorschema-7-color: @color-inchworm-green-darkest;
+@colorschema-7-background: @color-inchworm-green-lighter;
+
+// Color Schema - 8 
+@colorschema-8-color: @color-green-darker;
+@colorschema-8-background: @color-green-lighter;
+
+// Color Schema - 9
+@colorschema-9-color: @color-fern-green-darkest;
+@colorschema-9-background: @color-fern-green-lighter;
+
+// Color Schema - 10
+@colorschema-10-color: @color-carribean-green-darker;
+@colorschema-10-background: @color-carribean-green-lighter;
+
+// Color Schema - 11
+@colorschema-11-color: @color-green-blue-darkest;
+@colorschema-11-background: @color-green-blue-lighter;
+
+// Color Schema - 12
+@colorschema-12-color: @color-blue-darker;
+@colorschema-12-background: @color-blue-lighter;
+
+/* ToDo: there are no brown colors */
+// Color Schema - 13
+@colorschema-13-color: @color-navy-blue-darkest;
+@colorschema-13-background: @color-navy-blue-lighter;
+
+// Color Schema - 14
+@colorschema-14-color: @color-cerulean-blue-darker;
+@colorschema-14-background: @color-cerulean-blue-lighter;
+
+// Color Schema - 15
+@colorschema-15-color: @color-denim-blue-darkest;
+@colorschema-15-background: @color-denim-blue-lighter;
+
+// Color Schema - 16
+@colorschema-16-color: @color-purple-darker;
+@colorschema-16-background: @color-purple-lighter;
+
+// Color Schema - 17
+@colorschema-17-color: @color-violet-darker;
+@colorschema-17-background: @color-violet-lighter;
+
+// Color Schema - 18
+@colorschema-18-color: @color-magenta-darker;
+@colorschema-18-background: @color-magenta-lighter;
+
+// Color Schema - 19
+@colorschema-19-color: @color-fuchsia-darker;
+@colorschema-19-background: @color-fuchsia-lighter;
+
+// Color Schema - 20
+@colorschema-20-color: @color-carmine-darker;
+@colorschema-20-background: @color-carmine-lighter;
 // font weights
 @font-family: 'Source Sans Pro';
 @font-family-uri: escape(@font-family);

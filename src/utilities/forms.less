@@ -123,8 +123,25 @@
 }
 
 :root label > .form-control[type="checkbox"] {
-    position: absolute;
-    left: -1000em;
+    position: static !important;
+    left: auto !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+.form-checklist {
+    & > label {
+        display: block;
+        cursor: pointer;
+    }
+
+    & > label + label {
+        margin-top: 2px;
+    }
+}
+
+.form-checklist > & + & {
+    margin-top: 2px;
 }
 
 .form-label-sub {
