@@ -5,10 +5,10 @@ module LayoutPageModule {
     }
 
     export interface IPageController {
-        addControl($element: angular.IAugmentedJQuery);
+        addControl($element: any);
         showOverlay(overlay: IPageOverlay);
         hideOverlay(overlay: IPageOverlay);
-        ensureOnTop($element: angular.IAugmentedJQuery);
+        ensureOnTop($element: any);
     }
 
     class PageController implements IPageController {
@@ -22,7 +22,7 @@ module LayoutPageModule {
             this.$element = $element;
         }
 
-        addControl($element: angular.IAugmentedJQuery) {
+        addControl($element) {
             if (this.$element == null) {
                 this.controls.push($element);
                 return;

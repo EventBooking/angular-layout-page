@@ -1,4 +1,3 @@
-/// <reference types="angular" />
 declare module LayoutPageModule {
 }
 declare module LayoutPageModule {
@@ -24,10 +23,10 @@ declare module LayoutPageModule {
     interface IPageOverlay {
     }
     interface IPageController {
-        addControl($element: angular.IAugmentedJQuery): any;
+        addControl($element: any): any;
         showOverlay(overlay: IPageOverlay): any;
         hideOverlay(overlay: IPageOverlay): any;
-        ensureOnTop($element: angular.IAugmentedJQuery): any;
+        ensureOnTop($element: any): any;
     }
 }
 declare module LayoutPageModule {
