@@ -1,12 +1,12 @@
 ﻿module LayoutPageModule {
 
-    export interface IPageSliderController {
+    export interface IPageSliderController extends IPageOverlay {
         isVisible;
         withOverlay;
         close();
     }
 
-    class PageSliderController implements IPageSliderController, IPageOverlay {
+    class PageSliderController implements IPageSliderController {
         private _slideIf;
 
         get slideIf() {
@@ -52,7 +52,7 @@
             onClose: '&'
         };
 
-        link = ($scope, $element, $attrs, $page: LayoutPageModule.IPageController, $transclude) => {
+        link = ($scope, $element: angular.IAugmentedJQuery, $attrs, $page: LayoutPageModule.IPageController, $transclude) => {
             var $ctrl: PageSliderController = $scope[this.controllerAs],
                 sliderScope = null;
 
@@ -67,6 +67,9 @@
             $ctrl.toggleVisibility = () => {
                 var isVisible = !!$ctrl.slideIf;
 
+                if(isVisible)
+                    $page.ensureOnTop($element);
+                    
                 if(isVisible)
                     this.$rootScope.$emit('$pageSlider.$show', $element);
                 else this.$rootScope.$emit('$pageSlider.$hide', $element);
