@@ -67,11 +67,11 @@
             $ctrl.toggleVisibility = () => {
                 var isVisible = !!$ctrl.slideIf;
 
-                if(isVisible)
-                    $page.ensureOnTop($element);
-                    
-                if(isVisible)
+                if(isVisible) {
                     this.$rootScope.$emit('$pageSlider.$show', $element);
+                    $page.ensureOnTop($element);
+                    $element.css("opacity"); // fixes browser reflow batching issue (do not remove)
+                }
                 else this.$rootScope.$emit('$pageSlider.$hide', $element);
 
                 $element.empty()
