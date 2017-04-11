@@ -882,6 +882,34 @@ nav-menu {
         display: block;
     }
 }
+.page-content-nav {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: auto;
+    height: unit(@page-content-nav-height,px);
+    padding: 0 1em;
+    line-height: unit(@page-content-nav-height,px);
+    margin: 0;
+    background-color: @page-content-nav-background-color;
+    list-style-type: none;
+
+    &--subnav {
+        background-color: #fff;
+        border-bottom: solid 1px @border-color;
+        border-top: solid 1px @border-color;
+        height: unit(@page-content-nav-height/1.5,px);
+        line-height: unit(@page-content-nav-height/1.5,px);;
+        padding: 0 unit(1/1.5,em);
+    }
+}
+
+@media @media-phone-portrait {
+    .page-content-nav {
+        padding: 0;
+    }
+}
 page-content-nav-item {
     display: block;
     line-height: unit(@page-content-nav-item-font-size*3.5,px);
@@ -934,34 +962,6 @@ page-content-nav-item {
     & ~ & {
         margin-top: 0;
         margin-left: 1px;
-    }
-}
-.page-content-nav {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: auto;
-    height: unit(@page-content-nav-height,px);
-    padding: 0 1em;
-    line-height: unit(@page-content-nav-height,px);
-    margin: 0;
-    background-color: @page-content-nav-background-color;
-    list-style-type: none;
-
-    &--subnav {
-        background-color: #fff;
-        border-bottom: solid 1px @border-color;
-        border-top: solid 1px @border-color;
-        height: unit(@page-content-nav-height/1.5,px);
-        line-height: unit(@page-content-nav-height/1.5,px);;
-        padding: 0 unit(1/1.5,em);
-    }
-}
-
-@media @media-phone-portrait {
-    .page-content-nav {
-        padding: 0;
     }
 }
 page-header,
@@ -1955,10 +1955,10 @@ tabs {
 }
 
 :root label > .form-control[type="checkbox"] {
-    position: static !important;
-    left: auto !important;
-    height: 0 !important;
-    width: 0 !important;
+    position: absolute !important;
+    left: -1000px !important;
+    top: -1000px !important;
+    opacity: 0;
 }
 
 .form-checklist {
