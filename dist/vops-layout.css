@@ -1514,11 +1514,14 @@ label > .form-control[type="checkbox"]:checked + .form-label:before {
 label > .form-control[type="checkbox"]:focus + .form-label:before {
   box-shadow: 0 0 0.5rem #4EB6D6;
 }
+label > .form-control[type="checkbox"][disabled] + .form-label:before,
 label > .form-control[type="checkbox"][disabled]:checked + .form-label:before {
-  content: "\2714";
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #72726B;
+}
+label > .form-control[type="checkbox"][disabled]:checked + .form-label:before {
+  content: "\2714";
 }
 :root label > .form-control[type="checkbox"] {
   position: absolute !important;
@@ -7772,11 +7775,14 @@ label > .form-control[type="checkbox"]:checked + .form-label:before {
 label > .form-control[type="checkbox"]:focus + .form-label:before {
   box-shadow: 0 0 0.5rem #4EB6D6;
 }
+label > .form-control[type="checkbox"][disabled] + .form-label:before,
 label > .form-control[type="checkbox"][disabled]:checked + .form-label:before {
-  content: "\2714";
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #72726B;
+}
+label > .form-control[type="checkbox"][disabled]:checked + .form-label:before {
+  content: "\2714";
 }
 :root label > .form-control[type="checkbox"] {
   position: absolute !important;
