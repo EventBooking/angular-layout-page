@@ -9,8 +9,7 @@
         "target": "es5",
         "out": "dist/vops-layout.js",
         "typeRoots": [
-            "node_modules/@types",
-            "bower_components"
+            "node_modules/@types"
         ],
         "types": [
             "angular",

@@ -363,7 +363,6 @@ th {
   height: 1px;
   width: 100%;
   background-repeat: no-repeat;
-  background-image: -webkit-radial-gradient(circle, #626262, #33373b);
   background-image: radial-gradient(circle, #626262, #33373b);
 }
 .divider-light {
@@ -371,7 +370,6 @@ th {
   height: 1px;
   width: 100%;
   background-repeat: no-repeat;
-  background-image: -webkit-radial-gradient(circle, #e5e5e5, #ffffff);
   background-image: radial-gradient(circle, #e5e5e5, #ffffff);
 }
 .button-group {
@@ -392,8 +390,7 @@ th {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -463,8 +460,7 @@ th {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   padding: 0 1em;
@@ -600,8 +596,7 @@ th {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -728,8 +723,7 @@ th {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -856,8 +850,7 @@ th {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -984,8 +977,7 @@ th {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -1497,8 +1489,7 @@ label > .form-control[type="checkbox"] + .form-label:before {
   height: 1.5em;
   line-height: 1.25em;
   border-radius: 2px;
-  -webkit-transition: all .25s linear;
-          transition: all .25s linear;
+  transition: all .25s linear;
   background-color: #fff;
   margin-right: .5rem;
 }
@@ -3686,8 +3677,7 @@ bar-graph + bar-graph {
   text-align: center;
   white-space: nowrap;
   overflow: visible;
-  -webkit-transition: width 0.5s ease-in-out;
-          transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
 }
 .bar-graph-fill--full {
   border-top-right-radius: 4px;
@@ -5341,7 +5331,6 @@ doughnut canvas {
   height: 1px;
   width: 100%;
   background-repeat: no-repeat;
-  background-image: -webkit-radial-gradient(circle, #626262, #33373b);
   background-image: radial-gradient(circle, #626262, #33373b);
 }
 .divider-light {
@@ -5349,7 +5338,6 @@ doughnut canvas {
   height: 1px;
   width: 100%;
   background-repeat: no-repeat;
-  background-image: -webkit-radial-gradient(circle, #e5e5e5, #ffffff);
   background-image: radial-gradient(circle, #e5e5e5, #ffffff);
 }
 nav-group-item,
@@ -5461,7 +5449,6 @@ nav-group ~ nav-group,
 nav-group ~ .nav-group,
 .nav-group ~ nav-group,
 .nav-group ~ .nav-group {
-  background-image: -webkit-radial-gradient(circle, #999990, transparent);
   background-image: radial-gradient(circle, #999990, transparent);
   background-size: 100% 1px;
   background-repeat: no-repeat;
@@ -5534,8 +5521,7 @@ nav {
 }
 @media screen and (min-width: 480px) and (max-width: 767px) {
   nav {
-    -webkit-transition: all 0.25s ease-in-out;
-            transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
     width: 0;
     min-width: 0;
   }
@@ -5555,8 +5541,7 @@ nav {
 }
 @media screen and (max-width: 479px) {
   nav {
-    -webkit-transition: all 0.25s ease-in-out;
-            transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
     width: 0;
     min-width: 0;
   }
@@ -5736,8 +5721,7 @@ page-content-nav-item {
   line-height: 49px;
   padding: 0 2em;
   cursor: pointer;
-  -webkit-transition: background-color 0.25s ease-in-out;
-          transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
   position: relative;
   font-size: 14px;
   font-size: 0.875rem;
@@ -6046,8 +6030,7 @@ page-header,
   color: #E5E5E3;
   background-color: transparent;
   padding: 0 .7em;
-  -webkit-transition: background-color 0.25s ease-in-out;
-          transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
   box-sizing: content-box;
 }
 .page-header-actions-item--customWidth {
@@ -6138,8 +6121,7 @@ page-slider {
   top: 0;
   bottom: 0;
   z-index: 10;
-  -webkit-transition: right 0.25s ease-in-out;
-          transition: right 0.25s ease-in-out;
+  transition: right 0.25s ease-in-out;
   color: #999990;
   background-color: #fff;
   overflow: hidden;
@@ -6214,8 +6196,7 @@ page-slider.is-visible {
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.25);
   z-index: 9;
-  -webkit-transition: bottom 0.15s ease-in-out, opacity 0.15s ease-in-out;
-          transition: bottom 0.15s ease-in-out, opacity 0.15s ease-in-out;
+  transition: bottom 0.15s ease-in-out, opacity 0.15s ease-in-out;
 }
 .page--overlay:before {
   opacity: 1;
@@ -6533,8 +6514,7 @@ tabs {
   position: relative;
   padding: 0 1em;
   color: #4C4C47;
-  -webkit-transition: color 0.25s ease-in-out;
-          transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
   padding-bottom: .15em;
   font-size: 24px;
   font-size: 1.5rem;
@@ -6599,8 +6579,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   left: 0;
   right: 0;
   border-bottom: solid 2px #EFEFEE;
-  -webkit-transition: border-bottom-color 0.25s ease-in-out;
-          transition: border-bottom-color 0.25s ease-in-out;
+  transition: border-bottom-color 0.25s ease-in-out;
 }
 .tab-titles-item--selected:before {
   border-bottom-color: #EEA041;
@@ -6632,8 +6611,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   display: flex;
   position: relative;
   left: 0;
-  -webkit-transition: left 0.25s ease-in-out;
-          transition: left 0.25s ease-in-out;
+  transition: left 0.25s ease-in-out;
 }
 .button-group {
   display: -webkit-inline-box;
@@ -6653,8 +6631,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -6724,8 +6701,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   padding: 0 1em;
@@ -6861,8 +6837,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -6989,8 +6964,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -7117,8 +7091,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -7245,8 +7218,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   border-radius: 2px;
   border-style: solid;
   cursor: pointer;
-  -webkit-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background-color: #E5E5E3;
   border-color: #E5E5E3;
   color: #262624;
@@ -7758,8 +7730,7 @@ label > .form-control[type="checkbox"] + .form-label:before {
   height: 1.5em;
   line-height: 1.25em;
   border-radius: 2px;
-  -webkit-transition: all .25s linear;
-          transition: all .25s linear;
+  transition: all .25s linear;
   background-color: #fff;
   margin-right: .5rem;
 }
