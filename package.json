@@ -1,9 +1,9 @@
 {
   "name": "vops-layout",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
-  "main": "dist/vops-layout.js",
-  "typings": "dist/vops-layout.d.ts",
+  "main": "./dist/vops-layout.js",
+  "typings": "./dist/vops-layout.d.ts",
   "scripts": {
     "postinstall": "typings install",
     "tsc": "tsc",
@@ -53,6 +53,6 @@
     "jquery": "^2.1.4",
     "normalize.css": "^3.0.3",
     "angular-animate": "^1.4.9",
-    "angular-typescript-module": "github:eventbooking/angular-typescript-module#v2.0.0"
+    "angular-typescript-module": "github:eventbooking/angular-typescript-module#v2.0.1"
   }
 }
