@@ -1610,9 +1610,11 @@ textarea.form-control {
 .form-label + .form-control {
   margin-top: 0.25rem;
 }
-.form-addon-control + .form-control,
-.form-control + .form-control {
+.form-addon-control + .form-control {
   margin-top: .2rem;
+}
+.form-control + .form-control {
+  margin-top: .5rem;
 }
 .form-control-row .form-control + .form-control {
   margin-top: 0;
@@ -7851,9 +7853,11 @@ textarea.form-control {
 .form-label + .form-control {
   margin-top: 0.25rem;
 }
-.form-addon-control + .form-control,
-.form-control + .form-control {
+.form-addon-control + .form-control {
   margin-top: .2rem;
+}
+.form-control + .form-control {
+  margin-top: .5rem;
 }
 .form-control-row .form-control + .form-control {
   margin-top: 0;
