@@ -8,6 +8,7 @@
     background-color: @pane-header-background-color;
     height: unit(@pane-header-height,px);
     line-height: unit(@pane-header-height,px);
+    border-top: solid 4px @pane-header-bar-color;
     
     &.pane-header--withSubtitle {
         height: unit(@pane-header-height-withSubtitle,px);
@@ -69,6 +70,7 @@
     display: block;
     color: @pane-header-title-color;
     .ellipsis();
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
 }
 
 .pane-header-titleText {

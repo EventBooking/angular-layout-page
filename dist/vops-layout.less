@@ -287,6 +287,7 @@ body-header,
     order: 2;
     font-size: .75rem;
     line-height: 16px;
+    letter-spacing: .025em;
 }
 @doughnut-empty-color: @color-gray-darker;
 @doughnut-fill-color: @color-green;
@@ -607,7 +608,8 @@ nav-group-item,
     &--selected {
         color: @nav-group-item-selected-color;
 		background-color: @nav-group-item-selected-background-color;
-        font-weight: @nav-group-item-selected-font-weight;
+		font-weight: @nav-group-item-selected-font-weight;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
     }
 }
 
@@ -674,6 +676,7 @@ nav-header {
 	line-height: unit(@page-header-height,px);
     font-weight: @nav-header-font-weight;
     text-transform: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
 }
 
 .nav-header-small {
@@ -1192,6 +1195,12 @@ page-slider {
 		position: fixed;
     }
 }
+.pane {
+    height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+    line-height: @line-height-base;
+    .font-size(@pane-font-size);
+}
 .pane-body {
     display: block;
     max-height: 100%;
@@ -1225,12 +1234,6 @@ page-slider {
     .pane-body {
         padding: unit(@padding-half,px) unit(@padding-half,px);
     }
-}
-.pane {
-    height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-    line-height: @line-height-base;
-    .font-size(@pane-font-size);
 }
 pane-footer {
     display: block;
@@ -1267,6 +1270,7 @@ pane-header,
     background-color: @pane-header-background-color;
     height: unit(@pane-header-height,px);
     line-height: unit(@pane-header-height,px);
+    border-top: solid 4px @pane-header-bar-color;
     
     &.pane-header--withSubtitle {
         height: unit(@pane-header-height-withSubtitle,px);
@@ -1328,6 +1332,7 @@ pane-header,
     display: block;
     color: @pane-header-title-color;
     .ellipsis();
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
 }
 
 .pane-header-titleText {
@@ -1417,9 +1422,6 @@ pane-header,
     }
 
 }
-tab {
-    width: 100%;
-}
 /// <reference path="../assets.less" />
 
 .section {
@@ -1445,6 +1447,7 @@ tab {
     text-transform: uppercase;
     font-weight: @font-weight;
     color: @color-gray-light;
+    letter-spacing: .025em;
 
     &--large {
         font-size: 1.25em;
@@ -1474,6 +1477,9 @@ tab {
     .section-label + & {
         margin-top: .25rem;
     }
+}
+tab {
+    width: 100%;
 }
 tabs {
     width: 100%;
@@ -2449,12 +2455,12 @@ tabs {
 
 // nav-group-item
 @nav-group-item-padding: 8;
-@nav-group-item-color: @color-gray-light;
+@nav-group-item-color: @color-gray;
 @nav-group-item-background-color: transparent;
 @nav-group-item-selected-color: @color-gray-darkest;
 @nav-group-item-selected-background-color: transparent;
 @nav-group-item-selected-font-weight: @font-weight-bold;
-@nav-group-item-hover-color: @color-gray-dark;
+@nav-group-item-hover-color: @color-gray-darker;
 @nav-group-item-hover-background-color: transparent;
 @nav-group-item-active-color: @color-gray-darkest;
 @nav-group-item-active-background-color: transparent;
@@ -2538,6 +2544,7 @@ tabs {
 // pane-header
 @pane-header-color: @color-gray;
 @pane-header-background-color: transparent;
+@pane-header-bar-color: @color-orange;
 @pane-header-height: 48;
 @pane-header-height-withSubtitle: 60;
 @pane-header-title-color: #555;
