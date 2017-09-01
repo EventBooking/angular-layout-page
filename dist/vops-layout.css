@@ -5402,6 +5402,8 @@ nav-group-item:active,
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 20px;
+  width: 20px;
+  text-align: center;
 }
 .nav-group-item--appSwitcher .nav-group-item-icon {
   display: none;
