@@ -5940,6 +5940,7 @@ page-header,
 .page-header-title {
   margin-left: 32px;
   font-weight: 700;
+  text-transform: uppercase;
   font-size: 16px;
   font-size: 1rem;
   white-space: nowrap;
@@ -5960,6 +5961,9 @@ page-header,
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.page-header-subtitle:empty {
+  display: none;
 }
 @media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   .page-header-subtitle {
@@ -5982,6 +5986,9 @@ page-header,
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.page-header-label:empty {
+  display: none;
 }
 @media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   .page-header-label {

@@ -23,6 +23,7 @@
 .page-header-title {
     margin-left: unit(@padding,px);
     font-weight: @page-header-title-font-weight;
+    text-transform: uppercase;
     .font-size(@page-header-title-font-size);
     .ellipsis();
 
@@ -37,6 +38,10 @@
     font-weight: @page-header-subtitle-font-weight;
     .font-size(@page-header-subtitle-font-size);
     .ellipsis();
+
+    &:empty {
+        display: none;
+    }
 
     @media @media-phone-landscape, @media-phone-portrait {
         margin-left: 0;
@@ -55,6 +60,10 @@
     font-weight: bold;
     text-transform: uppercase;
     .ellipsis();
+
+    &:empty {
+        display: none;
+    }
 
     @media @media-phone-landscape, @media-phone-portrait {
         .font-size(@page-header-label-font-size * .85);
