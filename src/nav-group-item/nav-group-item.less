@@ -2,16 +2,17 @@ nav-group-item,
 [nav-group-item],
 .nav-group-item {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	cursor: pointer;
 	text-align: center;
 	color: @nav-group-item-color;
 	background-color: @nav-group-item-background-color;
-	padding: unit(@nav-group-item-padding,px) 0; 
+	padding: .5em 1.5em; 
 	text-decoration: none;
-    
+	align-items: center;
+
 	& ~ & {
-		margin-top: unit(@nav-group-item-padding,px);
+		margin-top: .5em;
 	}
 	
 	&:hover {
@@ -32,7 +33,11 @@ nav-group-item,
 		background-color: @nav-group-item-selected-background-color;
 		font-weight: @nav-group-item-selected-font-weight;
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
-    }
+	}
+	
+	&--appSwitcher {
+		justify-content: center;
+	}
 }
 
 .nav-group-item-icon {
@@ -49,10 +54,14 @@ nav-group-item,
 	line-height: unit(@nav-group-item-text-font-size, px);
     text-decoration: none;
     cursor: pointer;
-    text-transform: uppercase;
+	text-transform: uppercase;
 	
 	.nav-group-item-icon ~ & {
-		margin-top: unit(@padding-quarter/2,px);
+		margin-left: .75em;
+	}
+
+	.nav-group-item--appSwitcher & {
+		margin-left: 0;
 	}
 }
 

@@ -19,6 +19,24 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('blankslate/blankslate.html',
+    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
+    '<div class="blankslate-content">\n' +
+    '    <div class="blankslate-content-title">{{vm.title}}</div>\n' +
+    '    <div class="blankslate-content-subtitle">\n' +
+    '        <div ng-transclude></div>\n' +
+    '    </div>\n' +
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('body-header/body-header.html',
     '<div class="body-header-top">\n' +
     '    <div class="body-header-titles">\n' +
@@ -32,24 +50,6 @@ module.run(['$templateCache', function($templateCache) {
     '<!--<div class="body-header-bottom">\n' +
     '    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>\n' +
     '</div>-->');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('blankslate/blankslate.html',
-    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
-    '<div class="blankslate-content">\n' +
-    '    <div class="blankslate-content-title">{{vm.title}}</div>\n' +
-    '    <div class="blankslate-content-subtitle">\n' +
-    '        <div ng-transclude></div>\n' +
-    '    </div>\n' +
-    '</div>');
 }]);
 })();
 
@@ -91,8 +91,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('nav-header/nav-header.html',
-    '<span class="nav-header-text">{{vm.text}}</span>\n' +
-    '<span class="nav-header-small">{{vm.small}}</span>');
+    '');
 }]);
 })();
 
@@ -116,7 +115,6 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('page-header/page-header.html',
-    '<div class="page-header-actions" ng-transclude></div>\n' +
     '<nav-menu class="page-header-navMenu" icon="fa fa-navicon"></nav-menu>\n' +
     '<div class="page-header-titles">\n' +
     '    <div class="page-header-titles-item page-header-titles-item--title">\n' +
@@ -128,7 +126,8 @@ module.run(['$templateCache', function($templateCache) {
     '    <div class="page-header-titles-item page-header-titles-item--label">\n' +
     '        <span class="page-header-label" ng-if="vm.label">{{vm.label}}</span>\n' +
     '    </div>\n' +
-    '</div>');
+    '</div>\n' +
+    '<div class="page-header-actions" ng-transclude></div>');
 }]);
 })();
 
