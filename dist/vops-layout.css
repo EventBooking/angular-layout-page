@@ -5911,10 +5911,12 @@ page-content-nav-item ~ page-content-nav-item {
     display: none;
   }
 }
-page-header,
-.page-header {
+page-header {
+  display: block;
   color: #E5E5E3;
   background-color: #4C4C47;
+}
+.page-header {
   height: 48px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6097,8 +6099,7 @@ page-slider.is-visible {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-.page page-header,
-.page .page-header {
+.page page-header {
   -webkit-box-ordinal-group: 1;
       -ms-flex-order: 0;
           order: 0;

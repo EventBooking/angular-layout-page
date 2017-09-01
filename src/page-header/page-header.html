@@ -1,11 +1,13 @@
-﻿<div class="page-header-left">
-    <i class="page-header-navMenu fa fa-navicon" ng-click="vm.toggleNav()"></i>
-</div>
-<div class="page-header-center">
-    <span class="page-header-title">{{vm.title}}</span>
-    <span class="page-header-subtitle">{{vm.subtitle}}</span>
-    <span class="page-header-label">{{vm.label}}</span>
-</div>
-<div class="page-header-right">
-    <div class="page-header-actions" ng-transclude></div>
+﻿<div class="page-header">
+    <div class="page-header-left">
+        <i class="page-header-navMenu fa fa-navicon" ng-click="vm.toggleNav()"></i>
+    </div>
+    <div class="page-header-center">
+        <span class="page-header-title">{{vm.title}}</span>
+        <span class="page-header-subtitle">{{vm.subtitle}}</span>
+        <span class="page-header-label">{{vm.label}}</span>
+    </div>
+    <div class="page-header-right">
+        <div class="page-header-actions" ng-transclude></div>
+    </div>
 </div>

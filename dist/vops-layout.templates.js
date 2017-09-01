@@ -91,16 +91,18 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('page-header/page-header.html',
-    '<div class="page-header-left">\n' +
-    '    <i class="page-header-navMenu fa fa-navicon" ng-click="vm.toggleNav()"></i>\n' +
-    '</div>\n' +
-    '<div class="page-header-center">\n' +
-    '    <span class="page-header-title">{{vm.title}}</span>\n' +
-    '    <span class="page-header-subtitle">{{vm.subtitle}}</span>\n' +
-    '    <span class="page-header-label">{{vm.label}}</span>\n' +
-    '</div>\n' +
-    '<div class="page-header-right">\n' +
-    '    <div class="page-header-actions" ng-transclude></div>\n' +
+    '<div class="page-header">\n' +
+    '    <div class="page-header-left">\n' +
+    '        <i class="page-header-navMenu fa fa-navicon" ng-click="vm.toggleNav()"></i>\n' +
+    '    </div>\n' +
+    '    <div class="page-header-center">\n' +
+    '        <span class="page-header-title">{{vm.title}}</span>\n' +
+    '        <span class="page-header-subtitle">{{vm.subtitle}}</span>\n' +
+    '        <span class="page-header-label">{{vm.label}}</span>\n' +
+    '    </div>\n' +
+    '    <div class="page-header-right">\n' +
+    '        <div class="page-header-actions" ng-transclude></div>\n' +
+    '    </div>\n' +
     '</div>');
 }]);
 })();
