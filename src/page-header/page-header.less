@@ -1,83 +1,72 @@
 ﻿page-header,
 .page-header {
-    display: flex;
-    flex-direction: row;
     color: @page-header-color;
     background-color: @page-header-background-color;
-    line-height: unit(@page-header-height,px);
-    min-height: unit(@page-header-height,px); /* Safari flex-box fix */
+    height: unit(@page-header-height,px);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .page-header-navMenu {
-    order: 1;
-    width: unit(@page-header-height,px);
-    height: unit(@page-header-height,px);
-    // line-height: unit(@page-header-title-font-size,px);
+    width: 48px;
     display: none;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    cursor: pointer;
-}
+    line-height: unit(@page-header-height,px);
+    text-align: center;
 
-.page-header-titles {
-    order: 2;
-    flex-grow: 1;
-    flex-shrink: 1;
-    display: flex;
-    padding: 0 unit(@padding,px);
-}
-
-.page-header-titles-item {
-    line-height: unit(@page-header-title-font-size,px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-    & ~ & {
-        margin-left: 1em;
+    @media @media-phone-landscape, @media-phone-portrait {
+        display: inline-block;
     }
 }
 
-.page-header-titles-content {
-    display: block;
-    line-height: 1em;
-}
-
 .page-header-title {
-    display: inline-block;
+    margin-left: unit(@padding,px);
     font-weight: @page-header-title-font-weight;
     .font-size(@page-header-title-font-size);
     .ellipsis();
-    letter-spacing: unit(@letter-spacing-header,rem);
-    text-transform: uppercase;
+
+    @media @media-phone-landscape, @media-phone-portrait {
+        display: block;
+        margin-left: 0;
+    }
 }
 
 .page-header-subtitle {
-    display: inline-block;
+    margin-left: .5em;
     font-weight: @page-header-subtitle-font-weight;
     .font-size(@page-header-subtitle-font-size);
     .ellipsis();
+
+    @media @media-phone-landscape, @media-phone-portrait {
+        margin-left: 0;
+        .font-size(@page-header-subtitle-font-size * .85);
+    }
 }
 
 .page-header-label {
-    display: inline-block;
+    margin-left: .5em;
     font-weight: @page-header-label-font-weight;
     .font-size(@page-header-label-font-size);
-    .ellipsis();
     color: @page-header-background-color;
     background-color: #fff;
     border-radius: .5em;
     padding: 0 .5em;
     font-weight: bold;
     text-transform: uppercase;
+    .ellipsis();
+
+    @media @media-phone-landscape, @media-phone-portrait {
+        .font-size(@page-header-label-font-size * .85);
+    }
 }
 
-.page-header-actions {
-    order: 3;
-    display: flex;
-    padding: 0 unit(@padding-half,px);
-    white-space: nowrap;
+.page-header-right {
+    padding: 0 unit(@padding,px);
+}
+
+.page-header-center {
+    flex-grow: 1;
 }
 
 .page-header-actions-group {
@@ -86,6 +75,11 @@
     & + & {
         margin-left: .5em;
     }
+}
+
+.page-header-actions {
+    display: flex;
+    white-space: nowrap;
 }
 
 .page-header-actions-item {
@@ -98,15 +92,6 @@
     background-color: @page-header-actions-item-background-color;
     padding: 0 .7em;
     transition: background-color .25s ease-in-out;
-    box-sizing: content-box;
-
-    &--customWidth {
-        min-width: auto;
-    }
-
-    &--pad {
-        padding: 0 unit(@padding-quarter,px);
-    }
 
     & + & {
         margin-left: unit(@page-header-actions-item-padding,px);
@@ -120,65 +105,5 @@
     &:active {
         color: @page-header-actions-item-active-color;
         background-color: @page-header-actions-item-active-background-color;
-    }
-}
-
-@media @media-phone-landscape, 
-    @media-phone-portrait {
-    .page-header-navMenu {
-        display: flex;
-    }
-    
-    .page-header-titles {
-        order: 2;
-        flex-grow: 1;
-        flex-shrink: 1;
-        display: flex;
-        padding: 0 unit(@padding,px) 0 0;
-    }
-}
-
-
-@media @media-phone-portrait {
-    .page-header-titles {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .page-header-titles-item {
-        display: block;
-        &--label {
-            font-size: unit(@typescale-xsm,px);
-        }
-
-        & + & {
-            margin-left: 0;
-        }
-    }
-
-    .page-header-subtitle {
-        font-size: unit(@typescale-xsm,px);
-    }
-
-    .page-header-label {
-        display: inline;
-        font-size: unit(@typescale-xsm,px);
-        padding: 0 .25em;
-    }
-
-    .page-header-actions {
-        padding: 0;
-    }
-
-    .page-header-actions-item {
-        padding: 0;
-        min-width: 48px;
-    }
-
-    .page-header-actions-group {
-        & + & {
-            margin-left: 0;
-        }
     }
 }

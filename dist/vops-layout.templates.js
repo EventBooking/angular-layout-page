@@ -90,44 +90,18 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-header/nav-header.html',
-    '');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('nav-menu/nav-menu.html',
-    '<i ng-class="vm.iconClass"></i>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('page-header/page-header.html',
-    '<nav-menu class="page-header-navMenu" icon="fa fa-navicon"></nav-menu>\n' +
-    '<div class="page-header-titles">\n' +
-    '    <div class="page-header-titles-item page-header-titles-item--title">\n' +
-    '        <span class="page-header-title">{{vm.title}}</span>\n' +
-    '    </div>\n' +
-    '    <div class="page-header-titles-item page-header-titles-item--subtitle">\n' +
-    '        <span class="page-header-subtitle" ng-if="vm.subtitle">{{vm.subtitle}}</span>\n' +
-    '    </div>\n' +
-    '    <div class="page-header-titles-item page-header-titles-item--label">\n' +
-    '        <span class="page-header-label" ng-if="vm.label">{{vm.label}}</span>\n' +
-    '    </div>\n' +
+    '<div class="page-header-left">\n' +
+    '    <i class="page-header-navMenu fa fa-navicon" ng-click="vm.toggleNav()"></i>\n' +
     '</div>\n' +
-    '<div class="page-header-actions" ng-transclude></div>');
+    '<div class="page-header-center">\n' +
+    '    <span class="page-header-title">{{vm.title}}</span>\n' +
+    '    <span class="page-header-subtitle">{{vm.subtitle}}</span>\n' +
+    '    <span class="page-header-label">{{vm.label}}</span>\n' +
+    '</div>\n' +
+    '<div class="page-header-right">\n' +
+    '    <div class="page-header-actions" ng-transclude></div>\n' +
+    '</div>');
 }]);
 })();
 

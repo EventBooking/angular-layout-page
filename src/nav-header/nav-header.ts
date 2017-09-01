@@ -8,7 +8,6 @@ module LayoutPageModule {
 
     class NavHeaderDirective {
         restrict = 'E';
-        templateUrl = 'nav-header/nav-header.html';
         controller = NavHeaderController;
         controllerAs = 'vm';
         bindToController = true;
