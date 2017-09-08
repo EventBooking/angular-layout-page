@@ -18,8 +18,6 @@ declare module LayoutPageModule {
 declare module LayoutPageModule {
 }
 declare module LayoutPageModule {
-}
-declare module LayoutPageModule {
     interface IPageOverlay {
     }
     interface IPageController {
