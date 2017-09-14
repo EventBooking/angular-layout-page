@@ -56,11 +56,33 @@
 // Used for label wrappers
 .form-checkbox {
     display: flex;
+
+    & + & {
+        margin-top: .2em;
+    }
+
+    .form-label + & {
+        margin-top: 0.25rem;
+    }
+}
+
+.form-radiolist {
+    .form-label + & {
+        margin-top: 0.25rem;
+    }
 }
 
 .form-radio {
+    display: flex;
     user-select: none;
 
+    & + & {
+        margin-top: .2em;
+    }
+
+    .form-label + & {
+        margin-top: 0.25rem;
+    }
 }
 
 [type="radio"] {
@@ -72,11 +94,13 @@
     }
 }
 
+// radios
+@radio-dot-margin: 10;
+
 .form-value {
     .form-control[type="radio"] + & {
         display: flex;
         align-items: flex-start;
-        padding: .25em 0;
         position: relative;
 
         &:before {
@@ -95,12 +119,11 @@
             content: "";
             display: inline-block;
             flex-shrink: 0;
-            width: .75em;
-            height: .75em;
+            width: calc(~"1.5em - @{radio-dot-margin}px");
+            height: calc(~"1.5em - @{radio-dot-margin}px");
+            margin: unit(@radio-dot-margin/2,px);
             line-height: 1.25em;
-            background: transparent;
             position: absolute;
-            margin: .6em .4em;
             top: 0;
             left: 0;
             border-radius: 100%;
@@ -112,8 +135,10 @@
     }
 
     .form-control[type="radio"]:checked + & {
+        color: @color-gray-darker;
+
         &:after {
-            background: @color-green;
+            background-color: @color-green;
             transition: all 0.2s ease;
         }
     }
@@ -133,7 +158,65 @@
 
     .form-control[type="radio"]:disabled:checked + & {
         &:after {
-            background: @form-control-disabled-color;
+            background-color: @form-control-disabled-color;
+        }
+    }
+}
+
+// checkbox
+.form-value {
+    .form-control[type="checkbox"] + & {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            flex-shrink: 0;
+            border: solid 2px @form-control-border-color;
+            width: 1.5em;
+            height: 1.5em;
+            line-height: 1.25em;
+            border-radius: 2px;
+            background-color: #fff;
+        }
+
+        &:not(:empty):before {
+            margin-right: .5em;
+        }
+    }
+
+    .form-control[type="checkbox"]:checked + & {
+        color: @color-gray-darker;
+
+        &:before {
+            content: "\2714";
+            color: #fff;
+            text-align: center;
+            background-color: @color-green;
+            border-color: @color-green;
+            transition: all 0.2s ease;
+        }
+    }
+
+    .form-control[type="checkbox"]:focus + & {
+        &:before {
+            box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
+        }
+    }
+
+    .form-control[type="checkbox"]:disabled + & {
+        &:before {
+            background-color: @form-control-disabled-background-color;
+            border-color: @form-control-disabled-background-color; 
+        }
+    }
+
+    .form-control[type="checkbox"]:disabled:checked + & {
+        &:before {
+            background-color: @form-control-disabled-background-color;
+            color: @form-control-disabled-color;
         }
     }
 }
@@ -224,10 +307,6 @@
     & > label + label {
         margin-top: 2px;
     }
-}
-
-.form-checklist > & + & {
-    margin-top: 2px;
 }
 
 .form-label-sub {
