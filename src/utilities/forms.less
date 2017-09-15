@@ -103,6 +103,10 @@
         align-items: flex-start;
         position: relative;
 
+        .form-radiolist--highlight & {
+            color: @color-gray;
+        }
+
         &:before {
             content: "";
             display: inline-block;
@@ -135,7 +139,9 @@
     }
 
     .form-control[type="radio"]:checked + & {
-        color: @color-gray-darker;
+        .form-radiolist--highlight & {
+            color: @color-gray-darker;
+        }
 
         &:after {
             background-color: @color-green;
@@ -170,6 +176,10 @@
         align-items: flex-start;
         position: relative;
 
+        .form-checklist--highlight & {
+            color: @color-gray;
+        }
+
         &:before {
             content: "";
             display: inline-block;
@@ -188,14 +198,16 @@
     }
 
     .form-control[type="checkbox"]:checked + & {
-        color: @color-gray-darker;
+        .form-checklist--highlight & {
+            color: @color-gray-darker;
+        }
 
         &:before {
             content: "\2714";
             color: #fff;
             text-align: center;
             background-color: @color-green;
-            border-color: @color-green;
+            border-color: @color-green-dark;
             transition: all 0.2s ease;
         }
     }

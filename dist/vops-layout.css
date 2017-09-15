@@ -1492,6 +1492,9 @@ th {
           align-items: flex-start;
   position: relative;
 }
+.form-radiolist--highlight .form-control[type="radio"] + .form-value {
+  color: #999990;
+}
 .form-control[type="radio"] + .form-value:before {
   content: "";
   display: inline-block;
@@ -1521,7 +1524,7 @@ th {
 .form-control[type="radio"] + .form-value:not(:empty):before {
   margin-right: .5em;
 }
-.form-control[type="radio"]:checked + .form-value {
+.form-radiolist--highlight .form-control[type="radio"]:checked + .form-value {
   color: #4C4C47;
 }
 .form-control[type="radio"]:checked + .form-value:after {
@@ -1547,6 +1550,9 @@ th {
           align-items: flex-start;
   position: relative;
 }
+.form-checklist--highlight .form-control[type="checkbox"] + .form-value {
+  color: #999990;
+}
 .form-control[type="checkbox"] + .form-value:before {
   content: "";
   display: inline-block;
@@ -1562,7 +1568,7 @@ th {
 .form-control[type="checkbox"] + .form-value:not(:empty):before {
   margin-right: .5em;
 }
-.form-control[type="checkbox"]:checked + .form-value {
+.form-checklist--highlight .form-control[type="checkbox"]:checked + .form-value {
   color: #4C4C47;
 }
 .form-control[type="checkbox"]:checked + .form-value:before {
@@ -1570,7 +1576,7 @@ th {
   color: #fff;
   text-align: center;
   background-color: #48C245;
-  border-color: #48C245;
+  border-color: #30AA3A;
   transition: all 0.2s ease;
 }
 .form-control[type="checkbox"]:focus + .form-value:before {
@@ -7794,6 +7800,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
           align-items: flex-start;
   position: relative;
 }
+.form-radiolist--highlight .form-control[type="radio"] + .form-value {
+  color: #999990;
+}
 .form-control[type="radio"] + .form-value:before {
   content: "";
   display: inline-block;
@@ -7823,7 +7832,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .form-control[type="radio"] + .form-value:not(:empty):before {
   margin-right: .5em;
 }
-.form-control[type="radio"]:checked + .form-value {
+.form-radiolist--highlight .form-control[type="radio"]:checked + .form-value {
   color: #4C4C47;
 }
 .form-control[type="radio"]:checked + .form-value:after {
@@ -7849,6 +7858,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
           align-items: flex-start;
   position: relative;
 }
+.form-checklist--highlight .form-control[type="checkbox"] + .form-value {
+  color: #999990;
+}
 .form-control[type="checkbox"] + .form-value:before {
   content: "";
   display: inline-block;
@@ -7864,7 +7876,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .form-control[type="checkbox"] + .form-value:not(:empty):before {
   margin-right: .5em;
 }
-.form-control[type="checkbox"]:checked + .form-value {
+.form-checklist--highlight .form-control[type="checkbox"]:checked + .form-value {
   color: #4C4C47;
 }
 .form-control[type="checkbox"]:checked + .form-value:before {
@@ -7872,7 +7884,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   color: #fff;
   text-align: center;
   background-color: #48C245;
-  border-color: #48C245;
+  border-color: #30AA3A;
   transition: all 0.2s ease;
 }
 .form-control[type="checkbox"]:focus + .form-value:before {
