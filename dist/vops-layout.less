@@ -289,6 +289,69 @@ body-header,
     line-height: 16px;
     letter-spacing: .025em;
 }
+nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+
+    position: relative;
+    .layoutPageOverlay();
+}
+
+@media @media-tablet-landscape,
+    @media-tablet-portrait {
+    nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
+}
+
+@media @media-phone-landscape {
+    nav {
+        transition: all .25s ease-in-out;
+        width: 0;
+        min-width: 0;
+        
+        .nav--show & {
+            width: unit(@nav-large,px);
+            min-width: unit(@nav-large,px);
+        }
+    }
+    
+    .nav-icon {
+        position: absolute;
+        top: 17px;
+        left: 9px;
+        z-index: 1;
+        
+        .nav--show & {
+            left: unit(@nav-large + 9,px);
+        }
+    }
+}
+
+@media @media-phone-portrait {
+    nav {
+        transition: all .25s ease-in-out;
+        width: 0;
+        min-width: 0;
+        
+        .nav--show & {
+            width: ~"calc(100% - 48px)";
+            min-width: unit(@nav-large,px);
+        }
+    }
+    
+    .nav-icon {
+        position: absolute;
+        top: 17px;
+        left: 9px;
+        z-index: 1;
+        
+        .nav--show & {
+            left: unit(@nav-large + 9,px);
+        }
+    }
+}
 @doughnut-empty-color: @color-gray-darker;
 @doughnut-fill-color: @color-green;
 
@@ -335,88 +398,6 @@ doughnut {
 }
 
 .doughnut-bg {
-}
-.layout-page {
-	display: flex;
-	flex-direction: row;
-	height: 100vh;
-    max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;  
-    margin: 0;
-    padding: 0;
-    background-color: @layout-page-background-color;
-	color: @layout-page-color;
-}
-
-.layoutPageOverlay {	
-	&:before {
-		position: fixed;
-		content: "";
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		opacity: 0;
-		z-index: -1;
-		background-color: rgba(0,0,0,.25);
-
-		.layout-page--overlay.layout-page--hiding & {
-			opacity: 0;			
-		}
-
-        .layout-page--overlay & {
-			transition: opacity .25s ease-in-out;
-			position: absolute;
-			opacity: 1;
-			z-index: 9;
-        }
-    }
-}
-
-.layout-page-nav {
-	order: 0;	
-}
-
-.layout-page-view {
-	display: flex;
-	order: 1;
-	flex-grow: 1;
-	overflow: hidden;
-	
-	& > * {
-		display: flex;
-		flex-grow: 1;
-		max-width: 100%;
-	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
-}
-
-@media @media-phone-portrait {
-	.layout-page-view {
-		.nav--show & {
-			width: 48px;
-		}
-	}
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
@@ -508,100 +489,86 @@ doughnut {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
-
-    position: relative;
-    .layoutPageOverlay();
-}
-
-@media @media-tablet-landscape,
-    @media-tablet-portrait {
-    nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
-}
-
-@media @media-phone-landscape {
-    nav {
-        transition: all .25s ease-in-out;
-        width: 0;
-        min-width: 0;
-        
-        .nav--show & {
-            width: unit(@nav-large,px);
-            min-width: unit(@nav-large,px);
-        }
-    }
-    
-    .nav-icon {
-        position: absolute;
-        top: 17px;
-        left: 9px;
-        z-index: 1;
-        
-        .nav--show & {
-            left: unit(@nav-large + 9,px);
-        }
-    }
-}
-
-@media @media-phone-portrait {
-    nav {
-        transition: all .25s ease-in-out;
-        width: 0;
-        min-width: 0;
-        
-        .nav--show & {
-            width: ~"calc(100% - 48px)";
-            min-width: unit(@nav-large,px);
-        }
-    }
-    
-    .nav-icon {
-        position: absolute;
-        top: 17px;
-        left: 9px;
-        z-index: 1;
-        
-        .nav--show & {
-            left: unit(@nav-large + 9,px);
-        }
-    }
-}
-nav-group,
-.nav-group {
+.layout-page {
 	display: flex;
-	flex-direction: column;
-	padding: 1em 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
+	flex-direction: row;
+	height: 100vh;
+    max-height: 100%; // removes scrollbar browser bug
+	overflow: hidden;  
+    margin: 0;
+    padding: 0;
+    background-color: @layout-page-background-color;
+	color: @layout-page-color;
 }
 
-@media @media-phone-portrait {
-    nav-group,
-    .nav-group {
-        display: none;
-        
-        .nav--show & {
-            display: block;
+.layoutPageOverlay {	
+	&:before {
+		position: fixed;
+		content: "";
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		z-index: -1;
+		background-color: rgba(0,0,0,.25);
+
+		.layout-page--overlay.layout-page--hiding & {
+			opacity: 0;			
+		}
+
+        .layout-page--overlay & {
+			transition: opacity .25s ease-in-out;
+			position: absolute;
+			opacity: 1;
+			z-index: 9;
         }
     }
 }
 
+.layout-page-nav {
+	order: 0;	
+}
+
+.layout-page-view {
+	display: flex;
+	order: 1;
+	flex-grow: 1;
+	overflow: hidden;
+	
+	& > * {
+		display: flex;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+    
+// ToDo: figure out a better way to do this
+//     [ng-view]& {
+//         &.ng-enter {
+//             transition: 0.15s;
+//             opacity: .5;
+//         }
+// 
+//         &.ng-enter.ng-enter-active {
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave {
+//             transition: 0.40s;
+//             opacity: 1;
+//         }
+// 
+//         &.ng-leave.ng-leave-active {
+//             opacity: 0;
+//         }
+//     }
+}
+
 @media @media-phone-portrait {
-	.page-header-titles,
-    .page-header-actions {
-        .nav--show & {
-		    display: none;
-        }
+	.layout-page-view {
+		.nav--show & {
+			width: 48px;
+		}
 	}
 }
 nav-group-item,
@@ -707,6 +674,54 @@ nav-group-item,
 		text-align: center;
 	}
 }
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
+}
+
+@media @media-phone-portrait {
+    nav-group,
+    .nav-group {
+        display: none;
+        
+        .nav--show & {
+            display: block;
+        }
+    }
+}
+
+@media @media-phone-portrait {
+	.page-header-titles,
+    .page-header-actions {
+        .nav--show & {
+		    display: none;
+        }
+	}
+}
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media @media-phone-portrait {
+	.page-content {
+        .nav--show & {
+		    display: none;
+        }
+	}
+}
 nav-header {
     display: flex;
     height: unit(@page-header-height,px);
@@ -742,6 +757,24 @@ nav-header {
         &:before {
             content: attr(small);
         }
+    }
+}
+.page-content-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+// Less width than table landscape
+@media @media-tablet-portrait,
+    @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content-body {
+        display: block;
+        // flex-direction: column;
+        // align-content: flex-start;
+        // flex-grow: 0;
     }
 }
 .page {
@@ -784,39 +817,6 @@ nav-header {
     @media-phone-portrait {
     .page {
         width: 100vw;
-    }
-}
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-@media @media-phone-portrait {
-	.page-content {
-        .nav--show & {
-		    display: none;
-        }
-	}
-}
-.page-content-body {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    flex-shrink: 0;
-}
-
-// Less width than table landscape
-@media @media-tablet-portrait,
-    @media-phone-landscape,
-    @media-phone-portrait {
-    .page-content-body {
-        display: block;
-        // flex-direction: column;
-        // align-content: flex-start;
-        // flex-grow: 0;
     }
 }
 .page-content-body-pane {
@@ -1096,6 +1096,7 @@ page-header {
     }
 }
 page-slider {
+    position: absolute;
     display: block;
     width: unit(@page-slider-width,px);
     max-width: 100%;
@@ -1123,7 +1124,6 @@ page-slider {
 
     &.is-visible {
         right: 0;
-        position: absolute;
         z-index: 10;
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
         transition: right .25s ease-in-out;
