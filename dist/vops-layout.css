@@ -5430,6 +5430,26 @@ doughnut canvas {
   background-color: #E5E5E3;
   color: #72726B;
 }
+.layoutPageOverlay:before {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.layout-page--overlay.layout-page--hiding .layoutPageOverlay:before {
+  opacity: 0;
+}
+.layout-page--overlay .layoutPageOverlay:before {
+  transition: opacity 0.25s ease-in-out;
+  position: absolute;
+  opacity: 1;
+  z-index: 9;
+}
 .layout-page-nav {
   -webkit-box-ordinal-group: 1;
       -ms-flex-order: 0;
@@ -5657,6 +5677,27 @@ nav-header:before {
 nav {
   width: 144px;
   min-width: 144px;
+  position: relative;
+}
+nav:before {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.layout-page--overlay.layout-page--hiding nav:before {
+  opacity: 0;
+}
+.layout-page--overlay nav:before {
+  transition: opacity 0.25s ease-in-out;
+  position: absolute;
+  opacity: 1;
+  z-index: 9;
 }
 @media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px) {
   nav {
@@ -6179,14 +6220,13 @@ page-header {
 }
 page-slider {
   display: block;
-  position: absolute;
-  right: 0;
   width: 480px;
   max-width: 100%;
   top: 0;
   bottom: 0;
-  z-index: 10;
-  transition: right 0.25s ease-in-out;
+  right: -100%;
+  z-index: -1;
+  position: fixed;
   color: #999990;
   background-color: #fff;
   overflow: hidden;
@@ -6201,11 +6241,16 @@ page-slider.page-slider--lg {
 page-slider.page-slider--sm {
   width: 375px;
 }
-page-slider:not(.is-visible) {
-  right: -100%;
-}
 page-slider.is-visible {
+  right: 0;
+  position: absolute;
+  z-index: 10;
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
+  transition: right 0.25s ease-in-out;
+  opacity: 1;
+}
+page-slider.is-visible.is-hiding {
+  right: -100%;
 }
 @media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   page-slider {
@@ -6251,20 +6296,24 @@ page-slider.is-visible {
           flex-grow: 1;
 }
 .page:before {
-  position: absolute;
+  position: fixed;
   content: "";
   top: 0;
   left: 0;
   right: 0;
-  bottom: 100%;
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.25);
-  z-index: 9;
-  transition: bottom 0.15s ease-in-out, opacity 0.15s ease-in-out;
-}
-.page--overlay:before {
-  opacity: 1;
   bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.layout-page--overlay.layout-page--hiding .page:before {
+  opacity: 0;
+}
+.layout-page--overlay .page:before {
+  transition: opacity 0.25s ease-in-out;
+  position: absolute;
+  opacity: 1;
+  z-index: 9;
 }
 @media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   .page {
@@ -6540,11 +6589,8 @@ pane-header.pane-header--withSubtitle,
   float: right;
 }
 .section-label-sublabel {
-  font-size: 14px;
+  font-size: .75em;
   margin-left: .5em;
-}
-.section-label--large .section-label-sublabel {
-  font-size: 14px;
 }
 .section-content {
   display: block;

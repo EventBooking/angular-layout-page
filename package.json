@@ -9,6 +9,7 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings install",
+    "watch": "gulp watch",
     "gulp": "gulp",
     "start:w": "start gulp watch && start npm run tsc:w && npm run server",
     "start": "npm run build && npm run server",

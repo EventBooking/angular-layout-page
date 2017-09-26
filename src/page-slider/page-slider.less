@@ -1,13 +1,12 @@
 ﻿page-slider {
     display: block;
-    position: absolute;
-    right: 0;
     width: unit(@page-slider-width,px);
     max-width: 100%;
     top: 0;
     bottom: 0;
-    z-index: 10;
-    transition: right .25s ease-in-out;
+    right: -100%;
+    z-index: -1;
+    position: fixed; // safari fix (instead of absolute)
     color: @page-slider-color;
     background-color: @page-slider-background-color;
     overflow: hidden;
@@ -25,12 +24,17 @@
         width: unit(@page-slider-width-sm,px);
     }
 
-    &:not(.is-visible) {
-        right: -100%;
-    }
-
     &.is-visible {
+        right: 0;
+        position: absolute;
+        z-index: 10;
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
+        transition: right .25s ease-in-out;
+        opacity: 1;
+
+        &.is-hiding {
+            right: -100%;
+        }
     }
 }
 

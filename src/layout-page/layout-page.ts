@@ -1,35 +1,78 @@
 module LayoutPageModule {
 
-    export interface ILayoutPageController {
+    export interface IPageOverlay {
+
+    }
+
+    export interface ILayoutPageController extends IPageOverlay {
         showNav();
         hideNav();
         toggleNav();
+        showOverlay(overlay: IPageOverlay);
+        hideOverlay(overlay: IPageOverlay);
     }
 
     class LayoutPageController implements ILayoutPageController {
-        onInit(update: (isVisible: boolean) => void) {
-            this._update = update;
-            this._isNavVisible = false;
+        static $inject = ['$element', '$timeout'];
+
+        constructor(private $element: angular.IAugmentedJQuery, private $timeout: angular.ITimeoutService) {
+            
         }
 
-        private _isNavVisible: boolean;
-
         showNav() {
-            this._isNavVisible = true;
-            this._update(this._isNavVisible);
+            this.setNavVis(true);
         }
 
         hideNav() {
-            this._isNavVisible = false;
-            this._update(this._isNavVisible);
+            this.setNavVis(false);
         }
 
         toggleNav() {
-            this._isNavVisible = !this._isNavVisible;
-            this._update(this._isNavVisible);
+            this.setNavVis(!this.isNavVisible);
         }
 
-        _update: (isVisible: boolean) => void;
+        showOverlay(overlay: IPageOverlay) {
+            var idx = this.overlays.indexOf(overlay);
+            if (idx > -1)
+                return;
+
+            this.overlays.push(overlay);
+
+            if (this.timer)
+                this.$timeout.cancel(this.timer);
+            this.forceHide();
+            this.$element.addClass("layout-page--overlay");
+        }
+
+        private forceHide() {
+            this.$element.removeClass("layout-page--overlay layout-page--hiding");
+        }
+
+        hideOverlay(overlay: IPageOverlay) {
+            var idx = this.overlays.indexOf(overlay);
+            if (idx < 0)
+                return;
+
+            this.overlays.splice(idx, 1);
+
+            if (this.overlays.length > 0)
+                return;
+
+            this.$element.addClass('layout-page--hiding');
+            this.timer = this.$timeout(() => {
+                this.forceHide();
+            }, this.transitionTime);
+        }
+
+        private setNavVis(isVisible: boolean) {
+            this.isNavVisible = isVisible;
+            this.$element.toggleClass('nav--show', isVisible);
+        }
+
+        private isNavVisible: boolean = false;
+        private overlays: IPageOverlay[] = [];
+        private timer;
+        private transitionTime = 250;
     }
 
     Angular.module("ngLayoutPage").controller('layoutPageController', LayoutPageController);
@@ -39,14 +82,6 @@ module LayoutPageModule {
         controller = LayoutPageController;
         controllerAs = 'vm';
         bindToController = true;
-
-        link = ($scope, $element, $attrs, $ctrl: LayoutPageController) => {
-            var update = (isVisible: boolean) => {
-                $element.toggleClass('nav--show', isVisible);
-            };
-
-            $ctrl.onInit(update);
-        }
     }
 
     Angular.module("ngLayoutPage").directive('layoutPage', LayoutPageDirective);

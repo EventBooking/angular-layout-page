@@ -65,6 +65,57 @@ a {
         -webkit-print-color-adjust: exact;
     }
 }
+@bar-graph-lg: @typescale*2.5;
+@bar-graph: @typescale*2;
+@bar-graph-sm: @typescale*1.5;
+
+bar-graph {
+    display: block;
+    
+    & + & {
+        margin-top: .5em;
+    }
+}
+
+.bar-graph-bg {
+    background-color: @color-gray-dark;
+    border-radius: 4px;
+}
+
+.bar-graph-fill {
+    background: fade(@color-blue,60);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #fff;
+    height: unit(@bar-graph,px);
+    line-height: unit(@bar-graph,px);
+    font-size: 1rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
+    transition: width .5s ease-in-out;
+
+    &--full {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+    
+    .bar-graph--lg & {
+        height: unit(@bar-graph-lg,px); 
+        line-height: unit(@bar-graph-lg,px);
+        font-size: 1.125rem;
+    }
+    
+    .bar-graph--sm & {
+        height: unit(@bar-graph-sm,px); 
+        line-height: unit(@bar-graph-sm,px);
+        font-size: .875rem;
+    }
+    
+    > span {
+        margin: 0 1em;
+    }
+}
 blankslate {
     display: flex;
     flex-direction: row;
@@ -154,104 +205,6 @@ blankslate {
     .text-link();
     font-weight: bold;
 }
-@bar-graph-lg: @typescale*2.5;
-@bar-graph: @typescale*2;
-@bar-graph-sm: @typescale*1.5;
-
-bar-graph {
-    display: block;
-    
-    & + & {
-        margin-top: .5em;
-    }
-}
-
-.bar-graph-bg {
-    background-color: @color-gray-dark;
-    border-radius: 4px;
-}
-
-.bar-graph-fill {
-    background: fade(@color-blue,60);
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-    color: #fff;
-    height: unit(@bar-graph,px);
-    line-height: unit(@bar-graph,px);
-    font-size: 1rem;
-    text-align: center;
-    white-space: nowrap;
-    overflow: visible;
-    transition: width .5s ease-in-out;
-
-    &--full {
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
-    
-    .bar-graph--lg & {
-        height: unit(@bar-graph-lg,px); 
-        line-height: unit(@bar-graph-lg,px);
-        font-size: 1.125rem;
-    }
-    
-    .bar-graph--sm & {
-        height: unit(@bar-graph-sm,px); 
-        line-height: unit(@bar-graph-sm,px);
-        font-size: .875rem;
-    }
-    
-    > span {
-        margin: 0 1em;
-    }
-}
-@doughnut-empty-color: @color-gray-darker;
-@doughnut-fill-color: @color-green;
-
-doughnut {
-    display: block;
-    position: relative;
-    background-color: inherit;
-    color: inherit;
-        
-    & canvas {
-        display: block;
-    }
-}
-
-.doughnut-text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    z-index: 3;
-}
-
-.doughnut-empty-color {
-    background-color: @doughnut-empty-color;
-}
-
-.doughnut-fill-color {
-    background-color: @doughnut-fill-color;
-}
-
-.doughnut-hole {
-    position: absolute;
-    z-index: 2;
-}
-
-.doughnut-fill {
-    position: absolute;
-    z-index: 1;
-}
-
-.doughnut-bg {
-}
 body-header,
 .body-header {
     display: flex;
@@ -336,6 +289,53 @@ body-header,
     line-height: 16px;
     letter-spacing: .025em;
 }
+@doughnut-empty-color: @color-gray-darker;
+@doughnut-fill-color: @color-green;
+
+doughnut {
+    display: block;
+    position: relative;
+    background-color: inherit;
+    color: inherit;
+        
+    & canvas {
+        display: block;
+    }
+}
+
+.doughnut-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 3;
+}
+
+.doughnut-empty-color {
+    background-color: @doughnut-empty-color;
+}
+
+.doughnut-fill-color {
+    background-color: @doughnut-fill-color;
+}
+
+.doughnut-hole {
+    position: absolute;
+    z-index: 2;
+}
+
+.doughnut-fill {
+    position: absolute;
+    z-index: 1;
+}
+
+.doughnut-bg {
+}
 .layout-page {
 	display: flex;
 	flex-direction: row;
@@ -345,7 +345,32 @@ body-header,
     margin: 0;
     padding: 0;
     background-color: @layout-page-background-color;
-    color: @layout-page-color;
+	color: @layout-page-color;
+}
+
+.layoutPageOverlay {	
+	&:before {
+		position: fixed;
+		content: "";
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		z-index: -1;
+		background-color: rgba(0,0,0,.25);
+
+		.layout-page--overlay.layout-page--hiding & {
+			opacity: 0;			
+		}
+
+        .layout-page--overlay & {
+			transition: opacity .25s ease-in-out;
+			position: absolute;
+			opacity: 1;
+			z-index: 9;
+        }
+    }
 }
 
 .layout-page-nav {
@@ -486,6 +511,9 @@ body-header,
 nav {
 	width: unit(@nav-large,px);
     min-width: unit(@nav-large,px);
+
+    position: relative;
+    .layoutPageOverlay();
 }
 
 @media @media-tablet-landscape,
@@ -739,26 +767,8 @@ nav-header {
         order: 1;
         flex-grow: 1;
     }
-
-    &:before {
-        position: absolute;
-        content: "";
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 100%;
-        opacity: 0;
-        background-color: rgba(0,0,0,.25);
-        z-index: 9;
-        transition: bottom .15s ease-in-out, opacity .15s ease-in-out;
-    }
-
-    &--overlay {
-        &:before {
-            opacity: 1;
-            bottom: 0;
-        }
-    }
+    
+    .layoutPageOverlay();
 }
 
 @media @media-tablet-landscape,
@@ -1087,14 +1097,13 @@ page-header {
 }
 page-slider {
     display: block;
-    position: absolute;
-    right: 0;
     width: unit(@page-slider-width,px);
     max-width: 100%;
     top: 0;
     bottom: 0;
-    z-index: 10;
-    transition: right .25s ease-in-out;
+    right: -100%;
+    z-index: -1;
+    position: fixed; // safari fix (instead of absolute)
     color: @page-slider-color;
     background-color: @page-slider-background-color;
     overflow: hidden;
@@ -1112,12 +1121,17 @@ page-slider {
         width: unit(@page-slider-width-sm,px);
     }
 
-    &:not(.is-visible) {
-        right: -100%;
-    }
-
     &.is-visible {
+        right: 0;
+        position: absolute;
+        z-index: 10;
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
+        transition: right .25s ease-in-out;
+        opacity: 1;
+
+        &.is-hiding {
+            right: -100%;
+        }
     }
 }
 
@@ -1397,12 +1411,8 @@ pane-header,
 }
 
 .section-label-sublabel {
-    font-size: unit(@typescale-sm,px);
+    font-size: .75em;
     margin-left: .5em;
-
-    .section-label--large & {
-        font-size: unit(@typescale-sm,px);
-    }
 }
 
 .section-content {

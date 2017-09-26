@@ -32,7 +32,25 @@
 				<nav-group-item icon="fa fa-calendar" ng-href="/charts">Charts</nav-group-item>
 				<a nav-group-item icon="fa fa-calendar" ng-href="/grid">Grid</a>
 			</nav-group>
+			<nav-group>
+				<nav-group-item icon="fa fa-search" ng-click="search()">Search</nav-group-item>
+			</nav-group>
 		</nav>
+		
+		<page-slider slide-if="isGlobalSearching">
+			<div class="pane">
+				<pane-header title="Global page slider" subtitle="{{counter}}" show-close>
+				</pane-header>
+			
+				<div class="pane-body">
+					Page slider that is not inside the page element
+				</div>
+				
+				<pane-footer>
+					<a href="#" page-slider-cancel>close slider</a>
+				</pane-footer>
+			</div>
+		</page-slider>
 
 		<div ng-view class="layout-page-view"></div>
 	</div>

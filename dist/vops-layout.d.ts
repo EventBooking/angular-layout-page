@@ -7,23 +7,23 @@ declare module LayoutPageModule {
 declare module LayoutPageModule {
 }
 declare module LayoutPageModule {
-    interface ILayoutPageController {
+    interface IPageOverlay {
+    }
+    interface ILayoutPageController extends IPageOverlay {
         showNav(): any;
         hideNav(): any;
         toggleNav(): any;
-    }
-}
-declare module LayoutPageModule {
-}
-declare module LayoutPageModule {
-}
-declare module LayoutPageModule {
-    interface IPageOverlay {
-    }
-    interface IPageController {
-        addControl($element: any): any;
         showOverlay(overlay: IPageOverlay): any;
         hideOverlay(overlay: IPageOverlay): any;
+    }
+}
+declare module LayoutPageModule {
+}
+declare module LayoutPageModule {
+}
+declare module LayoutPageModule {
+    interface IPageController {
+        addControl($element: any): any;
         ensureOnTop($element: any): any;
     }
 }

@@ -69,7 +69,11 @@ function Config($routeProvider, $locationProvider) {
 Run.$inject = ['$rootScope'];
 
 function Run($rootScope) {
-
+    $rootScope.counter = 0;
+    $rootScope.search = () => {
+        $rootScope.counter++;
+        $rootScope.isGlobalSearching = true
+    };
 }
 
 angular.module("demo", ['ngRoute', 'ngAnimate', 'ngLayoutPage'])

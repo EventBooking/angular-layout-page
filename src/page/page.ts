@@ -1,23 +1,11 @@
 module LayoutPageModule {
 
-    export interface IPageOverlay {
-
-    }
-
     export interface IPageController {
         addControl($element: any);
-        showOverlay(overlay: IPageOverlay);
-        hideOverlay(overlay: IPageOverlay);
         ensureOnTop($element: any);
     }
 
-    class PageController implements IPageController {
-
-        constructor() {
-            this.controls = [];
-            this.overlays = [];
-        }
-
+    class PageController {
         onInit($element) {
             this.$element = $element;
         }
@@ -31,32 +19,11 @@ module LayoutPageModule {
             this.$element.append($element);
         }
 
-        showOverlay(overlay: IPageOverlay) {
-            var idx = this.overlays.indexOf(overlay);
-            if (idx > -1)
-                return;
-
-            this.overlays.push(overlay);
-            this.$element.addClass("page--overlay");
-        }
-
         ensureOnTop($element) {
             this.$element.append($element);
         }
-
-        hideOverlay(overlay: IPageOverlay) {
-            var idx = this.overlays.indexOf(overlay);
-            if (idx < 0)
-                return;
-                
-            this.overlays.splice(idx, 1);
-
-            if (this.overlays.length == 0)
-                this.$element.removeClass("page--overlay");
-        }
-
-        overlays: IPageOverlay[];
-        controls: any[];
+        
+        controls: any[] = [];
         $element: any;
     }
 
@@ -77,9 +44,9 @@ module LayoutPageModule {
             $ctrl.controls = [];
             $ctrl.onInit($element);
 
-            this.$rootScope.$emit('$page.$create', $element);
+            this.$rootScope.$emit('$page.$create', $element, $ctrl);
             $scope.$on("$destroy", () => {
-                this.$rootScope.$emit('$page.$destroy', $element);
+                this.$rootScope.$emit('$page.$destroy', $element, $ctrl);
             });
         }
     }
