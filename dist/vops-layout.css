@@ -6227,13 +6227,14 @@ page-slider {
   bottom: 0;
   right: -100%;
   z-index: -1;
-  position: fixed;
   color: #999990;
   background-color: #fff;
   overflow: hidden;
 }
 page-slider.page-slider--fullScreen {
   width: 100%;
+}
+page-slider.page-slider--fullScreen.is-visible {
   position: fixed;
 }
 page-slider.page-slider--lg {
