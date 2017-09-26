@@ -7,17 +7,13 @@
     bottom: 0;
     right: -100%;
     z-index: -1;
-    //position: fixed; // safari fix (instead of absolute)
     color: @page-slider-color;
     background-color: @page-slider-background-color;
     overflow: hidden;
 
     &.page-slider--fullScreen {
         width: 100%;
-
-        &.is-visible {
-            position: fixed;
-        }
+        position: fixed;
     }
     
     &.page-slider--lg {

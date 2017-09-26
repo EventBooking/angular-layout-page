@@ -138,6 +138,7 @@
                     this.$timeout(() => {
                         $element.removeClass("is-visible is-hiding").empty();
                         destroyScope();
+                        $element.detach();
                     }, 250);
                 }
             };

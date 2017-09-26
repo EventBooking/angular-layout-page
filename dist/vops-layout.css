@@ -6233,8 +6233,6 @@ page-slider {
 }
 page-slider.page-slider--fullScreen {
   width: 100%;
-}
-page-slider.page-slider--fullScreen.is-visible {
   position: fixed;
 }
 page-slider.page-slider--lg {
