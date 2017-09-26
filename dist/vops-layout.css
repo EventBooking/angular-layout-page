@@ -6246,6 +6246,8 @@ page-slider.is-visible {
   z-index: 10;
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
   transition: right 0.25s ease-in-out;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
   opacity: 1;
 }
 page-slider.is-visible.is-hiding {
