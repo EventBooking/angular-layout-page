@@ -2,38 +2,37 @@
     position: absolute;
     display: block;
     width: unit(@page-slider-width,px);
-    max-width: 100%;
+    max-width: 100vw;
     top: 0;
     bottom: 0;
-    right: -100%;
-    z-index: -1;
+    right: 0;
+    z-index: 10;
     color: @page-slider-color;
     background-color: @page-slider-background-color;
     overflow: hidden;
+    transform: translateX(100vw);
 
     &.page-slider--fullScreen {
-        width: 100%;
+        width: 100vw;
         position: fixed;
     }
-    
+
     &.page-slider--lg {
         width: unit(@page-slider-width-lg,px);
     }
-    
+
     &.page-slider--sm {
         width: unit(@page-slider-width-sm,px);
     }
 
     &.is-visible {
-        right: 0;
-        z-index: 10;
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25);
-        transition: right .25s ease-in-out;
-        transform: translateZ(0); // enable gpu acceleration
-        opacity: 1;
+        transition: transform .25s ease-in;
+        transform: translateX(0);
 
         &.is-hiding {
-            right: -100%;
+            transition: transform .25s ease-out;
+            transform: translateX(100vw);
         }
     }
 }
