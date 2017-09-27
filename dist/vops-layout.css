@@ -1514,7 +1514,7 @@ th {
   color: #999990;
 }
 .form-control[type="radio"] + .form-value:before {
-  content: "";
+  content: " ";
   display: inline-block;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -1572,7 +1572,8 @@ th {
   color: #999990;
 }
 .form-control[type="checkbox"] + .form-value:before {
-  content: "";
+  content: " ";
+  white-space: pre;
   display: inline-block;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -7890,7 +7891,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   color: #999990;
 }
 .form-control[type="radio"] + .form-value:before {
-  content: "";
+  content: " ";
   display: inline-block;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -7948,7 +7949,8 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   color: #999990;
 }
 .form-control[type="checkbox"] + .form-value:before {
-  content: "";
+  content: " ";
+  white-space: pre;
   display: inline-block;
   -ms-flex-negative: 0;
       flex-shrink: 0;
