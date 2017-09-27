@@ -6222,17 +6222,19 @@ page-slider {
   position: absolute;
   display: block;
   width: 480px;
-  max-width: 100%;
+  max-width: 100vw;
   top: 0;
   bottom: 0;
-  right: -100%;
-  z-index: -1;
+  right: 0;
+  z-index: 10;
   color: #999990;
   background-color: #fff;
   overflow: hidden;
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
 }
 page-slider.page-slider--fullScreen {
-  width: 100%;
+  width: 100vw;
   position: fixed;
 }
 page-slider.page-slider--lg {
@@ -6242,16 +6244,17 @@ page-slider.page-slider--sm {
   width: 375px;
 }
 page-slider.is-visible {
-  right: 0;
-  z-index: 10;
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
-  transition: right 0.25s ease-in-out;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  opacity: 1;
+  transition: -webkit-transform 0.25s ease-in;
+  transition: transform 0.25s ease-in;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 page-slider.is-visible.is-hiding {
-  right: -100%;
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
 }
 @media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   page-slider {
