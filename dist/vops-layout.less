@@ -508,6 +508,39 @@ doughnut {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
+}
+
+@media @media-phone-portrait {
+    nav-group,
+    .nav-group {
+        display: none;
+        
+        .nav--show & {
+            display: block;
+        }
+    }
+}
+
+@media @media-phone-portrait {
+	.page-header-titles,
+    .page-header-actions {
+        .nav--show & {
+		    display: none;
+        }
+	}
+}
 nav {
 	width: unit(@nav-large,px);
     min-width: unit(@nav-large,px);
@@ -570,39 +603,6 @@ nav {
             left: unit(@nav-large + 9,px);
         }
     }
-}
-nav-group,
-.nav-group {
-	display: flex;
-	flex-direction: column;
-	padding: 1em 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
-}
-
-@media @media-phone-portrait {
-    nav-group,
-    .nav-group {
-        display: none;
-        
-        .nav--show & {
-            display: block;
-        }
-    }
-}
-
-@media @media-phone-portrait {
-	.page-header-titles,
-    .page-header-actions {
-        .nav--show & {
-		    display: none;
-        }
-	}
 }
 nav-group-item,
 [nav-group-item],
@@ -1855,16 +1855,16 @@ tabs {
     user-select: none;
 
     .form-list.form-list--inline & + & {
-        margin-left: .2em;
+        margin-left: .5em;
         margin-top: 0;
     }
 
-    .form-list & + & {
-        margin-top: .2em;
+    & + & {
+        margin-top: .25em;
     }
 
     .form-label + & {
-        margin-top: 0.25rem;
+        margin-top: 0.25em;
     }
 }
 

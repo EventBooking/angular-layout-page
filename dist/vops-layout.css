@@ -1482,18 +1482,18 @@ th {
 .form-list.form-list--inline .form-checkbox + .form-radio,
 .form-list.form-list--inline .form-radio + .form-checkbox,
 .form-list.form-list--inline .form-radio + .form-radio {
-  margin-left: .2em;
+  margin-left: .5em;
   margin-top: 0;
 }
-.form-list .form-checkbox + .form-checkbox,
-.form-list .form-checkbox + .form-radio,
-.form-list .form-radio + .form-checkbox,
-.form-list .form-radio + .form-radio {
-  margin-top: .2em;
+.form-checkbox + .form-checkbox,
+.form-checkbox + .form-radio,
+.form-radio + .form-checkbox,
+.form-radio + .form-radio {
+  margin-top: .25em;
 }
 .form-label + .form-checkbox,
 .form-label + .form-radio {
-  margin-top: 0.25rem;
+  margin-top: 0.25em;
 }
 :root .form-radio > .form-control[type="radio"] {
   position: absolute !important;
@@ -7858,18 +7858,18 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .form-list.form-list--inline .form-checkbox + .form-radio,
 .form-list.form-list--inline .form-radio + .form-checkbox,
 .form-list.form-list--inline .form-radio + .form-radio {
-  margin-left: .2em;
+  margin-left: .5em;
   margin-top: 0;
 }
-.form-list .form-checkbox + .form-checkbox,
-.form-list .form-checkbox + .form-radio,
-.form-list .form-radio + .form-checkbox,
-.form-list .form-radio + .form-radio {
-  margin-top: .2em;
+.form-checkbox + .form-checkbox,
+.form-checkbox + .form-radio,
+.form-radio + .form-checkbox,
+.form-radio + .form-radio {
+  margin-top: .25em;
 }
 .form-label + .form-checkbox,
 .form-label + .form-radio {
-  margin-top: 0.25rem;
+  margin-top: 0.25em;
 }
 :root .form-radio > .form-control[type="radio"] {
   position: absolute !important;
