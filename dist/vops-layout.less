@@ -1834,30 +1834,32 @@ tabs {
     }
 }
 
-// Used for label wrappers
-.form-checkbox {
+.form-list {
     display: flex;
+    flex-direction: column;
+
+    &--inline {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
     & + & {
-        margin-top: .2em;
-    }
-
-    .form-label + & {
-        margin-top: 0.25rem;
+        margin-top: .5em;
     }
 }
 
-.form-radiolist {
-    .form-label + & {
-        margin-top: 0.25rem;
-    }
-}
-
+// Used for label wrappers
+.form-checkbox,
 .form-radio {
-    display: flex;
+    display: inline-flex;
     user-select: none;
 
-    & + & {
+    .form-list.form-list--inline & + & {
+        margin-left: .2em;
+        margin-top: 0;
+    }
+
+    .form-list & + & {
         margin-top: .2em;
     }
 
@@ -1880,7 +1882,7 @@ tabs {
 
 .form-value {
     .form-control[type="radio"] + & {
-        display: flex;
+        display: inline-flex;
         align-items: flex-start;
         position: relative;
 
@@ -1953,7 +1955,7 @@ tabs {
 // checkbox
 .form-value {
     .form-control[type="checkbox"] + & {
-        display: flex;
+        display: inline-flex;
         align-items: flex-start;
         position: relative;
 
