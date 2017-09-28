@@ -744,6 +744,21 @@ nav-header {
         }
     }
 }
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media @media-phone-portrait {
+	.page-content {
+        .nav--show & {
+		    display: none;
+        }
+	}
+}
 .page {
     display: flex;
     flex-direction: column;
@@ -785,21 +800,6 @@ nav-header {
     .page {
         width: 100vw;
     }
-}
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-@media @media-phone-portrait {
-	.page-content {
-        .nav--show & {
-		    display: none;
-        }
-	}
 }
 .page-content-body {
     display: flex;
@@ -1925,7 +1925,7 @@ tabs {
         }
 
         &:not(:empty):before {
-            margin-right: .5em;
+            margin-right: .25em;
         }
     }
 
@@ -1987,7 +1987,7 @@ tabs {
         }
 
         &:not(:empty):before {
-            margin-right: .5em;
+            margin-right: .25em;
         }
     }
 

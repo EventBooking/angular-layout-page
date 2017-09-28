@@ -1545,7 +1545,7 @@ th {
   border-radius: 100%;
 }
 .form-control[type="radio"] + .form-value:not(:empty):before {
-  margin-right: .5em;
+  margin-right: .25em;
 }
 .form-radiolist--highlight .form-control[type="radio"]:checked + .form-value {
   color: #4C4C47;
@@ -1593,7 +1593,7 @@ th {
   background-color: #fff;
 }
 .form-control[type="checkbox"] + .form-value:not(:empty):before {
-  margin-right: .5em;
+  margin-right: .25em;
 }
 .form-checklist--highlight .form-control[type="checkbox"]:checked + .form-value {
   color: #4C4C47;
@@ -7939,7 +7939,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   border-radius: 100%;
 }
 .form-control[type="radio"] + .form-value:not(:empty):before {
-  margin-right: .5em;
+  margin-right: .25em;
 }
 .form-radiolist--highlight .form-control[type="radio"]:checked + .form-value {
   color: #4C4C47;
@@ -7987,7 +7987,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   background-color: #fff;
 }
 .form-control[type="checkbox"] + .form-value:not(:empty):before {
-  margin-right: .5em;
+  margin-right: .25em;
 }
 .form-checklist--highlight .form-control[type="checkbox"]:checked + .form-value {
   color: #4C4C47;
