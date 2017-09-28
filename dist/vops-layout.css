@@ -1892,6 +1892,10 @@ a.form-message:hover,
 .form-message.text-link:hover {
   color: #F8B5A6;
 }
+.form-row + .form-message,
+.form-group + .form-message {
+  margin-top: 1rem;
+}
 .form-message-link {
   color: #999990;
   color: #4EB6D6;
@@ -8271,6 +8275,10 @@ button.form-message {
 a.form-message:hover,
 .form-message.text-link:hover {
   color: #F8B5A6;
+}
+.form-row + .form-message,
+.form-group + .form-message {
+  margin-top: 1rem;
 }
 .form-message-link {
   color: #999990;

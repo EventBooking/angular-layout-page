@@ -518,6 +518,11 @@
 
 .form-message {
     .text-danger();
+
+    .form-row + &,
+    .form-group + & {
+        margin-top: 1rem;
+    }
 }
 
 .form-message-link {
