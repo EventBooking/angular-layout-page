@@ -1901,6 +1901,7 @@ a.form-message:hover,
 .form-message.text-link:hover {
   color: #F8B5A6;
 }
+.form-message + .form-message,
 .form-row + .form-message,
 .form-group + .form-message {
   margin-top: 1rem;
@@ -8294,6 +8295,7 @@ a.form-message:hover,
 .form-message.text-link:hover {
   color: #F8B5A6;
 }
+.form-message + .form-message,
 .form-row + .form-message,
 .form-group + .form-message {
   margin-top: 1rem;

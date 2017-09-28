@@ -2015,7 +2015,7 @@ tabs {
 
     .form-control[type="checkbox"]:disabled + & {
         color: @color-gray-light;
-        
+
         &:before {
             background-color: @form-control-disabled-background-color;
             border-color: @form-control-disabled-background-color; 
@@ -2308,6 +2308,7 @@ tabs {
 .form-message {
     .text-danger();
 
+    .form-message + &,
     .form-row + &,
     .form-group + & {
         margin-top: 1rem;
