@@ -144,6 +144,7 @@
                 if (!$element.is(".is-visible"))
                     return;
 
+                destroyScope();
                 $element.addClass('is-hiding');
                 $timer = this.$timeout(() => {
                     $element.removeClass("is-visible is-hiding")
