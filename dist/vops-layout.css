@@ -1468,6 +1468,9 @@ th {
 .form-list + .form-list {
   margin-top: .5em;
 }
+.form-label + .form-list {
+  margin-top: .25em;
+}
 .form-checkbox,
 .form-radio {
   display: block;
@@ -7851,6 +7854,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 }
 .form-list + .form-list {
   margin-top: .5em;
+}
+.form-label + .form-list {
+  margin-top: .25em;
 }
 .form-checkbox,
 .form-radio {
