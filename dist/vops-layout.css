@@ -1557,6 +1557,9 @@ th {
 .form-control[type="radio"]:focus + .form-value:before {
   box-shadow: 0 0 0.5rem #4EB6D6;
 }
+.form-control[type="radio"]:disabled + .form-value {
+  color: #B2B2A9;
+}
 .form-control[type="radio"]:disabled + .form-value:before {
   background-color: #E5E5E3;
   border-color: #E5E5E3;
@@ -1606,6 +1609,9 @@ th {
 }
 .form-control[type="checkbox"]:focus + .form-value:before {
   box-shadow: 0 0 0.5rem #4EB6D6;
+}
+.form-control[type="checkbox"]:disabled + .form-value {
+  color: #B2B2A9;
 }
 .form-control[type="checkbox"]:disabled + .form-value:before {
   background-color: #E5E5E3;
@@ -7944,6 +7950,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .form-control[type="radio"]:focus + .form-value:before {
   box-shadow: 0 0 0.5rem #4EB6D6;
 }
+.form-control[type="radio"]:disabled + .form-value {
+  color: #B2B2A9;
+}
 .form-control[type="radio"]:disabled + .form-value:before {
   background-color: #E5E5E3;
   border-color: #E5E5E3;
@@ -7993,6 +8002,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 }
 .form-control[type="checkbox"]:focus + .form-value:before {
   box-shadow: 0 0 0.5rem #4EB6D6;
+}
+.form-control[type="checkbox"]:disabled + .form-value {
+  color: #B2B2A9;
 }
 .form-control[type="checkbox"]:disabled + .form-value:before {
   background-color: #E5E5E3;
