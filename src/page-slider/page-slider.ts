@@ -120,27 +120,36 @@
                 if (!isVisible)
                     return;
 
+                destroyScope();
+
                 $transclude((clone, scope) => {
                     $element.append(clone);
                     sliderScope = scope;
                 });
             };
 
+            let $timer = null;
             const modifyElement = (isVisible: boolean) => {
+                if ($timer)
+                    this.$timeout.cancel($timer);
+
                 if (isVisible) {
                     $page.ensureOnTop($element);
                     fixBrowserReflowBatchingIssue();
                     $element.empty().addClass("is-visible");
-                    destroyScope();
                     transclude(isVisible);
-                } else {
-                    $element.addClass('is-hiding');
-                    this.$timeout(() => {
-                        $element.removeClass("is-visible is-hiding").empty();
-                        destroyScope();
-                        $element.detach();
-                    }, 250);
+                    return;
                 }
+
+                if (!$element.is(".is-visible"))
+                    return;
+
+                $element.addClass('is-hiding');
+                $timer = this.$timeout(() => {
+                    $element.removeClass("is-visible is-hiding")
+                        .detach()
+                        .empty();
+                }, 250);
             };
 
             const hideNavigation = (isVisible: boolean) => {
