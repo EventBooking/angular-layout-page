@@ -70,8 +70,12 @@
 // Used for label wrappers
 .form-checkbox,
 .form-radio {
-    display: inline-flex;
+    display: block;
     user-select: none;
+
+    &--center {
+        text-align: center;
+    }
 
     .form-list.form-list--inline & + & {
         margin-left: .5em;
@@ -206,7 +210,8 @@
         }
 
         &:before {
-            content: "\2714";
+            content: "\f00c";
+            font-family: FontAwesome;
             color: #fff;
             text-align: center;
             background-color: @color-green;

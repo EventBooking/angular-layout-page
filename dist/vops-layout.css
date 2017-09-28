@@ -1470,13 +1470,15 @@ th {
 }
 .form-checkbox,
 .form-radio {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: block;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.form-checkbox--center,
+.form-radio--center {
+  text-align: center;
 }
 .form-list.form-list--inline .form-checkbox + .form-checkbox,
 .form-list.form-list--inline .form-checkbox + .form-radio,
@@ -1591,7 +1593,8 @@ th {
   color: #4C4C47;
 }
 .form-control[type="checkbox"]:checked + .form-value:before {
-  content: "\2714";
+  content: "\f00c";
+  font-family: FontAwesome;
   color: #fff;
   text-align: center;
   background-color: #48C245;
@@ -7847,13 +7850,15 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 }
 .form-checkbox,
 .form-radio {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: block;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.form-checkbox--center,
+.form-radio--center {
+  text-align: center;
 }
 .form-list.form-list--inline .form-checkbox + .form-checkbox,
 .form-list.form-list--inline .form-checkbox + .form-radio,
@@ -7968,7 +7973,8 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
   color: #4C4C47;
 }
 .form-control[type="checkbox"]:checked + .form-value:before {
-  content: "\2714";
+  content: "\f00c";
+  font-family: FontAwesome;
   color: #fff;
   text-align: center;
   background-color: #48C245;
