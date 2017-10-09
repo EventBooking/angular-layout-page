@@ -6,7 +6,7 @@ function PaneTestController($routeParams) {
 	this.subarea = $routeParams.subarea;
     this.activeTab = 'tab2';
 	
-	this.showSlider1 = true;
+	this.showSlider1 = false;
 	this.showSlider2 = false;
 
 	this.text = "Hello World";

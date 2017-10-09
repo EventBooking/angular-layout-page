@@ -7,6 +7,12 @@
     }
 
     class PageSliderController implements IPageSliderController {
+        $postLink() {
+            if (this.isVisible)
+                this.show();
+            this.isInitialized = true;
+        }
+
         private _slideIf;
 
         get slideIf() {
@@ -14,26 +20,35 @@
         }
 
         set slideIf(value) {
-            const visibilityChanged = value == this._slideIf;
+            const visibilityChanged = value !== this._slideIf;
             this._slideIf = value;
 
-            if (this.toggleVisibility)
-                this.toggleVisibility();
+            if (!this.isInitialized)
+                return;
+
+            if (this._slideIf) {
+                this.show();
+                return;
+            }
+
+            this.hide();
         }
 
         get isVisible() {
             return !!this._slideIf;
         }
 
-        onClose: () => void;
-        toggleVisibility: () => void;
-        withFooter: boolean;
-        withOverlay: boolean;
-
         close() {
             this.slideIf = null;
             this.onClose();
         }
+
+        isInitialized: boolean;
+        onClose: () => void;
+        show: () => void;
+        hide: () => void;
+        withFooter: boolean;
+        withOverlay: boolean;
     }
 
     class PageSliderDirective {
@@ -68,8 +83,9 @@
                     return;
 
                 $page = _$page;
-                $pageElement.append($element);
-                toggleVisibility();
+
+                if ($ctrl.isVisible)
+                    $ctrl.show();
             };
 
             const onPageDestroy = () => {
@@ -78,6 +94,7 @@
 
                 $ctrl.close();
                 $element.detach();
+                console.log('detached: ', $element[0]);
             };
 
             const onPageSliderShow = (e: angular.IAngularEvent, $sliderElement: angular.IAugmentedJQuery) => {
@@ -87,20 +104,21 @@
                 $ctrl.close();
             };
 
-            const toggleOverlay = (isVisible: boolean) => {
+            const showOverlay = () => {
                 if (!$ctrl.withOverlay)
                     return;
 
-                if (isVisible) {
-                    $layoutPage.showOverlay($ctrl);
+                $layoutPage.showOverlay($ctrl);
+            };
+
+            const hideOverlay = () => {
+                if (!$ctrl.withOverlay)
                     return;
-                }
 
                 $layoutPage.hideOverlay($ctrl);
             };
 
-            const emitEvents = (isVisible: boolean) => {
-                const eventName = isVisible ? '$pageSlider.$show' : '$pageSlider.$hide';
+            const emitEvent = (eventName: string) => {
                 this.$rootScope.$emit(eventName, $element);
             };
 
@@ -116,10 +134,7 @@
                 sliderScope = null;
             };
 
-            const transclude = (isVisible: boolean) => {
-                if (!isVisible)
-                    return;
-
+            const transclude = () => {
                 destroyScope();
 
                 $transclude((clone, scope) => {
@@ -129,17 +144,23 @@
             };
 
             let $timer = null;
-            const modifyElement = (isVisible: boolean) => {
-                if ($timer)
-                    this.$timeout.cancel($timer);
-
-                if (isVisible) {
-                    $page.ensureOnTop($element);
-                    fixBrowserReflowBatchingIssue();
-                    $element.empty().addClass("is-visible");
-                    transclude(isVisible);
+            const cancelTimer = () => {
+                if (!$timer)
                     return;
-                }
+
+                this.$timeout.cancel($timer);
+            };
+
+            const showElement = () => {
+                cancelTimer();
+                $page.ensureOnTop($element);
+                fixBrowserReflowBatchingIssue();
+                $element.empty().addClass("is-visible");
+                transclude();
+            };
+
+            const hideElement = () => {
+                cancelTimer();
 
                 if (!$element.is(".is-visible"))
                     return;
@@ -153,26 +174,29 @@
                 }, 250);
             };
 
-            const hideNavigation = (isVisible: boolean) => {
-                if (!isVisible)
-                    return;
-
+            const hideNavigation = () => {
                 $layoutPage.hideNav();
             };
 
-            const toggleVisibility = () => {
+            const show = () => {
                 if (!$page)
                     return;
 
-                var isVisible = $ctrl.isVisible;
-                emitEvents(isVisible);
-                modifyElement(isVisible);
-                toggleOverlay(isVisible);
-                hideNavigation(isVisible);
+                emitEvent('$pageSlider.$show');
+                showElement();
+                showOverlay();
+            };
+
+            const hide = () => {
+                emitEvent('$pageSlider.$hide');
+                hideElement();
+                hideOverlay();
+                hideNavigation();
             };
 
             const initProperties = () => {
-                $ctrl.toggleVisibility = toggleVisibility;
+                $ctrl.show = show;
+                $ctrl.hide = hide;
                 $ctrl.withOverlay = withOverlay;
             };
 
@@ -200,7 +224,8 @@
             const initSlider = () => {
                 initProperties();
                 const destroyPage = initPage();
-                toggleVisibility();
+                $element.detach();
+                destroyScope();
                 return destroyPage;
             };
 
