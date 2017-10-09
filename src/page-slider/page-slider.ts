@@ -79,11 +79,12 @@
                 isOutsideOfPage = !$page;
 
             const onPageCreate = (e: angular.IAngularEvent, $pageElement: angular.IAugmentedJQuery, _$page: LayoutPageModule.IPageController) => {
+                $element.detach();
+
                 if (!isOutsideOfPage)
                     return;
 
                 $page = _$page;
-                $element.detach();
 
                 if ($ctrl.isVisible)
                     $ctrl.show();
