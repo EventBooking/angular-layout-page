@@ -79,12 +79,10 @@
                 isOutsideOfPage = !$page;
 
             const onPageCreate = (e: angular.IAngularEvent, $pageElement: angular.IAugmentedJQuery, _$page: LayoutPageModule.IPageController) => {
-                $element.detach();
+                $page = _$page;
 
                 if (!isOutsideOfPage)
                     return;
-
-                $page = _$page;
 
                 if ($ctrl.isVisible)
                     $ctrl.show();
@@ -96,7 +94,6 @@
 
                 $ctrl.close();
                 $element.detach();
-                console.log('detached: ', $element[0]);
             };
 
             const onPageSliderShow = (e: angular.IAngularEvent, $sliderElement: angular.IAugmentedJQuery) => {
@@ -217,7 +214,6 @@
                     return unbind$Page;
                 }
                 else {
-                    $page.addControl($element);
                     const noop = () => { };
                     return noop;
                 }
