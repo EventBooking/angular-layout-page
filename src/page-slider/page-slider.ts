@@ -83,6 +83,7 @@
                     return;
 
                 $page = _$page;
+                $element.detach();
 
                 if ($ctrl.isVisible)
                     $ctrl.show();
