@@ -36,20 +36,29 @@
 				<nav-group-item icon="fa fa-search" ng-click="search()">Search</nav-group-item>
 			</nav-group>
 		</nav>
-		
+
 		<page-slider slide-if="isGlobalSearching">
 			<div class="pane">
 				<pane-header title="Global page slider" subtitle="{{counter}}" show-close>
 				</pane-header>
-			
+
 				<div class="pane-body">
-					Page slider that is not inside the page element
+					<div>
+						Page slider that is not inside the page element
+					</div>
+					<div class="text-link" ng-click="showGlobalSubslider = !showGlobalSubslider">open sub-slider</div>
 				</div>
-				
+
 				<pane-footer>
 					<a href="#" page-slider-cancel>close slider</a>
 				</pane-footer>
 			</div>
+			<page-slider class="page-slider--sm" show-close slide-if="showGlobalSubslider">
+				<div class="pane">
+					<pane-header title="Global page slider" subtitle="{{counter}}" show-close></pane-header>
+					This is the global sub-slider
+				</div>
+			</page-slider>
 		</page-slider>
 
 		<div ng-view class="layout-page-view"></div>

@@ -96,13 +96,6 @@
                 $element.detach();
             };
 
-            const onPageSliderShow = (e: angular.IAngularEvent, $sliderElement: angular.IAugmentedJQuery) => {
-                if (!isOutsideOfPage || $sliderElement == $element)
-                    return;
-
-                $ctrl.close();
-            };
-
             const showOverlay = () => {
                 if (!$ctrl.withOverlay)
                     return;
@@ -203,12 +196,10 @@
                 if (isOutsideOfPage) {
                     const unbind$Page$Create = this.$rootScope.$on("$page.$create", onPageCreate);
                     const unbind$Page$Destroy = this.$rootScope.$on("$page.$destroy", onPageDestroy);
-                    const unbind$PageSlider$Show = this.$rootScope.$on("$pageSlider.$show", onPageSliderShow);
 
                     const unbind$Page = () => {
                         unbind$Page$Create();
                         unbind$Page$Destroy();
-                        unbind$PageSlider$Show();
                     }
 
                     return unbind$Page;
