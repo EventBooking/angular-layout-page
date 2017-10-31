@@ -108,7 +108,7 @@ module.run(['$templateCache', function($templateCache) {
     '\n' +
     '    <!-- Transclude title and actions -->\n' +
     '    <div class="page-header-center" ng-if-start="!vm.transcludeContent" ng-transclude="title"> </div>\n' +
-    '    <div class="page-header-right" ng-end>\n' +
+    '    <div class="page-header-right" ng-if-end>\n' +
     '        <div class="page-header-actions" ng-transclude="actions"></div>\n' +
     '    </div>\n' +
     '</div>');
