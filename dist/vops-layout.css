@@ -1862,6 +1862,7 @@ textarea.form-control {
   color: #B2B2A9;
 }
 .form-message {
+  margin-top: .5em;
   color: #999990;
   color: #EF5041;
 }
@@ -1900,11 +1901,6 @@ button.form-message {
 a.form-message:hover,
 .form-message.text-link:hover {
   color: #F8B5A6;
-}
-.form-message + .form-message,
-.form-row + .form-message,
-.form-group + .form-message {
-  margin-top: 1rem;
 }
 .form-message-link {
   color: #999990;
@@ -8256,6 +8252,7 @@ textarea.form-control {
   color: #B2B2A9;
 }
 .form-message {
+  margin-top: .5em;
   color: #999990;
   color: #EF5041;
 }
@@ -8294,11 +8291,6 @@ button.form-message {
 a.form-message:hover,
 .form-message.text-link:hover {
   color: #F8B5A6;
-}
-.form-message + .form-message,
-.form-row + .form-message,
-.form-group + .form-message {
-  margin-top: 1rem;
 }
 .form-message-link {
   color: #999990;

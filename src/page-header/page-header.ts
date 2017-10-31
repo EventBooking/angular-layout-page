@@ -15,7 +15,10 @@
     class PageHeaderDirective {
         restrict = 'E';
         require = ['pageHeader', '^layoutPage'];
-        transclude = true;
+        transclude = {
+            'title': '?pageHeaderTitle',
+            'actions': '?pageHeaderActions'
+        };
         templateUrl = 'page-header/page-header.html';
         controller = PageHeaderController;
         controllerAs = 'vm';
