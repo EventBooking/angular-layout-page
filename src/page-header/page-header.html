@@ -15,7 +15,7 @@
 
     <!-- Transclude title and actions -->
     <div class="page-header-center" ng-if-start="!vm.transcludeContent" ng-transclude="title"> </div>
-    <div class="page-header-right">
-        <div class="page-header-actions" ng-end ng-transclude="actions"></div>
+    <div class="page-header-right" ng-end>
+        <div class="page-header-actions" ng-transclude="actions"></div>
     </div>
 </div>
