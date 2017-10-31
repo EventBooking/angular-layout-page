@@ -23,7 +23,6 @@
 }
 
 .page-header-title {
-    margin-left: unit(@padding,px);
     font-weight: @page-header-title-font-weight;
     text-transform: uppercase;
     .font-size(@page-header-title-font-size);
@@ -31,7 +30,6 @@
 
     @media @media-phone-landscape, @media-phone-portrait {
         display: block;
-        margin-left: 0;
     }
 }
 
@@ -78,6 +76,10 @@
 
 .page-header-center {
     flex-grow: 1;
+    margin-left: unit(@padding,px);
+    @media @media-phone-landscape, @media-phone-portrait {
+        margin-left: 0;
+    }
 }
 
 .page-header-actions-group {
