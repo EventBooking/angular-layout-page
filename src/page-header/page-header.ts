@@ -1,8 +1,9 @@
 ﻿module LayoutPageModule {
 
     class PageHeaderController {
-        onInit($layoutPage: ILayoutPageController) {
+        onInit($layoutPage: ILayoutPageController, transcludeContent: boolean) {
             this.$layoutPage = $layoutPage;
+            this.transcludeContent = transcludeContent;
         }
 
         toggleNav() {
@@ -10,6 +11,7 @@
         }
 
         $layoutPage: ILayoutPageController
+        private transcludeContent: boolean;
     }
 
     class PageHeaderDirective {
@@ -28,11 +30,15 @@
             subtitle: '@',
             label: '@'
         };
-        link = ($scope, $element, $attrs, $ctrls: any[]) => {
+        link = ($scope, $element: angular.IAugmentedJQuery, $attrs, $ctrls: any[], $transclude: angular.ITranscludeFunction) => {
             const $ctrl: PageHeaderController = $ctrls[0],
-                $layoutPage: ILayoutPageController = $ctrls[1];
+                $layoutPage: ILayoutPageController = $ctrls[1],
+                transcludeTitle = $transclude.isSlotFilled('title'),
+                transcludeActions = $transclude.isSlotFilled('actions');
 
-            $ctrl.onInit($layoutPage);
+            const transcludeContent = !(transcludeTitle || transcludeActions);
+
+            $ctrl.onInit($layoutPage, transcludeContent);
         }
     }
 

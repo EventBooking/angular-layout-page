@@ -1,6 +1,6 @@
 {
   "name": "vops-layout",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "",
   "main": "./dist/vops-layout.js",
   "typings": "./dist/vops-layout.d.ts",

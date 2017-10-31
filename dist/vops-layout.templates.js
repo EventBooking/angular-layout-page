@@ -5,13 +5,9 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('blankslate/blankslate.html',
-    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
-    '<div class="blankslate-content">\n' +
-    '    <div class="blankslate-content-title">{{vm.title}}</div>\n' +
-    '    <div class="blankslate-content-subtitle">\n' +
-    '        <div ng-transclude></div>\n' +
-    '    </div>\n' +
+  $templateCache.put('bar-graph/bar-graph.html',
+    '<div class="bar-graph-bg">\n' +
+    '    <div class="bar-graph-fill" ng-class="{\'bar-graph-fill--full\': vm.isFull}" ng-style="vm.style" ng-transclude></div>\n' +
     '</div>');
 }]);
 })();
@@ -23,9 +19,13 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('bar-graph/bar-graph.html',
-    '<div class="bar-graph-bg">\n' +
-    '    <div class="bar-graph-fill" ng-class="{\'bar-graph-fill--full\': vm.isFull}" ng-style="vm.style" ng-transclude></div>\n' +
+  $templateCache.put('blankslate/blankslate.html',
+    '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
+    '<div class="blankslate-content">\n' +
+    '    <div class="blankslate-content-title">{{vm.title}}</div>\n' +
+    '    <div class="blankslate-content-subtitle">\n' +
+    '        <div ng-transclude></div>\n' +
+    '    </div>\n' +
     '</div>');
 }]);
 })();
@@ -95,13 +95,21 @@ module.run(['$templateCache', function($templateCache) {
     '    <div class="page-header-left">\n' +
     '        <i class="page-header-navMenu fa fa-navicon" ng-click="vm.toggleNav()"></i>\n' +
     '    </div>\n' +
-    '    <div class="page-header-center" ng-transclude="title">\n' +
+    '\n' +
+    '    <!-- Transclude default -->\n' +
+    '    <div class="page-header-center" ng-if-start="vm.transcludeContent">\n' +
     '        <span class="page-header-title">{{vm.title}}</span>\n' +
     '        <span class="page-header-subtitle">{{vm.subtitle}}</span>\n' +
     '        <span class="page-header-label">{{vm.label}}</span>\n' +
     '    </div>\n' +
+    '    <div class="page-header-right" ng-if-end>\n' +
+    '        <div class="page-header-actions" ng-transclude></div>\n' +
+    '    </div>\n' +
+    '\n' +
+    '    <!-- Transclude title and actions -->\n' +
+    '    <div class="page-header-center" ng-if-start="!vm.transcludeContent" ng-transclude="title"> </div>\n' +
     '    <div class="page-header-right">\n' +
-    '        <div class="page-header-actions" ng-transclude="actions"></div>\n' +
+    '        <div class="page-header-actions" ng-end ng-transclude="actions"></div>\n' +
     '    </div>\n' +
     '</div>');
 }]);
