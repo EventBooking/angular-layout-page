@@ -5631,18 +5631,6 @@ doughnut canvas {
             transform: translateX(144px);
   }
 }
-@media only screen and (max-width: 768px) {
-  .nav--show .layout-page-view {
-    -webkit-transform: translateX(64px);
-            transform: translateX(64px);
-  }
-}
-@media screen and (max-width: 479px) {
-  .nav--show .layout-page-view {
-    -webkit-transform: translateX(calc(100vw - 48px));
-            transform: translateX(calc(100vw - 48px));
-  }
-}
 .divider-dark {
   overflow: hidden;
   height: 1px;
@@ -5736,25 +5724,6 @@ nav-group-item:active,
 .nav-group-item--appSwitcher .nav-group-item-text {
   margin-left: 0;
 }
-@media only screen and (max-width: 768px) {
-  nav-group-item,
-  [nav-group-item],
-  .nav-group-item {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .nav-group-item--appSwitcher .nav-group-item-icon {
-    display: block;
-  }
-  .nav-group-item-text {
-    display: none;
-  }
-}
 nav-group,
 .nav-group {
   display: -webkit-box;
@@ -5775,12 +5744,6 @@ nav-group ~ .nav-group,
   background-image: radial-gradient(circle, #999990, transparent);
   background-size: 100% 1px;
   background-repeat: no-repeat;
-}
-@media screen and (max-width: 479px) {
-  nav-group,
-  .nav-group {
-    display: block;
-  }
 }
 nav-header {
   display: -webkit-box;
@@ -5812,11 +5775,6 @@ nav-header:before {
   content: "\f0d7";
   font-family: FontAwesome;
   margin-left: .25em;
-}
-@media only screen and (max-width: 768px) {
-  nav-header:before {
-    content: attr(small);
-  }
 }
 nav {
   width: 144px;
@@ -5852,17 +5810,6 @@ nav:before {
     min-width: 144px;
     bottom: 0;
     z-index: 0;
-  }
-}
-@media only screen and (max-width: 768px) {
-  nav {
-    width: 64px;
-    min-width: 64px;
-  }
-}
-@media screen and (max-width: 479px) {
-  nav {
-    width: calc(100vw - 48px);
   }
 }
 html {
@@ -6200,11 +6147,6 @@ page-content-nav-item ~ page-content-nav-item {
           flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-}
-@media screen and (max-width: 479px) {
-  .nav--show .page-content {
-    display: none;
-  }
 }
 .page-dropdown {
   position: fixed;

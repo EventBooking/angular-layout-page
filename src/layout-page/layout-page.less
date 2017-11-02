@@ -68,19 +68,3 @@
 		}
 	}
 }
-
-@media only screen and (max-width: unit(@screen-tablet-portrait,px)) {
-	.layout-page-view {
-		.nav--show & {
-			transform: translateX(unit(@nav-small,px));
-		}
-	}
-}
-
-@media @media-phone-portrait {
-	.layout-page-view {
-		.nav--show & {
-			transform: translateX(~"calc(100vw - 48px)");
-		}
-	}
-}
