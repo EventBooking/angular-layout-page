@@ -1,11 +1,22 @@
 <div class="page page--full">
 
     <page-header title="Full screen page">
-        <page-header-title>Custom Title Here</page-header-title>
+        <page-header-title ng-click="vm.showMenu = !vm.showMenu">
+            Custom Title Here
+            <i class="fa fa-caret-down"></i>
+        </page-header-title>
         <page-header-actions>
             <a href="/panes">pane tests</a>
         </page-header-actions>
     </page-header>
+
+    <page-dropdown show-if="vm.showMenu">
+        <div class="page-dropdown-item" ng-repeat="view in vm.views">
+            <div ng-click="vm.showMenu = false">
+                {{view}}
+            </div>
+        </div>
+    </page-dropdown>
 
     <div class="page-content">
 

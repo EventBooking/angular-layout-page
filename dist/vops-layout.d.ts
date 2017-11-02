@@ -32,6 +32,8 @@ declare module LayoutPageModule {
 declare module LayoutPageModule {
 }
 declare module LayoutPageModule {
+}
+declare module LayoutPageModule {
     interface IPageSliderController extends IPageOverlay {
         isVisible: any;
         withOverlay: any;

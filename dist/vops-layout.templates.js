@@ -90,6 +90,25 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('page-dropdown/page-dropdown.html',
+    '<div class="page-dropdown" ng-class="{\'page-dropdown--isVisible\': vm.showIf}">\n' +
+    '    <div class="page-dropdown-menu">\n' +
+    '        <div class="page-dropdown-content" ng-transclude></div>\n' +
+    '        <div class="page-dropdown-close" ng-click="vm.showIf=false">\n' +
+    '            <i class="fa fa-angle-up"></i>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('page-header/page-header.html',
     '<div class="page-header">\n' +
     '    <div class="page-header-left">\n' +

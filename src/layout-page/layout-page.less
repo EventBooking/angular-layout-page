@@ -50,33 +50,38 @@
 		flex-grow: 1;
 		max-width: 100%;
 	}
-    
-// ToDo: figure out a better way to do this
-//     [ng-view]& {
-//         &.ng-enter {
-//             transition: 0.15s;
-//             opacity: .5;
-//         }
-// 
-//         &.ng-enter.ng-enter-active {
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave {
-//             transition: 0.40s;
-//             opacity: 1;
-//         }
-// 
-//         &.ng-leave.ng-leave-active {
-//             opacity: 0;
-//         }
-//     }
+}
+
+@media @media-tablet-landscape, @media-tablet-portrait, @media-phone-landscape {
+	.layout-page-view {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		transform: translateX(0);
+		transition: transform .25s ease-in-out;
+
+		.nav--show & {
+			transform: translateX(unit(@nav-large,px));
+		}
+	}
 }
 
 @media @media-phone-portrait {
 	.layout-page-view {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		transform: translateX(0);
+		transition: transform .25s ease-in-out;
+
 		.nav--show & {
-			width: 48px;
+			transform: translateX(~"calc(100vw - 48px)");
 		}
 	}
 }

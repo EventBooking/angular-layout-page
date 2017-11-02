@@ -21,6 +21,11 @@
     color: @button-color;
     padding: 0 1em;
     line-height: 2em;
+
+    &.page-header-actions-item {
+        line-height: unit(@page-header-height - 2, px);
+        border-radius: 0;
+    }
     
     &:not([disabled]) {
         &:hover {
@@ -52,6 +57,11 @@
             border-top-right-radius: 2px;
             border-bottom-right-radius: 2px;
         }
+    }
+
+    .button-group .button-default + &,
+    .button-group .button--default + & {
+        border-left-width: 0;
     }
 
     .button-group & + & {
@@ -87,10 +97,6 @@
             outline-color: @button-default-focus-outline-color;
         }
     }
-
-    .button-group & + & {
-        border-left-width: 0;
-    }
 }
 
 .button-default {
@@ -121,7 +127,7 @@
         }
     }
 
-    .button-group & + & {
+    .button-group .button + & {
         border-left-color: @border-color;
     }
 }
@@ -154,7 +160,7 @@
         }
     }
 
-    .button-group & + & {
+    .button-group .button + & {
         border-left-color: @border-color;
     }
 }
@@ -187,7 +193,7 @@
         }
     }
 
-    .button-group & + & {
+    .button-group .button + & {
         border-left-color: @border-color;
     }
 }

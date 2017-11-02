@@ -6,58 +6,23 @@ nav {
     .layoutPageOverlay();
 }
 
-@media @media-tablet-landscape,
-    @media-tablet-portrait {
+@media @media-phone-landscape, @media-tablet-landscape, @media-tablet-portrait {
     nav {
-        width: unit(@nav-small,px);
-        min-width: unit(@nav-small,px);
-    }
-}
-
-@media @media-phone-landscape {
-    nav {
-        transition: all .25s ease-in-out;
-        width: 0;
-        min-width: 0;
-        
-        .nav--show & {
-            width: unit(@nav-large,px);
-            min-width: unit(@nav-large,px);
-        }
-    }
-    
-    .nav-icon {
         position: absolute;
-        top: 17px;
-        left: 9px;
-        z-index: 1;
-        
-        .nav--show & {
-            left: unit(@nav-large + 9,px);
-        }
+        top: 0;
+		left: 0;
+		bottom: 0;
+        z-index: 0;
     }
 }
 
 @media @media-phone-portrait {
     nav {
-        transition: all .25s ease-in-out;
-        width: 0;
-        min-width: 0;
-        
-        .nav--show & {
-            width: ~"calc(100% - 48px)";
-            min-width: unit(@nav-large,px);
-        }
-    }
-    
-    .nav-icon {
         position: absolute;
-        top: 17px;
-        left: 9px;
-        z-index: 1;
-        
-        .nav--show & {
-            left: unit(@nav-large + 9,px);
-        }
+        top: 0;
+		left: 0;
+		width: ~"calc(100vw - 48px)";
+		bottom: 0;
+        z-index: 0;
     }
 }
