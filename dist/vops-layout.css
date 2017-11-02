@@ -400,6 +400,7 @@ th {
 .button.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -477,6 +478,7 @@ th {
 .button-default.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-default:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -512,6 +514,7 @@ th {
 .button-default.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-default:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -624,6 +627,7 @@ th {
 .button-primary.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-primary:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -659,6 +663,7 @@ th {
 .button-primary.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-primary:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -767,6 +772,7 @@ th {
 .button-success.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-success:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -802,6 +808,7 @@ th {
 .button-success.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-success:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -910,6 +917,7 @@ th {
 .button-danger.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-danger:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -945,6 +953,7 @@ th {
 .button-danger.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-danger:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -1054,6 +1063,7 @@ th {
 .button-link.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-link:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -1089,6 +1099,7 @@ th {
 .button-link.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-link:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -5602,7 +5613,7 @@ doughnut canvas {
           flex-grow: 1;
   max-width: 100%;
 }
-@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px) {
+@media only screen and (max-width: 1024px) {
   .layout-page-view {
     position: absolute;
     top: 0;
@@ -5620,19 +5631,13 @@ doughnut canvas {
             transform: translateX(144px);
   }
 }
-@media screen and (max-width: 479px) {
-  .layout-page-view {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    transition: -webkit-transform 0.25s ease-in-out;
-    transition: transform 0.25s ease-in-out;
+@media only screen and (max-width: 768px) {
+  .nav--show .layout-page-view {
+    -webkit-transform: translateX(64px);
+            transform: translateX(64px);
   }
+}
+@media screen and (max-width: 479px) {
   .nav--show .layout-page-view {
     -webkit-transform: translateX(calc(100vw - 48px));
             transform: translateX(calc(100vw - 48px));
@@ -5731,31 +5736,23 @@ nav-group-item:active,
 .nav-group-item--appSwitcher .nav-group-item-text {
   margin-left: 0;
 }
-@media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
-  .nav-group-item--appSwitcher .nav-group-item-icon {
-    display: block;
-  }
-}
-@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px) {
-  .nav-group-item-text {
-    display: none;
-  }
-  .nav-group-item--appSwitcher .nav-group-item-icon {
-    display: block;
-  }
-}
-@media screen and (max-width: 479px) {
+@media only screen and (max-width: 768px) {
   nav-group-item,
   [nav-group-item],
   .nav-group-item {
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
-  .nav-group-item-icon {
-    width: 48px;
-    text-align: center;
+  .nav-group-item--appSwitcher .nav-group-item-icon {
+    display: block;
+  }
+  .nav-group-item-text {
+    display: none;
   }
 }
 nav-group,
@@ -5816,7 +5813,7 @@ nav-header:before {
   font-family: FontAwesome;
   margin-left: .25em;
 }
-@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (max-width: 768px) {
   nav-header:before {
     content: attr(small);
   }
@@ -5846,23 +5843,26 @@ nav:before {
   opacity: 1;
   z-index: 9;
 }
-@media screen and (min-width: 480px) and (max-width: 767px), screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
   nav {
     position: absolute;
     top: 0;
     left: 0;
+    width: 144px;
+    min-width: 144px;
     bottom: 0;
     z-index: 0;
   }
 }
+@media only screen and (max-width: 768px) {
+  nav {
+    width: 64px;
+    min-width: 64px;
+  }
+}
 @media screen and (max-width: 479px) {
   nav {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: calc(100vw - 48px);
-    bottom: 0;
-    z-index: 0;
   }
 }
 html {
@@ -6306,7 +6306,7 @@ page-header {
   line-height: 48px;
   text-align: center;
 }
-@media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+@media only screen and (max-width: 1024px) {
   .page-header-navMenu {
     display: inline-block;
   }
@@ -6371,13 +6371,19 @@ page-header {
 .page-header-right {
   padding: 0 32px;
 }
+@media screen and (max-width: 479px) {
+  .page-header-right {
+    padding-right: 0;
+    padding-left: 4px;
+  }
+}
 .page-header-center {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   margin-left: 32px;
 }
-@media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+@media only screen and (max-width: 1024px) {
   .page-header-center {
     margin-left: 0;
   }
@@ -6959,6 +6965,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7036,6 +7043,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-default.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-default:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7071,6 +7079,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-default.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-default:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7183,6 +7192,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-primary.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-primary:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7218,6 +7228,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-primary.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-primary:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7326,6 +7337,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-success.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-success:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7361,6 +7373,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-success.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-success:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7469,6 +7482,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-danger.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-danger:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7504,6 +7518,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-danger.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-danger:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7613,6 +7628,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-link.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-link:not([disabled]):hover {
   background-color: #B2B2A9;
@@ -7648,6 +7664,7 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-link.page-header-actions-item {
   line-height: 46px;
   border-radius: 0;
+  font-size: 1rem;
 }
 .button-link:not([disabled]):hover {
   background-color: #B2B2A9;

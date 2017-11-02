@@ -19,7 +19,7 @@
     line-height: unit(@page-header-height,px);
     text-align: center;
 
-    @media @media-phone-landscape, @media-phone-portrait {
+    @media only screen and (max-width: unit(@screen-tablet-landscape,px)) {
         display: inline-block;
     }
 }
@@ -74,12 +74,18 @@
 
 .page-header-right {
     padding: 0 unit(@padding,px);
+    
+    @media @media-phone-portrait {
+        padding-right: 0;
+        padding-left: unit(@padding-quarter/2,px);
+    }
 }
 
 .page-header-center {
     flex-grow: 1;
     margin-left: unit(@padding,px);
-    @media @media-phone-landscape, @media-phone-portrait {
+
+    @media only screen and (max-width: unit(@screen-tablet-landscape,px)) {
         margin-left: 0;
     }
 }

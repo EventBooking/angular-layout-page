@@ -6,23 +6,27 @@ nav {
     .layoutPageOverlay();
 }
 
-@media @media-phone-landscape, @media-tablet-landscape, @media-tablet-portrait {
+@media only screen and (max-width: unit(@screen-tablet-landscape,px)) {
     nav {
         position: absolute;
         top: 0;
-		left: 0;
+        left: 0;
+        width: unit(@nav-large,px);
+        min-width: unit(@nav-large,px);
 		bottom: 0;
         z-index: 0;
     }
 }
 
+@media only screen and (max-width: unit(@screen-tablet-portrait,px)) {
+    nav {
+        width: unit(@nav-small,px);
+        min-width: unit(@nav-small,px);
+    }
+}
+
 @media @media-phone-portrait {
     nav {
-        position: absolute;
-        top: 0;
-		left: 0;
 		width: ~"calc(100vw - 48px)";
-		bottom: 0;
-        z-index: 0;
     }
 }

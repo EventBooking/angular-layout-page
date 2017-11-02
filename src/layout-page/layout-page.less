@@ -52,7 +52,7 @@
 	}
 }
 
-@media @media-tablet-landscape, @media-tablet-portrait, @media-phone-landscape {
+@media only screen and (max-width: unit(@screen-tablet-landscape,px)) {
 	.layout-page-view {
 		position: absolute;
 		top: 0;
@@ -69,17 +69,16 @@
 	}
 }
 
+@media only screen and (max-width: unit(@screen-tablet-portrait,px)) {
+	.layout-page-view {
+		.nav--show & {
+			transform: translateX(unit(@nav-small,px));
+		}
+	}
+}
+
 @media @media-phone-portrait {
 	.layout-page-view {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 1;
-		transform: translateX(0);
-		transition: transform .25s ease-in-out;
-
 		.nav--show & {
 			transform: translateX(~"calc(100vw - 48px)");
 		}
