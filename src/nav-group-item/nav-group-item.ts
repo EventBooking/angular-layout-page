@@ -41,7 +41,7 @@ module LayoutPageModule {
 
         }
 
-        restrict = 'AEC';
+        restrict = 'A';
         require = ['navGroupItem', '^layoutPage'];
         transclude = true;
         templateUrl = 'nav-group-item/nav-group-item.html';
@@ -58,10 +58,10 @@ module LayoutPageModule {
 
             // ToDo: this is probably done incorrectly and should be controlled by the nav-group instead
             $scope.$on('$routeChangeSuccess', () => {
-                $element.find('a').toggleClass('nav-group-item-anchor--selected', $ctrl.isSelected);
+                $element.toggleClass('nav-group-item--selected', $ctrl.isSelected);
                 $layoutPage.hideNav();
             });
-            $element.toggleClass('nav-group-item-anchor--selected', $ctrl.isSelected);
+            $element.toggleClass('nav-group-item--selected', $ctrl.isSelected);
         };
     }
 
