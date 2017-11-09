@@ -30,15 +30,6 @@ module LayoutPageModule {
             var result = this.selected.filter(x => path.indexOf(x) === 0);
             return result.length > 0;
         }
-
-        navigate(newTab: boolean = false) {
-            if (newTab) {
-                this.$window.open(this.href, '_blank');
-                return;
-            }
-
-            this.$location.url(this.href);
-        }
     }
 
     Angular.module("ngLayoutPage").controller('navGroupItemController', NavGroupItemController);
@@ -50,7 +41,7 @@ module LayoutPageModule {
 
         }
 
-        restrict = 'AEC';
+        restrict = 'A';
         require = ['navGroupItem', '^layoutPage'];
         transclude = true;
         templateUrl = 'nav-group-item/nav-group-item.html';
@@ -63,8 +54,7 @@ module LayoutPageModule {
 
         link = ($scope, $element, $attrs, ctrls: any[]) => {
             var $ctrl: NavGroupItemController = ctrls[0],
-                $layoutPage: ILayoutPageController = ctrls[1],
-                clickEvent = `click.${$scope.$id}`;
+                $layoutPage: ILayoutPageController = ctrls[1];
 
             // ToDo: this is probably done incorrectly and should be controlled by the nav-group instead
             $scope.$on('$routeChangeSuccess', () => {
@@ -72,13 +62,6 @@ module LayoutPageModule {
                 $layoutPage.hideNav();
             });
             $element.toggleClass('nav-group-item--selected', $ctrl.isSelected);
-
-            $element.on(clickEvent, e => {
-                if (($ctrl.href || "").length === 0)
-                    return;
-                $ctrl.navigate(e.ctrlKey || (e.which == 2));
-                $scope.$apply();
-            });
         };
     }
 

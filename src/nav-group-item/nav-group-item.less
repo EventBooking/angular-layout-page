@@ -1,20 +1,15 @@
-nav-group-item,
-[nav-group-item],
-.nav-group-item {
+[nav-group-item] {
 	display: flex;
 	flex-direction: row;
-	cursor: pointer;
+	text-decoration: none;
+	justify-content: left;
+	align-items: center;
 	text-align: center;
 	color: @nav-group-item-color;
 	background-color: @nav-group-item-background-color;
-	padding: .5em 1.5em; 
-	text-decoration: none;
-	align-items: center;
+	padding: .5em 1.5em;
+	cursor: pointer;
 
-	& ~ & {
-		margin-top: .5em;
-	}
-	
 	&:hover {
 		color: @nav-group-item-hover-color;
 		background-color: @nav-group-item-hover-background-color;
@@ -24,19 +19,20 @@ nav-group-item,
 		color: @nav-group-item-active-color;
 		background-color: @nav-group-item-active-background-color;
 	}
+
+	& ~ & {
+		margin-top: .5em;
+	}
 }
 
 .nav-group-item {
-    &--selected:hover,
+
+	&--selected:hover,
     &--selected {
         color: @nav-group-item-selected-color;
 		background-color: @nav-group-item-selected-background-color;
 		font-weight: @nav-group-item-selected-font-weight;
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
-	}
-	
-	&--appSwitcher {
-		justify-content: center;
 	}
 }
 
