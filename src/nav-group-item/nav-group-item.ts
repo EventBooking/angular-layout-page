@@ -38,6 +38,7 @@ module LayoutPageModule {
         static $inject = ['$compile'];
 
         constructor(private $compile) {
+
         }
 
         restrict = 'AEC';
@@ -57,10 +58,10 @@ module LayoutPageModule {
 
             // ToDo: this is probably done incorrectly and should be controlled by the nav-group instead
             $scope.$on('$routeChangeSuccess', () => {
-                $element.toggleClass('nav-group-item--selected', $ctrl.isSelected);
+                $element.find('a').toggleClass('nav-group-item-anchor--selected', $ctrl.isSelected);
                 $layoutPage.hideNav();
             });
-            $element.toggleClass('nav-group-item--selected', $ctrl.isSelected);
+            $element.toggleClass('nav-group-item-anchor--selected', $ctrl.isSelected);
         };
     }
 

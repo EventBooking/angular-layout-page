@@ -336,6 +336,25 @@ doughnut {
 
 .doughnut-bg {
 }
+nav {
+	width: unit(@nav-large,px);
+    min-width: unit(@nav-large,px);
+
+    position: relative;
+    .layoutPageOverlay();
+}
+
+@media only screen and (max-width: unit(@screen-tablet-landscape,px)) {
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: unit(@nav-large,px);
+        min-width: unit(@nav-large,px);
+		bottom: 0;
+        z-index: 0;
+    }
+}
 .layout-page {
 	display: flex;
 	flex-direction: row;
@@ -496,38 +515,6 @@ doughnut {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-nav {
-	width: unit(@nav-large,px);
-    min-width: unit(@nav-large,px);
-
-    position: relative;
-    .layoutPageOverlay();
-}
-
-@media only screen and (max-width: unit(@screen-tablet-landscape,px)) {
-    nav {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: unit(@nav-large,px);
-        min-width: unit(@nav-large,px);
-		bottom: 0;
-        z-index: 0;
-    }
-}
-nav-group,
-.nav-group {
-	display: flex;
-	flex-direction: column;
-	padding: 1em 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
-}
 nav-group-item,
 [nav-group-item],
 .nav-group-item {
@@ -535,9 +522,6 @@ nav-group-item,
 	flex-direction: row;
 	cursor: pointer;
 	text-align: center;
-	color: @nav-group-item-color;
-	background-color: @nav-group-item-background-color;
-	padding: .5em 1.5em; 
 	text-decoration: none;
 	align-items: center;
 
@@ -545,6 +529,20 @@ nav-group-item,
 		margin-top: .5em;
 	}
 	
+	&--appSwitcher {
+		justify-content: center;
+	}
+}
+
+.nav-group-item-anchor {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-basis: 100%;
+	color: @nav-group-item-color;
+	background-color: @nav-group-item-background-color;
+	padding: .5em 1.5em;
+
 	&:hover {
 		color: @nav-group-item-hover-color;
 		background-color: @nav-group-item-hover-background-color;
@@ -554,19 +552,13 @@ nav-group-item,
 		color: @nav-group-item-active-color;
 		background-color: @nav-group-item-active-background-color;
 	}
-}
 
-.nav-group-item {
-    &--selected:hover,
+	&--selected:hover,
     &--selected {
         color: @nav-group-item-selected-color;
 		background-color: @nav-group-item-selected-background-color;
 		font-weight: @nav-group-item-selected-font-weight;
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
-	}
-	
-	&--appSwitcher {
-		justify-content: center;
 	}
 }
 
@@ -594,6 +586,19 @@ nav-group-item,
 
 	.nav-group-item--appSwitcher & {
 		margin-left: 0;
+	}
+}
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
 	}
 }
 nav-header {
@@ -631,6 +636,13 @@ nav-header {
 //         }
 //     }
 // }
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 .page {
     display: flex;
     flex-direction: column;
@@ -672,13 +684,6 @@ nav-header {
     .page {
         width: 100vw;
     }
-}
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 .page-content-body {
     display: flex;
@@ -854,83 +859,6 @@ page-content-nav-item {
         margin-left: 1px;
     }
 }
-.page-dropdown {
-    position: fixed;
-    z-index: 6;
-    left: 0;
-    right: 0;
-    top: -100%;
-    height: 100%;
-    transition: top 0.25s ease-in-out;
-
-    &--isVisible {
-        .layout-page:not(.nav--show) & {
-            top: 48px;
-
-            &:after {
-                animation-name: page-dropdown-fadeBlack;
-                animation-timing-function: ease;
-                animation-duration: .25s;
-                animation-delay: .25s;
-                animation-fill-mode: forwards;
-            }
-        }
-    }
-
-    &:after {
-        content: "";
-        position: absolute;
-        z-index: 5;
-        background-color: fade(#000,25%);
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        opacity: 0;
-    }
-}
-
-.page-dropdown-menu {
-    position: relative;
-    max-height: 100%;
-    background-color: #fff;
-    position: relative;
-    z-index: 7;
-    margin: 0;
-    padding: 0;
-    overflow-y: auto;
-}
-
-.page-dropdown-content {
-    padding: unit(@padding-half, px);
-}
-
-.page-dropdown-item {
-    & + & {
-        margin-top: .5em;
-    }
-}
-
-.page-dropdown-close {
-    position: sticky;
-    bottom: 0;
-    text-align: center;
-    color: #4C4C47;
-    padding: .25em 0;
-    border-top: solid 1px @border-color-light;
-}
-
-@keyframes page-dropdown-fadeBlack {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-
 page-header {
     display: block;
     color: @page-header-color;
@@ -1061,6 +989,83 @@ page-header {
         background-color: @page-header-actions-item-active-background-color;
     }
 }
+.page-dropdown {
+    position: fixed;
+    z-index: 6;
+    left: 0;
+    right: 0;
+    top: -100%;
+    height: 100%;
+    transition: top 0.25s ease-in-out;
+
+    &--isVisible {
+        .layout-page:not(.nav--show) & {
+            top: 48px;
+
+            &:after {
+                animation-name: page-dropdown-fadeBlack;
+                animation-timing-function: ease;
+                animation-duration: .25s;
+                animation-delay: .25s;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 5;
+        background-color: fade(#000,25%);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.page-dropdown-menu {
+    position: relative;
+    max-height: 100%;
+    background-color: #fff;
+    position: relative;
+    z-index: 7;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.page-dropdown-content {
+    padding: unit(@padding-half, px);
+}
+
+.page-dropdown-item {
+    & + & {
+        margin-top: .5em;
+    }
+}
+
+.page-dropdown-close {
+    position: sticky;
+    bottom: 0;
+    text-align: center;
+    color: #4C4C47;
+    padding: .25em 0;
+    border-top: solid 1px @border-color-light;
+}
+
+@keyframes page-dropdown-fadeBlack {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
 page-slider {
     position: absolute;
     display: block;
