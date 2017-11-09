@@ -1,8 +1,8 @@
 .generateColorSchema(@i) {
-    .colorSchema(@i, ~"colorschema-@{i}-color", ~"colorschema-@{i}-background");
+    .colorSchema2(@i, ~"colorschema-@{i}-color", ~"colorschema-@{i}-background");
 }
 
-.colorSchema(@i, @color1, @color2) {
+.colorSchema2(@i, @color1, @color2) {
     .colorSchema-@{i} {
         background-color: @@color2;
         color: @@color1;
