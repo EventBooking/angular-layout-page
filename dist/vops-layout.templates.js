@@ -164,18 +164,6 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('tab/tab.html',
-    '');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('tabs/tabs.html',
     '<div class="tab-titles">\n' +
     '    <div class="tab-titles-item" \n' +
@@ -192,5 +180,17 @@ module.run(['$templateCache', function($templateCache) {
     '        ng-transclude>\n' +
     '    </div>\n' +
     '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('tab/tab.html',
+    '');
 }]);
 })();
