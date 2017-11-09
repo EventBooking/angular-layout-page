@@ -5675,6 +5675,7 @@ doughnut canvas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
   color: #999990;
   background-color: transparent;
   padding: .5em 1.5em;
