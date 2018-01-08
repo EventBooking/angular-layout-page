@@ -36,6 +36,14 @@
 
 .section-label-actions {
     float: right;
+    display: flex;
+}
+
+.section-label-actions-item {
+    display: flex;
+    & + & {
+        margin-left: .5em;
+    }
 }
 
 .section-label-sublabel {

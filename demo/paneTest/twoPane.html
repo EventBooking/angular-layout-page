@@ -6,15 +6,33 @@
         </body-header>
 
         <div class="section">
-            <div class="section-label">Section Label <span class="section-label-sublabel">sublabel</span></div>
+            <div class="section-label">
+                Section Label
+                <span class="section-label-sublabel">sublabel</span>
+                <span class="section-label-actions">
+                    <span class="section-label-actions-item">
+                        <i class="fa fa-pencil"></i>
+                    </span>
+                    <span class="section-label-actions-item">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                    <span class="section-label-actions-item">
+                        <i class="fa fa-file-text-o"></i>
+                    </span>
+                </span>
+            </div>
             <div class="section-content">
                 <a href="/panes/?area=doublePane">goto 'doublepane' tab</a>
             </div>
-            <div class="section-label">Slider 1 <span class="section-label-sublabel">Large slider</span></div>
+            <div class="section-label">Slider 1
+                <span class="section-label-sublabel">Large slider</span>
+            </div>
             <div class="section-content">
                 <a href="#" ng-click="vm.showSlider1 = !vm.showSlider1">toggle {{vm.showSlider1}}</a>
             </div>
-            <div class="section-label">Slider 2 <span class="section-label-sublabel">With Overlay</span></div>
+            <div class="section-label">Slider 2
+                <span class="section-label-sublabel">With Overlay</span>
+            </div>
             <div class="section-content">
                 <a href="#" ng-click="vm.showSlider2 = !vm.showSlider2">toggle</a>
             </div>
@@ -22,14 +40,18 @@
             <div class="section-content">
                 <a href="#" ng-click="vm.openSlider2OverSlider1()">toggle</a>
             </div>
-            <div class="section-label">Slider 3 <span class="section-label-sublabel">Full screen slider</span></div>
+            <div class="section-label">Slider 3
+                <span class="section-label-sublabel">Full screen slider</span>
+            </div>
             <div class="section-content">
                 <a href="#" ng-click="vm.showSlider3 = true">toggle</a>
             </div>
         </div>
 
         <div class="section">
-            <div class="section-label section-label--large">Large Section Label <span class="section-label-sublabel">sublabel</span></div>
+            <div class="section-label section-label--large">Large Section Label
+                <span class="section-label-sublabel">sublabel</span>
+            </div>
             <div>
                 another content
             </div>
