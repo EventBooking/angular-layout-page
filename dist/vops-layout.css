@@ -1791,6 +1791,10 @@ pane-header.pane-header--withSubtitle,
   color: #B2B2A9;
   letter-spacing: .025em;
 }
+.section-label--border {
+  border-bottom: solid 1px #E5E5E3;
+  padding-bottom: .25em;
+}
 .section-label--large {
   font-size: 1.25em;
 }
