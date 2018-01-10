@@ -884,7 +884,7 @@ page-content-nav-item {
     left: 0;
     right: 0;
     top: -100%;
-    height: 100%;
+    height: ~"calc(100% - 48px)";
     transition: top 0.25s ease-in-out;
 
     &--isVisible {
@@ -939,6 +939,7 @@ page-content-nav-item {
     position: sticky;
     bottom: 0;
     text-align: center;
+    background-color: #fff;
     color: #4C4C47;
     padding: .25em 0;
     border-top: solid 1px @border-color-light;
@@ -1198,6 +1199,69 @@ pane-footer {
         margin: 0 unit(@padding-half,px);
     }
 }
+/// <reference path="../assets.less" />
+
+.section {
+    display: block;
+    color: @color-gray-darker;
+    font-size: unit(@typescale,px);
+    
+    & + & {
+        border-top: solid 1px @border-color;
+        margin-top: 1em;
+        padding-top: 1em;
+    }
+
+    &--noborder + & {
+        border-top: none;
+        margin-top: 0;
+    }
+}
+
+.section-label {
+    display: block;
+    font-size: .875em;
+    text-transform: uppercase;
+    font-weight: @font-weight;
+    color: @color-gray-light;
+    letter-spacing: .025em;
+
+    &--border {
+        border-bottom: solid 1px @border-color;
+        padding-bottom: .25em;
+    }
+
+    &--large {
+        font-size: 1.25em;
+    }
+
+    .section-content + & {
+        margin-top: unit(@padding-half,px);
+    }
+}
+
+.section-label-actions {
+    float: right;
+}
+
+.section-label-actions-item {
+    & + & {
+        margin-left: .5em;
+    }
+}
+
+.section-label-sublabel {
+    font-size: .75em;
+    margin-left: .5em;
+}
+
+.section-content {
+    display: block;
+    
+    .section-label + & {
+        margin-top: .25rem;
+    }
+}
 pane-header,
 .pane-header {
     display: flex;
@@ -1359,69 +1423,6 @@ pane-header,
         }
     }
 
-}
-/// <reference path="../assets.less" />
-
-.section {
-    display: block;
-    color: @color-gray-darker;
-    font-size: unit(@typescale,px);
-    
-    & + & {
-        border-top: solid 1px @border-color;
-        margin-top: 1em;
-        padding-top: 1em;
-    }
-
-    &--noborder + & {
-        border-top: none;
-        margin-top: 0;
-    }
-}
-
-.section-label {
-    display: block;
-    font-size: .875em;
-    text-transform: uppercase;
-    font-weight: @font-weight;
-    color: @color-gray-light;
-    letter-spacing: .025em;
-
-    &--border {
-        border-bottom: solid 1px @border-color;
-        padding-bottom: .25em;
-    }
-
-    &--large {
-        font-size: 1.25em;
-    }
-
-    .section-content + & {
-        margin-top: unit(@padding-half,px);
-    }
-}
-
-.section-label-actions {
-    float: right;
-}
-
-.section-label-actions-item {
-    & + & {
-        margin-left: .5em;
-    }
-}
-
-.section-label-sublabel {
-    font-size: .75em;
-    margin-left: .5em;
-}
-
-.section-content {
-    display: block;
-    
-    .section-label + & {
-        margin-top: .25rem;
-    }
 }
 tab {
     width: 100%;
