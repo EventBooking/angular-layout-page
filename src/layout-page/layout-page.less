@@ -3,14 +3,14 @@
 	flex-direction: row;
 	height: 100vh;
     max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;  
+	overflow: hidden;
     margin: 0;
     padding: 0;
     background-color: @layout-page-background-color;
 	color: @layout-page-color;
 }
 
-.layoutPageOverlay {	
+.layoutPageOverlay {
 	&:before {
 		position: fixed;
 		content: "";
@@ -23,7 +23,7 @@
 		background-color: rgba(0,0,0,.25);
 
 		.layout-page--overlay.layout-page--hiding & {
-			opacity: 0;			
+			opacity: 0;
 		}
 
         .layout-page--overlay & {
@@ -36,7 +36,7 @@
 }
 
 .layout-page-nav {
-	order: 0;	
+	order: 0;
 }
 
 .layout-page-view {
@@ -44,7 +44,7 @@
 	order: 1;
 	flex-grow: 1;
 	overflow: hidden;
-	
+
 	& > * {
 		display: flex;
 		flex-grow: 1;
@@ -65,6 +65,38 @@
 
 		.nav--show & {
 			transform: translateX(unit(@nav-large,px));
+
+			&:after {
+				animation-name: layout-page-fadeBlack;
+				animation-timing-function: ease;
+				animation-duration: .25s;
+				animation-delay: .25s;
+				animation-fill-mode: forwards;
+				pointer-events: all;
+				z-index: 5;
+			}
 		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			background-color: fade(#000,25%);
+			left: 0;
+			right: 0;
+			top: 48px;
+			bottom: 0;
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+}
+
+@keyframes layout-page-fadeBlack {
+	0% {
+	  opacity: 0;
+	}
+
+	100% {
+	  opacity: 1;
 	}
 }
