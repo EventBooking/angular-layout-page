@@ -588,41 +588,6 @@ nav-group,
 		background-repeat: no-repeat;
 	}
 }
-nav-header {
-    display: flex;
-    height: unit(@page-header-height,px);
-    justify-content: center;
-    align-items: center;
-    color: @nav-header-color;
-    .font-size(@nav-header-font-size);
-    font-weight: @nav-header-font-weight;
-    padding: 1em;
-
-    &:before {
-        content: attr(text);
-        .ellipsis();
-    }
-}
-
-.nav-header {
-    &--caret {
-        cursor: pointer;
-
-        &:after {
-            content: "\f0d7";
-            font-family: FontAwesome;
-            margin-left: .25em;
-        }
-    }
-}
-
-// @media only screen and (max-width: unit(@screen-tablet-portrait,px)) {
-//     nav-header {
-//         &:before {
-//             content: attr(small);
-//         }
-//     }
-// }
 [nav-group-item] {
 	display: flex;
 	flex-direction: row;
@@ -687,6 +652,41 @@ nav-header {
 		margin-left: 0;
 	}
 }
+nav-header {
+    display: flex;
+    height: unit(@page-header-height,px);
+    justify-content: center;
+    align-items: center;
+    color: @nav-header-color;
+    .font-size(@nav-header-font-size);
+    font-weight: @nav-header-font-weight;
+    padding: 1em;
+
+    &:before {
+        content: attr(text);
+        .ellipsis();
+    }
+}
+
+.nav-header {
+    &--caret {
+        cursor: pointer;
+
+        &:after {
+            content: "\f0d7";
+            font-family: FontAwesome;
+            margin-left: .25em;
+        }
+    }
+}
+
+// @media only screen and (max-width: unit(@screen-tablet-portrait,px)) {
+//     nav-header {
+//         &:before {
+//             content: attr(small);
+//         }
+//     }
+// }
 .page {
     display: flex;
     flex-direction: column;
@@ -932,7 +932,7 @@ page-content-nav-item {
     left: 0;
     right: 0;
     top: -100%;
-    height: 100%;
+    height: ~"calc(100% - 48px)";
     transition: top 0.25s ease-in-out;
 
     &--isVisible {
@@ -987,6 +987,7 @@ page-content-nav-item {
     position: sticky;
     bottom: 0;
     text-align: center;
+    background-color: #fff;
     color: #4C4C47;
     padding: .25em 0;
     border-top: solid 1px @border-color-light;
