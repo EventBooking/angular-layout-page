@@ -26,3 +26,19 @@
         padding: 0;
     }
 }
+
+@media @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content-nav {
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &--subnav {
+            border-top: none;
+        }
+    }
+}
