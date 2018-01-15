@@ -377,14 +377,14 @@ doughnut {
 	flex-direction: row;
 	height: 100vh;
     max-height: 100%; // removes scrollbar browser bug
-	overflow: hidden;  
+	overflow: hidden;
     margin: 0;
     padding: 0;
     background-color: @layout-page-background-color;
 	color: @layout-page-color;
 }
 
-.layoutPageOverlay {	
+.layoutPageOverlay {
 	&:before {
 		position: fixed;
 		content: "";
@@ -397,7 +397,7 @@ doughnut {
 		background-color: rgba(0,0,0,.25);
 
 		.layout-page--overlay.layout-page--hiding & {
-			opacity: 0;			
+			opacity: 0;
 		}
 
         .layout-page--overlay & {
@@ -410,7 +410,7 @@ doughnut {
 }
 
 .layout-page-nav {
-	order: 0;	
+	order: 0;
 }
 
 .layout-page-view {
@@ -418,7 +418,7 @@ doughnut {
 	order: 1;
 	flex-grow: 1;
 	overflow: hidden;
-	
+
 	& > * {
 		display: flex;
 		flex-grow: 1;
@@ -439,7 +439,39 @@ doughnut {
 
 		.nav--show & {
 			transform: translateX(unit(@nav-large,px));
+
+			&:after {
+				animation-name: layout-page-fadeBlack;
+				animation-timing-function: ease;
+				animation-duration: .25s;
+				animation-delay: .25s;
+				animation-fill-mode: forwards;
+				pointer-events: all;
+				z-index: 5;
+			}
 		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			background-color: fade(#000,25%);
+			left: 0;
+			right: 0;
+			top: 48px;
+			bottom: 0;
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+}
+
+@keyframes layout-page-fadeBlack {
+	0% {
+	  opacity: 0;
+	}
+
+	100% {
+	  opacity: 1;
 	}
 }
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
@@ -824,6 +856,22 @@ nav-header {
         padding: 0;
     }
 }
+
+@media @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content-nav {
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &--subnav {
+            border-top: none;
+        }
+    }
+}
 page-content-nav-item {
     display: block;
     line-height: unit(@page-content-nav-item-font-size*3.5,px);
@@ -1199,69 +1247,6 @@ pane-footer {
         margin: 0 unit(@padding-half,px);
     }
 }
-/// <reference path="../assets.less" />
-
-.section {
-    display: block;
-    color: @color-gray-darker;
-    font-size: unit(@typescale,px);
-    
-    & + & {
-        border-top: solid 1px @border-color;
-        margin-top: 1em;
-        padding-top: 1em;
-    }
-
-    &--noborder + & {
-        border-top: none;
-        margin-top: 0;
-    }
-}
-
-.section-label {
-    display: block;
-    font-size: .875em;
-    text-transform: uppercase;
-    font-weight: @font-weight;
-    color: @color-gray-light;
-    letter-spacing: .025em;
-
-    &--border {
-        border-bottom: solid 1px @border-color;
-        padding-bottom: .25em;
-    }
-
-    &--large {
-        font-size: 1.25em;
-    }
-
-    .section-content + & {
-        margin-top: unit(@padding-half,px);
-    }
-}
-
-.section-label-actions {
-    float: right;
-}
-
-.section-label-actions-item {
-    & + & {
-        margin-left: .5em;
-    }
-}
-
-.section-label-sublabel {
-    font-size: .75em;
-    margin-left: .5em;
-}
-
-.section-content {
-    display: block;
-    
-    .section-label + & {
-        margin-top: .25rem;
-    }
-}
 pane-header,
 .pane-header {
     display: flex;
@@ -1423,6 +1408,69 @@ pane-header,
         }
     }
 
+}
+/// <reference path="../assets.less" />
+
+.section {
+    display: block;
+    color: @color-gray-darker;
+    font-size: unit(@typescale,px);
+    
+    & + & {
+        border-top: solid 1px @border-color;
+        margin-top: 1em;
+        padding-top: 1em;
+    }
+
+    &--noborder + & {
+        border-top: none;
+        margin-top: 0;
+    }
+}
+
+.section-label {
+    display: block;
+    font-size: .875em;
+    text-transform: uppercase;
+    font-weight: @font-weight;
+    color: @color-gray-light;
+    letter-spacing: .025em;
+
+    &--border {
+        border-bottom: solid 1px @border-color;
+        padding-bottom: .25em;
+    }
+
+    &--large {
+        font-size: 1.25em;
+    }
+
+    .section-content + & {
+        margin-top: unit(@padding-half,px);
+    }
+}
+
+.section-label-actions {
+    float: right;
+}
+
+.section-label-actions-item {
+    & + & {
+        margin-left: .5em;
+    }
+}
+
+.section-label-sublabel {
+    font-size: .75em;
+    margin-left: .5em;
+}
+
+.section-content {
+    display: block;
+    
+    .section-label + & {
+        margin-top: .25rem;
+    }
 }
 tab {
     width: 100%;
