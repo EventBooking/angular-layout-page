@@ -942,6 +942,37 @@ nav-group ~ .nav-group,
   background-size: 100% 1px;
   background-repeat: no-repeat;
 }
+nav-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 48px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #4C4C47;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 1em;
+}
+nav-header:before {
+  content: attr(text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-header--caret {
+  cursor: pointer;
+}
+.nav-header--caret:after {
+  content: "\f0d7";
+  font-family: FontAwesome;
+  margin-left: .25em;
+}
 [nav-group-item] {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1004,37 +1035,6 @@ nav-group ~ .nav-group,
 }
 .nav-group-item--appSwitcher .nav-group-item-text {
   margin-left: 0;
-}
-nav-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 48px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #4C4C47;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  padding: 1em;
-}
-nav-header:before {
-  content: attr(text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.nav-header--caret {
-  cursor: pointer;
-}
-.nav-header--caret:after {
-  content: "\f0d7";
-  font-family: FontAwesome;
-  margin-left: .25em;
 }
 .page {
   display: -webkit-box;
@@ -1234,6 +1234,18 @@ nav-header:before {
 @media screen and (max-width: 479px) {
   .page-content-nav {
     padding: 0;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+  .page-content-nav {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .page-content-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .page-content-nav--subnav {
+    border-top: none;
   }
 }
 page-content-nav-item {

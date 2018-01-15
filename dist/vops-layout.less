@@ -588,6 +588,41 @@ nav-group,
 		background-repeat: no-repeat;
 	}
 }
+nav-header {
+    display: flex;
+    height: unit(@page-header-height,px);
+    justify-content: center;
+    align-items: center;
+    color: @nav-header-color;
+    .font-size(@nav-header-font-size);
+    font-weight: @nav-header-font-weight;
+    padding: 1em;
+
+    &:before {
+        content: attr(text);
+        .ellipsis();
+    }
+}
+
+.nav-header {
+    &--caret {
+        cursor: pointer;
+
+        &:after {
+            content: "\f0d7";
+            font-family: FontAwesome;
+            margin-left: .25em;
+        }
+    }
+}
+
+// @media only screen and (max-width: unit(@screen-tablet-portrait,px)) {
+//     nav-header {
+//         &:before {
+//             content: attr(small);
+//         }
+//     }
+// }
 [nav-group-item] {
 	display: flex;
 	flex-direction: row;
@@ -652,41 +687,6 @@ nav-group,
 		margin-left: 0;
 	}
 }
-nav-header {
-    display: flex;
-    height: unit(@page-header-height,px);
-    justify-content: center;
-    align-items: center;
-    color: @nav-header-color;
-    .font-size(@nav-header-font-size);
-    font-weight: @nav-header-font-weight;
-    padding: 1em;
-
-    &:before {
-        content: attr(text);
-        .ellipsis();
-    }
-}
-
-.nav-header {
-    &--caret {
-        cursor: pointer;
-
-        &:after {
-            content: "\f0d7";
-            font-family: FontAwesome;
-            margin-left: .25em;
-        }
-    }
-}
-
-// @media only screen and (max-width: unit(@screen-tablet-portrait,px)) {
-//     nav-header {
-//         &:before {
-//             content: attr(small);
-//         }
-//     }
-// }
 .page {
     display: flex;
     flex-direction: column;
@@ -854,6 +854,22 @@ nav-header {
 @media @media-phone-portrait {
     .page-content-nav {
         padding: 0;
+    }
+}
+
+@media @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content-nav {
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &--subnav {
+            border-top: none;
+        }
     }
 }
 page-content-nav-item {
