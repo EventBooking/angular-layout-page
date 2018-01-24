@@ -8,20 +8,10 @@
         "inlineSources": true,
         "target": "es5",
         "out": "dist/vops-layout.js",
-        "typeRoots": [
-            "node_modules/@types"
-        ],
         "types": [
             "angular",
             "jquery",
             "angular-typescript-module"
         ]
-    },
-    "exclude": [
-        "node_modules",
-        "bower_components",
-        "typings",
-        "demo",
-        "dist"
-    ]
+    }
 }

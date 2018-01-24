@@ -63,11 +63,16 @@ module LayoutPageModule {
             emptyColorClass: '@'
         };
 
-        link = ($scope, $element, $attr, $ctrl) => {
+        link = ($scope: angular.IScope, $element: angular.IAugmentedJQuery, $attr: angular.IAttributes, $ctrl: DoughnutController) => {
 
-            var contextHole = $element.find("canvas.doughnut-hole").get(0).getContext("2d");
-            var contextFill = $element.find("canvas.doughnut-fill").get(0).getContext("2d");
-            var contextBg = $element.find("canvas.doughnut-bg").get(0).getContext("2d");
+            const get2dContext = (selector: string) => {
+                const element = $element.find(selector).get(0) as HTMLCanvasElement;
+                return element.getContext("2d");
+            };
+
+            var contextHole = get2dContext("canvas.doughnut-hole");
+            var contextFill = get2dContext("canvas.doughnut-fill");
+            var contextBg = get2dContext("canvas.doughnut-bg");
 
             $ctrl.onInit($element, contextHole, contextFill, contextBg, ($ctrl, from, to) => {
                 return this.animate($ctrl, from, to);
@@ -166,13 +171,13 @@ module LayoutPageModule {
             return radius;
         }
 
-        private getElementStyle($element, className, style) {
-            //var $body = angular.element("body");
+        private getElementStyle($element: angular.IAugmentedJQuery, className: string, style: string): string {
             var $temp = angular.element(`<div class="${className}"></div>`);
             $temp.insertAfter($element);
-            //$body.append($temp);
+
             var value = $temp.css(style);
             $temp.remove();
+
             return value;
         }
 
