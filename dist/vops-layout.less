@@ -2,10 +2,13 @@
 /// <reference path="assets.less" />
 
 html {
-    font-family: @layout-page-font-family;
     font-size: unit(@layout-page-font-size,px);
     line-height: @layout-page-line-height;
     box-sizing: border-box;
+}
+
+html, button, input, optgroup, select, textarea {
+    font-family: @layout-page-font-family;
 }
 
 body {
@@ -1243,7 +1246,8 @@ page-slider {
     }
 }
 pane-footer {
-    display: block;
+    display: flex;
+    align-items: center;
     height: unit(@pane-footer-height,px);
     line-height: unit(@pane-footer-height,px);
     margin: 0 unit(@padding,px);
@@ -1253,6 +1257,10 @@ pane-footer {
     z-index: 1;
     color: @pane-footer-color;
     background-color: @pane-footer-background-color;
+}
+
+.pane-footer-content {
+    
 }
 
 .pane-footer-button {
@@ -1650,6 +1658,10 @@ tabs {
 
     .button-group & + & {
         border-left: solid 1px @color-gray;
+    }
+
+    pane-footer & {
+        margin-right: .25em;
     }
 }
 

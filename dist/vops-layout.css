@@ -5,10 +5,17 @@
 
 @import url("//fonts.googleapis.com/css?family=Source%20Sans%20Pro:300,400,700");
 html {
-  font-family: 'Source Sans Pro';
   font-size: 16px;
   line-height: 1.5;
   box-sizing: border-box;
+}
+html,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: 'Source Sans Pro';
 }
 body {
   -webkit-overflow-scrolling: touch;
@@ -1660,7 +1667,12 @@ pane-header.pane-header--withSubtitle ~ .pane-body,
   }
 }
 pane-footer {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 64px;
   line-height: 64px;
   margin: 0 32px;
@@ -2062,6 +2074,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-group .button + .button {
   border-left: solid 1px #999990;
 }
+pane-footer .button {
+  margin-right: .25em;
+}
 .button--default {
   background-color: #fff;
   border-color: #B2B2A9;
@@ -2139,6 +2154,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 }
 .button-group .button-default + .button-default {
   border-left: solid 1px #999990;
+}
+pane-footer .button-default {
+  margin-right: .25em;
 }
 .button-default[disabled] {
   background-color: #fff;
@@ -2235,6 +2253,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-group .button-primary + .button-primary {
   border-left: solid 1px #999990;
 }
+pane-footer .button-primary {
+  margin-right: .25em;
+}
 .button-primary:not([disabled]):hover {
   background-color: #369FB6;
   border-color: #369FB6;
@@ -2327,6 +2348,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 }
 .button-group .button-success + .button-success {
   border-left: solid 1px #999990;
+}
+pane-footer .button-success {
+  margin-right: .25em;
 }
 .button-success:not([disabled]):hover {
   background-color: #30AA3A;
@@ -2421,6 +2445,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-group .button-danger + .button-danger {
   border-left: solid 1px #999990;
 }
+pane-footer .button-danger {
+  margin-right: .25em;
+}
 .button-danger:not([disabled]):hover {
   background-color: #D43E37;
   border-color: #D43E37;
@@ -2514,6 +2541,9 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 }
 .button-group .button-link + .button-link {
   border-left: solid 1px #999990;
+}
+pane-footer .button-link {
+  margin-right: .25em;
 }
 .button-link:not([disabled]):hover {
   color: #B1E0ED;
