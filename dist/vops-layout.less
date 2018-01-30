@@ -1260,7 +1260,7 @@ pane-footer {
 }
 
 .pane-footer-content {
-    
+    width: 100%;
 }
 
 .pane-footer-button {
@@ -1660,8 +1660,8 @@ tabs {
         border-left: solid 1px @color-gray;
     }
 
-    pane-footer & {
-        margin-right: .25em;
+    pane-footer * + & {
+        margin-left: .25em;
     }
 }
 

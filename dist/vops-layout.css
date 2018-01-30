@@ -1683,6 +1683,9 @@ pane-footer {
   color: transparent;
   background-color: #fff;
 }
+.pane-footer-content {
+  width: 100%;
+}
 .pane-footer-button--right {
   float: right;
   margin-top: 16px;
@@ -2074,8 +2077,8 @@ button.tab-titles-item:not(.tab-titles-item--selected) {
 .button-group .button + .button {
   border-left: solid 1px #999990;
 }
-pane-footer .button {
-  margin-right: .25em;
+pane-footer * + .button {
+  margin-left: .25em;
 }
 .button--default {
   background-color: #fff;
@@ -2155,8 +2158,8 @@ pane-footer .button {
 .button-group .button-default + .button-default {
   border-left: solid 1px #999990;
 }
-pane-footer .button-default {
-  margin-right: .25em;
+pane-footer * + .button-default {
+  margin-left: .25em;
 }
 .button-default[disabled] {
   background-color: #fff;
@@ -2253,8 +2256,8 @@ pane-footer .button-default {
 .button-group .button-primary + .button-primary {
   border-left: solid 1px #999990;
 }
-pane-footer .button-primary {
-  margin-right: .25em;
+pane-footer * + .button-primary {
+  margin-left: .25em;
 }
 .button-primary:not([disabled]):hover {
   background-color: #369FB6;
@@ -2349,8 +2352,8 @@ pane-footer .button-primary {
 .button-group .button-success + .button-success {
   border-left: solid 1px #999990;
 }
-pane-footer .button-success {
-  margin-right: .25em;
+pane-footer * + .button-success {
+  margin-left: .25em;
 }
 .button-success:not([disabled]):hover {
   background-color: #30AA3A;
@@ -2445,8 +2448,8 @@ pane-footer .button-success {
 .button-group .button-danger + .button-danger {
   border-left: solid 1px #999990;
 }
-pane-footer .button-danger {
-  margin-right: .25em;
+pane-footer * + .button-danger {
+  margin-left: .25em;
 }
 .button-danger:not([disabled]):hover {
   background-color: #D43E37;
@@ -2542,8 +2545,8 @@ pane-footer .button-danger {
 .button-group .button-link + .button-link {
   border-left: solid 1px #999990;
 }
-pane-footer .button-link {
-  margin-right: .25em;
+pane-footer * + .button-link {
+  margin-left: .25em;
 }
 .button-link:not([disabled]):hover {
   color: #B1E0ED;
