@@ -232,6 +232,44 @@ button.blankslate-link {
 .blankslate-link:active {
   color: #4EB6D6;
 }
+doughnut {
+  display: block;
+  position: relative;
+  background-color: inherit;
+  color: inherit;
+}
+doughnut canvas {
+  display: block;
+}
+.doughnut-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  text-align: center;
+  z-index: 3;
+}
+.doughnut-empty-color {
+  background-color: #4C4C47;
+}
+.doughnut-fill-color {
+  background-color: #48C245;
+}
+.doughnut-hole {
+  position: absolute;
+  z-index: 2;
+}
+.doughnut-fill {
+  position: absolute;
+  z-index: 1;
+}
 body-header,
 .body-header {
   display: -ms-flexbox;
@@ -321,44 +359,6 @@ body-header + .body-header,
   font-size: .75rem;
   line-height: 16px;
   letter-spacing: .025em;
-}
-doughnut {
-  display: block;
-  position: relative;
-  background-color: inherit;
-  color: inherit;
-}
-doughnut canvas {
-  display: block;
-}
-.doughnut-text {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: center;
-      justify-content: center;
-  text-align: center;
-  z-index: 3;
-}
-.doughnut-empty-color {
-  background-color: #4C4C47;
-}
-.doughnut-fill-color {
-  background-color: #48C245;
-}
-.doughnut-hole {
-  position: absolute;
-  z-index: 2;
-}
-.doughnut-fill {
-  position: absolute;
-  z-index: 1;
 }
 .color-red-lightest {
   color: #FBD9D5;
@@ -1248,6 +1248,10 @@ doughnut canvas {
 .background-color-gray-darkest {
   background-color: #262624;
 }
+.colorSchema-24 {
+  background-color: #EF5041;
+  color: #FBD9D5;
+}
 .colorSchema-23 {
   background-color: #64411a;
   color: #FBEAD5;
@@ -1722,48 +1726,6 @@ nav-header:before {
   margin-top: 32px;
   display: block;
 }
-.page-content-nav {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-positive: 0;
-      flex-grow: 0;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  width: auto;
-  height: 48px;
-  padding: 0 1em;
-  line-height: 48px;
-  margin: 0;
-  background-color: #EFEFEE;
-  list-style-type: none;
-}
-.page-content-nav--subnav {
-  background-color: #fff;
-  border-bottom: solid 1px #E5E5E3;
-  border-top: solid 1px #E5E5E3;
-  height: 32px;
-  line-height: 32px;
-  padding: 0 0.66666667em;
-}
-@media screen and (max-width: 479px) {
-  .page-content-nav {
-    padding: 0;
-  }
-}
-@media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
-  .page-content-nav {
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-  .page-content-nav::-webkit-scrollbar {
-    display: none;
-  }
-  .page-content-nav--subnav {
-    border-top: none;
-  }
-}
 page-content-nav-item {
   display: block;
   line-height: 49px;
@@ -2071,6 +2033,48 @@ page-header {
 .page-header-actions-item:active {
   color: #B2B2A9;
   background-color: #999990;
+}
+.page-content-nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: auto;
+  height: 48px;
+  padding: 0 1em;
+  line-height: 48px;
+  margin: 0;
+  background-color: #EFEFEE;
+  list-style-type: none;
+}
+.page-content-nav--subnav {
+  background-color: #fff;
+  border-bottom: solid 1px #E5E5E3;
+  border-top: solid 1px #E5E5E3;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 0.66666667em;
+}
+@media screen and (max-width: 479px) {
+  .page-content-nav {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+  .page-content-nav {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .page-content-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .page-content-nav--subnav {
+    border-top: none;
+  }
 }
 page-slider {
   position: absolute;

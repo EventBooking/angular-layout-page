@@ -60,7 +60,7 @@ function ColorsController($routeParams) {
     }
 
     this.schemas = [];
-    for(i=1; i<=23; i++)
+    for(i=1; i<=24; i++)
         this.schemas.push(i);
 }
 
