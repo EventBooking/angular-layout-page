@@ -1249,12 +1249,12 @@ doughnut canvas {
   background-color: #262624;
 }
 .colorSchema-24 {
-  background-color: #EF5041;
+  background-color: #8D2924;
   color: #FBD9D5;
 }
 .colorSchema-23 {
-  background-color: #64411a;
-  color: #FBEAD5;
+  background-color: #8D5C24;
+  color: #FCF2E5;
 }
 .colorSchema-22 {
   background-color: #CCCCC3;
@@ -1649,6 +1649,21 @@ nav-header:before {
   overflow-y: auto;
   overflow-x: hidden;
 }
+.page-content-body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+@media screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+  .page-content-body {
+    display: block;
+  }
+}
 .page-content-body-pane {
   padding: 0 32px;
   width: 568px;
@@ -1705,21 +1720,6 @@ nav-header:before {
     padding: 0 16px;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
-}
-.page-content-body {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-positive: 1;
-      flex-grow: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-@media screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
-  .page-content-body {
-    display: block;
   }
 }
 .page-content-body-pane-section + .page-content-body-pane-section {
