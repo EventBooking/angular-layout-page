@@ -1,28 +1,31 @@
 /// <reference path="../app.js"/>
 
-function Shade(color, css) {
-    var arr = ['background-color', color.name];
+function Shade(name, css) {
+    var arr = ['background-color', name];
     if (css != null) arr.push(css);
     this.css = arr.join('-');
     this.name = css;
 }
 
-function Color(name) {
+function Color(name, pre, post) {
     this.name = name;
     this.shades = [
-        new Shade(this, 'lightest'),
-        new Shade(this, 'lighter'),
-        new Shade(this, 'light'),
-        new Shade(this, null),
-        new Shade(this, 'dark'),
-        new Shade(this, 'darker'),
-        new Shade(this, 'darkest')
+        ...(pre||[]),
+        new Shade(name, 'lightest'),
+        new Shade(name, 'lighter'),
+        new Shade(name, 'light'),
+        new Shade(name, null),
+        new Shade(name, 'dark'),
+        new Shade(name, 'darker'),
+        new Shade(name, 'darkest'),
+        ...(post||[]),
     ]
 }
 
 function ColorsController($routeParams) {
-    var gray = new Color('gray');
-    gray.shades.splice(0, 1, new Shade(gray, 'lightest2'));
+    var gray = new Color('gray', [
+        new Shade('gray', 'lightest2')
+    ]);
 
     const colorsTypes = [
         'red',
@@ -44,8 +47,7 @@ function ColorsController($routeParams) {
         'violet',
         'fuchsia',
         'magenta',
-        'carmine',
-        'gray'
+        'carmine'
     ];
 
     this.colors = [
