@@ -123,6 +123,18 @@
     line-height: 32px;
 }
 
+.schemas {
+    display: flex;
+    margin: 1em;
+}
+
+.schemas-item {
+    display: inline-block;
+    margin: 0 .5em;
+    padding: .5em 1em;
+    text-align: center;
+}
+
 .doughnut-test {
     width: 100px;
     height: 100px;
