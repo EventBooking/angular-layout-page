@@ -5,20 +5,6 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('bar-graph/bar-graph.html',
-    '<div class="bar-graph-bg">\n' +
-    '    <div class="bar-graph-fill" ng-class="{\'bar-graph-fill--full\': vm.isFull}" ng-style="vm.style" ng-transclude></div>\n' +
-    '</div>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('blankslate/blankslate.html',
     '<i class="blankslate-icon {{vm.icon}}"></i>\n' +
     '<div class="blankslate-content">\n' +
@@ -37,13 +23,10 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('doughnut/doughnut.html',
-    '<div class="doughnut-text">\n' +
-    '    <div ng-transclude></div>\n' +
-    '</div>\n' +
-    '<canvas class="doughnut-hole"></canvas>\n' +
-    '<canvas class="doughnut-fill"></canvas>\n' +
-    '<canvas class="doughnut-bg"></canvas>');
+  $templateCache.put('bar-graph/bar-graph.html',
+    '<div class="bar-graph-bg">\n' +
+    '    <div class="bar-graph-fill" ng-class="{\'bar-graph-fill--full\': vm.isFull}" ng-style="vm.style" ng-transclude></div>\n' +
+    '</div>');
 }]);
 })();
 
@@ -67,6 +50,23 @@ module.run(['$templateCache', function($templateCache) {
     '<!--<div class="body-header-bottom">\n' +
     '    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>\n' +
     '</div>-->');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('doughnut/doughnut.html',
+    '<div class="doughnut-text">\n' +
+    '    <div ng-transclude></div>\n' +
+    '</div>\n' +
+    '<canvas class="doughnut-hole"></canvas>\n' +
+    '<canvas class="doughnut-fill"></canvas>\n' +
+    '<canvas class="doughnut-bg"></canvas>');
 }]);
 })();
 
