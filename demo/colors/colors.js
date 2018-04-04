@@ -24,18 +24,33 @@ function ColorsController($routeParams) {
     var gray = new Color('gray');
     gray.shades.splice(0, 1, new Shade(gray, 'lightest2'));
 
-    this.rows = [
-        [
-            new Color('red'),
-            new Color('orange'),
-            new Color('yellow'),
-            new Color('green'),
-        ],
-        [
-            new Color('blue'),
-            new Color('purple'),
-            gray
-        ]
+    const colorsTypes = [
+        'red',
+        'red-orange',
+        'orange',
+        'yellow',
+        'yellow-green',
+        'chrome-green',
+        'inchworm-green',
+        'green',
+        'fern-green',
+        'carribean-green',
+        'green-blue',
+        'blue',
+        'navy-blue',
+        'cerulean-blue',
+        'denim-blue',
+        'purple',
+        'violet',
+        'fuchsia',
+        'magenta',
+        'carmine',
+        'gray'
+    ];
+
+    this.colors = [
+        ...colorsTypes.map( type => new Color(type)),
+        gray
     ];
 
     this.getColor = function ($element) {

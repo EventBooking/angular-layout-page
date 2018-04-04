@@ -433,6 +433,48 @@ doughnut canvas {
 .background-color-red-darkest {
   background-color: #641d1a;
 }
+.color-red-orange-lightest {
+  color: #fbe0d3;
+}
+.background-color-red-orange-lightest {
+  background-color: #fbe0d3;
+}
+.color-red-orange-lighter {
+  color: #F6C0A5;
+}
+.background-color-red-orange-lighter {
+  background-color: #F6C0A5;
+}
+.color-red-orange-light {
+  color: #F2A57E;
+}
+.background-color-red-orange-light {
+  background-color: #F2A57E;
+}
+.color-red-orange {
+  color: #EE7A40;
+}
+.background-color-red-orange {
+  background-color: #EE7A40;
+}
+.color-red-orange-dark {
+  color: #D06B38;
+}
+.background-color-red-orange-dark {
+  background-color: #D06B38;
+}
+.color-red-orange-darker {
+  color: #8E4926;
+}
+.background-color-red-orange-darker {
+  background-color: #8E4926;
+}
+.color-red-orange-darkest {
+  color: #66341b;
+}
+.background-color-red-orange-darkest {
+  background-color: #66341b;
+}
 .color-orange-lightest {
   color: #FCF2E5;
 }
@@ -517,6 +559,132 @@ doughnut canvas {
 .background-color-yellow-darkest {
   background-color: #64581a;
 }
+.color-yellow-green-lightest {
+  color: #f3f7ce;
+}
+.background-color-yellow-green-lightest {
+  background-color: #f3f7ce;
+}
+.color-yellow-green-lighter {
+  color: #E8EFA3;
+}
+.background-color-yellow-green-lighter {
+  background-color: #E8EFA3;
+}
+.color-yellow-green-light {
+  color: #DFE87C;
+}
+.background-color-yellow-green-light {
+  background-color: #DFE87C;
+}
+.color-yellow-green {
+  color: #D1DE3C;
+}
+.background-color-yellow-green {
+  background-color: #D1DE3C;
+}
+.color-yellow-green-dark {
+  color: #B6C334;
+}
+.background-color-yellow-green-dark {
+  background-color: #B6C334;
+}
+.color-yellow-green-darker {
+  color: #7C8524;
+}
+.background-color-yellow-green-darker {
+  background-color: #7C8524;
+}
+.color-yellow-green-darkest {
+  color: #575d19;
+}
+.background-color-yellow-green-darkest {
+  background-color: #575d19;
+}
+.color-chrome-green-lightest {
+  color: #e7f4cc;
+}
+.background-color-chrome-green-lightest {
+  background-color: #e7f4cc;
+}
+.color-chrome-green-lighter {
+  color: #D3EBA2;
+}
+.background-color-chrome-green-lighter {
+  background-color: #D3EBA2;
+}
+.color-chrome-green-light {
+  color: #C0E37A;
+}
+.background-color-chrome-green-light {
+  background-color: #C0E37A;
+}
+.color-chrome-green {
+  color: #A2D73A;
+}
+.background-color-chrome-green {
+  background-color: #A2D73A;
+}
+.color-chrome-green-dark {
+  color: #8EBB32;
+}
+.background-color-chrome-green-dark {
+  background-color: #8EBB32;
+}
+.color-chrome-green-darker {
+  color: #618022;
+}
+.background-color-chrome-green-darker {
+  background-color: #618022;
+}
+.color-chrome-green-darkest {
+  color: #425817;
+}
+.background-color-chrome-green-darkest {
+  background-color: #425817;
+}
+.color-inchworm-green-lightest {
+  color: #dbf2ca;
+}
+.background-color-inchworm-green-lightest {
+  background-color: #dbf2ca;
+}
+.color-inchworm-green-lighter {
+  color: #BFE8A1;
+}
+.background-color-inchworm-green-lighter {
+  background-color: #BFE8A1;
+}
+.color-inchworm-green-light {
+  color: #A3DE79;
+}
+.background-color-inchworm-green-light {
+  background-color: #A3DE79;
+}
+.color-inchworm-green {
+  color: #77CF37;
+}
+.background-color-inchworm-green {
+  background-color: #77CF37;
+}
+.color-inchworm-green-dark {
+  color: #68B531;
+}
+.background-color-inchworm-green-dark {
+  background-color: #68B531;
+}
+.color-inchworm-green-darker {
+  color: #477C21;
+}
+.background-color-inchworm-green-darker {
+  background-color: #477C21;
+}
+.color-inchworm-green-darkest {
+  color: #305416;
+}
+.background-color-inchworm-green-darkest {
+  background-color: #305416;
+}
 .color-green-lightest {
   color: #D6F1D6;
 }
@@ -558,6 +726,132 @@ doughnut canvas {
 }
 .background-color-green-darkest {
   background-color: #154919;
+}
+.color-fern-green-lightest {
+  color: #caf2db;
+}
+.background-color-fern-green-lightest {
+  background-color: #caf2db;
+}
+.color-fern-green-lighter {
+  color: #A1E8BF;
+}
+.background-color-fern-green-lighter {
+  background-color: #A1E8BF;
+}
+.color-fern-green-light {
+  color: #79DEA3;
+}
+.background-color-fern-green-light {
+  background-color: #79DEA3;
+}
+.color-fern-green {
+  color: #38CF77;
+}
+.background-color-fern-green {
+  background-color: #38CF77;
+}
+.color-fern-green-dark {
+  color: #31B568;
+}
+.background-color-fern-green-dark {
+  background-color: #31B568;
+}
+.color-fern-green-darker {
+  color: #217C47;
+}
+.background-color-fern-green-darker {
+  background-color: #217C47;
+}
+.color-fern-green-darkest {
+  color: #165430;
+}
+.background-color-fern-green-darkest {
+  background-color: #165430;
+}
+.color-carribean-green-lightest {
+  color: #ccf4e7;
+}
+.background-color-carribean-green-lightest {
+  background-color: #ccf4e7;
+}
+.color-carribean-green-lighter {
+  color: #A2EBD3;
+}
+.background-color-carribean-green-lighter {
+  background-color: #A2EBD3;
+}
+.color-carribean-green-light {
+  color: #7AE3C0;
+}
+.background-color-carribean-green-light {
+  background-color: #7AE3C0;
+}
+.color-carribean-green {
+  color: #3AD6A2;
+}
+.background-color-carribean-green {
+  background-color: #3AD6A2;
+}
+.color-carribean-green-dark {
+  color: #32BB8E;
+}
+.background-color-carribean-green-dark {
+  background-color: #32BB8E;
+}
+.color-carribean-green-darker {
+  color: #228061;
+}
+.background-color-carribean-green-darker {
+  background-color: #228061;
+}
+.color-carribean-green-darkest {
+  color: #175842;
+}
+.background-color-carribean-green-darkest {
+  background-color: #175842;
+}
+.color-green-blue-lightest {
+  color: #beeeea;
+}
+.background-color-green-blue-lightest {
+  background-color: #beeeea;
+}
+.color-green-blue-lighter {
+  color: #96E3DD;
+}
+.background-color-green-blue-lighter {
+  background-color: #96E3DD;
+}
+.color-green-blue-light {
+  color: #6AD7CE;
+}
+.background-color-green-blue-light {
+  background-color: #6AD7CE;
+}
+.color-green-blue {
+  color: #21C5B7;
+}
+.background-color-green-blue {
+  background-color: #21C5B7;
+}
+.color-green-blue-dark {
+  color: #1CACA0;
+}
+.background-color-green-blue-dark {
+  background-color: #1CACA0;
+}
+.color-green-blue-darker {
+  color: #13756D;
+}
+.background-color-green-blue-darker {
+  background-color: #13756D;
+}
+.color-green-blue-darkest {
+  color: #0c4944;
+}
+.background-color-green-blue-darkest {
+  background-color: #0c4944;
 }
 .color-blue-lightest {
   color: #D7EFF6;
@@ -601,6 +895,132 @@ doughnut canvas {
 .background-color-blue-darkest {
   background-color: #246A78;
 }
+.color-navy-blue-lightest {
+  color: #d4e8fc;
+}
+.background-color-navy-blue-lightest {
+  background-color: #d4e8fc;
+}
+.color-navy-blue-lighter {
+  color: #A5CFF8;
+}
+.background-color-navy-blue-lighter {
+  background-color: #A5CFF8;
+}
+.color-navy-blue-light {
+  color: #7FBBF6;
+}
+.background-color-navy-blue-light {
+  background-color: #7FBBF6;
+}
+.color-navy-blue {
+  color: #419AF3;
+}
+.background-color-navy-blue {
+  background-color: #419AF3;
+}
+.color-navy-blue-dark {
+  color: #3987D4;
+}
+.background-color-navy-blue-dark {
+  background-color: #3987D4;
+}
+.color-navy-blue-darker {
+  color: #275C91;
+}
+.background-color-navy-blue-darker {
+  background-color: #275C91;
+}
+.color-navy-blue-darkest {
+  color: #1c4269;
+}
+.background-color-navy-blue-darkest {
+  background-color: #1c4269;
+}
+.color-cerulean-blue-lightest {
+  color: #e1e8ff;
+}
+.background-color-cerulean-blue-lightest {
+  background-color: #e1e8ff;
+}
+.color-cerulean-blue-lighter {
+  color: #AEC2FF;
+}
+.background-color-cerulean-blue-lighter {
+  background-color: #AEC2FF;
+}
+.color-cerulean-blue-light {
+  color: #8CA9FF;
+}
+.background-color-cerulean-blue-light {
+  background-color: #8CA9FF;
+}
+.color-cerulean-blue {
+  color: #547FFF;
+}
+.background-color-cerulean-blue {
+  background-color: #547FFF;
+}
+.color-cerulean-blue-dark {
+  color: #496FE0;
+}
+.background-color-cerulean-blue-dark {
+  background-color: #496FE0;
+}
+.color-cerulean-blue-darker {
+  color: #324C99;
+}
+.background-color-cerulean-blue-darker {
+  background-color: #324C99;
+}
+.color-cerulean-blue-darkest {
+  color: #253973;
+}
+.background-color-cerulean-blue-darkest {
+  background-color: #253973;
+}
+.color-denim-blue-lightest {
+  color: #dddaff;
+}
+.background-color-denim-blue-lightest {
+  background-color: #dddaff;
+}
+.color-denim-blue-lighter {
+  color: #AEA7FF;
+}
+.background-color-denim-blue-lighter {
+  background-color: #AEA7FF;
+}
+.color-denim-blue-light {
+  color: #8C82FF;
+}
+.background-color-denim-blue-light {
+  background-color: #8C82FF;
+}
+.color-denim-blue {
+  color: #5445FF;
+}
+.background-color-denim-blue {
+  background-color: #5445FF;
+}
+.color-denim-blue-dark {
+  color: #493CE0;
+}
+.background-color-denim-blue-dark {
+  background-color: #493CE0;
+}
+.color-denim-blue-darker {
+  color: #322999;
+}
+.background-color-denim-blue-darker {
+  background-color: #322999;
+}
+.color-denim-blue-darkest {
+  color: #251e71;
+}
+.background-color-denim-blue-darkest {
+  background-color: #251e71;
+}
 .color-purple-lightest {
   color: #e9daff;
 }
@@ -642,6 +1062,174 @@ doughnut canvas {
 }
 .background-color-purple-darkest {
   background-color: #401e71;
+}
+.color-violet-lightest {
+  color: #f5daff;
+}
+.background-color-violet-lightest {
+  background-color: #f5daff;
+}
+.color-violet-lighter {
+  color: #E8A7FF;
+}
+.background-color-violet-lighter {
+  background-color: #E8A7FF;
+}
+.color-violet-light {
+  color: #DF82FF;
+}
+.background-color-violet-light {
+  background-color: #DF82FF;
+}
+.color-violet {
+  color: #D045FF;
+}
+.background-color-violet {
+  background-color: #D045FF;
+}
+.color-violet-dark {
+  color: #B63CE0;
+}
+.background-color-violet-dark {
+  background-color: #B63CE0;
+}
+.color-violet-darker {
+  color: #7C2999;
+}
+.background-color-violet-darker {
+  background-color: #7C2999;
+}
+.color-violet-darkest {
+  color: #5b1e71;
+}
+.background-color-violet-darkest {
+  background-color: #5b1e71;
+}
+.color-fuchsia-lightest {
+  color: #fce8fc;
+}
+.background-color-fuchsia-lightest {
+  background-color: #fce8fc;
+}
+.color-fuchsia-lighter {
+  color: #F6BBF6;
+}
+.background-color-fuchsia-lighter {
+  background-color: #F6BBF6;
+}
+.color-fuchsia-light {
+  color: #F27EE9;
+}
+.background-color-fuchsia-light {
+  background-color: #F27EE9;
+}
+.color-fuchsia {
+  color: #ED40DF;
+}
+.background-color-fuchsia {
+  background-color: #ED40DF;
+}
+.color-fuchsia-dark {
+  color: #D038C3;
+}
+.background-color-fuchsia-dark {
+  background-color: #D038C3;
+}
+.color-fuchsia-darker {
+  color: #8E2685;
+}
+.background-color-fuchsia-darker {
+  background-color: #8E2685;
+}
+.color-fuchsia-darkest {
+  color: #661b5f;
+}
+.background-color-fuchsia-darkest {
+  background-color: #661b5f;
+}
+.color-magenta-lightest {
+  color: #fbd3ea;
+}
+.background-color-magenta-lightest {
+  background-color: #fbd3ea;
+}
+.color-magenta-lighter {
+  color: #F6A5D4;
+}
+.background-color-magenta-lighter {
+  background-color: #F6A5D4;
+}
+.color-magenta-light {
+  color: #F27EC2;
+}
+.background-color-magenta-light {
+  background-color: #F27EC2;
+}
+.color-magenta {
+  color: #ED40A5;
+}
+.background-color-magenta {
+  background-color: #ED40A5;
+}
+.color-magenta-dark {
+  color: #D03890;
+}
+.background-color-magenta-dark {
+  background-color: #D03890;
+}
+.color-magenta-darker {
+  color: #8E2663;
+}
+.background-color-magenta-darker {
+  background-color: #8E2663;
+}
+.color-magenta-darkest {
+  color: #661b47;
+}
+.background-color-magenta-darkest {
+  background-color: #661b47;
+}
+.color-carmine-lightest {
+  color: #fbd3dd;
+}
+.background-color-carmine-lightest {
+  background-color: #fbd3dd;
+}
+.color-carmine-lighter {
+  color: #F6A5B9;
+}
+.background-color-carmine-lighter {
+  background-color: #F6A5B9;
+}
+.color-carmine-light {
+  color: #F27E9B;
+}
+.background-color-carmine-light {
+  background-color: #F27E9B;
+}
+.color-carmine {
+  color: #EE406B;
+}
+.background-color-carmine {
+  background-color: #EE406B;
+}
+.color-carmine-dark {
+  color: #D0385D;
+}
+.background-color-carmine-dark {
+  background-color: #D0385D;
+}
+.color-carmine-darker {
+  color: #8E2640;
+}
+.background-color-carmine-darker {
+  background-color: #8E2640;
+}
+.color-carmine-darkest {
+  color: #661b2e;
+}
+.background-color-carmine-darkest {
+  background-color: #661b2e;
 }
 .color-gray-lightest2 {
   color: #EFEFEE;
@@ -1695,57 +2283,6 @@ pane-footer {
     margin: 0 16px;
   }
 }
-.section {
-  display: block;
-  color: #4C4C47;
-  font-size: 16px;
-}
-.section + .section {
-  border-top: solid 1px #E5E5E3;
-  margin-top: 1em;
-  padding-top: 1em;
-}
-.section--noborder + .section {
-  border-top: none;
-  margin-top: 0;
-}
-.section-label {
-  display: block;
-  font-size: .875em;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #B2B2A9;
-  letter-spacing: .025em;
-}
-.section-label--border {
-  border-bottom: solid 1px #E5E5E3;
-  padding-bottom: .25em;
-}
-.section-label--large {
-  font-size: 1.25em;
-}
-.section-content + .section-label {
-  margin-top: 16px;
-}
-.section-label-actions {
-  float: right;
-}
-.section-label-actions-item + .section-label-actions-item {
-  margin-left: .5em;
-}
-.section-label-sublabel {
-  font-size: .75em;
-  margin-left: .5em;
-}
-.section-content {
-  display: block;
-}
-.section-label + .section-content {
-  margin-top: .25rem;
-}
-tab {
-  width: 100%;
-}
 pane-header,
 .pane-header {
   display: -webkit-box;
@@ -1917,6 +2454,57 @@ pane-header.pane-header--withSubtitle,
     top: 10px;
     bottom: 10px;
   }
+}
+.section {
+  display: block;
+  color: #4C4C47;
+  font-size: 16px;
+}
+.section + .section {
+  border-top: solid 1px #E5E5E3;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+.section--noborder + .section {
+  border-top: none;
+  margin-top: 0;
+}
+.section-label {
+  display: block;
+  font-size: .875em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #B2B2A9;
+  letter-spacing: .025em;
+}
+.section-label--border {
+  border-bottom: solid 1px #E5E5E3;
+  padding-bottom: .25em;
+}
+.section-label--large {
+  font-size: 1.25em;
+}
+.section-content + .section-label {
+  margin-top: 16px;
+}
+.section-label-actions {
+  float: right;
+}
+.section-label-actions-item + .section-label-actions-item {
+  margin-left: .5em;
+}
+.section-label-sublabel {
+  font-size: .75em;
+  margin-left: .5em;
+}
+.section-content {
+  display: block;
+}
+.section-label + .section-content {
+  margin-top: .25rem;
+}
+tab {
+  width: 100%;
 }
 tabs {
   width: 100%;

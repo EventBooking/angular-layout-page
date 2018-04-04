@@ -141,18 +141,6 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('tab/tab.html',
-    '');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('pane-header/pane-header.html',
     '<a href="#" class="pane-header-close" ng-if="vm.showClose" ng-click="vm.close()">\n' +
     '    <span class="pane-header-closeIcon fa fa-close"></i>\n' +
@@ -166,6 +154,18 @@ module.run(['$templateCache', function($templateCache) {
     '        <span class="pane-header-subtitleText" ng-if="vm.subtitle">{{vm.subtitle}}</span>\n' +
     '    </div>\n' +
     '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('tab/tab.html',
+    '');
 }]);
 })();
 

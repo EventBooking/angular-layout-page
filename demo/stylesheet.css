@@ -80,6 +80,17 @@
     width: 35px;
 }
 
+.colors {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.colors-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
 .color {
     display: flex;
 }
@@ -87,6 +98,12 @@
 .color-item {
     width: 32px;
     height: 32px;
+}
+
+.colors-item-title {
+    font-size: 32px;
+    color: #000;
+    text-align: center;
 }
 
 .color-name {

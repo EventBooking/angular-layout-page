@@ -337,11 +337,25 @@ doughnut {
 }
 
 .colorClasses(red);
+.colorClasses(red-orange);
 .colorClasses(orange);
 .colorClasses(yellow);
+.colorClasses(yellow-green);
+.colorClasses(chrome-green);
+.colorClasses(inchworm-green);
 .colorClasses(green);
+.colorClasses(fern-green);
+.colorClasses(carribean-green);
+.colorClasses(green-blue);
 .colorClasses(blue);
+.colorClasses(navy-blue);
+.colorClasses(cerulean-blue);
+.colorClasses(denim-blue);
 .colorClasses(purple);
+.colorClasses(violet);
+.colorClasses(fuchsia);
+.colorClasses(magenta);
+.colorClasses(carmine);
 .colorClass(~"gray-lightest2", ~"color-gray-lightest2");
 .colorClasses(gray);
 .generateColorSchema(@i) {
@@ -1275,72 +1289,6 @@ pane-footer {
         margin: 0 unit(@padding-half,px);
     }
 }
-/// <reference path="../assets.less" />
-
-.section {
-    display: block;
-    color: @color-gray-darker;
-    font-size: unit(@typescale,px);
-    
-    & + & {
-        border-top: solid 1px @border-color;
-        margin-top: 1em;
-        padding-top: 1em;
-    }
-
-    &--noborder + & {
-        border-top: none;
-        margin-top: 0;
-    }
-}
-
-.section-label {
-    display: block;
-    font-size: .875em;
-    text-transform: uppercase;
-    font-weight: @font-weight;
-    color: @color-gray-light;
-    letter-spacing: .025em;
-
-    &--border {
-        border-bottom: solid 1px @border-color;
-        padding-bottom: .25em;
-    }
-
-    &--large {
-        font-size: 1.25em;
-    }
-
-    .section-content + & {
-        margin-top: unit(@padding-half,px);
-    }
-}
-
-.section-label-actions {
-    float: right;
-}
-
-.section-label-actions-item {
-    & + & {
-        margin-left: .5em;
-    }
-}
-
-.section-label-sublabel {
-    font-size: .75em;
-    margin-left: .5em;
-}
-
-.section-content {
-    display: block;
-    
-    .section-label + & {
-        margin-top: .25rem;
-    }
-}
-tab {
-    width: 100%;
-}
 pane-header,
 .pane-header {
     display: flex;
@@ -1502,6 +1450,72 @@ pane-header,
         }
     }
 
+}
+/// <reference path="../assets.less" />
+
+.section {
+    display: block;
+    color: @color-gray-darker;
+    font-size: unit(@typescale,px);
+    
+    & + & {
+        border-top: solid 1px @border-color;
+        margin-top: 1em;
+        padding-top: 1em;
+    }
+
+    &--noborder + & {
+        border-top: none;
+        margin-top: 0;
+    }
+}
+
+.section-label {
+    display: block;
+    font-size: .875em;
+    text-transform: uppercase;
+    font-weight: @font-weight;
+    color: @color-gray-light;
+    letter-spacing: .025em;
+
+    &--border {
+        border-bottom: solid 1px @border-color;
+        padding-bottom: .25em;
+    }
+
+    &--large {
+        font-size: 1.25em;
+    }
+
+    .section-content + & {
+        margin-top: unit(@padding-half,px);
+    }
+}
+
+.section-label-actions {
+    float: right;
+}
+
+.section-label-actions-item {
+    & + & {
+        margin-left: .5em;
+    }
+}
+
+.section-label-sublabel {
+    font-size: .75em;
+    margin-left: .5em;
+}
+
+.section-content {
+    display: block;
+    
+    .section-label + & {
+        margin-top: .25rem;
+    }
+}
+tab {
+    width: 100%;
 }
 tabs {
     width: 100%;

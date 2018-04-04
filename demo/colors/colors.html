@@ -7,14 +7,13 @@
         <div class="page-content-body">
 
             <div>
-                <div ng-repeat="colors in vm.rows">
-                    <div class="demogrid pad-tb">
-                        <div class="demogrid demogrid-cols pad-lr" ng-repeat="color in colors">
-                            <div class="color" ng-class="{'color-title':!shade.name}" ng-repeat="shade in color.shades">
-                                <div class="color-value">{{ shade.css | bgcolor }}</div>
-                                <div class="color-item {{shade.css}}"></div>
-                                <div class="color-name">{{ shade.name || color.name }}</div>
-                            </div>
+                <div class="colors">
+                    <div class="colors-item" ng-repeat="color in vm.colors">
+                        <div class="colors-item-title">{{color.name}}</div>
+                        <div class="color" ng-repeat="shade in color.shades">
+                            <div class="color-value">{{ shade.css | bgcolor }}</div>
+                            <div class="color-item {{shade.css}}"></div>
+                            <div class="color-name">{{ shade.name || "" }}</div>
                         </div>
                     </div>
                 </div>
