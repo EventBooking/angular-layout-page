@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+
     .form-group ~ &,
     & ~ & {
        margin-top: 1rem;
@@ -37,16 +37,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
     .form-row & {
         flex-grow: 1;
     }
-    
+
     .form-row ~ &,
     & ~ & {
        margin-top: 1rem;
     }
-    
+
     .form-row & ~ & {
         margin-top: 0;
         margin-left: .5rem;
@@ -98,19 +98,12 @@
 [type="radio"] {
     :root .form-radio > .form-control& {
         position: absolute !important;
-<<<<<<< HEAD
 		left: auto !important;
 		top: auto !important;
 		width: 0;
 		height: 0;
 		opacity: 0;
 		z-index: auto !important;
-=======
-        opacity: 0;
-        z-index: -1;
-        width: 1px;
-        height: 1px;
->>>>>>> 00ec9bd311138911a740a28ab58434f86dd5c7f7
     }
 }
 
@@ -180,7 +173,7 @@
 
         &:before {
             background-color: @form-control-disabled-background-color;
-            border-color: @form-control-disabled-background-color; 
+            border-color: @form-control-disabled-background-color;
         }
     }
 
@@ -247,7 +240,7 @@
 
         &:before {
             background-color: @form-control-disabled-background-color;
-            border-color: @form-control-disabled-background-color; 
+            border-color: @form-control-disabled-background-color;
         }
     }
 
@@ -265,19 +258,19 @@
     color: @form-label-color;
     position: relative;
     user-select: none;
-    
+
     &--capitalize {
         text-transform: capitalize;
     }
-    
+
     label > & {
         vertical-align: middle;
         display: flex;
     }
-    
+
     label > .form-control[type="checkbox"] + & {
         outline: none;
-        
+
         &:before {
             content: "\0000a0";
             display: inline-flex;
@@ -292,12 +285,12 @@
             background-color: #fff;
             margin-right: .5rem;
         }
-        
-        &:empty:before {            
+
+        &:empty:before {
             margin-right: inherit;
         }
     }
-    
+
     label > .form-control[type="checkbox"]:checked + & {
         &:before {
             content: "\2714";
@@ -306,18 +299,18 @@
             color: #fff;
         }
     }
-    
+
     label > .form-control[type="checkbox"]:focus + & {
         &:before {
             box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
         }
     }
-    
+
     label > .form-control[type="checkbox"][disabled] + &,
     label > .form-control[type="checkbox"][disabled]:checked + & {
         &:before {
             background-color: @form-control-disabled-background-color;
-            border-color: @form-control-disabled-background-color; 
+            border-color: @form-control-disabled-background-color;
             color: @form-control-disabled-color;
         }
     }
@@ -331,19 +324,12 @@
 
 :root label > .form-control[type="checkbox"] {
     position: absolute !important;
-<<<<<<< HEAD
 	left: auto !important;
 	top: auto !important;
 	width: 0;
 	height: 0;
 	opacity: 0;
 	z-index: auto !important;
-=======
-    opacity: 0;
-    z-index: -1;
-    width: 1px;
-    height: 1px;
->>>>>>> 00ec9bd311138911a740a28ab58434f86dd5c7f7
 }
 
 .form-checklist {
@@ -360,7 +346,7 @@
 .form-label-sub {
     font-size: .75em;
     color: @form-label-sub-color;
-    
+
     .form-label & {
         margin-left: .2rem;
     }
@@ -386,47 +372,47 @@
     line-height: ~"calc(@{form-control-height}em - 2px)";
     background-color: @form-control-background-color;
     width: 100%;
-    
+
     &::placeholder {
         color: @form-control-placeholder-color;
     }
-    
+
     &[disabled] {
         background-color: @form-control-disabled-background-color;
         cursor: not-allowed;
     }
-    
+
     &--selected,
     &--selected[disabled] {
         background-color: @form-control-selected-background-color;
     }
-    
+
     input[type]& {
         box-sizing: border-box;
     }
-    
+
     textarea& {
         height: auto;
         line-height: 1.5em;
     }
-    
+
     &:hover {
         color: @form-control-color;
     }
-    
+
     &:active {
         color: @form-control-color;
     }
-    
+
     &:focus {
         outline: none;
         box-shadow: 0 0 @form-control-focus-blur @form-control-focus-color;
     }
-    
+
     .form-group > label > & {
         vertical-align: middle;
     }
-    
+
     &::-ms-expand {
         background-color: transparent;
         border-style: none;
@@ -437,15 +423,15 @@
         background-color: transparent;
         color: inherit;
     }
-    
+
     &::-webkit-inner-spin-button {
         height: unit(@form-control-height,em);
     }
-    
+
     .form-label + & {
         margin-top: @form-label-margin;
     }
-    
+
     .form-addon-control + & {
         margin-top: .2rem;
     }
@@ -453,20 +439,20 @@
     & + & {
         margin-top: .5rem;
     }
-    
+
     .form-control-row & + &{
         margin-top: 0;
         margin-left: .5rem;
     }
-    
+
     .form-addon-control--before & {
         padding-left: unit(@form-control-height + @form-control-padding,em);
     }
-    
+
     .form-addon-control--after & {
         padding-right: unit(@form-control-height + @form-control-padding,em);
     }
-    
+
     &.ng-touched.ng-invalid {
         border-color: @form-control-error-color;
     }
@@ -476,11 +462,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+
     .form-label + & {
-        margin-top: @form-label-margin;    
+        margin-top: @form-label-margin;
     }
-    
+
     & + &,
     .form-addon-control + &,
     .form-control + & {
@@ -492,11 +478,11 @@
     display: flex;
     flex-direction: row;
     position: relative;
-    
+
     .form-label + & {
-        margin-top: @form-label-margin;    
+        margin-top: @form-label-margin;
     }
-    
+
     .form-control + &,
     & + & {
         margin-top: .5em;
@@ -518,29 +504,29 @@
     border: none;
     background-color: @form-control-background-color;
     margin: 1px;
-    
+
     .form-addon-control--before & {
         left: 0;
         border-right: solid 1px @form-control-border-color;
         border-radius: unit(@form-control-border-radius,px) 0 0 unit(@form-control-border-radius,px);
     }
-    
+
     .form-addon-control--after & {
         right: 0;
         border-left: solid 1px @form-control-border-color;
         border-radius: 0 unit(@form-control-border-radius,px) unit(@form-control-border-radius,px) 0;
     }
-    
+
     &:hover {
         color: @color-gray;
     }
-    
+
     &:active {
         color: @color-gray-light;
     }
-    
+
     &:focus {
-        
+
     }
 }
 
