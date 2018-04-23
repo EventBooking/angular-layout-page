@@ -123,6 +123,22 @@
     line-height: 32px;
 }
 
+.schemas {
+    display: flex;
+    margin: 1em;
+    flex-wrap: wrap;
+    width: 480px
+}
+
+.schemas-item {
+    width: 80px;
+    font-size: 1.25em;
+    display: inline-block;
+    margin: 0 .5em;
+    padding: .5em 1em;
+    text-align: center;
+}
+
 .doughnut-test {
     width: 100px;
     height: 100px;

@@ -58,6 +58,10 @@ function ColorsController($routeParams) {
     this.getColor = function ($element) {
         console.log('getColor', $element);
     }
+
+    this.schemas = [];
+    for(i=1; i<=24; i++)
+        this.schemas.push(i);
 }
 
 angular.module("demo").controller('colorsController', ColorsController);
