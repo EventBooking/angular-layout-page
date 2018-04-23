@@ -2000,6 +2000,49 @@ page-content-nav-item ~ page-content-nav-item {
     opacity: 1;
   }
 }
+page-slider {
+  position: absolute;
+  display: block;
+  width: 480px;
+  max-width: 100vw;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  color: #999990;
+  background-color: #fff;
+  overflow: hidden;
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+}
+page-slider.page-slider--fullScreen {
+  width: 100vw;
+  position: fixed;
+}
+page-slider.page-slider--lg {
+  width: 768px;
+}
+page-slider.page-slider--sm {
+  width: 375px;
+}
+page-slider.is-visible {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
+  transition: -webkit-transform 0.25s ease-in;
+  transition: transform 0.25s ease-in;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+page-slider.is-visible.is-hiding {
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
+  page-slider {
+    position: fixed;
+  }
+}
 page-header {
   display: block;
   color: #E5E5E3;
@@ -2173,49 +2216,6 @@ page-header {
 .page-header-actions-item:active {
   color: #B2B2A9;
   background-color: #999990;
-}
-page-slider {
-  position: absolute;
-  display: block;
-  width: 480px;
-  max-width: 100vw;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 10;
-  color: #999990;
-  background-color: #fff;
-  overflow: hidden;
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
-}
-page-slider.page-slider--fullScreen {
-  width: 100vw;
-  position: fixed;
-}
-page-slider.page-slider--lg {
-  width: 768px;
-}
-page-slider.page-slider--sm {
-  width: 375px;
-}
-page-slider.is-visible {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
-  transition: -webkit-transform 0.25s ease-in;
-  transition: transform 0.25s ease-in;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-}
-page-slider.is-visible.is-hiding {
-  transition: -webkit-transform 0.25s ease-out;
-  transition: transform 0.25s ease-out;
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
-}
-@media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
-  page-slider {
-    position: fixed;
-  }
 }
 .pane {
   height: 100vh;
@@ -3275,10 +3275,12 @@ pane-footer * + .button-link {
 }
 :root .form-radio > .form-control[type="radio"] {
   position: absolute !important;
-  left: -1000px !important;
-  top: -1000px !important;
+  left: auto !important;
+  top: auto !important;
+  width: 0;
+  height: 0;
   opacity: 0;
-  z-index: -1;
+  z-index: auto !important;
 }
 .form-control[type="radio"] + .form-value {
   display: -webkit-inline-box;
@@ -3458,10 +3460,12 @@ label > .form-control[type="checkbox"][disabled]:checked + .form-label:before {
 }
 :root label > .form-control[type="checkbox"] {
   position: absolute !important;
-  left: -1000px !important;
-  top: -1000px !important;
+  left: auto !important;
+  top: auto !important;
+  width: 0;
+  height: 0;
   opacity: 0;
-  z-index: -1;
+  z-index: auto !important;
 }
 .form-checklist > label {
   display: block;
