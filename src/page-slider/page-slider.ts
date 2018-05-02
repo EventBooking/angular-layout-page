@@ -34,18 +34,17 @@
 
             this.$element.detach();
             this.destroyScope();
+
+            if (this.isVisible)
+                this.show();
+                
+            this.isInitialized = true;
         }
 
         private _destroyPage = () => { };
         $onDestroy() {
             this.$element.remove();
             this._destroyPage();
-        }
-
-        $postLink() {
-            if (this.isVisible)
-                this.show();
-            this.isInitialized = true;
         }
 
         private onPageCreate = (e: angular.IAngularEvent, $pageElement: angular.IAugmentedJQuery, _$page: LayoutPageModule.IPageController) => {

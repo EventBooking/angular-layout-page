@@ -1,9 +1,15 @@
 ﻿module LayoutPageModule {
 
     class PageHeaderController {
-        onInit($layoutPage: ILayoutPageController, transcludeContent: boolean) {
-            this.$layoutPage = $layoutPage;
-            this.transcludeContent = transcludeContent;
+        static $inject = ['$transclude'];
+        constructor(private $transclude: angular.ITranscludeFunction) {
+
+        }
+
+        $onInit() {
+            const transcludeTitle = this.$transclude.isSlotFilled('title'),
+                transcludeActions = this.$transclude.isSlotFilled('actions');
+            this.transcludeContent = !(transcludeTitle || transcludeActions);
         }
 
         toggleNav() {
@@ -16,7 +22,9 @@
 
     class PageHeaderDirective {
         restrict = 'E';
-        require = ['pageHeader', '^layoutPage'];
+        require = {
+            $layoutPage: '^layoutPage'
+        };
         transclude = {
             'title': '?pageHeaderTitle',
             'actions': '?pageHeaderActions'
@@ -30,16 +38,6 @@
             subtitle: '@',
             label: '@'
         };
-        link = ($scope, $element: angular.IAugmentedJQuery, $attrs, $ctrls: any[], $transclude: angular.ITranscludeFunction) => {
-            const $ctrl: PageHeaderController = $ctrls[0],
-                $layoutPage: ILayoutPageController = $ctrls[1],
-                transcludeTitle = $transclude.isSlotFilled('title'),
-                transcludeActions = $transclude.isSlotFilled('actions');
-
-            const transcludeContent = !(transcludeTitle || transcludeActions);
-
-            $ctrl.onInit($layoutPage, transcludeContent);
-        }
     }
 
     Angular.module("ngLayoutPage").directive('pageHeader', PageHeaderDirective);
