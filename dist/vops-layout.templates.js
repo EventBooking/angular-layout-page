@@ -37,23 +37,6 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('doughnut/doughnut.html',
-    '<div class="doughnut-text">\n' +
-    '    <div ng-transclude></div>\n' +
-    '</div>\n' +
-    '<canvas class="doughnut-hole"></canvas>\n' +
-    '<canvas class="doughnut-fill"></canvas>\n' +
-    '<canvas class="doughnut-bg"></canvas>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
   $templateCache.put('body-header/body-header.html',
     '<div class="body-header-top">\n' +
     '    <div class="body-header-titles">\n' +
@@ -67,6 +50,23 @@ module.run(['$templateCache', function($templateCache) {
     '<!--<div class="body-header-bottom">\n' +
     '    <div class="body-header-subtitle" ng-show="vm.subtitle">{{vm.subtitle}}</div>\n' +
     '</div>-->');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('doughnut/doughnut.html',
+    '<div class="doughnut-text">\n' +
+    '    <div ng-transclude></div>\n' +
+    '</div>\n' +
+    '<canvas class="doughnut-hole"></canvas>\n' +
+    '<canvas class="doughnut-fill"></canvas>\n' +
+    '<canvas class="doughnut-bg"></canvas>');
 }]);
 })();
 
@@ -164,6 +164,18 @@ try {
   module = angular.module('ngLayoutPage', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('tab/tab.html',
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('ngLayoutPage');
+} catch (e) {
+  module = angular.module('ngLayoutPage', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('tabs/tabs.html',
     '<div class="tab-titles">\n' +
     '    <div class="tab-titles-item" \n' +
@@ -180,17 +192,5 @@ module.run(['$templateCache', function($templateCache) {
     '        ng-transclude>\n' +
     '    </div>\n' +
     '</div>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('ngLayoutPage');
-} catch (e) {
-  module = angular.module('ngLayoutPage', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('tab/tab.html',
-    '');
 }]);
 })();

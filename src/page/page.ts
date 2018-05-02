@@ -19,8 +19,11 @@ module LayoutPageModule {
             this.controls.forEach(x => this.$element.append(x));
             this.controls = [];
             this.layoutPage.setCurrentPage(this);
-            this.$rootScope.$emit('$page.$create', this.$element, this);
         }
+
+        $postLink() {
+			this.$rootScope.$emit('$page.$create', this.$element, this);
+		}
 
         $onDestroy() {
             this.$rootScope.$emit('$page.$destroy', this.$element, this);
@@ -28,13 +31,13 @@ module LayoutPageModule {
         }
 
         addControl($element) {
-            if (this.$element == null) {
-                this.controls.push($element);
-                return;
-            }
+			if (!this.isInitialized) {
+				this.controls.push($element);
+				return;
+			}
 
-            this.$element.append($element);
-        }
+			this.$element.append($element);
+		}
 
         ensureOnTop($element) {
             this.$element.append($element);
@@ -42,6 +45,7 @@ module LayoutPageModule {
         
         controls: any[] = [];
         layoutPage: ILayoutPageController;
+        isInitialized: boolean = false;
     }
 
     class PageDirective {
