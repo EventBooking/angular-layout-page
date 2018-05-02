@@ -10,6 +10,9 @@ module LayoutPageModule {
         toggleNav();
         showOverlay(overlay: IPageOverlay);
         hideOverlay(overlay: IPageOverlay);
+        setCurrentPage(page: IPageController);
+        clearCurrentPage(page: IPageController);
+        currentPage: IPageController;
     }
 
     class LayoutPageController implements ILayoutPageController {
@@ -17,6 +20,21 @@ module LayoutPageModule {
 
         constructor(private $element: angular.IAugmentedJQuery, private $timeout: angular.ITimeoutService) {
             
+        }
+
+        private _currentPage: IPageController;
+        get currentPage(): IPageController {
+            return this._currentPage;
+        }
+
+        setCurrentPage(page: IPageController) {
+            this._currentPage = page;
+        }
+
+        clearCurrentPage(page: IPageController) {
+            if(page !== this._currentPage)
+                return;
+            this._currentPage = null;
         }
 
         showNav() {

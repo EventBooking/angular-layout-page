@@ -7,11 +7,152 @@
     }
 
     class PageSliderController implements IPageSliderController {
+        static $inject = ['$rootScope', '$scope', '$timeout', '$element', '$transclude', '$attrs'];
+
+        constructor(
+            private $rootScope: angular.IRootScopeService,
+            private $scope: angular.IScope,
+            private $timeout: angular.ITimeoutService,
+            private $element: angular.IAugmentedJQuery,
+            private $transclude: angular.ITranscludeFunction,
+            private $attrs: angular.IAttributes) {
+        }
+
+        $onInit() {
+            this.withOverlay = this.$attrs.showOverlay != null;
+            this.isOutsideOfPage = !this.page;
+
+            if (this.isOutsideOfPage) {
+                const unbind$Page$Create = this.$rootScope.$on("$page.$create", this.onPageCreate);
+                const unbind$Page$Destroy = this.$rootScope.$on("$page.$destroy", this.onPageDestroy);
+
+                this._destroyPage = () => {
+                    unbind$Page$Create();
+                    unbind$Page$Destroy();
+                };
+            }
+
+            this.$element.detach();
+            this.destroyScope();
+        }
+
+        private _destroyPage = () => { };
+        $onDestroy() {
+            this.$element.remove();
+            this._destroyPage();
+        }
+
         $postLink() {
             if (this.isVisible)
                 this.show();
             this.isInitialized = true;
         }
+
+        private onPageCreate = (e: angular.IAngularEvent, $pageElement: angular.IAugmentedJQuery, _$page: LayoutPageModule.IPageController) => {
+            if (!this.isOutsideOfPage)
+                return;
+
+            if (this.isVisible)
+                this.show();
+        };
+
+        private onPageDestroy = () => {
+            if (!this.isOutsideOfPage)
+                return;
+
+            this.close();
+            this.$element.detach();
+        };
+
+        private showOverlay() {
+            if (!this.withOverlay)
+                return;
+
+            this.$layoutPage.showOverlay(this);
+        };
+
+        private hideOverlay() {
+            if (!this.withOverlay)
+                return;
+
+            this.$layoutPage.hideOverlay(this);
+        };
+
+        private emitEvent(eventName: string) {
+            this.$rootScope.$emit(eventName, this.$element);
+        };
+
+        private fixBrowserReflowBatchingIssue() {
+            this.$element.css("opacity");
+        };
+
+        private destroyScope() {
+            if (!this.sliderScope)
+                return;
+
+            this.sliderScope.$destroy();
+            this.sliderScope = null;
+        };
+
+        private transclude() {
+            this.destroyScope();
+
+            this.$transclude((clone, scope) => {
+                this.$element.append(clone);
+                this.sliderScope = scope;
+            });
+        };
+
+        private $timer = null;
+        private cancelTimer() {
+            if (!this.$timer)
+                return;
+
+            this.$timeout.cancel(this.$timer);
+        };
+
+        private showElement() {
+            this.cancelTimer();
+            this.$page.ensureOnTop(this.$element);
+            this.fixBrowserReflowBatchingIssue();
+            this.$element.empty().addClass("is-visible");
+            this.transclude();
+        };
+
+        private hideElement() {
+            this.cancelTimer();
+
+            if (!this.$element.is(".is-visible"))
+                return;
+
+            this.destroyScope();
+            this.$element.addClass('is-hiding');
+            this.$timer = this.$timeout(() => {
+                this.$element.removeClass("is-visible is-hiding")
+                    .detach()
+                    .empty();
+            }, 250);
+        };
+
+        private hideNavigation() {
+            this.$layoutPage.hideNav();
+        };
+
+        private show() {
+            if (!this.$page)
+                return;
+
+            this.emitEvent('$pageSlider.$show');
+            this.showElement();
+            this.showOverlay();
+        };
+
+        private hide() {
+            this.emitEvent('$pageSlider.$hide');
+            this.hideElement();
+            this.hideOverlay();
+            this.hideNavigation();
+        };
 
         private _slideIf;
 
@@ -43,23 +184,27 @@
             this.onClose();
         }
 
+        get $page(): IPageController {
+            return this.$layoutPage.currentPage;
+        }
+
         isInitialized: boolean;
         onClose: () => void;
-        show: () => void;
-        hide: () => void;
         withFooter: boolean;
         withOverlay: boolean;
+        sliderScope: angular.IScope = null;
+        isOutsideOfPage: boolean;
+
+        $layoutPage: ILayoutPageController;
+        page: IPageController;
     }
 
     class PageSliderDirective {
-        static $inject = ['$rootScope', '$timeout'];
-
-        constructor(private $rootScope: angular.IRootScopeService, private $timeout: angular.ITimeoutService) {
-
-        }
-
         restrict = 'E';
-        require = ['pageSlider', '^layoutPage', '?^page'];
+        require = {
+            $layoutPage: '^layoutPage',
+            page: '?^page'
+        };
         transclude = true;
         controller = PageSliderController;
         controllerAs = 'vm';
@@ -67,163 +212,6 @@
         scope = {
             slideIf: '=',
             onClose: '&'
-        };
-
-        link = ($scope, $element: angular.IAugmentedJQuery, $attrs, $ctrls: any[], $transclude) => {
-            let $page: LayoutPageModule.IPageController = $ctrls[2],
-                sliderScope = null;
-
-            const $ctrl: PageSliderController = $ctrls[0],
-                $layoutPage: LayoutPageModule.ILayoutPageController = $ctrls[1],
-                withOverlay = $attrs.showOverlay != null,
-                isOutsideOfPage = !$page;
-
-            const onPageCreate = (e: angular.IAngularEvent, $pageElement: angular.IAugmentedJQuery, _$page: LayoutPageModule.IPageController) => {
-                $page = _$page;
-
-                if (!isOutsideOfPage)
-                    return;
-
-                if ($ctrl.isVisible)
-                    $ctrl.show();
-            };
-
-            const onPageDestroy = () => {
-                if (!isOutsideOfPage)
-                    return;
-
-                $ctrl.close();
-                $element.detach();
-            };
-
-            const showOverlay = () => {
-                if (!$ctrl.withOverlay)
-                    return;
-
-                $layoutPage.showOverlay($ctrl);
-            };
-
-            const hideOverlay = () => {
-                if (!$ctrl.withOverlay)
-                    return;
-
-                $layoutPage.hideOverlay($ctrl);
-            };
-
-            const emitEvent = (eventName: string) => {
-                this.$rootScope.$emit(eventName, $element);
-            };
-
-            const fixBrowserReflowBatchingIssue = () => {
-                $element.css("opacity");
-            };
-
-            const destroyScope = () => {
-                if (!sliderScope)
-                    return;
-
-                sliderScope.$destroy();
-                sliderScope = null;
-            };
-
-            const transclude = () => {
-                destroyScope();
-
-                $transclude((clone, scope) => {
-                    $element.append(clone);
-                    sliderScope = scope;
-                });
-            };
-
-            let $timer = null;
-            const cancelTimer = () => {
-                if (!$timer)
-                    return;
-
-                this.$timeout.cancel($timer);
-            };
-
-            const showElement = () => {
-                cancelTimer();
-                $page.ensureOnTop($element);
-                fixBrowserReflowBatchingIssue();
-                $element.empty().addClass("is-visible");
-                transclude();
-            };
-
-            const hideElement = () => {
-                cancelTimer();
-
-                if (!$element.is(".is-visible"))
-                    return;
-
-                destroyScope();
-                $element.addClass('is-hiding');
-                $timer = this.$timeout(() => {
-                    $element.removeClass("is-visible is-hiding")
-                        .detach()
-                        .empty();
-                }, 250);
-            };
-
-            const hideNavigation = () => {
-                $layoutPage.hideNav();
-            };
-
-            const show = () => {
-                if (!$page)
-                    return;
-
-                emitEvent('$pageSlider.$show');
-                showElement();
-                showOverlay();
-            };
-
-            const hide = () => {
-                emitEvent('$pageSlider.$hide');
-                hideElement();
-                hideOverlay();
-                hideNavigation();
-            };
-
-            const initProperties = () => {
-                $ctrl.show = show;
-                $ctrl.hide = hide;
-                $ctrl.withOverlay = withOverlay;
-            };
-
-            const initPage = () => {
-                if (isOutsideOfPage) {
-                    const unbind$Page$Create = this.$rootScope.$on("$page.$create", onPageCreate);
-                    const unbind$Page$Destroy = this.$rootScope.$on("$page.$destroy", onPageDestroy);
-
-                    const unbind$Page = () => {
-                        unbind$Page$Create();
-                        unbind$Page$Destroy();
-                    }
-
-                    return unbind$Page;
-                }
-                else {
-                    const noop = () => { };
-                    return noop;
-                }
-            }
-
-            const initSlider = () => {
-                initProperties();
-                const destroyPage = initPage();
-                $element.detach();
-                destroyScope();
-                return destroyPage;
-            };
-
-            const destroySlider = initSlider();
-
-            $scope.$on("$destroy", () => {
-                $element.remove();
-                destroySlider();
-            });
         };
     }
 

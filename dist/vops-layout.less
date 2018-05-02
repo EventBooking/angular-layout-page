@@ -316,83 +316,6 @@ doughnut {
 
 .doughnut-bg {
 }
-.colorClasses(@color) {
-    .colorClass(~"@{color}-lightest", ~"color-@{color}-lightest");
-    .colorClass(~"@{color}-lighter", ~"color-@{color}-lighter");
-    .colorClass(~"@{color}-light", ~"color-@{color}-light");
-    .colorClass(~"@{color}", ~"color-@{color}");
-    .colorClass(~"@{color}-dark", ~"color-@{color}-dark");
-    .colorClass(~"@{color}-darker", ~"color-@{color}-darker");
-    .colorClass(~"@{color}-darkest", ~"color-@{color}-darkest");
-}
-
-.colorClass(@name, @color) {
-    .color-@{name} {
-        color: @@color;
-    }
-    
-    .background-color-@{name} {
-        background-color: @@color;
-    }
-}
-
-.colorClasses(red);
-.colorClasses(red-orange);
-.colorClasses(orange);
-.colorClasses(yellow);
-.colorClasses(yellow-green);
-.colorClasses(chrome-green);
-.colorClasses(inchworm-green);
-.colorClasses(green);
-.colorClasses(fern-green);
-.colorClasses(carribean-green);
-.colorClasses(green-blue);
-.colorClasses(blue);
-.colorClasses(navy-blue);
-.colorClasses(cerulean-blue);
-.colorClasses(denim-blue);
-.colorClasses(purple);
-.colorClasses(violet);
-.colorClasses(fuchsia);
-.colorClasses(magenta);
-.colorClasses(carmine);
-.colorClass(~"gray-lightest2", ~"color-gray-lightest2");
-.colorClasses(gray);
-.generateColorSchema(@i) {
-    .colorSchema2(@i, ~"colorschema-@{i}-color", ~"colorschema-@{i}-background");
-}
-
-.colorSchema2(@i, @color1, @color2) {
-    .colorSchema-@{i} {
-        background-color: @@color2;
-        color: @@color1;
-    }
-}
-
-.generateColorSchema(24);
-.generateColorSchema(23);
-.generateColorSchema(22);
-.generateColorSchema(21);
-.generateColorSchema(20);
-.generateColorSchema(19);
-.generateColorSchema(18);
-.generateColorSchema(17);
-.generateColorSchema(16);
-.generateColorSchema(15);
-.generateColorSchema(14);
-.generateColorSchema(13);
-.generateColorSchema(12);
-.generateColorSchema(11);
-.generateColorSchema(10);
-.generateColorSchema(9);
-.generateColorSchema(8);
-.generateColorSchema(7);
-.generateColorSchema(6);
-.generateColorSchema(5);
-.generateColorSchema(4);
-.generateColorSchema(3);
-.generateColorSchema(2);
-.generateColorSchema(1);
 .layout-page {
 	display: flex;
 	flex-direction: row;
@@ -495,6 +418,83 @@ doughnut {
 	  opacity: 1;
 	}
 }
+.colorClasses(@color) {
+    .colorClass(~"@{color}-lightest", ~"color-@{color}-lightest");
+    .colorClass(~"@{color}-lighter", ~"color-@{color}-lighter");
+    .colorClass(~"@{color}-light", ~"color-@{color}-light");
+    .colorClass(~"@{color}", ~"color-@{color}");
+    .colorClass(~"@{color}-dark", ~"color-@{color}-dark");
+    .colorClass(~"@{color}-darker", ~"color-@{color}-darker");
+    .colorClass(~"@{color}-darkest", ~"color-@{color}-darkest");
+}
+
+.colorClass(@name, @color) {
+    .color-@{name} {
+        color: @@color;
+    }
+    
+    .background-color-@{name} {
+        background-color: @@color;
+    }
+}
+
+.colorClasses(red);
+.colorClasses(red-orange);
+.colorClasses(orange);
+.colorClasses(yellow);
+.colorClasses(yellow-green);
+.colorClasses(chrome-green);
+.colorClasses(inchworm-green);
+.colorClasses(green);
+.colorClasses(fern-green);
+.colorClasses(carribean-green);
+.colorClasses(green-blue);
+.colorClasses(blue);
+.colorClasses(navy-blue);
+.colorClasses(cerulean-blue);
+.colorClasses(denim-blue);
+.colorClasses(purple);
+.colorClasses(violet);
+.colorClasses(fuchsia);
+.colorClasses(magenta);
+.colorClasses(carmine);
+.colorClass(~"gray-lightest2", ~"color-gray-lightest2");
+.colorClasses(gray);
+.generateColorSchema(@i) {
+    .colorSchema2(@i, ~"colorschema-@{i}-color", ~"colorschema-@{i}-background");
+}
+
+.colorSchema2(@i, @color1, @color2) {
+    .colorSchema-@{i} {
+        background-color: @@color2;
+        color: @@color1;
+    }
+}
+
+.generateColorSchema(24);
+.generateColorSchema(23);
+.generateColorSchema(22);
+.generateColorSchema(21);
+.generateColorSchema(20);
+.generateColorSchema(19);
+.generateColorSchema(18);
+.generateColorSchema(17);
+.generateColorSchema(16);
+.generateColorSchema(15);
+.generateColorSchema(14);
+.generateColorSchema(13);
+.generateColorSchema(12);
+.generateColorSchema(11);
+.generateColorSchema(10);
+.generateColorSchema(9);
+.generateColorSchema(8);
+.generateColorSchema(7);
+.generateColorSchema(6);
+.generateColorSchema(5);
+.generateColorSchema(4);
+.generateColorSchema(3);
+.generateColorSchema(2);
+.generateColorSchema(1);
 .arrow-inset-right(@size; @color: #fff; @borderColor: @border-color) {
     @size-unit: unit(@size,px);
 
@@ -849,50 +849,6 @@ nav-header {
         display: block;
     }
 }
-.page-content-nav {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: auto;
-    height: unit(@page-content-nav-height,px);
-    padding: 0 1em;
-    line-height: unit(@page-content-nav-height,px);
-    margin: 0;
-    background-color: @page-content-nav-background-color;
-    list-style-type: none;
-
-    &--subnav {
-        background-color: #fff;
-        border-bottom: solid 1px @border-color;
-        border-top: solid 1px @border-color;
-        height: unit(@page-content-nav-height/1.5,px);
-        line-height: unit(@page-content-nav-height/1.5,px);;
-        padding: 0 unit(1/1.5,em);
-    }
-}
-
-@media @media-phone-portrait {
-    .page-content-nav {
-        padding: 0;
-    }
-}
-
-@media @media-phone-landscape,
-    @media-phone-portrait {
-    .page-content-nav {
-        overflow-x: auto;
-        overflow-y: hidden;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
-        &--subnav {
-            border-top: none;
-        }
-    }
-}
 page-content-nav-item {
     display: block;
     line-height: unit(@page-content-nav-item-font-size*3.5,px);
@@ -945,6 +901,50 @@ page-content-nav-item {
     & ~ & {
         margin-top: 0;
         margin-left: 1px;
+    }
+}
+.page-content-nav {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: auto;
+    height: unit(@page-content-nav-height,px);
+    padding: 0 1em;
+    line-height: unit(@page-content-nav-height,px);
+    margin: 0;
+    background-color: @page-content-nav-background-color;
+    list-style-type: none;
+
+    &--subnav {
+        background-color: #fff;
+        border-bottom: solid 1px @border-color;
+        border-top: solid 1px @border-color;
+        height: unit(@page-content-nav-height/1.5,px);
+        line-height: unit(@page-content-nav-height/1.5,px);;
+        padding: 0 unit(1/1.5,em);
+    }
+}
+
+@media @media-phone-portrait {
+    .page-content-nav {
+        padding: 0;
+    }
+}
+
+@media @media-phone-landscape,
+    @media-phone-portrait {
+    .page-content-nav {
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &--subnav {
+            border-top: none;
+        }
     }
 }
 .page-dropdown {

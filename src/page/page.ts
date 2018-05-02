@@ -6,8 +6,25 @@ module LayoutPageModule {
     }
 
     class PageController {
-        onInit($element) {
-            this.$element = $element;
+        static $inject = ["$rootScope", "$scope", "$element"];
+
+        constructor(
+            private $rootScope: angular.IRootScopeService,
+            private $scope: angular.IScope,
+            private $element: angular.IAugmentedJQuery
+        ) {
+        }
+
+        $onInit() {
+            this.controls.forEach(x => this.$element.append(x));
+            this.controls = [];
+            this.layoutPage.setCurrentPage(this);
+            this.$rootScope.$emit('$page.$create', this.$element, this);
+        }
+
+        $onDestroy() {
+            this.$rootScope.$emit('$page.$destroy', this.$element, this);
+            this.layoutPage.clearCurrentPage(this);
         }
 
         addControl($element) {
@@ -24,31 +41,16 @@ module LayoutPageModule {
         }
         
         controls: any[] = [];
-        $element: any;
+        layoutPage: ILayoutPageController;
     }
 
     class PageDirective {
-        static $inject = ['$rootScope'];
-
-        constructor(private $rootScope: angular.IRootScopeService) {
-            
-        }
-
         restrict = 'C';
+        require = {
+            layoutPage: "^layoutPage"
+        };
+        bindToController = true;
         controller = PageController;
-
-        link = ($scope, $element, $attrs, $ctrl: PageController) => {
-            $ctrl.controls.forEach(x => {
-                $element.append(x);
-            });
-            $ctrl.controls = [];
-            $ctrl.onInit($element);
-
-            this.$rootScope.$emit('$page.$create', $element, $ctrl);
-            $scope.$on("$destroy", () => {
-                this.$rootScope.$emit('$page.$destroy', $element, $ctrl);
-            });
-        }
     }
 
     Angular.module("ngLayoutPage").directive('page', PageDirective);

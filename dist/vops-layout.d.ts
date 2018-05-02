@@ -15,6 +15,9 @@ declare module LayoutPageModule {
         toggleNav(): any;
         showOverlay(overlay: IPageOverlay): any;
         hideOverlay(overlay: IPageOverlay): any;
+        setCurrentPage(page: IPageController): any;
+        clearCurrentPage(page: IPageController): any;
+        currentPage: IPageController;
     }
 }
 declare module LayoutPageModule {
