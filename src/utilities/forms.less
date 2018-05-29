@@ -380,11 +380,13 @@
     &[disabled] {
         background-color: @form-control-disabled-background-color;
         cursor: not-allowed;
+        -webkit-opacity: 1;
     }
 
     &--selected,
     &--selected[disabled] {
         background-color: @form-control-selected-background-color;
+        -webkit-text-fill-color: @form-control-color;
     }
 
     input[type]& {
