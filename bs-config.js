@@ -4,13 +4,14 @@ module.exports = {
 	files: [
 		'demo/**/*'
 	],
-	proxy: {
-		target: 'http://localhost:3000'
-	},
+	// This fails for lite-server (but is correct for browsersync itself)
+	// proxy: {
+	// 	target: 'http://localhost:3000'
+	// },
 	port: 5000,
 	ui: {
 		port: 5001
 	},
-	open: false,
+	open: true,
     host: '0.0.0.0'
 };
