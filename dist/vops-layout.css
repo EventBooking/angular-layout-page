@@ -1496,6 +1496,27 @@ doughnut canvas {
     opacity: 1;
   }
 }
+nav-group,
+.nav-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em 0;
+}
+nav-header ~ nav-group,
+nav-header ~ .nav-group,
+nav-group ~ nav-group,
+nav-group ~ .nav-group,
+.nav-group ~ nav-group,
+.nav-group ~ .nav-group {
+  background-image: radial-gradient(circle, #999990, transparent);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
 nav {
   width: 144px;
   min-width: 144px;
@@ -1531,27 +1552,6 @@ nav:before {
     bottom: 0;
     z-index: 0;
   }
-}
-nav-group,
-.nav-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 1em 0;
-}
-nav-header ~ nav-group,
-nav-header ~ .nav-group,
-nav-group ~ nav-group,
-nav-group ~ .nav-group,
-.nav-group ~ nav-group,
-.nav-group ~ .nav-group {
-  background-image: radial-gradient(circle, #999990, transparent);
-  background-size: 100% 1px;
-  background-repeat: no-repeat;
 }
 [nav-group-item] {
   display: -webkit-box;
@@ -2521,6 +2521,104 @@ pane-header.pane-header--withSubtitle,
 }
 tab {
   width: 100%;
+}
+tabs {
+  width: 100%;
+  overflow: hidden;
+}
+.tab-titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 16px;
+}
+.tabs--center .tab-titles {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.tab-titles-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  padding: 0 1em;
+  color: #4C4C47;
+  transition: color 0.25s ease-in-out;
+  padding-bottom: .15em;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 36px;
+  cursor: pointer;
+}
+.tabs--inlineIcons .tab-titles-item {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.tab-titles-item:not(.tab-titles-item--selected) {
+  color: #999990;
+  color: #4EB6D6;
+  cursor: pointer;
+}
+input.tab-titles-item:not(.tab-titles-item--selected)[type="button"],
+button.tab-titles-item:not(.tab-titles-item--selected) {
+  text-align: left;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+.tab-titles-item:not(.tab-titles-item--selected):hover {
+  color: #B1E0ED;
+}
+.tab-titles-item:not(.tab-titles-item--selected):active {
+  color: #4EB6D6;
+}
+.tab-titles-item:before {
+  content: " ";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  border-bottom: solid 2px #EFEFEE;
+  transition: border-bottom-color 0.25s ease-in-out;
+}
+.tab-titles-item--selected:before {
+  border-bottom-color: #EEA041;
+}
+.tab-titles-item ~ .tab-titles-item {
+  margin-left: 1em;
+}
+.tab-titles-item-icon {
+  font-size: .75em;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: .15em;
+}
+.tabs--inlineIcons .tab-titles-item-icon {
+  line-height: 36px;
+  padding-top: 0;
+}
+.tabs--inlineIcons .tab-titles-item-icon + .tab-titles-item-title {
+  padding-left: .25em;
+}
+.tab-content {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.tab-content-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  left: 0;
+  transition: left 0.25s ease-in-out;
 }
 .button-group {
   display: -webkit-inline-box;
@@ -3823,104 +3921,6 @@ button.text-link {
 }
 .text-link:active {
   color: #4EB6D6;
-}
-tabs {
-  width: 100%;
-  overflow: hidden;
-}
-.tab-titles {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 16px;
-}
-.tabs--center .tab-titles {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.tab-titles-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  position: relative;
-  padding: 0 1em;
-  color: #4C4C47;
-  transition: color 0.25s ease-in-out;
-  padding-bottom: .15em;
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 36px;
-  cursor: pointer;
-}
-.tabs--inlineIcons .tab-titles-item {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-.tab-titles-item:not(.tab-titles-item--selected) {
-  color: #999990;
-  color: #4EB6D6;
-  cursor: pointer;
-}
-input.tab-titles-item:not(.tab-titles-item--selected)[type="button"],
-button.tab-titles-item:not(.tab-titles-item--selected) {
-  text-align: left;
-  padding: 0;
-  border-style: none;
-  background-color: transparent;
-}
-.tab-titles-item:not(.tab-titles-item--selected):hover {
-  color: #B1E0ED;
-}
-.tab-titles-item:not(.tab-titles-item--selected):active {
-  color: #4EB6D6;
-}
-.tab-titles-item:before {
-  content: " ";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  border-bottom: solid 2px #EFEFEE;
-  transition: border-bottom-color 0.25s ease-in-out;
-}
-.tab-titles-item--selected:before {
-  border-bottom-color: #EEA041;
-}
-.tab-titles-item ~ .tab-titles-item {
-  margin-left: 1em;
-}
-.tab-titles-item-icon {
-  font-size: .75em;
-  vertical-align: middle;
-  text-align: center;
-  padding-top: .15em;
-}
-.tabs--inlineIcons .tab-titles-item-icon {
-  line-height: 36px;
-  padding-top: 0;
-}
-.tabs--inlineIcons .tab-titles-item-icon + .tab-titles-item-title {
-  padding-left: .25em;
-}
-.tab-content {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-.tab-content-window {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  left: 0;
-  transition: left 0.25s ease-in-out;
 }
 /* General */
 /* Colors */

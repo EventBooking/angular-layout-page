@@ -577,6 +577,19 @@ doughnut {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
+}
 nav {
 	width: unit(@nav-large,px);
     min-width: unit(@nav-large,px);
@@ -595,19 +608,6 @@ nav {
 		bottom: 0;
         z-index: 0;
     }
-}
-nav-group,
-.nav-group {
-	display: flex;
-	flex-direction: column;
-	padding: 1em 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
 }
 [nav-group-item] {
 	display: flex;
@@ -1520,6 +1520,92 @@ pane-header,
 }
 tab {
     width: 100%;
+}
+tabs {
+    width: 100%;
+    overflow: hidden;
+}
+
+.tab-titles {
+    display: flex;
+    margin-bottom: unit(@padding-half, px);
+    
+    .tabs--center & {
+        justify-content: center;
+    }
+}
+
+.tab-titles-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 1em;
+    color: @color-gray-darker;
+    transition: color .25s ease-in-out;
+    padding-bottom: .15em;
+    .font-size(@typescale-xlg);
+    line-height: unit(@typescale-xlg*1.5,px);
+    cursor: pointer;
+    
+    .tabs--inlineIcons & {
+        flex-direction: row;
+    } 
+    
+    &:not(&--selected) {
+        .text-link();
+        cursor: pointer;
+    }
+    
+    &:before {
+        content: " ";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        border-bottom: solid 2px @color-gray-lightest2;
+        transition: border-bottom-color .25s ease-in-out;
+    }
+    
+    &--selected {
+        &:before {
+            border-bottom-color: @color-orange;
+        }
+    }
+    
+    & ~ & {
+        margin-left: 1em;
+    }
+}
+
+.tab-titles-item-icon {
+    font-size: .75em;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: .15em;
+    
+    .tabs--inlineIcons & {
+        line-height: unit(@typescale-xlg*1.5,px);
+        padding-top: 0;    
+    }
+}
+
+.tab-titles-item-title {
+    .tabs--inlineIcons .tab-titles-item-icon + & {
+        padding-left: .25em;    
+    }
+}
+
+.tab-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.tab-content-window {
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: left .25s ease-in-out;
 }
 /// <reference path="../assets.less" />
 
@@ -2561,92 +2647,6 @@ tab {
     &:active {
         color: @color-blue;
     }
-}
-tabs {
-    width: 100%;
-    overflow: hidden;
-}
-
-.tab-titles {
-    display: flex;
-    margin-bottom: unit(@padding-half, px);
-    
-    .tabs--center & {
-        justify-content: center;
-    }
-}
-
-.tab-titles-item {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding: 0 1em;
-    color: @color-gray-darker;
-    transition: color .25s ease-in-out;
-    padding-bottom: .15em;
-    .font-size(@typescale-xlg);
-    line-height: unit(@typescale-xlg*1.5,px);
-    cursor: pointer;
-    
-    .tabs--inlineIcons & {
-        flex-direction: row;
-    } 
-    
-    &:not(&--selected) {
-        .text-link();
-        cursor: pointer;
-    }
-    
-    &:before {
-        content: " ";
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        right: 0;
-        border-bottom: solid 2px @color-gray-lightest2;
-        transition: border-bottom-color .25s ease-in-out;
-    }
-    
-    &--selected {
-        &:before {
-            border-bottom-color: @color-orange;
-        }
-    }
-    
-    & ~ & {
-        margin-left: 1em;
-    }
-}
-
-.tab-titles-item-icon {
-    font-size: .75em;
-    vertical-align: middle;
-    text-align: center;
-    padding-top: .15em;
-    
-    .tabs--inlineIcons & {
-        line-height: unit(@typescale-xlg*1.5,px);
-        padding-top: 0;    
-    }
-}
-
-.tab-titles-item-title {
-    .tabs--inlineIcons .tab-titles-item-icon + & {
-        padding-left: .25em;    
-    }
-}
-
-.tab-content {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-}
-
-.tab-content-window {
-    display: flex;
-    position: relative;
-    left: 0;
-    transition: left .25s ease-in-out;
 }
 /* General */
 @padding: 32;

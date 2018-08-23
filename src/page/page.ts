@@ -19,6 +19,7 @@ module LayoutPageModule {
             this.controls.forEach(x => this.$element.append(x));
             this.controls = [];
             this.layoutPage.setCurrentPage(this);
+            this.isInitialized = true;
         }
 
         $postLink() {
