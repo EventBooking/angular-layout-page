@@ -1,6 +1,6 @@
 {
   "name": "vops-layout",
-  "version": "2.1.6-dev",
+  "version": "2.1.7-dev",
   "description": "",
   "main": "./dist/vops-layout.js",
   "typings": "./dist/vops-layout.d.ts",
@@ -13,7 +13,7 @@
     "start": "npm run build && npm run server",
     "build": "gulp && npm run tsc",
     "server": "lite-server",
-		"browserSync": "browser-sync start --config bs-config.js"
+    "browserSync": "browser-sync start --config bs-config.js"
   },
   "repository": {
     "type": "git",
