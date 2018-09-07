@@ -577,19 +577,6 @@ doughnut {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-nav-group,
-.nav-group {
-	display: flex;
-	flex-direction: column;
-	padding: 1em 0;
-
-	nav-header ~ &,
-	& ~ & {
-		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
-		background-size: 100% 1px;
-		background-repeat: no-repeat;
-	}
-}
 nav {
 	width: unit(@nav-large,px);
     min-width: unit(@nav-large,px);
@@ -608,6 +595,19 @@ nav {
 		bottom: 0;
         z-index: 0;
     }
+}
+nav-group,
+.nav-group {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0;
+
+	nav-header ~ &,
+	& ~ & {
+		background-image: radial-gradient(circle, @nav-group-divider-color, transparent);
+		background-size: 100% 1px;
+		background-repeat: no-repeat;
+	}
 }
 [nav-group-item] {
 	display: flex;
@@ -809,6 +809,7 @@ nav-header {
 @media @media-tablet-landscape {
     .page-content-body-pane {
         display: block;
+        height: 100%;
         width: 50%;
         border-right: none;
         
@@ -827,6 +828,7 @@ nav-header {
     @media-phone-landscape {
     .page-content-body-pane {
         display: block;
+        height: 100%;
         width: auto;
         border-right: none;
 		
