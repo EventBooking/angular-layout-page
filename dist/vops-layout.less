@@ -687,6 +687,11 @@ nav-header {
         content: attr(text);
         .ellipsis();
     }
+
+    .layout-page--warning & {
+        background-color: @color-red-dark;
+        color: #FFF;
+    }
 }
 
 .nav-header {
@@ -750,13 +755,6 @@ nav-header {
         width: 100vw;
     }
 }
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
 .page-content-body {
     display: flex;
     flex-direction: row;
@@ -774,6 +772,13 @@ nav-header {
         // align-content: flex-start;
         // flex-grow: 0;
     }
+}
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .page-content-body-pane {
     padding: 0 unit(@padding,px);
@@ -1040,6 +1045,10 @@ page-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .layout-page--warning & {
+        background-color: @color-red-darker;
+    }
 }
 
 .page-header-navMenu {
@@ -1215,6 +1224,12 @@ page-slider {
             transform: translateX(100vw);
         }
     }
+}
+
+textarea {
+	page-slider & { 
+		resize: vertical; // issue #1276 (Meetings)
+	}
 }
 
 @media @media-tablet-landscape,

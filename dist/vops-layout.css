@@ -1572,6 +1572,10 @@ nav-header:before {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.layout-page--warning nav-header {
+  background-color: #D43E37;
+  color: #FFF;
+}
 .nav-header--caret {
   cursor: pointer;
 }
@@ -1640,15 +1644,6 @@ nav-header:before {
     width: 100vw;
   }
 }
-.page-content,
-.page-content-area {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
 .page-content-body {
   display: -ms-flexbox;
   display: flex;
@@ -1663,6 +1658,15 @@ nav-header:before {
   .page-content-body {
     display: block;
   }
+}
+.page-content,
+.page-content-area {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .page-content-body-pane {
   padding: 0 32px;
@@ -1930,6 +1934,9 @@ page-header {
   -ms-flex-align: center;
       align-items: center;
 }
+.layout-page--warning .page-header {
+  background-color: #8D2924;
+}
 .page-header-navMenu {
   width: 48px;
   display: none;
@@ -2110,6 +2117,9 @@ page-slider.is-visible {
 page-slider.is-visible.is-hiding {
   transition: transform 0.25s ease-out;
   transform: translateX(100vw);
+}
+page-slider textarea {
+  resize: vertical;
 }
 @media screen and (min-width: 1024px) and (max-width: 1279px), screen and (min-width: 768px) and (max-width: 1023px), screen and (min-width: 480px) and (max-width: 767px), screen and (max-width: 479px) {
   page-slider {
