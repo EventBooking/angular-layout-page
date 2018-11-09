@@ -755,6 +755,13 @@ nav-header {
         width: 100vw;
     }
 }
+.page-content,
+.page-content-area {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 .page-content-body {
     display: flex;
     flex-direction: row;
@@ -772,13 +779,6 @@ nav-header {
         // align-content: flex-start;
         // flex-grow: 0;
     }
-}
-.page-content,
-.page-content-area {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 .page-content-body-pane {
     padding: 0 unit(@padding,px);

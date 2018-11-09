@@ -1644,6 +1644,15 @@ nav-header:before {
     width: 100vw;
   }
 }
+.page-content,
+.page-content-area {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .page-content-body {
   display: -ms-flexbox;
   display: flex;
@@ -1658,15 +1667,6 @@ nav-header:before {
   .page-content-body {
     display: block;
   }
-}
-.page-content,
-.page-content-area {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 .page-content-body-pane {
   padding: 0 32px;

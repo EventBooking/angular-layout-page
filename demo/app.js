@@ -70,6 +70,7 @@ Run.$inject = ['$rootScope'];
 
 function Run($rootScope) {
     $rootScope.counter = 0;
+    $rootScope.showBodySlider = false;
     $rootScope.search = () => {
         $rootScope.counter++;
         $rootScope.isGlobalSearching = true

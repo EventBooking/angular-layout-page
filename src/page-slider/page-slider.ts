@@ -19,26 +19,38 @@
         }
 
         $onInit() {
-            this.withOverlay = this.$attrs.showOverlay != null;
-            this.isOutsideOfPage = !this.page;
+            try {
+                if (this.layoutPage == null) {
+                    const layoutPageElement = angular.element('.layout-page');
+                    if (!layoutPageElement.length)
+                        throw "layout-page not found";
+                    this.layoutPage = layoutPageElement.controller('layoutPage');
+                    layoutPageElement.append(this.$element);
+                }
 
-            if (this.isOutsideOfPage) {
-                const unbind$Page$Create = this.$rootScope.$on("$page.$create", this.onPageCreate);
-                const unbind$Page$Destroy = this.$rootScope.$on("$page.$destroy", this.onPageDestroy);
+                this.withOverlay = this.$attrs.showOverlay != null;
+                this.isOutsideOfPage = !this.page;
 
-                this._destroyPage = () => {
-                    unbind$Page$Create();
-                    unbind$Page$Destroy();
-                };
+                if (this.isOutsideOfPage) {
+                    const unbind$Page$Create = this.$rootScope.$on("$page.$create", this.onPageCreate);
+                    const unbind$Page$Destroy = this.$rootScope.$on("$page.$destroy", this.onPageDestroy);
+
+                    this._destroyPage = () => {
+                        unbind$Page$Create();
+                        unbind$Page$Destroy();
+                    };
+                }
+
+                this.$element.detach();
+                this.destroyScope();
+
+                if (this.isVisible)
+                    this.show();
+
+                this.isInitialized = true;
+            } catch (ex) {
+                console.error(ex);
             }
-
-            this.$element.detach();
-            this.destroyScope();
-
-            if (this.isVisible)
-                this.show();
-                
-            this.isInitialized = true;
         }
 
         private _destroyPage = () => { };
@@ -183,6 +195,10 @@
             this.onClose();
         }
 
+        get $layoutPage(): ILayoutPageController {
+            return this.layoutPage;
+        }
+
         get $page(): IPageController {
             return this.$layoutPage.currentPage;
         }
@@ -194,14 +210,14 @@
         sliderScope: angular.IScope = null;
         isOutsideOfPage: boolean;
 
-        $layoutPage: ILayoutPageController;
+        layoutPage: ILayoutPageController;
         page: IPageController;
     }
 
     class PageSliderDirective {
         restrict = 'E';
         require = {
-            $layoutPage: '^layoutPage',
+            layoutPage: '?^layoutPage',
             page: '?^page'
         };
         transclude = true;

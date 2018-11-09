@@ -1,6 +1,6 @@
 /// <reference path="../app.js"/>
 
-function PaneTestController($routeParams) {
+function PaneTestController($routeParams, $rootScope) {
     var self = this;
 	this.area = $routeParams.area;	
 	this.subarea = $routeParams.subarea;
@@ -36,7 +36,11 @@ function PaneTestController($routeParams) {
     
     this.slider1Closed = function() {
         this.showSlider1 = false;
-    }
+	}
+	
+	this.toggleBodySlider = function() {
+		$rootScope.showBodySlider = !$rootScope.showBodySlider;
+	}
 }
 
 angular.module("demo").controller('paneTestController', PaneTestController);
