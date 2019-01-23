@@ -6,10 +6,11 @@ var gulp = require('gulp'),
     dest = 'dist';
 
 gulp.task('clean', clean);
-gulp.task('default', ['clean'], build);
-gulp.task('styles', styles);
+gulp.task('styles', gulp.series(gulp.parallel(variables, mixins, sources), css));
 gulp.task('html', html);
 gulp.task('watch', watch);
+gulp.task('build', gulp.parallel('styles', 'html'));
+gulp.task('default', gulp.series('clean', 'build'));
 
 function clean() {
     var del = require('del');
@@ -24,7 +25,7 @@ function html() {
         stripPrefix: 'directives'
     };
 
-    gulp.src(['src/**/*.html'])
+    return gulp.src(['src/**/*.html'])
         .pipe(html2js(options))
         .pipe(concat(project.name + '.templates.js'))
         .pipe(gulp.dest(dest));
@@ -44,12 +45,16 @@ function getDest(fileName) {
 function sources() {
     console.log(`Writing: ${sourceFiles}`);
     const sources = [
+        'src/**/*.less',
         '!src/assets.less',
         '!src/variables/variables.less',
-        '!src/mixins/mixins.less',
-        'src/**/*.less'
+        '!src/mixins/mixins.less'
     ];
     return gulp.src(sources)
+        .pipe(debug({
+            showFiles: true,
+            title: 'sources'
+        }))
         .pipe(concat(sourceFiles))
         .pipe(gulp.dest(dest));
 }
@@ -58,7 +63,8 @@ function variables() {
     console.log(`Writing: ${variableFiles}`);
     return gulp.src(['src/variables/**/*.less'])
         .pipe(debug({
-            showFiles: true
+            showFiles: true,
+            title: 'variables'
         }))
         .pipe(concat(variableFiles))
         .pipe(gulp.dest(dest));
@@ -68,7 +74,8 @@ function mixins() {
     console.log(`Writing: ${mixinsFiles}`);
     return gulp.src(['src/mixins/**/*.less'])
         .pipe(debug({
-            showFiles: true
+            showFiles: true,
+            title: 'mixins'
         }))
         .pipe(concat(mixinsFiles))
         .pipe(gulp.dest(dest));
@@ -76,9 +83,14 @@ function mixins() {
 
 function css() {
     console.log(`Writing: ${outputFile}`);
-    return gulp.src([getDest(variableFiles), getDest(mixinsFiles), getDest(sourceFiles)])
+    return gulp.src([
+            getDest(variableFiles), 
+            getDest(mixinsFiles), 
+            getDest(sourceFiles)
+        ])
         .pipe(debug({
-            showFiles: true
+            showFiles: true,
+            title: 'css'
         }))
         .pipe(less({
             plugins: [require('less-plugin-glob')]
@@ -88,33 +100,8 @@ function css() {
         .pipe(gulp.dest(dest));
 }
 
-function styles() {
-    Promise.all([
-        toPromise(variables()),
-        toPromise(mixins()),
-        toPromise(sources())
-    ]).then(css);
-}
-
-function toPromise(stream) {
-    return new Promise((resolve, reject) => {
-        stream.on('end', () => {
-            console.log('resolved');
-            resolve();
-        });
-        stream.on('error', error => {
-            console.log('errored');
-            reject(error);
-        });
-    });
-}
-
-function build() {
-    styles();
-    html();
-}
-
-function watch() {
-    gulp.watch(['src/**/*.less'], styles);
-    gulp.watch(['src/**/*.html'], html);
+function watch(done) {
+    gulp.watch(['src/**/*.less'], 'styles');
+    gulp.watch(['src/**/*.html'], 'html');
+    done();
 }

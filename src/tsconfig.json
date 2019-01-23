@@ -6,8 +6,9 @@
         "removeComments": false,
         "inlineSourceMap": true,
         "inlineSources": true,
+        "skipLibCheck": true,
         "target": "es5",
-        "out": "dist/vops-layout.js",
+        "outFile": "../dist/vops-layout.js",
         "types": [
             "angular",
             "jquery",
