@@ -1,7 +1,7 @@
 {
   "name": "vops-layout",
   "version": "2.1.11",
-  "description": "",
+  "description": " ",
   "main": "./dist/vops-layout.js",
   "typings": "./dist/vops-layout.d.ts",
   "scripts": {
