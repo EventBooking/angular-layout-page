@@ -101,7 +101,7 @@ function css() {
 }
 
 function watch(done) {
-    gulp.watch(['src/**/*.less'], 'styles');
-    gulp.watch(['src/**/*.html'], 'html');
+    gulp.watch(['src/**/*.less'], gulp.series('styles'));
+    gulp.watch(['src/**/*.html'], gulp.series('html'));
     done();
 }
